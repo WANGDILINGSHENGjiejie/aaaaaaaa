@@ -1,0 +1,587 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>公众号库 - 哇嘎互娱</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache,must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    {% include 'public/static.html' %}
+
+</head>
+<body>
+    {% include 'public/header.html' %}
+    {% include 'public/left.html' %}
+
+    <!-- MAIN -->
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <div id="tipdlg"></div>
+                <style type="text/css">
+                    .ft12 {
+                        font-size: 12px;
+                    }
+
+                    .ft16 {
+                        font-size: 16px;
+                    }
+                    .tdbreak {
+                        width: 100%;
+                        word-break: keep-all;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                </style>
+                <div class="panel">
+                    <div class="panel-heading mynav">
+                        <h3 class="panel-title"><i class="fa fa-home" aria-hidden="true"></i>首页 > 公众号库</h3>
+                    </div>
+                    <div class="panel-body" style="position: relative;">
+                        <form class="form-inline" action="/resource/public_list" method="get"
+                              style="padding-bottom: 20px;">
+                            {% csrf_token %}
+                            <div class="btn-group form-group">
+                            </div>
+                            <div class="form-group" style=" float: right;margin-right:5px; ">
+                            </div>
+                            <div class="form-group" style=" float: right;margin-right:5px; ">
+                                <button type="button" id="btnOK" class="btn btn-success">查询</button>
+                            </div>
+                            <div class="form-group" style=" float: right;margin-right:5px; ">
+                                <select class="form-control" name="status">
+                                        <option value="">-选择领取状态-</option>
+                                        <option value="0" {% if status == '0' %} selected {% endif %} >未领</option>
+                                        <option value="1" {% if status == '1' %} selected {% endif %}>已领</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style=" float: right;margin-right:5px; ">
+                                <select class="form-control" name="supervisor_review">
+                                        <option value="">-选择审核状态-</option>
+                                        <option value="0" {% if supervisor_review == '0' %} selected {% endif %} >待审核</option>
+                                        <option value="1" {% if supervisor_review == '1' %} selected {% endif %}>通过</option>
+                                        <option value="2" {% if supervisor_review == '2' %} selected {% endif %}>未通过</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style=" float: right;margin-right:5px; ">
+                                <input type="text" class="form-control" placeholder="请输入公众号" id="form-key" name="public_number" value="{{ public_number }}">
+                            </div>
+                            <div class="form-group" style=" float: right;margin-right:5px; ">
+                                <input type="text" class="form-control" placeholder="请输入主体" id="form-key" name="main_body_name" value="{{ main_body_name }}">
+                            </div>
+                            <div class="form-group" style=" float: right;margin-right:5px; ">
+                                <input type="text" class="form-control" placeholder="请输入微信号" id="form-key" name="we_char_number" value="{{ we_char_number }}">
+                            </div>
+                            <!-- <div class="form-group" style=" float: right;margin-right:5px; ">
+                                <select class="form-control" name="main_body_id">
+                                    <option value="">选择主体</option>
+                                    {% for main in mains %}
+                                        <option value="{{main.id}}" {% if main.id == main_body_id %} selected {% endif %}>{{main.main_body_name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div> -->
+                            {% if request.session.user_id.user_type == 'supervisor'  %}
+                                <div class="form-group" style=" float: right;margin-right:5px; ">
+                                    <select class="form-control" name="user_id">
+                                        <option value="">选择找号人员</option>
+                                        {% for user in users %}
+                                            <option value="{{user.id}}" {% if user_id == user.id %} selected {% endif %}>{{user.name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            {% endif %}
+                            <div class="form-group" style=" float: right;margin-right:5px; ">
+                                <input type="text" class="form-control datetimepicker" id="form-end_date" name="end_date" placeholder="结束日期"  value="{{end_date}}" autocomplete="off">
+                            </div>
+                            <div class="form-group" style=" float: right;margin-right:5px; ">
+                                <input type="text" class="form-control datetimepicker" id="form-start_date" name="start_date" placeholder="开始日期"  value="{{start_date}}" autocomplete="off">
+                            </div>
+                        </form>
+                        <table class="table table-striped table-hover table-bordered" style="table-layout:fixed;">
+                            <thead>
+                            <tr>
+                                <th width="5%" style="text-align: center;">公众号ID</th>
+                                <th width="4%" style="text-align: center;">主体ID</th>
+                                <th width="10%" style="text-align: center;">主体</th>
+                                <th width="7%" style="text-align: center;">公众号</th>
+                                <th width="5%" style="text-align: center;">微信号</th>
+                                <th width="7%" style="text-align: center;">类型</th>
+                                <th width="4%" style="text-align: center;">找号人</th>
+                                <th width="9%" style="text-align: center;">联系方式</th>
+                                <th width="6%" style="text-align: center;">找号时间</th>
+                                <th width="4%" style="text-align: center;">总粉/万</th>
+                                <th width="4%" style="text-align: center;">阅读数</th>
+                                <th width="5%" style="text-align: center;">派单价格</th>
+                                <th width="3%" style="text-align: center;">UV</th>
+                                <th width="5%" style="text-align: center;">万粉单价</th>
+                                <th width="5%" style="text-align: center;">阅读单价</th>
+                                <th width="5%" style="text-align: center;">审核状态</th>
+                                <th width="5%" style="text-align: center;">领取状态</th>
+                                <th width="10%" style="text-align: center;">备注</th>
+                            </tr>
+                            </thead>
+                            <form id="form_data">
+                                <tbody>
+                                {% for resource in page_of_resources %}
+                                    <tr>
+                                        <td style="text-align: center;" class="tdbreak">{{ resource.id }}</td>
+                                        <td style="text-align: center;" class="tdbreak">{{ resource.main_body_id }}</td>
+                                        <td style="text-align: center;" class="tdbreak" title="{{resource.main_body_id}}">{{ resource.main_body_name }}</td>
+                                        <td style="text-align: center;" class="tdbreak" title="{{resource.public_number}}"><a href="javascript:void(0);" onclick="data_view('{{resource.public_number}}')">{{ resource.public_number }}</a></td>
+                                        <td style="text-align: center;" class="tdbreak" title="{{resource.we_char_number}}"><a href="javascript:void(0);"onclick="data_view('{{resource.we_char_number}}')">{{ resource.we_char_number }}</a></td>
+                                        <td style="text-align: center;" class="tdbreak" title="{{resource.type}}">{{ resource.type }}</td>
+                                        <td style="text-align: center;" class="tdbreak" title="{{resource.user_id}}">{{ resource.user_id }}</td>
+                                        <td style="text-align: center;" class="tdbreak" title="{{resource.contact_information}}">{{ resource.contact_information }}</td>
+                                        <td style="text-align: center;" class="tdbreak" title="{{resource.resource.create_time|date:"Y/m/d"}}">{{ resource.create_time|date:"Y/m/d" }}</td>
+                                        <td style="text-align: center;" class="tdbreak" title="{{resource.total_fans}}">{{ resource.total_fans }}</td>
+                                        <td style="text-align: center;" class="tdbreak" title="{{resource.average_readings}}">{{ resource.average_readings }}</td>
+                                        <td style="text-align: center;" class="tdbreak" title="{{resource.cost}}">{{ resource.cost }}</td>
+                                        <td style="text-align: center;" class="tdbreak" title="{{resource.UV}}">{{ resource.UV }}</td>
+                                        <td style="text-align: center;" class="tdbreak" title="{{resource.fans_unit_price}}">{{ resource.fans_unit_price }}</td>
+                                        <td style="text-align: center;" class="tdbreak" title="{{resource.reading_unit_price}}">{{ resource.reading_unit_price }}</td>
+                                        <!-- <td>{{ resource.supervisor_review }}</td> -->
+                                        {% if resource.supervisor_review == 0 %}
+                                            <td style="text-align: center;">待审</td>
+                                        {% elif resource.supervisor_review == 1 %}
+                                            <td style="text-align: center;">通过</td>
+                                        {% else %}
+                                            <td style="text-align: center;">不通过</td>
+                                        {%  endif%}
+
+                                        {% if resource.status == 0 %}
+                                            <td style="text-align: center;">未领</td>
+                                        {% else %}
+                                            <!-- <td>已领取</td> -->
+                                            {% for user in users_data %}
+                                                {% if resource.status == user.id %}
+                                                    <td style="text-align: center;"><span style="color: red">{{ user.name }}</span></td>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                        <td class="tdbreak" title="{{resource.remark}}">{{ resource.remark }}</td>
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </form>
+                        </table>
+                        <!--<div>
+                            <ul class="pagination pagination-sm" style="float:right;">
+                                <li class="prev disabled">
+                                    <span>上一页</span>
+                                </li>
+                                <li class="active"><span>1</span></li>
+                                <li class="next disabled">
+                                    <span>下一页</span>
+                                </li>
+                            </ul>
+                            <span>共14条数据 共1页50条/页</span>
+                        </div>-->
+                        <ul class="pagination">
+                           <li >
+                                <!--按钮，点击左右翻页-->
+                                {% if page_of_resources.has_previous %}
+                                    <!--#有下一页-->
+                                   <a href="?page={{page_of_resources.previous_page_number}}&user_id={{user_id}}&main_body_name={{main_body_name}}&supervisor_review={{supervisor_review}}&end_date={{end_date}}&start_date={{start_date}}&status={{status}}&we_char_number={{we_char_number}}" aria-label="Previous">
+                                       <span aria-hidden="true">上一页</span>
+                                       <!--#点击跳转下一页-->
+                                   </a>
+                                {% else %}
+                                   <!-- #没有下一页，没有a标签，点击按钮不会跳转 -->
+                                   <span aria-hidden="true">上一页</span>
+                                {% endif %}
+                          </li>
+                                <!-- #显示分页的页码 -->
+                                {% for page_num in page_of_resources.paginator.page_range %}
+                                     <!-- #对分页的每一页进行迭代 -->
+                                     {% if page_num == page_of_resources.number %}
+                                     <!-- #如果有某一个页面是指定的页面 -->
+                                          <li class="active"><a href="?page={{page_num}}&user_id={{user_id}}&main_body_name={{main_body_name}}&supervisor_review={{supervisor_review}}&end_date={{end_date}}&start_date={{start_date}}&status={{status}}&we_char_number={{we_char_number}}">{{page_num}} </a></li>
+                                            <!-- #就标记为cative，对应前端分页页码的显示会有颜色加深的效果 -->
+                                             {% else %}
+                                          <li ><a href="?page={{page_num}}&user_id={{user_id}}&main_body_name={{main_body_name}}&supervisor_review={{supervisor_review}}&end_date={{end_date}}&start_date={{start_date}}&status={{status}}&we_char_number={{we_char_number}}">{{page_num}} </a></li>
+                                          <!-- #否则就显示分页页码 -->
+                                     {% endif %}
+                                {% endfor %}
+                          <li>
+                                <!-- #按钮，点击翻页 -->
+                                {% if page_of_resources.has_next %}
+                                      <!-- #如果后续有分页，按钮可点击 -->
+                                      <a href="?page={{page_of_resources.next_page_number}}&user_id={{user_id}}&main_body_name={{main_body_name}}&supervisor_review={{supervisor_review}}&end_date={{end_date}}&start_date={{start_date}}&status={{status}}&we_char_number={{we_char_number}}" aria-label="Previous">
+                                          <span aria-hidden="true">下一页</span>
+                                      </a>
+                                {% else %}
+                                      <!-- #没有分页，不可点击 -->
+                                      <span aria-hidden="true">下一页</span>
+                                {% endif %}
+                         </li>
+                    </ul>
+                    <span>共{{total}}条数据，共{{page_number}}页100条/页，<span style="color: red">其中{{unaudited}}未审，{{unreceived}}过审，{{receive}}可领</span></span>
+                    </div>
+                </div>
+                <script>
+
+                    function data_view(data) {
+                        // console.log(escape(data))
+                        var en_data = escape(data)
+                        var watermelon     = 'http://data.xiguaji.com/Home#/Search/SearchAct/?type=1&key='+ data +'&miniAppId=0'
+                        var micro_treasure = 'https://data.wxb.com/searchResult?kw='+ data +'&page=1'
+                        var sogou_weChat   = 'http://weixin.sogou.com/weixin?type=1&query='+ data +'&ie=utf8&s_from=input&_sug_=n&_sug_type_='
+                        var new_list       = 'https://www.newrank.cn/public/info/search.html?value='+ en_data +'&isBind=false'
+                        var help           = 'http://top.aiweibang.com/user/search?kw='+ data
+                        html =  '<table class="table">' +
+                                '<thead>' +
+                                '<tr>' +
+                                '<th style="width: 20%; text-align:center;"><a class="btn btn-success ok" href="'+watermelon+'" target="_blank">西瓜数据</a></th>' +
+                                '<th style="width: 20%; text-align:center;"><a class="btn btn-success ok" href="'+micro_treasure+'" target="_blank">微小宝</a></th>' +
+                                '<th style="width: 20%; text-align:center;"><a class="btn btn-success ok" href="'+sogou_weChat+'" target="_blank">搜狗微信</a></th>' +
+                                '<th style="width: 20%; text-align:center;"><a class="btn btn-success ok" href="'+new_list+'" target="_blank">新榜</a></th>' +
+                                '<th style="width: 20%; text-align:center;"><a class="btn btn-success ok" href="'+help+'" target="_blank">爱微帮</a></th>' +
+                                '</tr>' +
+                                '</thead>' +
+                                '</table>';
+                        popups(html)
+                    }
+
+                    function popups(html) {
+                        Ewin.alert({
+                                message: html,
+                                title: '数据分析'
+                            }
+                        );
+                        $('.modal-sm').attr('style', 'width:50%;');
+                    }
+
+                    $(function(){
+
+                        $('input.datetimepicker').datetimepicker({
+                            format: 'YYYY-MM-DD',
+                            locale: moment.locale('zh-CN'),
+                        });
+                    })
+
+                    $('#btnOK').click(function(){
+                        var start_date=$("#form-start_date").val();
+                        var end_date=$("#form-end_date").val();
+                        var start_Time = (new Date(start_date)).getTime()/1000; //得到秒数
+                        var end_Time = (new Date(end_date)).getTime()/1000; //得到秒数
+                        if(end_Time<start_Time){
+                          toastr.warning('请选择有效日期范围');
+                          return;
+                        }
+                        $('.form-inline').submit();
+                    })
+
+                    function line_chart(mid, main_name, contact_information) {
+                        html = '';
+                        $.ajax({
+                            type: "POST",
+                            url: "/resource/resource_detail",
+                            headers: {'X-CSRFtoken': $.cookie('csrftoken')},
+                            data: {mid: mid},
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.length != 0) {
+                                    html = '<table class="table table-striped table-hover table-bordered">' +
+                                        '<thead>' +
+                                        '<tr>' +
+                                        '<th style="width: 15.4%">公众号</th>' +
+                                        '<th style="width: 10%">微信号</th>' +
+                                        '<th>类型</th>' +
+                                        '<th style="width: 5%">总粉/万</th>' +
+                                        '<th style="width: 6%">平均阅读数</th>' +
+                                        '<th style="width: 6%">派单价格</th>' +
+                                        '<th style="width: 6%">UV</th>' +
+                                        '<th style="width: 6%">万粉单价</th>' +
+                                        '<th style="width: 6%">阅读单价</th>' +
+                                        '<th>备注</th>' +
+                                        '<th style="width: 10%">主管审核</th>' +
+                                        '</tr>' +
+                                        '</thead>' +
+                                        '<form id="form_data">' +
+                                        '</tbody>' +
+                                        '<tbody id="examination">';
+                                    $.each(data, function (index, val) {
+                                        {#console.log(index, val)#}
+                                        html += '<tr>' +
+                                            '<td>' + val.fields.public_number + '</td>' +
+                                            '<td>' +
+                                            '<div><a href="#">' + val.fields.we_char_number + '</a></div>' +
+                                            '</td>' +
+                                            '<td>' +
+                                            '<div>' + val.fields.type + '</div>' +
+                                            '</td>' +
+                                            '<td>' + val.fields.total_fans + '</td>' +
+                                            '<td>' + val.fields.average_readings + '</td>' +
+                                            '<td>' + val.fields.cost + '</td>' +
+                                            '<td>' + (val.fields.average_readings/val.fields.total_fans/100).toFixed(2) + '</td>' +
+                                            '<td>' + (val.fields.cost/val.fields.total_fans).toFixed(2) + '</td>' +
+                                            '<td>' + (val.fields.cost/val.fields.average_readings).toFixed(2) + '</td>' +
+                                            '<td>' + val.fields.remark + '</td>' +
+                                            '<td>' +
+                                            '<select class="form-control" id="examine" name="" title="'+ val.pk +'">'+
+                                                '<option value="">-请选择-</option>'+
+                                                '<option value="1">通过</option>'+
+                                                '<option value="2">不通过</option>'+
+                                            '</select>'+
+                                            '</td>' +
+                                            '</tr>'
+                                    })
+                                    html += '</tbody>' +
+                                        '</table>' +
+                                        '<label for="inputPassword3" class="col-sm-11 control-label"></label>'+
+                                        '<button type="button" class="btn btn-success ok" onclick="examination('+data[0].fields.main_body_id+')" data-dismiss="modal">提交</button>'
+                                    popup(html, main_name, contact_information)
+                                } else {
+                                    console.log(1)
+                                }
+                            }
+                        });
+                    }
+
+                    function popup(html, main_name, contact_information) {
+                        Ewin.alert({
+                                message: html,
+                                title: '主体：' + main_name + '　　　　联系方式：' + contact_information,
+                            }
+                        );
+                        $('.modal-sm').attr('style', 'width:90%;');
+                    }
+
+                    function examination(main_id) {
+                        /*Ewin.confirm({message: "审批结果不可恢复，确定要这样审批吗"}).on(function (e) {
+                            if (!e) {
+                                return;
+                            }*/
+                            var examination = [];
+                            var resource_id = [];
+                            $('select#examine').each(function () {
+                                examination.push($(this).val());
+                                resource_id.push($(this).attr('title'));
+                            });
+                            console.log(examination)
+                            console.log(resource_id)
+                            if ($.inArray("", examination) == -1) {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/resource/examination",
+                                    headers: {'X-CSRFtoken': $.cookie('csrftoken')},
+                                    data: {examination: examination, resource_id: resource_id,main_id: main_id},
+                                    dataType: "json",
+                                    success: function (data) {
+                                        if (data.code == 200) {
+                                            toastr.success(data.errorMsg);
+                                            window.location.reload()
+                                        } else if (data.code == 500) {
+                                            toastr.error(data.errorMsg);
+                                        }
+
+                                    }
+                                })
+                            } else {
+                                toastr.error('审核失败， 您还有没审核的公众号');
+                            }
+
+                        // });
+                    }
+
+                    function view_subject(mid, main_name, contact_information) {
+                        html = '';
+                        $.ajax({
+                            type: "POST",
+                            url: "/resource/view_subject",
+                            headers: {'X-CSRFtoken': $.cookie('csrftoken')},
+                            data: {mid: mid},
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.length != 0) {
+                                    html =  '<table class="table table-striped table-hover table-bordered">' +
+                                            '<thead>' +
+                                            '<tr>' +
+                                            '<th style="width: 15.4%">公众号</th>' +
+                                            '<th style="width: 10%">微信号</th>' +
+                                            '<th>类型</th>' +
+                                            '<th style="width: 5%">总粉/万</th>' +
+                                            '<th style="width: 6%">平均阅读数</th>' +
+                                            '<th style="width: 6%">派单价格</th>' +
+                                            '<th style="width: 6%">UV</th>' +
+                                            '<th style="width: 6%">万粉单价</th>' +
+                                            '<th style="width: 6%">阅读单价</th>' +
+                                            '<th style="width: 6%">审核状态</th>' +
+                                            '<th style="width: 6%">领取状态</th>' +
+                                            '<th>备注</th>' +
+                                            '</tr>' +
+                                            '</thead>' +
+                                            '<form id="form_data">' +
+                                            '</tbody>' +
+                                            '<tbody id="examination">';
+                                    $.each(data, function (index, val) {
+                                        switch(val.fields.supervisor_review)
+                                        {
+                                            case 1:
+                                                var supervisor = '通过'
+                                                break;
+                                            case 2:
+                                                var supervisor = '不通过'
+                                                break;
+                                            default:
+                                                var supervisor = '待审'
+                                        }
+                                        if (val.fields.status == 0) {
+                                            var status = '未领'
+                                        } else {
+                                            var status = '已领'
+                                        }
+                                        var public_url = "http://data.xiguaji.com/Home#/Search/SearchAct/?type=1&key="+ val.fields.public_number +"&miniAppId=0"
+                                        var wechat_url = "http://data.xiguaji.com/Home#/Search/SearchAct/?type=1&key="+ val.fields.we_char_number +"&miniAppId=0"
+                                        html += '<tr>' +
+                                        '<td><div><a href="'+public_url+'" target="_blank">' + val.fields.public_number + '</a></div></td>' +
+                                        '<td>' +
+                                            '<div><a href="'+wechat_url+'" target="_blank">' + val.fields.we_char_number + '</a></div>' +
+                                        '</td>' +
+                                        '<td>' +
+                                            '<div>' + val.fields.type + '</div>' +
+                                        '</td>' +
+                                        '<td>' + val.fields.total_fans + '</td>' +
+                                        '<td>' + val.fields.average_readings + '</td>' +
+                                        '<td>' + val.fields.cost + '</td>' +
+                                        '<td>' + (val.fields.average_readings/val.fields.total_fans/100).toFixed(2) + '</td>' +
+                                        '<td>' + (val.fields.cost/val.fields.total_fans).toFixed(2) + '</td>' +
+                                        '<td>' + (val.fields.cost/val.fields.average_readings).toFixed(2) + '</td>' +
+                                        '<td>' + supervisor + '</td>' +
+                                        '<td>' + status + '</td>' +
+                                        '<td>' + val.fields.remark + '</td>' +
+                                        '</tr>'
+                                    })
+                                    html += '</tbody>' +
+                                        '</table>'
+                                        // '<label for="inputPassword3" class="col-sm-11 control-label"></label>'+
+                                        // '<button type="button" class="btn btn-success ok" data-dismiss="modal">领取</button>'
+                                    popup(html, main_name, contact_information)
+                                } else {
+                                    console.log(1)
+                                }
+                            }
+                        });
+                    }
+
+                    function onReceive() {
+                        var resource_id = [];
+                        $('td#resource_id').each(function () {
+                            resource_id.push($(this).attr('resource_id'));
+                        });
+                        $.ajax({
+                            type: "POST",
+                            url: "/resource/on_receive",
+                            headers: {'X-CSRFtoken': $.cookie('csrftoken')},
+                            data: {resource_id: resource_id},
+                            dataType: "json",
+                            success: function (data) {
+                                alert(data.errorMsg)
+                                window.location.reload()
+                            }
+                        })
+                    }
+
+                    function receive(mid, main_name, contact_information) {
+                        html = '';
+                        $.ajax({
+                            type: "POST",
+                            url: "/resource/receive",
+                            headers: {'X-CSRFtoken': $.cookie('csrftoken')},
+                            data: {mid: mid},
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.length != 0) {
+                                    html =  '<table class="table table-striped table-hover table-bordered">' +
+                                            '<thead>' +
+                                            '<tr>' +
+                                            '<th style="width: 15.4%">公众号</th>' +
+                                            '<th style="width: 10%">微信号</th>' +
+                                            '<th>类型</th>' +
+                                            '<th style="width: 5%">总粉/万</th>' +
+                                            '<th style="width: 6%">平均阅读数</th>' +
+                                            '<th style="width: 6%">派单价格</th>' +
+                                            '<th style="width: 6%">UV</th>' +
+                                            '<th style="width: 6%">万粉单价</th>' +
+                                            '<th style="width: 6%">阅读单价</th>' +
+                                            '<th>备注</th>' +
+                                            '</tr>' +
+                                            '</thead>' +
+                                            '<form id="form_data">' +
+                                            '</tbody>' +
+                                            '<tbody id="examination">';
+                                    $.each(data, function (index, val) {
+                                        if (val.fields.supervisor_review == 1) {
+                                            html += '<tr>' +
+                                            '<td resource_id="'+ val.pk +'" id="resource_id">' + val.fields.public_number + '</td>' +
+                                            '<td>' +
+                                            '<div><a href="www.baidu.com">' + val.fields.we_char_number + '</a></div>' +
+                                            '</td>' +
+                                            '<td>' +
+                                            '<div>' + val.fields.type + '</div>' +
+                                            '</td>' +
+                                            '<td>' + val.fields.total_fans + '</td>' +
+                                            '<td>' + val.fields.average_readings + '</td>' +
+                                            '<td>' + val.fields.cost + '</td>' +
+                                            '<td>' + (val.fields.average_readings/val.fields.total_fans/100).toFixed(2) + '</td>' +
+                                            '<td>' + (val.fields.cost/val.fields.total_fans).toFixed(2) + '</td>' +
+                                            '<td>' + (val.fields.cost/val.fields.average_readings).toFixed(2) + '</td>' +
+                                            '<td>' + val.fields.remark + '</td>' +
+                                            '</tr>'
+                                        }
+                                    })
+                                    html += '</tbody>' +
+                                        '</table>'+
+                                        '<label for="inputPassword3" class="col-sm-11 control-label"></label>'+
+                                        '<button class="btn btn-success ok" onclick="onReceive('+data[0].fields.main_body_id+')">领取</button>'
+                                    popup(html, main_name, contact_information)
+                                } else {
+                                    console.log(1)
+                                }
+                            }
+                        });
+                    }
+                </script>
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+    <!-- END MAIN -->
+    <div class="clearfix"></div>
+    <footer></footer>
+</div> <!-- END WRAPPER -->
+<link rel="stylesheet" href="{% static 'static/public/css/toastr.min.css' %}">
+<style>
+    .toast-top-center {
+        top: 52px;
+    }
+</style>
+<script src="{% static 'static/public/js/toastr.min.js' %}"></script>
+<script>
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-center",//toast-top-center toast-bottom-center
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "3000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+</script>
+<script></script>
+</body>
+</html>

@@ -1,0 +1,559 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>首页 - 核桃书吧</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script src="https://static01.tengwen.com/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/clipboard.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/klorofil-common.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/comm.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/moment.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/moment_zh-cn.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/echarts.min.js"></script>
+    <script src="https://static01.tengwen.com/common/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/novel.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/backend/novel/css/media.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/toastr.min.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" style="height: 50px;background-color: #2a3747;">
+            <div class="brand" style="padding:0;background-color: #2a3747;"><a href="javascript:void(0);"></div>
+            <div class="container-fluid">
+                <div class="navbar-btn">
+                    <button type="button" class="btn-toggle-fullwidth"><i class="fa fa-list" aria-hidden="true" style="color:#fff;"></i>
+                    </button>
+                </div>
+                <div id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="/notice/index" class="dropdown-toggle icon-menu"> 
+                                <span class="badge bg-danger notice_msgnum"></span>
+                            </a>
+                        </li>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="./images/headshot@2x.png"
+                                    class="img-circle">
+                                <span style="color:#f1f1f1;">核桃书吧</span> <i class="fa fa-angle-down" aria-hidden="true" style="color:#f1f1f1;"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="./personaldata.gr.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>个人资料</span></a>
+                                </li>
+                                <li><a href="Publicnumbersetting-gz.html"><i class="fa fa-address-card-o" aria-hidden="true"></i><span>公众号设置/接入</span></a>
+                                </li>
+                                <li><a href="https://static01.tengwen.com/backend/novel/docx/tengwen_readme.docx"><i
+                                            class="fa fa-arrow-down" aria-hidden="true"></i><span>下载帮助文档</span></a>
+                                </li>
+                                <li><a href="./Platformlogin.html" onclick="return confirm('确认退出？')"><i class="fa fa-fw fa-power-off"
+                                            aria-hidden="true"></i> <span>安全退出</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav> <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        <div id="sidebar-nav" class="sidebar">
+            <div class="sidebar-scroll" style="overflow-y: auto;height: 100%;padding:20px 0;background-color:#354051;">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="./AnnounceList_gg.html" class="active" id="noticemenu"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="menu-span">公告列表</span></a></li>
+                        <li><a href="./Profiledata_sj.html"><i class="fa fa-line-chart" aria-hidden="true"></i><span
+                                    class="menu-span">数据概况</span></a></li>
+                        <li><a href="./ordersummary.html"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="menu-span">订单汇总</span></a></li>
+                        <li><a href="./Usersummary.html"><i class="fa fa-pie-chart" aria-hidden="true"></i><span class="menu-span">用户汇总</span></a></li>
+                        <li><a href="./addsup_xs.html"><i class="fa fa-bars" aria-hidden="true"></i><span class="menu-span">小说充值汇总</span></a></li>
+                        <li><a href="./orderdetails_dd.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                    class="menu-span">订单明细</span></a></li>
+                        <li><a href="./subsidiary_fs.html"><i class="fa fa-id-card-o" aria-hidden="true"></i><span
+                                    class="menu-span">粉丝明细</span></a></li>
+                        <li><a href="./library-xs.html"><i class="fa fa-book" aria-hidden="true"></i><span class="menu-span">小说库</span></a></li>
+                        <li><a href="./Promotion-tg.html"><i class="fa fa-chain-broken" aria-hidden="true"></i><span
+                                    class="menu-span">推广列表</span></a></li>
+                        <li><a href="./listinterpolatel-nt.html"><i class="fa fa-link" aria-hidden="true"></i><span
+                                    class="menu-span">内推列表</span></a></li>
+                        <li><a href="./Listofactivities-hd.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span
+                                    class="menu-span">活动列表</span></a></li>
+                        <li><a href="./antistop-gj.html"><i class="fa fa-comments-o" aria-hidden="true"></i><span class="menu-span">关键词回复</span></a></li>
+                        <li><a href="./Linkstorecycle-lj.html"><i class="fa fa-recycle" aria-hidden="true"></i><span
+                                    class="menu-span">链接回收</span></a></li>
+                        <li><a href="./Intelligentpush-zn.html"><i class="fa fa-reply-all" aria-hidden="true"></i><span
+                                    class="menu-span">智能推送</span></a></li>
+                        <li><a href="./Templatemessage-mb.html"><i class="fa fa-envelope-open" aria-hidden="true"></i><span
+                                    class="menu-span">模版消息</span></a></li>
+                        <li><a href="newsoftheservice-kf.html"><i class="fa fa-commenting-o" aria-hidden="true"></i><span
+                                    class="menu-span">客服消息</span></a></li>
+                        <li><a href="./promoteincome-sr.html"><i class="fa fa-jpy" aria-hidden="true"></i><span class="menu-span">推广收入</span></a></li>
+                        <li><a href="./withdrawalofsubsidiary-tx.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                    class="menu-span">提现明细</span></a></li>
+                        <li><a href="./Publicnumbersetting-gz.html"><i class="fa fa-cog" aria-hidden="true"></i><span
+                                    class="menu-span">公众号设置</span></a></li>
+                        <li><a href="./OtherSettings-qt.html"><i class="fa fa-cogs" aria-hidden="true"></i><span class="menu-span">其它设置</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+        <div class="main">
+            <div class="main-content">
+                <div class="container-fluid">
+
+                    <style type="text/css">
+                        em {
+                            color: #E23014;
+                            font-style: normal;
+                        }
+
+                        .fancy-checkbox {
+                            display: inline-block !important;
+                        }
+                    </style>
+
+                    <div class="panel" >
+                        <div class="panel-heading mynav">
+                            <h3 class="panel-title">
+                                <i class="fa fa-home" aria-hidden="true"></i>首页 &gt; <h7 class="menu-name">公告列表</h7>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <form id="formlist">
+                                <table class="table table-striped table-hover"   style="font-size:14px;">
+                                    <thead>
+                                        <tr>
+                                            <th width="85%">标题</th>
+                                            <th width="15%">日期</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="26">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_26" style="color:#537cbc;">
+                                                    已读
+                                                </span>
+                                                <a href="./Masked_gg.html">关于抵制不良内容、规范标题的通知</a>
+                                            </td>
+                                            <td>2018-10-26 19:09:11</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="28">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_28" style="color:#b70c34;">
+                                                    未读
+                                                </span>
+                                                <a href="javascript:showDlg(28);">【活动通知】双11来啦！你准备好了吗？</a>
+                                            </td>
+                                            <td>2018-11-08 11:29:07</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="26">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_26" style="color:#537cbc;">
+                                                    已读
+                                                </span>
+                                                <a href="./Masked_gg.html">关于抵制不良内容、规范标题的通知</a>
+                                            </td>
+                                            <td>2018-10-26 19:09:11</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="27">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_27" style="color:#b70c34;">
+                                                    未读
+                                                </span>
+                                                <a href="javascript:showDlg(27);">本周新书推荐（11.5）</a>
+                                            </td>
+                                            <td>2018-11-05 19:08:04</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="26">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_26" style="color:#537cbc;">
+                                                    已读
+                                                </span>
+                                                <a href="./Masked_gg.html">关于抵制不良内容、规范标题的通知</a>
+                                            </td>
+                                            <td>2018-10-26 19:09:11</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="26">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_26" style="color:#537cbc;">
+                                                    已读
+                                                </span>
+                                                <a href="./Masked_gg.html">关于抵制不良内容、规范标题的通知</a>
+                                            </td>
+                                            <td>2018-10-26 19:09:11</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="14">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_14" style="color:#b70c34;">
+                                                    未读
+                                                </span>
+                                                <a href="javascript:showDlg(14);">周末好书推荐（7.6）</a>
+                                            </td>
+                                            <td>2018-07-06 16:00:22</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="13">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_13" style="color:#b70c34;">
+                                                    未读
+                                                </span>
+                                                <a href="javascript:showDlg(13);">关于网络文学专项整治行动的公告！（6.15）</a>
+                                            </td>
+                                            <td>2018-06-14 19:44:18</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="26">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_26" style="color:#537cbc;">
+                                                    已读
+                                                </span>
+                                                <a href="./Masked_gg.html">关于抵制不良内容、规范标题的通知</a>
+                                            </td>
+                                            <td>2018-10-26 19:09:11</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="28">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_28" style="color:#b70c34;">
+                                                    未读
+                                                </span>
+                                                <a href="javascript:showDlg(28);">【活动通知】双11来啦！你准备好了吗？</a>
+                                            </td>
+                                            <td>2018-11-08 11:29:07</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="26">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_26">
+                                                    已读
+                                                </span>
+                                                <a href="./Masked_gg.html">关于抵制不良内容、规范标题的通知</a>
+                                            </td>
+                                            <td>2018-10-26 19:09:11</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="27">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_27" style="color:#b70c34;">
+                                                    未读
+                                                </span>
+                                                <a href="javascript:showDlg(27);">本周新书推荐（11.5）</a>
+                                            </td>
+                                            <td>2018-11-05 19:08:04</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="26">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_26" style="color:#537cbc;">
+                                                    已读
+                                                </span>
+                                                <a href="./Masked_gg.html">关于抵制不良内容、规范标题的通知</a>
+                                            </td>
+                                            <td>2018-10-26 19:09:11</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="26">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_26" style="color:#537cbc;">
+                                                    已读
+                                                </span>
+                                                <a href="./Masked_gg.html">关于抵制不良内容、规范标题的通知</a>
+                                            </td>
+                                            <td>2018-10-26 19:09:11</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="12">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_12" style="color:#b70c34;">
+                                                    未读
+                                                </span>
+                                                <a href="javascript:showDlg(12);">关于限制外部低俗引流的公告(6.16)</a>
+                                            </td>
+                                            <td>2018-06-14 19:01:10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="11">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_11" style="color:#b70c34;">
+                                                    未读
+                                                </span>
+                                                <a href="javascript:showDlg(11);">进一步规范推文、文字链、客服消息标题的通知（6.15）</a>
+                                            </td>
+                                            <td>2018-06-14 19:00:14</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="control-inline fancy-checkbox">
+                                                    <input type="checkbox" name="ids" id="id[]" value="10">
+                                                    <span></span>
+                                                </label>
+                                                <span class="notice_10" style="color:#b70c34;">
+                                                    未读
+                                                </span>
+                                                <a href="javascript:showDlg(10);">关于规范客服消息使用的公告(6.15)</a>
+                                            </td>
+                                            <td>2018-06-14 18:57:24</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-group">
+                                                    <label class="control-inline fancy-checkbox" onclick="CheckAll(this.form)">
+                                                        <input type="checkbox" name="chkall" value="no">
+                                                        <span></span>全选
+                                                    </label>
+                                                    <a class="label " style="color:#3b86e0;" href="javascript:readsubmit()">标记为已读</a>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                            <div data-pagination="pagination_new" data-pagenumber="1" data-paginationurl="/notice/index?page=customize_page_num"
+                                data-totalnumber="2" data-paginationmax="2" style="float: right;">
+                                <ul class="pagination">
+                                    <li value="pre" style="display: inline-block;"><a href="/notice/index?page=1">首页</a></li>
+                                    <li value="1" class="active" style="display: inline-block;"><a href="/notice/index?page=1">1</a></li>
+                                    <li value="2" style="display: inline-block;"><a href="/notice/index?page=2">2</a></li>
+                                    <li value="next" style="display: inline-block;"><a href="javascript:void(0);">»</a></li>
+                                    <li value="next" style="display: inline-block;"><a href="/notice/index?page=2">尾页</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix">
+                </div>
+                <footer></footer>
+            </div>
+
+            <style>
+                .toast-top-center {
+                    top: 52px;
+                }
+            </style>
+
+            <script>
+                api.CopyText_modal();
+                var imgurl = 'static01.tengwen.com';
+
+                var menuName = $("h7.menu-name").text();
+
+                $("span.menu-span").each(function () {
+
+                    var menuTitle = $(this).text();
+
+                    if (menuTitle == menuName) {
+
+                        $(this).parent().addClass('active');
+
+                        if (menuName == "公告列表") {
+
+                            $(this).css('color', 'rgb(232, 86, 86)');
+
+                        }
+                    }
+
+                });
+
+
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-center", //toast-top-center toast-bottom-center
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "3000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                function adm_ajax_ckstat(stat) {
+                    if (stat == "ok") return true;
+
+                    if (stat == "nologin") {
+                        window.location.reload();
+                    }
+                    return false;
+                }
+
+                var pdata = {
+                    action: 'notice_msg'
+                };
+
+                sendData("/notice/notice_msg", pdata, function (data) {
+                    var data = data.data;
+                    _Notice = data.data.unrdnum;
+                    _unReadTop = data.data.unrdmsg;
+                    noticemsg.showmsgnumEx(_Notice);
+                    noticemsg.autoreaddlg();
+
+                });
+            </script>
+            <!-- <script src="https://static01.tengwen.com/common/paginate.js"></script> -->
+            <script>
+                var __isreadsubmit = false;
+
+                function readsubmit() {
+                    if (__isreadsubmit) {
+                        return;
+                    }
+                    __isreadsubmit = true;
+                    var ids = getCheckAllData();
+                    if (!ids) {
+                        toastr.warning('请先选择要操作的数据');
+                        return;
+                    }
+
+                    var iddata = ids.split(',');
+                    var length = iddata.length;
+                    var idsend = [];
+                    for (var i = 0; i < length; i++) {
+                        if ($(".notice_" + iddata[i]).text() != '已读') {
+                            idsend[idsend.length] = iddata[i];
+                        }
+                    }
+                    if (idsend.length < 1) return;
+                    ids = idsend.join(',');
+
+                    var pdata = {
+                        ids: ids,
+                        "is_ajax": 1
+                    };
+
+                    sendData("/notice/readStatus", pdata, function (data) {
+
+                        __isreadsubmit = false;
+
+                        if (!data.code) {
+
+                            toastr.warning(data.msg);
+
+                        } else {
+
+                            toastr.success(data.msg);
+
+                        }
+
+                        iddata = ids.split(',');
+
+                        length = iddata.length;
+
+                        for (var i = 0; i < length; i++) {
+
+                            $(".notice_" + iddata[i]).html('已读');
+
+                        }
+
+                    })
+                }
+
+                function showDlg(id) {
+
+                    var unrecord = $("span.notice_" + id).text();
+
+                    unrecord = unrecord.trim() == '已读' ? '1' : '0';
+
+                    var pdata = {
+                        ids: id,
+                        unrecord: unrecord,
+                        gbody: 1,
+                        "is_ajax": 1
+                    };
+
+                    sendData("/notice/show", pdata, function (data) {
+
+                        if (!data.code) {
+                            toastr.warning(data.msg);
+                            return;
+                        }
+
+                        $(".notice_" + id).html('已读');
+                        var info = data.data;
+                        var dialog = Ewin.dialog({
+                            'title': info.title,
+                            'message': info.body,
+                            'btnok': '我知道了',
+                            'isbtncl': false
+                        });
+
+                    });
+                }
+            </script>
+
+        </div>
+    </div>
+</body>
+
+</html>

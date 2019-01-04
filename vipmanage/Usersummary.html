@@ -1,0 +1,945 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>首页 - 核桃书吧</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script src="https://static01.tengwen.com/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/clipboard.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/klorofil-common.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/comm.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/moment.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/moment_zh-cn.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/echarts.min.js"></script>
+    <script src="https://static01.tengwen.com/common/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/novel.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/backend/novel/css/media.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/toastr.min.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" style="height: 50px;background-color: #2a3747;">
+            <div class="brand" style="padding:0;background-color: #2a3747;"><a href="javascript:void(0);"></div>
+            <div class="container-fluid">
+                <div class="navbar-btn">
+                    <button type="button" class="btn-toggle-fullwidth"><i class="fa fa-list" aria-hidden="true" style="color:#fff;"></i>
+                    </button>
+                </div>
+                <div id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="/notice/index" class="dropdown-toggle icon-menu"> 
+                                    <span class="badge bg-danger notice_msgnum"></span>
+                                </a>
+                            </li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="./images/headshot@2x.png"
+                                        class="img-circle">
+                                    <span style="color:#f1f1f1;">核桃书吧</span> <i class="fa fa-angle-down" aria-hidden="true" style="color:#f1f1f1;"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="./personaldata.gr.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>个人资料</span></a>
+                                    </li>
+                                    <li><a href="Publicnumbersetting-gz.html"><i class="fa fa-address-card-o" aria-hidden="true"></i><span>公众号设置/接入</span></a>
+                                    </li>
+                                    <li><a href="https://static01.tengwen.com/backend/novel/docx/tengwen_readme.docx"><i
+                                                class="fa fa-arrow-down" aria-hidden="true"></i><span>下载帮助文档</span></a>
+                                    </li>
+                                    <li><a href="./Platformlogin.html" onclick="return confirm('确认退出？')"><i class="fa fa-fw fa-power-off"
+                                                aria-hidden="true"></i> <span>安全退出</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+        </nav> <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        <div id="sidebar-nav" class="sidebar">
+            <div class="sidebar-scroll" style="overflow-y: auto;height: 100%;padding:20px 0;background-color:#354051;">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="./AnnounceList_gg.html" id="noticemenu"><i class="fa fa-bell-o" aria-hidden="true"></i><span
+                                    class="menu-span">公告列表</span></a></li>
+                        <li><a href="./Profiledata_sj.html"><i class="fa fa-line-chart" aria-hidden="true"></i><span
+                                    class="menu-span">数据概况</span></a></li>
+                        <li><a href="./ordersummary.html"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="menu-span">订单汇总</span></a></li>
+                        <li><a href="./Usersummary.html" class="active"><i class="fa fa-pie-chart" aria-hidden="true"></i><span
+                                    class="menu-span">用户汇总</span></a></li>
+                        <li><a href="./addsup_xs.html"><i class="fa fa-bars" aria-hidden="true"></i><span class="menu-span">小说充值汇总</span></a></li>
+                        <li><a href="./orderdetails_dd.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                    class="menu-span">订单明细</span></a></li>
+                        <li><a href="./subsidiary_fs.html"><i class="fa fa-id-card-o" aria-hidden="true"></i><span
+                                    class="menu-span">粉丝明细</span></a></li>
+                        <li><a href="./library-xs.html"><i class="fa fa-book" aria-hidden="true"></i><span class="menu-span">小说库</span></a></li>
+                        <li><a href="./Promotion-tg.html"><i class="fa fa-chain-broken" aria-hidden="true"></i><span
+                                    class="menu-span">推广列表</span></a></li>
+                        <li><a href="./listinterpolatel-nt.html"><i class="fa fa-link" aria-hidden="true"></i><span
+                                    class="menu-span">内推列表</span></a></li>
+                        <li><a href="./Listofactivities-hd.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span
+                                    class="menu-span">活动列表</span></a></li>
+                        <li><a href="./antistop-gj.html"><i class="fa fa-comments-o" aria-hidden="true"></i><span class="menu-span">关键词回复</span></a></li>
+                        <li><a href="./Linkstorecycle-lj.html"><i class="fa fa-recycle" aria-hidden="true"></i><span
+                                    class="menu-span">链接回收</span></a></li>
+                        <li><a href="./Intelligentpush-zn.html"><i class="fa fa-reply-all" aria-hidden="true"></i><span
+                                    class="menu-span">智能推送</span></a></li>
+                        <li><a href="./Templatemessage-mb.html"><i class="fa fa-envelope-open" aria-hidden="true"></i><span
+                                    class="menu-span">模版消息</span></a></li>
+                        <li><a href="newsoftheservice-kf.html"><i class="fa fa-commenting-o" aria-hidden="true"></i><span
+                                    class="menu-span">客服消息</span></a></li>
+                        <li><a href="./promoteincome-sr.html"><i class="fa fa-jpy" aria-hidden="true"></i><span class="menu-span">推广收入</span></a></li>
+                        <li><a href="./withdrawalofsubsidiary-tx.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                    class="menu-span">提现明细</span></a></li>
+                        <li><a href="./Publicnumbersetting-gz.html"><i class="fa fa-cog" aria-hidden="true"></i><span
+                                    class="menu-span">公众号设置</span></a></li>
+                        <li><a href="./OtherSettings-qt.html"><i class="fa fa-cogs" aria-hidden="true"></i><span class="menu-span">其它设置</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+        <div class="main">
+            <div class="main-content">
+                <div class="container-fluid">
+
+                    <style type="text/css">
+                        @media screen and (max-width: 768px) {
+                            strong {
+                                padding-top: 10px;
+                                display: inline-block;
+                            }
+
+                            .pc {
+                                display: none;
+                            }
+                        }
+
+                        b {
+                            font-weight: normal;
+                        }
+
+                        .well {
+                            background-color: #fff;
+                        }
+
+                        .text-other {
+                            margin: 0px;
+                            font-size: 12px;
+                            color: #777;
+                        }
+
+                        .text-primary {
+                            color: #3b86e0;
+                        }
+                    </style>
+
+                    <!-- TITLE -->
+                    <div class="panel" style="display:none;">
+                        <div class="panel-heading mynav">
+                            <h3 class="panel-title">
+                                <i class="fa fa-home" aria-hidden="true">
+                                </i>首页 &gt;
+                                <h7 class="menu-name">用户汇总</h7>
+                            </h3>
+                        </div>
+                    </div>
+                    <!-- TITLE END-->
+
+                    <!-- TOP DATA  -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <!-- TABLE STRIPED -->
+                            <div class="panel">
+                                <div class="panel-heading panel-header-bottom">
+                                    <h3 class="panel-title">本月新增用户汇总
+                                        <!--<i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="" data-original-title=""></i>-->
+                                    </h3>
+                                </div>
+                                <div class="panel-body form-horizontal" id="curr_month">
+                                    <div class="text-primary" style="font-size:32px;margin:5px 0">
+                                        <span class="new_amount text_moneyred">172</span>
+                                        <span style="font-size:14px;color:#777">不含当日</span>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-6" style="padding:0">
+                                                <div>已关注: <b class="text-primary follow_amount">43</b>人
+                                                    关注率：<b class="text-primaryfollow_percent">25</b>%
+                                                </div>
+                                                <div>已充值: <b class="text-primary paid_amount">2</b> 人
+                                                    充值率：<b class="text-primarypaid_percent">1.16</b>%
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6" style="padding:0">
+                                                <div>男性:
+                                                    <b class="text-primary sex1_amount">20</b>
+                                                    人 占有率：<b class="text-primary sex1_percent">58.82</b>%
+                                                </div>
+                                                <div>女性:
+                                                    <b class="text-primary sex2_amount">14</b>
+                                                    人 占有率：<b class="text-primary sex2_percent">41.18</b>%
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- END TABLE STRIPED -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- TABLE STRIPED -->
+                            <div class="panel">
+                                <div class="panel-heading panel-header-bottom">
+                                    <h3 class="panel-title">上月新增用户汇总
+                                        <!--<i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="" data-original-title=""></i>-->
+                                    </h3>
+                                </div>
+                                <div class="panel-body form-horizontal" id="curr_month">
+                                    <div class="text-primary" style="font-size:32px;margin:5px 0">
+                                        <span class="new_amount text_moneyred">69711</span>
+                                        <span style="font-size:14px;color:#777"></span>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-6" style="padding:0">
+                                                <div>已关注: <b class="text-primary follow_amount">14911</b> 人
+                                                    关注率：<b class="text-primary follow_percent">21.39</b>%
+                                                </div>
+                                                <div>已充值: <b class="text-primary paid_amount">834</b> 人
+                                                    充值率：<b class="text-primary paid_percent">1.2</b>%
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6" style="padding:0">
+                                                <div>男性:
+                                                    <b class="text-primary sex1_amount">9010</b>
+                                                    人 占有率：<b class="text-primary sex1_percent">68.64</b>%
+                                                </div>
+                                                <div>女性:
+                                                    <b class="text-primary sex2_amount">4117</b>
+                                                    人 占有率：<b class="text-primary sex2_percent">31.36</b>%
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- END TABLE STRIPED -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- TABLE STRIPED -->
+                            <div class="panel">
+                                <div class="panel-heading panel-header-bottom">
+                                    <h3 class="panel-title">累积新增用户汇总
+                                        <!--<i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="" data-original-title=""></i>-->
+                                    </h3>
+                                </div>
+                                <div class="panel-body form-horizontal" id="curr_month">
+                                    <div class="text-primary" style="font-size:32px;margin:5px 0">
+                                        <span class="new_amount text_moneyred">185086</span>
+                                        <span style="font-size:14px;color:#777">不含当日</span>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-6" style="padding:0">
+                                                <div>已关注: <b class="text-primary follow_amount">40575</b> 人
+                                                    关注率：<b class="text-primaryfollow_percent">21.92</b>%
+                                                </div>
+                                                <div>已充值: <b class="text-primary paid_amount">2356</b> 人
+                                                    充值率：<b class="text-primarypaid_percent">1.27</b>%
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6" style="padding:0">
+                                                <div>男性:
+                                                    <b class="text-primary sex1_amount">25163</b>
+                                                    人 占有率：<b class="text-primary sex1_percent">69.7</b>%
+                                                </div>
+                                                <div>女性:
+                                                    <b class="text-primary sex2_amount">10938</b>
+                                                    人 占有率：<b class="text-primary sex2_percent">30.3</b>%
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- END TABLE STRIPED -->
+                        </div>
+                    </div>
+                    <!-- TOP DATA END -->
+
+                    <!-- CHART DATA -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-heading panel-header-bottom">
+                                    <h3 class="panel-title">
+                                        <i class="fa fa-calendar" style="margin-right:5px;">
+                                        </i>新增用户走势</h3>
+                                </div>
+
+                                <form method="get">
+                                    <div class="panel-body form-horizontal" id="curr_month">
+                                        <div class="form-group" style="  float: left;margin-left:20px; ">
+                                            <input type="text" class="form-control datetimepicker stime" name="stime"
+                                                placeholder="开始日期" value="">
+                                        </div>
+                                        <div class="form-group" style="  float: left;margin-left:20px; ">
+                                            <input type="text" class="form-control datetimepicker etime" name="etime"
+                                                placeholder="结束日期" value="">
+                                        </div>
+                                        <div class="form-group" style="  float: left;margin-left:20px; ">
+                                            <button type="button" class="btn customize" style="background-color:#3b86e0;color:#fff;">查询</button>
+                                        </div>
+                                        <!--CHART SEARCH -->
+                                        <div class="form-group" style="float: left;margin-left:20px;">
+                                            <button type="button" class="btn" style="background-color:#3b86e0;color:#fff;"
+                                                value="three" onclick="loadDay30Data('sevenDay')">七天
+                                            </button>
+                                        </div>
+                                        <div class="form-group" style="float: left;margin-left:20px;">
+                                            <button type="button" class="btn" style="background-color:#3b86e0;color:#fff;"
+                                                value="second" onclick="loadDay30Data('oneMonth')">一个月
+                                            </button>
+                                        </div>
+                                        <!--CHART SEARCH END-->
+                                    </div>
+                                </form>
+
+                                <div class="panel-body form-horizontal" id="curr_month">
+                                    <div id="user_weekimg" style="width: 100%; height: 300px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;"
+                                        _echarts_instance_="ec_1542426873454">
+                                        <div style="position: relative; overflow: hidden; width: 1035px; height: 300px; padding: 0px; margin: 0px; border-width: 0px;"><canvas
+                                                width="1035" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 1035px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CHART DATA END -->
+
+
+                    <!-- TABLE -->
+                    <div class="panel">
+                        <div class="panel-heading mynav">
+                            <h3 class="panel-title" style="font-size: 16px!important;">
+                                <i class="fa fa-calendar" style="margin-right:5px;">
+                                </i>近30天用户汇总</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <table class="table table-striped table-hover table-bordered" id="table_list" style="font-size:14px;">
+                                <thead>
+                                    <tr>
+                                        <th>汇总日期</th>
+                                        <th>新增</th>
+                                        <th>已关注</th>
+                                        <th>已充值</th>
+                                        <th class="pc">男性</th>
+                                        <th class="pc">女性</th>
+                                        <th>关注率</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2018-11-17</td>
+                                        <td class="text-primary">4</td>
+                                        <td class="text-primary">3</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">2<p class="text-other">占有率100.00%</p>
+                                        </td>
+                                        <td class="pc">0<p class="text-other">占有率0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">75.00%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-16</td>
+                                        <td class="text-primary">8</td>
+                                        <td class="text-primary">5</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">3<p class="text-other">占有率60.00%</p>
+                                        </td>
+                                        <td class="pc">2<p class="text-other">占有率40.00%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">62.50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-15</td>
+                                        <td class="text-primary">7</td>
+                                        <td class="text-primary">2</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">1<p class="text-other">占有率100.00%</p>
+                                        </td>
+                                        <td class="pc">0<p class="text-other">占有率0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">28.57%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-14</td>
+                                        <td class="text-primary">9</td>
+                                        <td class="text-primary">0</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">0<p class="text-other">占有率0%</p>
+                                        </td>
+                                        <td class="pc">0<p class="text-other">占有率0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">0%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-13</td>
+                                        <td class="text-primary">12</td>
+                                        <td class="text-primary">2</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">0<p class="text-other">占有率0%</p>
+                                        </td>
+                                        <td class="pc">1<p class="text-other">占有率100.00%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">16.67%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-12</td>
+                                        <td class="text-primary">13</td>
+                                        <td class="text-primary">2</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">1<p class="text-other">占有率100.00%</p>
+                                        </td>
+                                        <td class="pc">0<p class="text-other">占有率0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">15.38%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-11</td>
+                                        <td class="text-primary">7</td>
+                                        <td class="text-primary">4</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">0<p class="text-other">占有率0%</p>
+                                        </td>
+                                        <td class="pc">2<p class="text-other">占有率100.00%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">57.14%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-10</td>
+                                        <td class="text-primary">13</td>
+                                        <td class="text-primary">2</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">1<p class="text-other">占有率50.00%</p>
+                                        </td>
+                                        <td class="pc">1<p class="text-other">占有率50.00%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">15.38%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-09</td>
+                                        <td class="text-primary">10</td>
+                                        <td class="text-primary">1</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">1<p class="text-other">占有率100.00%</p>
+                                        </td>
+                                        <td class="pc">0<p class="text-other">占有率0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">10.00%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-08</td>
+                                        <td class="text-primary">16</td>
+                                        <td class="text-primary">6</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">3<p class="text-other">占有率75.00%</p>
+                                        </td>
+                                        <td class="pc">1<p class="text-other">占有率25.00%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">37.50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-07</td>
+                                        <td class="text-primary">17</td>
+                                        <td class="text-primary">2</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">2<p class="text-other">占有率100.00%</p>
+                                        </td>
+                                        <td class="pc">0<p class="text-other">占有率0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">11.76%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-06</td>
+                                        <td class="text-primary">15</td>
+                                        <td class="text-primary">3</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">3<p class="text-other">占有率100.00%</p>
+                                        </td>
+                                        <td class="pc">0<p class="text-other">占有率0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">20.00%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-05</td>
+                                        <td class="text-primary">6</td>
+                                        <td class="text-primary">2</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">2<p class="text-other">占有率100.00%</p>
+                                        </td>
+                                        <td class="pc">0<p class="text-other">占有率0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">33.33%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-04</td>
+                                        <td class="text-primary">7</td>
+                                        <td class="text-primary">3</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">0<p class="text-other">占有率0%</p>
+                                        </td>
+                                        <td class="pc">2<p class="text-other">占有率100.00%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">42.86%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-03</td>
+                                        <td class="text-primary">7</td>
+                                        <td class="text-primary">3</td>
+                                        <td>1<p class="text-other">充值率14.29%</p>
+                                        </td>
+                                        <td class="pc text-primary">1<p class="text-other">占有率33.33%</p>
+                                        </td>
+                                        <td class="pc">2<p class="text-other">占有率66.67%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">42.86%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-02</td>
+                                        <td class="text-primary">14</td>
+                                        <td class="text-primary">2</td>
+                                        <td>1<p class="text-other">充值率7.14%</p>
+                                        </td>
+                                        <td class="pc text-primary">0<p class="text-other">占有率0%</p>
+                                        </td>
+                                        <td class="pc">2<p class="text-other">占有率100.00%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">14.29%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-01</td>
+                                        <td class="text-primary">7</td>
+                                        <td class="text-primary">1</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">0<p class="text-other">占有率0%</p>
+                                        </td>
+                                        <td class="pc">1<p class="text-other">占有率100.00%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">14.29%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-10-31</td>
+                                        <td class="text-primary">15</td>
+                                        <td class="text-primary">4</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">2<p class="text-other">占有率66.67%</p>
+                                        </td>
+                                        <td class="pc">1<p class="text-other">占有率33.33%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">26.67%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-10-30</td>
+                                        <td class="text-primary">11</td>
+                                        <td class="text-primary">4</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">1<p class="text-other">占有率50.00%</p>
+                                        </td>
+                                        <td class="pc">1<p class="text-other">占有率50.00%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">36.36%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-10-29</td>
+                                        <td class="text-primary">19</td>
+                                        <td class="text-primary">2</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">1<p class="text-other">占有率50.00%</p>
+                                        </td>
+                                        <td class="pc">1<p class="text-other">占有率50.00%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">10.53%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-10-28</td>
+                                        <td class="text-primary">14</td>
+                                        <td class="text-primary">1</td>
+                                        <td>1<p class="text-other">充值率7.14%</p>
+                                        </td>
+                                        <td class="pc text-primary">0<p class="text-other">占有率0%</p>
+                                        </td>
+                                        <td class="pc">1<p class="text-other">占有率100.00%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">7.14%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-10-27</td>
+                                        <td class="text-primary">28</td>
+                                        <td class="text-primary">8</td>
+                                        <td>0<p class="text-other">充值率0%</p>
+                                        </td>
+                                        <td class="pc text-primary">2<p class="text-other">占有率33.33%</p>
+                                        </td>
+                                        <td class="pc">4<p class="text-other">占有率66.67%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">28.57%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-10-26</td>
+                                        <td class="text-primary">29</td>
+                                        <td class="text-primary">5</td>
+                                        <td>1<p class="text-other">充值率3.45%</p>
+                                        </td>
+                                        <td class="pc text-primary">1<p class="text-other">占有率20.00%</p>
+                                        </td>
+                                        <td class="pc">4<p class="text-other">占有率80.00%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">17.24%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-10-25</td>
+                                        <td class="text-primary">97</td>
+                                        <td class="text-primary">22</td>
+                                        <td>2<p class="text-other">充值率2.06%</p>
+                                        </td>
+                                        <td class="pc text-primary">11<p class="text-other">占有率61.11%</p>
+                                        </td>
+                                        <td class="pc">7<p class="text-other">占有率38.89%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">22.68%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-10-24</td>
+                                        <td class="text-primary">350</td>
+                                        <td class="text-primary">74</td>
+                                        <td>7<p class="text-other">充值率2.00%</p>
+                                        </td>
+                                        <td class="pc text-primary">38<p class="text-other">占有率58.46%</p>
+                                        </td>
+                                        <td class="pc">27<p class="text-other">占有率41.54%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">21.14%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-10-23</td>
+                                        <td class="text-primary">462</td>
+                                        <td class="text-primary">106</td>
+                                        <td>4<p class="text-other">充值率0.87%</p>
+                                        </td>
+                                        <td class="pc text-primary">62<p class="text-other">占有率68.13%</p>
+                                        </td>
+                                        <td class="pc">29<p class="text-other">占有率31.87%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">22.94%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-10-22</td>
+                                        <td class="text-primary">503</td>
+                                        <td class="text-primary">103</td>
+                                        <td>11<p class="text-other">充值率2.19%</p>
+                                        </td>
+                                        <td class="pc text-primary">62<p class="text-other">占有率68.13%</p>
+                                        </td>
+                                        <td class="pc">29<p class="text-other">占有率31.87%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">20.48%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-10-21</td>
+                                        <td class="text-primary">588</td>
+                                        <td class="text-primary">141</td>
+                                        <td>9<p class="text-other">充值率1.53%</p>
+                                        </td>
+                                        <td class="pc text-primary">83<p class="text-other">占有率70.94%</p>
+                                        </td>
+                                        <td class="pc">34<p class="text-other">占有率29.06%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">23.98%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-10-20</td>
+                                        <td class="text-primary">566</td>
+                                        <td class="text-primary">123</td>
+                                        <td>4<p class="text-other">充值率0.71%</p>
+                                        </td>
+                                        <td class="pc text-primary">69<p class="text-other">占有率63.89%</p>
+                                        </td>
+                                        <td class="pc">39<p class="text-other">占有率36.11%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">21.73%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-10-19</td>
+                                        <td class="text-primary">519</td>
+                                        <td class="text-primary">90</td>
+                                        <td>4<p class="text-other">充值率0.77%</p>
+                                        </td>
+                                        <td class="pc text-primary">56<p class="text-other">占有率77.78%</p>
+                                        </td>
+                                        <td class="pc">16<p class="text-other">占有率22.22%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">17.34%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-10-18</td>
+                                        <td class="text-primary">882</td>
+                                        <td class="text-primary">194</td>
+                                        <td>13<p class="text-other">充值率1.47%</p>
+                                        </td>
+                                        <td class="pc text-primary">124<p class="text-other">占有率70.86%</p>
+                                        </td>
+                                        <td class="pc">51<p class="text-other">占有率29.14%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">22.00%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- TABLE END -->
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+        <footer></footer>
+    </div>
+
+    <style>
+        .toast-top-center {
+            top: 52px;
+        }
+    </style>
+
+    <script>
+        api.CopyText_modal();
+        var imgurl = 'static01.tengwen.com';
+
+        var menuName = $("h7.menu-name").text();
+
+        $("span.menu-span").each(function () {
+
+            var menuTitle = $(this).text();
+
+            if (menuTitle == menuName) {
+
+                $(this).parent().addClass('active');
+
+                if (menuName == "公告列表") {
+
+                    $(this).css('color', 'rgb(232, 86, 86)');
+
+                }
+            }
+
+        });
+
+
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-center", //toast-top-center toast-bottom-center
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        function adm_ajax_ckstat(stat) {
+            if (stat == "ok") return true;
+
+            if (stat == "nologin") {
+                window.location.reload();
+            }
+            return false;
+        }
+
+        var pdata = {
+            action: 'notice_msg'
+        };
+
+        sendData("/notice/notice_msg", pdata, function (data) {
+            var data = data.data;
+            _Notice = data.data.unrdnum;
+            _unReadTop = data.data.unrdmsg;
+            noticemsg.showmsgnumEx(_Notice);
+            noticemsg.autoreaddlg();
+
+        });
+    </script>
+    <script src="https://static01.tengwen.com/common/paginate.js"></script>
+    <script>
+        $(function () {
+            loadDay30Data('oneMonth');
+            $('.datetimepicker').datetimepicker({
+                format: 'YYYY-MM-DD',
+                locale: moment.locale('zh-CN'),
+            });
+        })
+
+        $(".customize").on('click', function () {
+
+            toastr.clear();
+
+            var stime = $('.stime').val();
+
+            var etime = $('.etime').val();
+
+            sdate = new Date(Date.parse(stime.replace(/-/g, "/")));
+
+            sdate = sdate.getTime();
+
+            edate = new Date(Date.parse(etime.replace(/-/g, "/")));
+
+            edate = edate.getTime();
+
+            if (!stime && !etime) {
+
+                toastr.error('请填写日期!');
+
+                return false;
+
+            }
+
+            if (edate < sdate) {
+
+                toastr.error('结束时间不得小于开始时间');
+
+                return false;
+            }
+
+            loadDay30Data('customize', stime, etime);
+
+        })
+
+        function loadDay30Data(type, stime, etime) {
+
+            var myChart = echarts.init(document.getElementById('user_weekimg'));
+            option = {
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['新增人数', '已关注人数']
+                },
+                color: ['#3b86e0', '#ffc425'],
+                legend: {
+                    data: [{
+                        name: '新增人数',
+                        icon: 'image://https://static01.tengwen.com/backend/novel/img/tag-blue.png'
+                    }, {
+                        name: '已关注人数',
+                        icon: 'image://https://static01.tengwen.com/backend/novel/img/tag-yellow.png'
+                    }],
+                    itemWidth: 36,
+                    itemHeight: 36,
+                    itemGap: 50,
+                },
+                grid: {
+                    left: '3%',
+                    right: '6%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: []
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: []
+            };
+
+            myChart.setOption(option);
+
+            myChart.showLoading();
+
+            var pdata = {
+                'is_ajax': 1,
+                'atime': type,
+                "stime": stime,
+                "etime": etime
+            };
+
+            sendData('/user/summary_chart', pdata, function (data) {
+
+                if (data.err == 404) {
+                    toastr.warning(data.msg);
+                    setTimeout("window.location.reload()", 2000);
+                    return;
+                }
+
+                $(".listdata_loading").remove();
+                myChart.hideLoading();
+                var total = data.data.length;
+                var time = [];
+                var first = [];
+                var second = [];
+                for (var i = 0; i < total; i++) {
+                    time[time.length] = data.data[i].adate;
+                    first[first.length] = data.data[i].addnum;
+                    second[second.length] = data.data[i].everfans;
+                }
+                time.reverse();
+                first.reverse();
+                second.reverse();
+                row = {
+                    xAxis: {
+                        data: time
+                    },
+                    series: [{
+                        name: '新增人数',
+                        type: 'line',
+                        data: first
+                    }, {
+                        name: '已关注人数',
+                        type: 'line',
+                        data: second
+                    }]
+                };
+                myChart.setOption(row);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

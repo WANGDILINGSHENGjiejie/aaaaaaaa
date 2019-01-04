@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>LOGO</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- jQuery 3 -->
+    <script src="https://static01.tengwen.com/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <!-- Font Awesome 图标字体库和CSS框架-->
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/media.css">
+    <!--<script type="text/javascript" src="https://static01.tengwen.com/backend/vip/js/cookies.min.js"></script>-->
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/vip/js/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/clipboard.min.js"></script>
+    <script type="text/javascript" src="./js/klorofil-common.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/moment.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/vip/js/moment_zh-cn.js"></script>
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.css">
+    <script type="text/javascript" src="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/vip/js/echarts.min.js"></script>
+
+</head>
+
+<body>
+    <!-- WRAPPER -->
+    <div id="wrapper">
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-default navbar-fixed-top" style="height: 50px;background-color:#2a3747">
+            <!-- <div class="brand" style="padding:0;background:#3c8dbc"><a href="javascript:void(0);"><img src=""
+                        alt="Klorofil Logo" class="img-responsive logo" style="height:50px;"></a></div> -->
+            <div class="container-fluid">
+
+                <div class="navbar-btn">
+                    <button type="button" class="btn-toggle-fullwidth"><img src="./images/sidebar@2x.png" alt=""></i>
+                    </button>
+                </div>
+                <div id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- <li class="dropdown"> <a href="/user_notice.php" class="dropdown-toggle icon-menu"> <i class="fa fa-bell-o" aria-hidden="true" ></i> <span class="badge bg-danger notice_msgnum"></span> </a> </li> -->
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="./images/headshot@2x.png" alt="">
+                                <span style="color:#f1f1f1;">哇嘎互娱</span> <i class="fa fa-angle-down" aria-hidden="true" style="color:#f1f1f1;"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="./personaldata.gr.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>个人资料</span></a>
+                                </li>
+                                <li><a href="./VIPloginpage.html" onclick="return confirm('确认退出？')"><i class="fa fa-fw fa-power-off"
+                                            aria-hidden="true"></i> <span>安全退出</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav> <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        <div id="sidebar-nav" class="sidebar">
+            <div class="sidebar-scroll" style="overflow-y:auto;height: 100%;padding:20px 0;background-color:#354051;">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="./channel_q.html" class="active"><img src="./images/list@2x.png" alt="" class="png_wj"></i><span
+                                    class="menu-span">渠道列表</span></a></li>
+                        <li><a href="./generalize_t.html"><img src="./images/promotion@2x.png" alt="" class="png_wj"><span
+                                    class="menu-span">推广收入</span></a></li>
+                        <li><a href="./withdraw_tx.html"><img src="./images/withdrawal@2x.png" alt="" class="png_wj"><span
+                                    class="menu-span">提现明细</span></a></li>
+                        <li><a href="./merge_h.html"><img src="./images/merge@2x.png" alt="" class="png_wj"><span class="menu-span">合并支付</span></a></li>
+                        <li><a href="./shunt_f.html"><img src="./images/shunt@2x.png" alt="" class="png_wj"><span class="menu-span">分流链接</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="main">
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <style>
+
+                    .text-primary {
+            font-size: 18px;
+        }
+        .font14{
+            font-size: 14px;
+        }
+    </style>
+                <div class="container-fluid">
+                    <div id="tipdlg"></div>
+                    <div class="panel">
+                        <div class="panel-heading mynav">
+                            <h3 class="panel-title">
+                                <i class="fa fa-home" aria-hidden="true"></i>首页 &gt;
+                                <h7 class="menu-name">渠道列表</h7>
+                            </h3>
+                        </div>
+
+                        <div class="panel-body" style="position: relative;font-size:14px;">
+                            <form class="form-inline" style="padding-bottom: 20px;" action="/ser_user/index" method="get">
+                                <div class="form-group" style="margin-right:5px;">
+                                    <input type="text" class="form-control" placeholder="请输入渠道ID、渠道名、公众号名称" id="form-key"
+                                        name="key" value="" style="width:300px; ">
+                                </div>
+                                <div class="form-group" style="margin-right:5px; ">
+                                    <button type="submit" class="btn btn-inquire ">查询</button>
+                                </div>
+                                <a class="btn btn-primary" href="./bound.html">绑定渠道</a>
+                            </form>
+                            <table class="table table-striped table-hover table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="font14">渠道ID</th>
+                                        <th class="font14">渠道名</th>
+                                        <th class="font14">用户类型</th>
+                                        <th class="font14">公众号名称</th>
+                                        <th class="font14">状态</th>
+                                        <th class="font14">创建日期</th>
+                                        <th class="font14">今日充值</th>
+                                        <th class="font14">昨日充值</th>
+                                        <th class="font14">累积充值</th>
+                                        <th class="font14">可提现金额</th>
+                                        <th class="font14">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="item_20041">
+                                        <td class="font14">20041</td>
+                                        <td class="font14">核桃书吧</td>
+                                        <td class="font14">通用</td>
+                                        <td class="font14">核桃书吧</td>
+                                        <td class="font14">正常</td>
+                                        <td class="font14">2018-09-07 11:06:52</td>
+                                        <td class="today_money text-danger">
+                                            ¥ 0
+                                        </td>
+                                        <td class="today_money text-danger">
+                                            ¥ 650
+                                        </td>
+                                        <td class="today_money text-danger">
+                                            ¥ 187482.7
+                                        </td>
+                                        <td class="today_money text-danger">
+                                            ¥ 32609.97
+                                        </td>
+                                        <td>
+                                            <button type="button" id="apply_withdraw" onclick="withdraw(1,20041)" class="btn btn-sm btn-withdraw">申请提现
+                                            </button>
+                                            <a target="openwindlg_browser" href="./Profiledata_sj.html"
+                                                class="btn btn-sm  btn-primary">进入</a>
+                                        </td>
+                                    </tr>
+                                    <tr id="item_20041">
+                                        <td class="font14">20041</td>
+                                        <td class="font14">核桃书吧</td>
+                                        <td class="font14">通用</td>
+                                        <td class="font14">核桃书吧</td>
+                                        <td class="font14">正常</td>
+                                        <td class="font14">2018-09-07 11:06:52</td>
+                                        <td class="today_money text-danger">
+                                            ¥ 0
+                                        </td>
+                                        <td class="today_money text-danger">
+                                            ¥ 650
+                                        </td>
+                                        <td class="today_money text-danger">
+                                            ¥ 187482.7
+                                        </td>
+                                        <td class="today_money text-danger">
+                                            ¥ 32609.97
+                                        </td>
+                                        <td>
+                                            <button type="button" id="apply_withdraw" onclick="withdraw(1,20041)" class="btn btn-sm btn-withdraw">申请提现
+                                            </button>
+                                            <a target="openwindlg_browser" href="./Profiledata_sj.html"
+                                                class="btn btn-sm  btn-primary">进入</a>
+                                        </td>
+                                    </tr>
+                                    <tr id="item_20039">
+                                        <td class="font14">20039</td>
+                                        <td class="font14">鸭鸭书吧</td>
+                                        <td class="font14">通用</td>
+                                        <td class="font14">鸭鸭书吧</td>
+                                        <td class="font14">正常</td>
+                                        <td class="font14">2018-09-07 09:53:12</td>
+                                        <td class="today_money text-danger">
+                                            ¥ 0
+                                        </td>
+                                        <td class="today_money text-danger">
+                                            ¥ 529
+                                        </td>
+                                        <td class="today_money text-danger">
+                                            ¥ 61733
+                                        </td>
+                                        <td class="today_money text-danger">
+                                            ¥ 6808.95
+                                        </td>
+                                        <td>
+                                            <button type="button" id="apply_withdraw" onclick="withdraw(1,20039)" class="btn btn-sm btn-withdraw">申请提现
+                                            </button>
+                                            <a target="openwindlg_browser" href="/ser_user/novel_key_login?seruid=20039"
+                                                class="btn btn-sm  btn-primary">进入</a>
+                                        </td>
+                                    </tr>
+                                    <tr id="item_20040">
+                                        <td class="font14">20040</td>
+                                        <td class="font14">小丫文学</td>
+                                        <td class="font14">通用</td>
+                                        <td class="font14">小丫文学</td>
+                                        <td class="font14">正常</td>
+                                        <td class="font14">2018-09-07 10:46:57</td>
+                                        <td class="today_money text-danger">
+                                            ¥ 0
+                                        </td>
+                                        <td class="today_money text-danger">
+                                            ¥ 0
+                                        </td>
+                                        <td class="today_money text-danger">
+                                            ¥ 0
+                                        </td>
+                                        <td class="today_money text-danger">
+                                            ¥ 0
+                                        </td>
+                                        <td>
+                                            <button type="button" id="apply_withdraw" onclick="withdraw(1,20040)"
+                                                disabled="" class="btn btn-sm btn-primary">申请提现
+                                            </button>
+                                            <a target="openwindlg_browser" href="/ser_user/novel_key_login?seruid=20040"
+                                                class="btn btn-sm  btn-primary">进入</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- END MAIN CONTENT -->
+        </div> <!-- END MAIN -->
+        <div class="clearfix"></div>
+        <footer></footer>
+    </div> <!-- END WRAPPER -->
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/toastr.min.css">
+    <style>
+        .toast-top-center {
+            top: 52px;
+        }
+    </style>
+    <script src="https://static01.tengwen.com/common/toastr.min.js"></script>
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-center", //toast-top-center toast-bottom-center
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        var menuName = $("h7.menu-name").text();
+
+        $("span.menu-span").each(function () {
+
+            var menuTitle = $(this).text();
+
+            if (menuTitle == menuName) {
+
+                $(this).parent().addClass('active');
+
+            }
+
+        });
+
+
+        $(function () {
+            if (typeof datetimepickerSetting == 'undefined') {
+                var datetimepickerSetting = {
+                    format: 'YYYY-MM-DD',
+                    locale: moment.locale('zh-CN')
+                }
+            }
+            $('.datetimepicker').datetimepicker(datetimepickerSetting)
+        })
+    </script>
+    <script>
+        function withdraw(type, seruid) {
+            if (confirm('确认提现？提现后我们将在24小时内为您支付！')) {
+                if (seruid > 0) {
+                    var data = {
+                        'type': type,
+                        'seruid': seruid,
+                        is_ajax: 1
+                    };
+                } else {
+                    var data = {
+                        'type': type,
+                        is_ajax: 1
+                    };
+                }
+                $.post('/ser_user/withdraw', data, function (data) {
+                    if (data.code == 1) {
+                        toastr.success(data.msg);
+                        setTimeout('window.location="/ser_user/index"', 1000)
+                        return false;
+                    } else {
+                        toastr.warning(data.msg);
+                        setTimeout('window.location="/ser_user/index"', 1000)
+                        return false;
+                    }
+                }, 'json');
+            } else {
+                return false;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

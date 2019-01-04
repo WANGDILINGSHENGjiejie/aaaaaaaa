@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>哇嘎互娱</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- CSS  -->
+    <link rel="stylesheet" href="./css/common.css/common.css">
+    <link rel="stylesheet" href="./css/common.css/MediaQueries.css">
+    <!-- JS -->
+    <script src="./js/common.js/common.js"></script>
+    <!-- jQuery 3.3.1 -->
+    <script src="./dist/js/jquery.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="./dist/css/bootstrap.min.css">
+    <script src="./dist/js/bootstrap.min.js"></script>
+    <!--  Swiper-3.4.2. -->
+    <link rel="stylesheet" href="./dist/css/swiper.min.css">
+    <script src="./dist/js/swiper.min.js"></script>
+</head>
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">
+            <span class="icon"><img src="./images/logo@2x.png" alt=""></span>
+            <ul class="nav nav-pills" style="font-weight: 700;">
+                <li role="presentation"><a href="./businessCooperation.html">商务合作</a></li>
+                <li role="presentation" class="active"><a href="./recruitment.html">人才招聘</a></li>
+                <li role="presentation"><a href="./culture.html">企业文化</a></li>
+                <li role="presentation"><a href="./regard.html">关于</a></li>
+                <li role="presentation"><a href="./index.html">首页</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="join_us">
+                <img src="./images/join_us@2x.png" alt="">
+            </div>
+            <div class="recruitment_job">
+                <div class="join_box" name="job" id="job">
+                    <div class="join_title">
+                        <h2>职位招聘</h2>
+                        <p>RECRUITMENT</p>
+                    </div>
+                    <!--滚动看图-->
+                    <!-- <div class="imgnav" id="imgnav">
+                        <div id="cbtn">
+                            <i class="picSildeLeft"><img src="./images/左箭头@2x.png" /></i>
+                            <i class="picSildeRight"><img src="./images/右箭头 @2x.png" /></i>
+                            <div id="cSlideUl">
+                                <ul>
+                                    <li>
+                                        <img src="./images/Snipaste_j.png" />
+                                        <strong></strong>
+                                        <p>小说文案</p>
+                                    </li>
+                                    <li>
+                                        <img src="./images/Snipaste_j.png" />
+                                        <strong></strong>
+                                        <p>新媒体运营主管</p>
+                                    </li>
+                                    <li>
+                                        <img src="./images/Snipaste_j.png" />
+                                        <strong></strong>
+                                        <p>商务合作专员</p>
+                                    </li>
+                                    <li>
+                                        <img src="./images/Snipaste_j.png" />
+                                        <strong></strong>
+                                        <p>推广小说派单</p>
+                                    </li>
+                                    <li>
+                                        <img src="./images/Snipaste_j.png" />
+                                        <strong></strong>
+                                        <p>新媒体运营</p>
+                                    </li>
+                                    <li>
+                                        <img src="./images/Snipaste_j.png" />
+                                        <strong></strong>
+                                        <p>小程序运营</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="job_detail">
+                            <div id="jobInfo">
+                                <ul>
+                                    <li 
+                                    <p style="display:block; width: 100%;margin-top: 50px;">
+                                        <strong>福利待遇：</strong><span></span>
+                                        </p>
+                                        <p class="treatment trea" style="width:80px;height:30px;font-size: 16px;text-align: center;line-height: 30px;">弹性工作</p>
+                                        <p class="treatment trea" style="width:80px;height:30px;font-size: 16px;text-align: center;line-height: 30px;">带薪年假</p>
+                                        <p class="treatment trea" style="width:80px;height:30px;font-size: 16px;text-align: center;line-height: 30px;">绩效奖金</p>
+                                        <p class="treatment trea" style="width:80px;height:30px;font-size: 16px;text-align: center;line-height: 30px;">休闲餐点</p>
+                                        <p class="treatment trea" style="width:80px;height:30px;font-size: 16px;text-align: center;line-height: 30px;">扁平管理</p>
+                                        <p class="treatment trea" style="width:80px;height:30px;font-size: 16px;text-align: center;line-height: 30px;">团建聚会</p>
+                                        <p class="treatment trea" style="width:80px;height:30px;font-size: 16px;text-align: center;line-height: 30px;">领导nice</p>
+                                        <p class="treatment trea" style="width:80px;height:30px;font-size: 16px;text-align: center;line-height: 30px;">全勤奖金</p>
+                                        <p></p>
+                                    </li>
+                                    <p>
+                                        <br />
+                                    </p>
+                                    <li style="display: block;">
+                                        <p style="margin-left:0cm;background:white;">
+                                            <strong>岗位职责：</strong><span></span>
+                                        </p>
+                                        <p style="margin-left:0cm;background:white;">
+                                            1、管理运营公司的各个小说微信公众平台，负责公众平台日常的维护与小说推文的推送；<span></span>
+                                        </p>
+                                        <p style="margin-left:0cm;background:white;">
+                                            2、根据公司提供的小说，制作优质文案；<span></span>
+                                        </p>
+                                        <p style="margin-left:0cm;background:white;">
+                                            3、参与创意策略制定，与部门共同探讨立意；<span></span>
+                                        </p>
+                                        <p style="margin-left:0cm;background:white;">
+                                            4、挖掘优质小说，并提炼优质小说文案；<span></span>
+                                        </p>
+                                        <p style="margin-left:0cm;background:white;">
+                                            5、配合其他部门和领导安排的其他工作。；<span></span>
+                                        </p>
+                                        <p class="MsoNormal" align="left" style="background:white;">
+                                        </p>
+                                        <p>
+                                            <br />
+                                        </p>
+                                        <p style="margin-left:0cm;background:white;">
+                                            <strong>岗位要求：</strong><span></span>
+                                        </p>
+                                        <p style="margin-left:0cm;background:white;">
+                                            1、<span>1</span>年以上微信运营经验；<span></span>小说相关优先；<span></span>
+                                        </p>
+                                        <p style="margin-left:0cm;background:white;">
+                                            2、较强的文字功底和理解领悟能力，文笔流畅、文字转化能力强；<span></span>
+                                        </p>
+                                        <p style="margin-left:0cm;background:white;">
+                                            <span style="line-height:1.5;">3、优秀的学习能力，沟通能力和协调能力，具有独立的创意性思维和较强的责任心；</span>
+                                        </p>
+                                        <p style="margin-left:0cm;background:white;">
+                                            4、精通设计软件，有新颖的设计模式，独特的风格，我们就是要你的与众不同；<span></span>
+                                        </p>
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div> -->
+               
+                    <div class="imgnav" id="imgnav">
+                            <div id="cbtn">
+                                <i class="picSildeLeft"><img src="./images/左箭头@2x.png"/></i>
+                                <i class="picSildeRight"><img src="./images/右箭头 @2x.png"/></i>
+                                <div id="cSlideUl">
+                                    <ul>
+                                                            <li>
+                                            <!-- <img src="view/theme/topsrx/public/images/00.jpg"/> -->
+                                            <strong></strong>
+                                            <p>资深设计师</p>
+                                        </li>
+                                                            <li>
+                                            <!-- <img src="view/theme/topsrx/public/images/01.jpg"/> -->
+                                            <strong></strong>
+                                            <p>客户经理</p>
+                                        </li>
+                                                            <li>
+                                            <!-- <img src="view/theme/topsrx/public/images/02.jpg"/> -->
+                                            <strong></strong>
+                                            <p>BD总监</p>
+                                        </li>
+                                                            <li>
+                                            <!-- <img src="view/theme/topsrx/public/images/03.jpg"/> -->
+                                            <strong></strong>
+                                            <p>高级客户经理</p>
+                                        </li>
+                                                            <li>
+                                            <!-- <img src="view/theme/topsrx/public/images/00.jpg"/> -->
+                                            <strong></strong>
+                                            <p>商务BD</p>
+                                        </li>
+                                                            <li>
+                                            <!-- <img src="view/theme/topsrx/public/images/01.jpg"/> -->
+                                            <strong></strong>
+                                            <p>JAVA软件工程师</p>
+                                        </li>
+                                                            <li>
+                                            <!-- <img src="view/theme/topsrx/public/images/02.jpg"/> -->
+                                            <strong></strong>
+                                            <p>策划经理</p>
+                                        </li>
+                                                            <li>
+                                            <!-- <img src="view/theme/topsrx/public/images/03.jpg"/> -->
+                                            <strong></strong>
+                                            <p>前台</p>
+                                        
+                                                        </ul>
+                                </div>
+                            </div>
+                            <div class="job_detail">
+                                <div id="jobInfo">
+                                    <ul>
+                                                            <li style="display: block;">
+                                            <p style="margin-left:0cm;background:white;">
+                    <strong>岗位职责：</strong><span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    1、负责合作客户的品牌宣传设计及公关活动的主视觉设计；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    2、全面参与项目设计过程，独立完成日常设计工作；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    3、参与创意策略制定，与部门共同探讨立意；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    4、有个人独立的设计想法，辅助策划文案完成创意。<span></span> 
+                </p>
+                <p class="MsoNormal" align="left" style="background:white;">
+                    <br />
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <strong>任职资格：</strong><span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    1、<span>2</span>年以上工作经验，有独立设计或项目管理经验，多年大型活动主<span>KV</span>设计经验者优先；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    2、对品牌视觉极其执着且想法不断，要以创意为精神食粮；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <span style="line-height:1.5;">3、拥有视觉至上的审美能力，能够与策划文案团队有良好的配合，与我们一起完成有趣、不一样的任务；</span>
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    4、精通设计软件，有新颖的设计模式，独特的风格，我们就是要你的与众不同；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    5、良好的表达自己的设计理念和表达能力；<span></span> 
+                </p>
+                <p>
+                    <br />
+                </p>
+                                        </li>
+                                                            <li >
+                                            <p style="margin-left:0cm;background:white;">
+                    <strong>岗位职责：</strong><span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    1、协助客户总监拓展并维护所辖区域移动、联通<span>&nbsp;</span>、电信等运营商的良好合作关系，推进与运营商商务合作项目，完成销售指标；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    2、根据公司的媒介资源优势及发展目标，完成客户信息资源收集及对重点目标客户进行开发，完成规定的推广计划和销售任务；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    3、将公司的资源优势及服务内容对目标客户进行信息的准确传递；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    4、充分了解客户的产品情况和市场销售情况，综合分析客户的投放需求和投放习惯；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    5、结合客户需求，协助策划部完成针对客户需求合作方案的制定，准确有效的完成提案；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    6、保持、建立客户关系，负责挖掘客户潜在需求及延展需求。<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <br />
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <strong>任职资格：</strong><span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    1、职业形象良好，专科或以上学历，两年以上广告行业客户服务、广告销售工作经验；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    2、良好的客户搜集和开发能力，敏锐的市场洞察力，市场拓展能力强，具有较强的陌生拜访及挖掘客户能力；<span>&nbsp;</span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    3、<span>4A</span>广告公司从业经历者优先考虑；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <span style="line-height:1.5;">4、有良好的职业道德、语言表达和沟通能力；责任心强，勇于接受挑战、能承受较大工作压力，拥有良好的沟通能力和团队协作精神、高度的责任感。</span> 
+                </p>
+                <p>
+                    <br />
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <span></span> 
+                </p>
+                <p>
+                    <br />
+                </p>
+                                        </li>
+                                                            <li >
+                                            <p style="margin-left:0cm;background:white;">
+                    <strong>岗位职责：</strong><span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    1、负责公司产品和服务面向大客户的销售，开发大客户建立良好关系，挖掘并推动团队整体的销售业务；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    2、积极开发建设各行业的优质客户并服务客户的关系，开拓并寻求新的商业机会；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    3、组建并管理高绩效的客户服务团队，负责团队费用及成本的监控；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    4、积极建设各行业的优质客户关系，开拓并寻求新的商业机会；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    5、协助制定针对广告客户的产品框架和销售策略；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    6、负责团队费用及成本的监控；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    7、组建并管理高绩效的客户服务团队，负责团队成员的业绩表现、发展规划；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    8、负责部门的日常管理工作及部门员工的管理、指导、培训及评估。<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <br />
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <strong>任职资格：</strong><span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    1、<span>35</span>岁以下，本科或以上学历，<span>5</span>年以上广告行业市场开发与管理经验，<span>3</span>年以上同岗位工作经验；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    2、有运营商或金融业服务经验优先；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    3、精通广告、市场营销或相关专业的知识；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    4、有较强的客户开发与管理能力，良好的沟通与协调能力；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    5、能够准确分析并预测客户需求，针对市场变化，能快速反应；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    6、具有团队协作精神，能承受强大的工作压力，能够长期出差；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    7、具备卓越的管理能力、激发团队能动性、带领团队共同完成目标及挑战。<span></span> 
+                </p>
+                                        </li>
+                                                            <li >
+                                            <p style="margin-left:0cm;background:white;">
+                    <strong>岗位职责：</strong><span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    1、拓展并维护所辖区域移动、联通
+                、电信等运营商的良好合作关系，推进与运营商商务合作项目，完成销售指标；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    2、执行公司制定的销售策略，并反馈执行情况；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    3、及时了解电信增值业务相关政策走向，为公司业务提供相关信息及决策建议；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    4、积极建设各行业的优质客户关系，开拓并寻求新的商业机会；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    5、协调各部门相关人员，保证项目有效、顺利进行；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    6、完成上级领导临时交办的工作。<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <br />
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <strong>任职要求：</strong><span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    1、本科以上学历，市场营销、广告等相关专业背景；<span>&nbsp;</span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    2、三年以上数字营销、互动营销、品牌全案客户服务工作经验；<span>&nbsp;</span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    3、熟悉广告公司运作流程，逻辑清晰，思维敏捷，能够独立担当策略规划及落地执行；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    4、具备良好的谈判能力、沟通应变能力，能够独立分析和解决问题，并能承受较大的工作压力；<span>&nbsp;</span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    5、具有良好的团队合作精神；有<span>4A</span>公司工作经验者优先。<span></span> 
+                </p>
+                                        </li>
+                                                            <li >
+                                            <p style="margin-left:0cm;background:white;">
+                    <br />
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <strong>岗位职责：</strong><span><br />
+                1.</span>负责产品的日常运营工作，配合产品利用内外资源进行运营推广工作；<span><br />
+                2.</span>负责与客户的业务部门对接，维护合作商的业务数据，确保数据准确与及时；<span><br />
+                3.</span>对业务运营、用户行为等进行分析和挖掘，提升运营质量，参与产品规划和设计。
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <span><br />
+                </span><strong>任职要求：</strong><span><br />
+                </span>1.两年以上互联网商务拓展工作经验，具备较强的市场拓展能力，商务谈判能力；<span></span> 
+                </p>
+                <p>
+                    <span style="line-height:1.5;">2.具备敏锐的市场洞察力以及市场分析能力，能根据市场信息制定合适的市场，能够在一定压力下工作</span> 
+                </p>
+                <p>
+                    <br />
+                </p>
+                <p class="MsoNormal">
+                    <b><span>&nbsp;</span></b> 
+                </p>
+                                        </li>
+                                                            <li >
+                                            <p style="margin-left:0cm;background:white;">
+                    <strong>岗位职责：</strong><span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    &nbsp;&nbsp;
+                1、负责公司多个项目的核心模块设计和研发；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    &nbsp;&nbsp;
+                2、参与大规模系统平台的架构设计和规划；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    &nbsp;&nbsp;
+                3、编写相关技术文档。<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <br />
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <strong>任职要求：</strong><span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    &nbsp; 1、二年以上<span>J2EE</span>开发经验，<span>Java</span>基础扎实；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    &nbsp;&nbsp;
+                2、熟练掌握主流<span>Java</span>开发技术，如：<span>Struts</span>、<span>Hibernate</span>、<span>Spring</span>、<span>mybatis</span>、<span>Webservice</span>等；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    &nbsp;&nbsp;
+                3、熟练掌握<span>XML</span>、<span>HTML</span>、<span>Javascript</span>（<span>Jquery</span>）、<span>Json</span>技术；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    &nbsp;&nbsp;
+                4、熟悉面向对象分析和设计，并能运用<span>UML</span>建模工具进行设计；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    &nbsp;&nbsp;
+                5、精通<span>mysql</span>数据库，了解基于分布式文件存储的数据库，如<span>memcached</span>；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    &nbsp;&nbsp;
+                6、熟练掌握<span>Linux</span>，熟悉<span>Tomcat</span>，<span>Weblogic</span>、<span>Jboss</span>等中间件；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    &nbsp;&nbsp;
+                7、熟悉<span>Eclipse</span>等开发工具和相关代码管理工具；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    &nbsp;&nbsp;
+                8、强烈的责任心和团队合作能力，有诚信，为人正直，性格开朗，善于沟通，良好的学习能力，逻辑思维能力并且敢于创新和接受挑战；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    &nbsp;&nbsp;
+                9、能够及时关注业界最新技术动态和发展方向，并能够独立研究。<span></span> 
+                </p>
+                                        </li>
+                                                            <li >
+                                            <p style="margin-left:0cm;background:white;">
+                    <strong>岗位职责：</strong><span><br />
+                1</span>、带领策划团队完成公司各项目的策划方案；<span><br />
+                2</span>、负责项目的前期调研、市场定位、产品定位、营销策划以及项目的推广策划工作；<span><br />
+                3</span>、负责各类活动的设计实施，市场策划及宣传，并对策划活动进行分析与评估；<span><br />
+                4</span>、负责项目策划方案的落实，与合作方协调、沟通，参与市场调查与信息情报的搜集整理；<span><br />
+                5</span>、负责项目实施细则的信息反馈，以及项目实施效果的评估与整理；<span><br />
+                6</span>、对自己负责的项目策划进行把控、做好及时与客户的相互沟通；<span><br />
+                7</span>、根据客户的品牌定位及产品需要，制定推广方案，有效地维护和提升品牌的知名度；<span><br />
+                8</span>、为公司提供自身品牌建设、营销推广等策划服务。
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <span><br />
+                </span><strong>任职要求：</strong><span><br />
+                1</span>、三年以上知名公司策划岗位工作经验，中文、广告学、市场营销等相关专业，本科或以上学历；<span><br />
+                2</span>、能准确理解客户要求和项目特性，有极强信息采集、汇总、分析及文案撰写功底；<span><br />
+                3</span>、熟悉各种风格的策划文案撰写，熟练运用和制作<span>PPT</span>文案；<span><br />
+                4</span>、思路清晰，思维敏捷，能独立完成整体策划的提案；<span><br />
+                5</span>、具有良好的表达、沟通能力，有较强的团队协作精神；<span><br />
+                6</span>、具备较高的职业素养、敬业精神及团队精神，擅于沟通协作。<span></span> 
+                </p>
+                                        </li>
+                                                            <li >
+                                            <p style="margin-left:0cm;background:white;">
+                    <strong>岗位职责：</strong><span><br />
+                1</span>、及时、准确接听转接电话，记录留言并及时转达；<span><br />
+                2</span>、接待来访客人并及时准确通知被访人员；<span><br />
+                3</span>、参与公司礼仪接待、会议服务等相关工作；<span><br />
+                4</span>、收发公司邮件、报刊、传真和物品，并做好登记管理以及转递工作；<span><br />
+                5</span>、负责对外关系维护、公司活动策划与组织员工活动等工作；<span><br />
+                6</span>、负责协助行政经理执行公司日常行政管理工作；<span><br />
+                7</span>、负责协助业务部门提供所需的办公设施设备，做好后勤保障工作；<span><br />
+                8</span>、负责部分与物业对接工作等。
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <span><br />
+                </span><strong>任职资格：</strong><span><strong>&nbsp;</strong><br />
+                1</span>、大专及以上学历，普通话标准，声音甜美，形象气质俱佳；<span><br />
+                2</span>、负有责任心，工作认真细致；<span>&nbsp;<br />
+                3</span>、善于沟通，具备良好的表达能力和协调能力；<span>&nbsp;<br />
+                4</span>、具有较强的服务意识，具备一定的商务礼仪知识，能独立处理突发事件，灵活处理日常事务；<span><br />
+                5</span>、简历请附个人近照。&nbsp;<span></span> 
+                </p>
+                                        </li>
+                                                           
+                                                           
+                                                            <li >
+                                            <p align="left">
+                    <strong>岗位职责:</strong><br />
+                1、对公司指定的目标学校进行新媒体的拓展、建设、巡查与维护，根据实际销售需求进行媒体的增补与调整；<br />
+                2、根据业务部门（客户）要求，进行落地活动场地的协调与落地执行；<br />
+                3、建立成熟稳定的高校学生网络，用于校园媒体巡刊、拍照，媒体维护、野广告清理，上下刊查验，落地活动场地洽谈与协调，其他临时性协助工作；<br />
+                4、在各自分管的区域内进行传统业务的开发，跟踪与签约；<br />
+                客情维护：定期对区域内各相关职能部门客户进行拜访与关系维护。<br />
+                <strong><br />
+                </strong>
+                </p>
+                <p align="left">
+                    <strong>任职资格：</strong><br />
+                1、专科学历，形象气质佳；<br />
+                2、有2年以上工作经验， 有类似渠道，客服工作经验者优先；<br />
+                3、熟练使用coraldraw、illustrator、photshop等设计软件。
+                </p>
+                                        </li>
+                                                            <li >
+                                            <p align="left">
+                    <strong>岗位职责:</strong><br />
+                1、对公司指定的目标学校进行新媒体的拓展、建设、巡查与维护，根据实际销售需求进行媒体的增补与调整；<br />
+                2、负责校园媒体巡刊、拍照，媒体维护、野广告清理，上下刊查验；负责落地活动场地洽谈协调，撰写活动流程方案及后期执行；<br />
+                3、建立成熟稳定的高校学生网络（学生会/社团），统计出高校全部的社团名称，综合排名靠前的社团，定期对学生网络进行排查与更新；<br />
+                4、随时了解学习文案策划相关信息，建立创意知识库及策划方案案例库，制定活动执行考核计划，完成考核呈报上级领导。<br />
+                <strong><br />
+                </strong>
+                </p>
+                <p align="left">
+                    <strong>任职资格：</strong><br />
+                1、35岁以下，大专及以上学历；<br />
+                2、有高校相关路演、比赛等项目执行经验优先考虑；<br />
+                3、性格热情开朗，勤于思考，善沟通、喜创新，有独立思考能力与创新精神；<br />
+                4、具备团队合作精神，能形成合理有效的团队协作机制，能够适应高强度工作；<br />
+                5、具有策划、组织、举办校园活动的能力。
+                </p>
+                                        </li>
+                                                            <li >
+                                            <p align="left">
+                    <strong>岗位职责：</strong><br />
+                1、带领策划团队，根据客户的需求，提供广告策划方案，协调设计、制作，确保按质完成客户要求；<br />
+                2、 负责整合推广方案的策划，根据公司的决策组织资源投入，并指导相关人员实施及执行；<br />
+                3、 负责督导策划团队的策划提案及广告活动的执行，并对每次活动做评估分析，提交报告给公司领导；<br />
+                4、 参与广告销售部门销售策略的制定工作，基于销售策略制定本组年度、季度、月度工作计划；<br />
+                5、关注行业客户需求，参与及协助广告产品的研发工作，具有独立规划业务工作的能力，能及时分析市场动态，在经济活动中发现和处理问题。<br />
+                <strong><br />
+                </strong>
+                </p>
+                <p align="left">
+                    <strong>任职资格：</strong><br />
+                1、年龄35岁以下，中文、广告学、市场营销等相关专业，本科或以上学历；<br />
+                2、熟悉策划公司工作流程，5年以上工作经验，3年以上同等岗位工作经验；<br />
+                3、有大型项目的全案操作经验和成功案例，富于创新精神；<br />
+                4、有团队管理经验，有全案策划与管理能力；能独立组织和完成整体策划项目，包括制定项目流程、策略、组织撰写策划方案等；<br />
+                5、良好的团队激励能力、良好的组织协调能力和综合管理能力；<br />
+                6、良好的客户沟通协调、计划、谈判技巧，能够把握项目进程与流程控制。
+                </p>
+                                        </li>
+                                                            <li >
+                                            <p style="margin-left:0cm;background:white;">
+                    <br />
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <br />
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <strong>岗位职责：</strong><span><br />
+                1</span>、根据项目的要求，负责项目的整体管理与执行；<span>&nbsp;<br />
+                2</span>、对策划方案进行落实，对活动流程全程监督；<span>&nbsp;<br />
+                3</span>、根据客户要求，制定、调整活动运作方案，实施前期、现场、后期工作；<span>&nbsp;<br />
+                4</span>、合理的运用公司现有客户及供应商资源，完成项目任务；<span>&nbsp;<br />
+                5</span>、撰写活动执行细案、执行预算、执行流程、项目时间推进表，预估活动现场效果；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    6、把控活动现场制作物及外协单位的工作品质，监督现场搭建品质及设备的调试；<span>&nbsp;<br />
+                7</span>、对整个现场流程，效果，时间全盘掌控，组织工作人员进行前期彩排演练；<span>&nbsp;<br />
+                8</span>、完成领导交办的其他工作。<span>&nbsp;<br />
+                <br />
+                </span><strong>任职资格：</strong><span><strong>&nbsp;</strong><br />
+                1</span>、三年以上客户经理工作经验，本科以上学历，英语良好优先；<span>&nbsp;<br />
+                2</span>、良好的表达和领悟能力，迅速了解客户意图，及时传达客户需求；<span>&nbsp;<br />
+                3</span>、熟练使用<span>MS&nbsp;Office</span>，<span>Excel</span>，<span>PowerPoint</span>；<span><br />
+                4</span>、有商业演出，商业路演，发布会及商务会议等经验；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    5、能够适应出差。<span></span> 
+                </p>
+                <p>
+                    <br />
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <span></span> 
+                </p>
+                <p>
+                    <br />
+                </p>
+                <p>
+                    <br />
+                </p>
+                                        </li>
+                                                            <li >
+                                            <p>
+                    <strong><strong>岗位职责：</strong></strong>
+                </p>
+                <p style="margin-left:0cm;">
+                    1、积极建设并维护良好、互信的客户关系，挖掘与客户长期深度合作的商业机会；&nbsp;
+                </p>
+                <p style="margin-left:0cm;">
+                    2、深刻理解、深度挖掘并把握客户需求，带领团队实施客户维护工作；
+                </p>
+                <p style="margin-left:0cm;">
+                    3、准确把握客户需求，带领团队或独立负责客户发展及配合活动的构思及策划案的提报；参与撰写客户的竞标提案；
+                </p>
+                <p style="margin-left:0cm;">
+                    4、协调各部门相关人员，保证项目有效、顺利进行；
+                </p>
+                <p style="margin-left:0cm;">
+                    5、完成上级领导临时交办的工作。
+                </p>
+                <p style="background:white;">
+                    <strong><strong><br />
+                </strong></strong> 
+                </p>
+                <p style="background:white;">
+                    <strong><strong>任职要求：</strong> </strong> 
+                </p>
+                <p style="margin-left:0cm;">
+                    1、本科以上学历，市场营销、广告等相关专业背景；&nbsp;
+                </p>
+                <p style="margin-left:0cm;">
+                    2、三年以上数字营销、互动营销、品牌全案客户服务工作经验；&nbsp;
+                </p>
+                <p style="margin-left:0cm;">
+                    3、熟悉广告公司运作流程，逻辑清晰，思维敏捷，能够独立担当策略规划及落地执行；
+                </p>
+                <p style="margin-left:0cm;">
+                    4、具备良好的谈判能力、沟通应变能力，能够独立分析和解决问题，并能承受较大的工作压力；&nbsp;
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    5、具有良好的团队合作精神；有<span>4A</span>公司工作经验者优先。
+                </p>
+                <p>
+                    <br />
+                </p>
+                                        </li>
+                                                            <li >
+                                            <p style="background:white;">
+                    <strong>岗位职责：</strong> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    1、负责数字营销业务执行，与客户及时的联系与交流，准确传达公司与客户意图；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    2、协助客户经理完成对内对外的协调工作，负责制定具体的业务计划，时间推进计划等；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    3、收集并了解对应客户相关的市场、消费者、竞争信息，对广告战略提供市场信息基础；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    4、参加执行业务的策划、创意设计与提案等业务；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    5、协助客户经理做好项目财务上的管理及相关手续，保障每项工作内部财务流程上的清晰及顺利进行。<span></span> 
+                </p>
+                <p style="background:white;">
+                    <strong>任职要求：</strong> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    1.大学本科及以上学历，市场营销、广告学或者新闻传播相关专业毕业，一年以上广告公司客户执行经验，熟悉广告行业基本运作流程；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    2.具有一定的提案能力以及良好的协调、配合、沟通能力，善于维护客户关系；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    3.有一定的市场分析与拓展能力，能迅速作出有利于公司与客户的反应；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    4.熟练操作办公软件，主动积极、责任心强；高度的工作热情，良好的团队合作精神。<span></span> 
+                </p>
+                <p>
+                    <br />
+                </p>
+                <p style="background:white;">
+                    <strong></strong> 
+                </p>
+                                        </li>
+                                                            <li >
+                                            <p>
+                    <br />
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <strong>岗位职责：</strong><span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    1. 深度了解客户需求，参与项目前期定位、项目的整合推广策略和执行；<span><br />
+                2. </span>撰写阶段工作计划和进度表，与客户、项目团队进行沟通与协调，确保项目推进与执行；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    3. 合理利用和协调内部资源，重点对客户进行深度服务，提高客户满意度，促进客户重复购买；<span><br />
+                4. </span>项目资料的整理和归档，日常的客户会议及提案。<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <strong><br />
+                </strong>
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <strong>任职要求：</strong> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <span style="line-height:1.5;">1. 本科及以上学历，有社会化营销、数字营销项目经验，团队管理经验优先；</span><span style="line-height:1.5;">&nbsp;</span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <span> 2. 1</span>年以上社会化媒体营销、数字营销项目服务经验，精通项目管理，有独立实施项目管理操作的成功经验及独立提案能力；<span><br />
+                3. </span>较强的项目进度把控能力、沟通理解能力，良好的交际和资源整合能力；<span><br />
+                4. </span>具有敏锐的思维和心理分析能力，能够准备的判断客户需求，能对各种突发情况进行妥善处理；<span><br />
+                5. </span>做事积极主动，工作有条理，善于思维，愿意接受挑战。<span style="line-height:1.5;"></span> 
+                </p>
+                <p>
+                    <br />
+                </p>
+                                        </li>
+                                                            <li >
+                                            <p>
+                    <strong>岗位职责：</strong> 
+                </p>
+                <p>
+                    <span style="background-color:white;">1、协助客户总监拓展并维护所辖区域电信等运营商的良好合作关系，或有银行及教育机构资源的经验，推进与运营商商务合作项目，完成销售指标；</span> 
+                </p>
+                <p>
+                    <span style="background-color:white;">2、根据公司的媒介资源优势及发展目标，完成客户信息资源收集及对重点目标客户进行开发，完成规定的推广计划和销售任务；</span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    3、将公司的资源优势及服务内容对目标客户进行信息的准确传递；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    4、充分了解客户的产品情况和市场销售情况，综合分析客户的投放需求和投放习惯；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    5、结合客户需求，协助策划部完成针对客户需求合作方案的制定，准确有效的完成提案；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    6、保持、建立客户关系，负责挖掘客户潜在需求及延展需求。<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <strong><br />
+                </strong> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <strong>任职要求：</strong><span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    1、职业形象良好，专科或以上学历，两年以上广告行业客户服务、广告销售工作经验；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    2、良好的客户搜集和开发能力，敏锐的市场洞察力，市场拓展能力强，具有较强的陌生拜访及挖掘客户能力； <span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    3、<span>4A</span>广告公司从业经历者优先考虑；<span></span> 
+                </p>
+                <p style="margin-left:0cm;background:white;">
+                    <span style="line-height:1.5;">4、有良好的职业道德、语言表达和沟通能力；责任心强，勇于接受挑战、能承受较大工作压力，拥有良好的沟通能力和团队协作精神、高度的责任感。</span> 
+                </p>
+                <p>
+                    <br />
+                </p>
+                <p>
+                    <br />
+                </p>
+                                        </li>
+                                                        </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end滚动看图-->
+                
+
+                </div>
+            </div>
+            <div class="bottombar">
+                <div class="footerBox">
+                    <div class="foot_tact">
+                        <h6>联系我们</h6>
+                        <p>地址：广州市天河区员村南街T26产业园H馆306</p>
+                        <p>Email: </p>
+                        <p>联系电话:</p>
+                    </div>
+                    <span class="logopng"><img src="./images/logo@2x.png" alt="" class="foot_logo"></span>
+                    <div class="foot_ewm">
+                        <p>关注我们</p>
+                        <div class="wechsina">
+                            <img src="./images/WeChat@2x.png">
+                            <div class="chat_ewmwg" style="display:none;">
+                                <img src="./images/Network essay@2x.png" alt="">
+                            </div>
+                    </div>
+                       <a href="https://weibo.com" class="weibo">
+                           <img  src="./images/sina@2x.png" alt="">
+                       </a>
+                    </div>
+                    <p class="title">京ICP备16045860号：网络文化经营许可证 京网文（2018） 2132-193号</p>
+                </div>
+
+            </div>
+  <!-- back to top -->
+  <div class="side_bar pof ho">
+    <div class="back_to_top"></div>
+</div>
+        </div>
+</body>
+
+</html>
+<script>
+    $(document).ready(function () {
+            /* WeChat displays the qr code */
+            $(".wechsina").hover(function () {
+                    $(this).find(".chat_ewmwg").slideDown(100, "linear");
+            }, function () {
+                    $(this).find(".chat_ewmwg").slideUp(10, "linear");
+            }).trigger("mouseleave");
+
+            /*右侧返回顶部设置 */
+            $('body').scroll(function () {
+                    var vscroll = $('body').scrollTop();
+                    if (vscroll > 100) {
+                            $('.back_to_top').css('display', 'block');
+                    } else {
+                            $('.back_to_top').css('display', 'none');
+                    }
+            });
+            $('.back_to_top').click(function () {
+                    $('html,body').animate({
+                            scrollTop: 0
+                    }, 300);
+            })
+
+
+    });
+</script>

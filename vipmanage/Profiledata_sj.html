@@ -1,0 +1,1254 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>首页 - 核桃书吧</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script src="https://static01.tengwen.com/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/clipboard.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/klorofil-common.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/comm.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/moment.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/moment_zh-cn.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/echarts.min.js"></script>
+    <script src="https://static01.tengwen.com/common/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/novel.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/backend/novel/css/media.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/toastr.min.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" style="height: 50px;background-color: #2a3747;">
+            <div class="brand" style="padding:0;background-color: #2a3747;"><a href="javascript:void(0);"></div>
+            <div class="container-fluid">
+                <div class="navbar-btn">
+                    <button type="button" class="btn-toggle-fullwidth"><i class="fa fa-list" aria-hidden="true" style="color:#fff;"></i>
+                    </button>
+                </div>
+                <div id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="/notice/index" class="dropdown-toggle icon-menu"> 
+                                    <span class="badge bg-danger notice_msgnum"></span>
+                                </a>
+                            </li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="./images/headshot@2x.png"
+                                        class="img-circle">
+                                    <span style="color:#f1f1f1;">核桃书吧</span> <i class="fa fa-angle-down" aria-hidden="true" style="color:#f1f1f1;"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="./personaldata.gr.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>个人资料</span></a>
+                                    </li>
+                                    <li><a href="Publicnumbersetting-gz.html"><i class="fa fa-address-card-o" aria-hidden="true"></i><span>公众号设置/接入</span></a>
+                                    </li>
+                                    <li><a href="https://static01.tengwen.com/backend/novel/docx/tengwen_readme.docx"><i
+                                                class="fa fa-arrow-down" aria-hidden="true"></i><span>下载帮助文档</span></a>
+                                    </li>
+                                    <li><a href="./Platformlogin.html" onclick="return confirm('确认退出？')"><i class="fa fa-fw fa-power-off"
+                                                aria-hidden="true"></i> <span>安全退出</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+        </nav> <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        <div id="sidebar-nav" class="sidebar">
+            <div class="sidebar-scroll" style="overflow-y: auto;height: 100%;padding:20px 0;background-color:#354051;">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="./AnnounceList_gg.html" id="noticemenu"><i class="fa fa-bell-o" aria-hidden="true"></i><span
+                                    class="menu-span">公告列表</span></a></li>
+                        <li><a href="./Profiledata_sj.html" class="active"><i class="fa fa-line-chart" aria-hidden="true"></i><span
+                                    class="menu-span">数据概况</span></a></li>
+                        <li><a href="./ordersummary.html"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="menu-span">订单汇总</span></a></li>
+                        <li><a href="./Usersummary.html"><i class="fa fa-pie-chart" aria-hidden="true"></i><span class="menu-span">用户汇总</span></a></li>
+                        <li><a href="./addsup_xs.html"><i class="fa fa-bars" aria-hidden="true"></i><span class="menu-span">小说充值汇总</span></a></li>
+                        <li><a href="./orderdetails_dd.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                    class="menu-span">订单明细</span></a></li>
+                        <li><a href="./subsidiary_fs.html"><i class="fa fa-id-card-o" aria-hidden="true"></i><span
+                                    class="menu-span">粉丝明细</span></a></li>
+                        <li><a href="./library-xs.html"><i class="fa fa-book" aria-hidden="true"></i><span class="menu-span">小说库</span></a></li>
+                        <li><a href="./Promotion-tg.html"><i class="fa fa-chain-broken" aria-hidden="true"></i><span
+                                    class="menu-span">推广列表</span></a></li>
+                        <li><a href="./listinterpolatel-nt.html"><i class="fa fa-link" aria-hidden="true"></i><span
+                                    class="menu-span">内推列表</span></a></li>
+                        <li><a href="./Listofactivities-hd.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span
+                                    class="menu-span">活动列表</span></a></li>
+                        <li><a href="./antistop-gj.html"><i class="fa fa-comments-o" aria-hidden="true"></i><span class="menu-span">关键词回复</span></a></li>
+                        <li><a href="./Linkstorecycle-lj.html"><i class="fa fa-recycle" aria-hidden="true"></i><span
+                                    class="menu-span">链接回收</span></a></li>
+                        <li><a href="./Intelligentpush-zn.html"><i class="fa fa-reply-all" aria-hidden="true"></i><span
+                                    class="menu-span">智能推送</span></a></li>
+                        <li><a href="./Templatemessage-mb.html"><i class="fa fa-envelope-open" aria-hidden="true"></i><span
+                                    class="menu-span">模版消息</span></a></li>
+                        <li><a href="newsoftheservice-kf.html"><i class="fa fa-commenting-o" aria-hidden="true"></i><span
+                                    class="menu-span">客服消息</span></a></li>
+                        <li><a href="./promoteincome-sr.html"><i class="fa fa-jpy" aria-hidden="true"></i><span class="menu-span">推广收入</span></a></li>
+                        <li><a href="./withdrawalofsubsidiary-tx.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                    class="menu-span">提现明细</span></a></li>
+                        <li><a href="./Publicnumbersetting-gz.html"><i class="fa fa-cog" aria-hidden="true"></i><span
+                                    class="menu-span">公众号设置</span></a></li>
+                        <li><a href="./OtherSettings-qt.html"><i class="fa fa-cogs" aria-hidden="true"></i><span class="menu-span">其它设置</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+        <div class="main">
+            <div class="main-content">
+                <div class="container-fluid" >
+
+
+                    <!-- TITLE -->
+                    <div class="panel" style="display:none;">
+                        <div class="panel-heading mynav">
+                            <h3 class="panel-title">
+                                <i class="fa fa-home" aria-hidden="true"></i>首页 &gt;
+                                <h7 class="menu-name">数据概况</h7>
+                            </h3>
+                        </div>
+                    </div>
+                    <!-- TITLE END -->
+
+                    <!-- TOP DATA -->
+                    <div class="row" id="all_userrow">
+                        <div class="col-md-3 ">
+                            <div class="panel col-border-1" style="background-color:#68cfdd">
+                                <div class="panel-body form-horizontal " style="padding-bottom: 0px;">
+                                    <div class="col-md-12" style="padding-left: 0;">
+                                        <div class="info-box clearfix">
+                                            <div class="info" style="color:#f1f1f1;">
+                                                <p class="ti col-font" style="font-size:8px;">累计充值(元)</p>
+                                                <p class="fnt  col-font-2 r_money" style="color:#f1f1f1;">¥189,661.70</p>
+                                            </div>
+                                            <div class="" ;>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="panel col-border-1" style="background-color:#feb264">
+                                <div class="panel-body form-horizontal " style="padding-bottom: 0px;">
+                                    <div class="col-md-12" style="padding-left: 0;">
+                                        <div class="info-box clearfix">
+                                            <div class="info" style="color:#f1f1f1;">
+                                                <p class="ti col-font" style="font-size:8px;">累计成本(元)</p>
+                                                <p class="fnt  col-font-2 cost_money" style="color:#f1f1f1;">¥0.00</p>
+                                            </div>
+                                            <div class="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="panel col-border-1" style="background-color:#e9629b">
+                                <div class="panel-body form-horizontal " style="padding-bottom: 0px;">
+                                    <div class="col-md-12" style="padding-left: 0;">
+                                        <div class="info-box clearfix">
+                                            <div class="info" style="color:#f1f1f1;">
+                                                <p class="ti col-font" style="font-size:8px;">利润(元)</p>
+                                                <p class="fnt col-font-2 profit_money" style="color:#f1f1f1;">¥189,661.70</p>
+                                            </div>
+                                            <div class="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TOP DATA END -->
+
+                    <!-- ORDER DATA -->
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="panel">
+                                <div class="panel-heading panel-header-bottom">
+                                    <h3 class="panel-title"><i class="fa fa-calendar" style="margin-right:5px;">
+                                        </i>今日订单<i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip"
+                                            title="" data-original-title="延迟1分钟左右"></i>
+                                    </h3>
+                                </div>
+                                <div class="panel-body form-horizontal">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div id="order_first" style="height: 300px; 
+                                                -webkit-tap-highlight-color: transparent;
+                                                 user-select: none; position: relative;
+                                                  background: rgb(255, 255, 255);"
+                                                    _echarts_instance_="ec_1542361747698">
+                                                    <div style="position: relative; overflow: hidden; width: 299px; height: 300px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas
+                                                            width="299" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 299px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div>
+                                                    <div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font: 14px/21px &quot;Microsoft YaHei&quot;; padding: 5px; left: 112px; top: 99px;"><span
+                                                            style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#3b86e0;"></span>普通充值:
+                                                        510</div>
+                                                </div>
+                                                <p class="total_money" style="display:none;"></p>
+                                            </div>
+                                            <div class="col-md-7">
+
+
+                                                <div class="row row-schedule">
+
+
+                                                    <div>
+                                                        <p><i class="fa fa-circle " style="color:#3869b6;"></i>
+                                                            普通充值(元)&nbsp;&nbsp;&nbsp;<b style="color:#88abda;">¥510.00</b></p>
+                                                    </div>
+
+                                                    <div class="row" style="margin-left:3.5%;">
+                                                        <div class="pull-left">已支付</div>
+                                                        <div class="col-md-8">
+                                                            <div class="progress" style="height:8px;margin-top:2%;margin-bottom:6%;">
+                                                                <div class="progress-bar " role="progressbar"
+                                                                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                                    style="width:1100%;">
+                                                                    <span class="sr-only">40% 完成</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-left "><b>9</b>单</div>
+                                                    </div>
+                                                    <div class="row" style="margin-left:3.5%;">
+                                                        <div class="pull-left">未支付</div>
+                                                        <div class="col-md-8">
+                                                            <div class="progress" style="height:8px;margin-top:2%;margin-bottom:6%;">
+                                                                <div class="progress-bar " role="progressbar"
+                                                                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                                    style="width:1111.1111111111%;">
+                                                                    <span class="sr-only">40% 完成</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-left"><b>10</b>单</div>
+                                                    </div>
+                                                    <div class="row" style="margin-left:3.5%;">
+                                                        <div class="pull-left">充值率</div>
+                                                        <div class="col-md-8">
+                                                            <div class="progress" style="height:8px;margin-top:2%;margin-bottom:6%;">
+                                                                <div class="progress-bar " role="progressbar"
+                                                                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                                    style="width:47.37%;">
+                                                                    <span class="sr-only">40% 完成</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-left"><b>47.37</b>%</div>
+                                                    </div>
+                                                </div>
+                                                <div class="row row-schedule">
+                                                    <div>
+                                                        <p><i class="fa fa-circle " style="color:#ffc425;"></i>
+                                                            年费VIP年费充值(元)&nbsp;&nbsp;&nbsp;<b style="color:#88abda;">¥0.00</b></p>
+                                                    </div>
+                                                    <div class="row" style="margin-left:3.5%;">
+                                                        <div class="pull-left">已支付</div>
+                                                        <div class="col-md-8">
+                                                            <div class="progress progress-second " style="height:8px;margin-top:2%;margin-bottom:6%;">
+                                                                <div class="progress-bar " role="progressbar"
+                                                                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                                    style="width:NAN%;">
+                                                                    <span class="sr-only">40% 完成</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-left"><b>0</b>单</div>
+                                                    </div>
+                                                    <div class="row" style="margin-left:3.5%;">
+                                                        <div class="pull-left">未支付</div>
+                                                        <div class="col-md-8">
+                                                            <div class="progress progress-second " style="height:8px;margin-top:2%;margin-bottom:6%;">
+                                                                <div class="progress-bar " role="progressbar"
+                                                                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                                    style="width:NAN%;">
+                                                                    <span class="sr-only">40% 完成</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-left"><b>0</b>单</div>
+                                                    </div>
+                                                    <div class="row" style="margin-left:3.5%;">
+                                                        <div class="pull-left">充值率</div>
+                                                        <div class="col-md-8">
+                                                            <div class="progress progress-second " style="height:8px;margin-top:2%;margin-bottom:6%;">
+                                                                <div class="progress-bar " role="progressbar"
+                                                                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                                    style="width:0%;">
+                                                                    <span class="sr-only">40% 完成</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-left"><b>0</b>%</div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel">
+                                <div class="panel-heading panel-header-bottom">
+                                    <h3 class="panel-title"><i class="fa fa-calendar" style="margin-right:5px;">
+                                        </i>昨日订单<i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip"
+                                            title="" data-original-title="延迟1分钟左右"></i>
+                                    </h3>
+                                </div>
+                                <div class="panel-body form-horizontal">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div id="order_second" style="height: 300px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: rgb(255, 255, 255);"
+                                                    _echarts_instance_="ec_1542361747700">
+                                                    <div style="position: relative; overflow: hidden; width: 299px; height: 300px; padding: 0px; margin: 0px; border-width: 0px;"><canvas
+                                                            width="299" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 299px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div>
+                                                    <div></div>
+                                                </div>
+                                                <p class="total_money" style="display:none;"></p>
+                                            </div>
+                                            <div class="col-md-7">
+
+
+                                                <div class="row row-schedule">
+
+
+                                                    <div>
+                                                        <p><i class="fa fa-circle " style="color:#3869b6;"></i>
+                                                            普通充值(元)&nbsp;&nbsp;&nbsp;<b style="color:#7092ca;">¥750.00</b></p>
+                                                    </div>
+
+                                                    <div class="row" style="margin-left:3.5%;">
+                                                        <div class="pull-left">已支付</div>
+                                                        <div class="col-md-8">
+                                                            <div class="progress" style="height:8px;margin-top:2%;margin-bottom:6%;">
+                                                                <div class="progress-bar " role="progressbar"
+                                                                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                                    style="width:1400%;">
+                                                                    <span class="sr-only">50% 完成</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-left "><b>16</b>单</div>
+                                                    </div>
+                                                    <div class="row" style="margin-left:3.5%;">
+                                                        <div class="pull-left">未支付</div>
+                                                        <div class="col-md-8">
+                                                            <div class="progress" style="height:8px;margin-top:2%;margin-bottom:6%;">
+                                                                <div class="progress-bar " role="progressbar"
+                                                                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                                    style="width:1381.25%;">
+                                                                    <span class="sr-only">40% 完成</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-left"><b>13</b>单</div>
+                                                    </div>
+                                                    <div class="row" style="margin-left:3.5%;">
+                                                        <div class="pull-left">充值率</div>
+                                                        <div class="col-md-8">
+                                                            <div class="progress" style="height:8px;margin-top:2%;margin-bottom:6%;">
+                                                                <div class="progress-bar " role="progressbar"
+                                                                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                                    style="width:55.17%;">
+                                                                    <span class="sr-only">40% 完成</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-left"><b>55.17</b>%</div>
+                                                    </div>
+                                                </div>
+                                                <div class="row row-schedule">
+                                                    <div>
+                                                        <p><i class="fa fa-circle " style="color:#ffc425;"></i>
+                                                            年费VIP年费充值(元)&nbsp;&nbsp;&nbsp;<b style="color:#3b86e0;">¥499.00</b></p>
+                                                    </div>
+                                                    <div class="row" style="margin-left:3.5%;">
+                                                        <div class="pull-left">已支付</div>
+                                                        <div class="col-md-8">
+                                                            <div class="progress progress-second " style="height:8px;margin-top:2%;margin-bottom:6%;">
+                                                                <div class="progress-bar " role="progressbar"
+                                                                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                                    style="width:100%;">
+                                                                    <span class="sr-only">40% 完成</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-left"><b>1</b>单</div>
+                                                    </div>
+                                                    <div class="row" style="margin-left:3.5%;">
+                                                        <div class="pull-left">未支付</div>
+                                                        <div class="col-md-8">
+                                                            <div class="progress progress-second " style="height:8px;margin-top:2%;margin-bottom:6%;">
+                                                                <div class="progress-bar " role="progressbar"
+                                                                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                                    style="width:0%;">
+                                                                    <span class="sr-only">40% 完成</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-left"><b>0</b>单</div>
+                                                    </div>
+                                                    <div class="row" style="margin-left:3.5%;">
+                                                        <div class="pull-left">充值率</div>
+                                                        <div class="col-md-8">
+                                                            <div class="progress progress-second " style="height:8px;margin-top:2%;margin-bottom:6%;">
+                                                                <div class="progress-bar " role="progressbar"
+                                                                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                                    style="width:100%;">
+                                                                    <span class="sr-only">40% 完成</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-left"><b>100</b>%</div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel">
+                                <div class="panel-heading panel-header-bottom">
+                                    <h3 class="panel-title"><i class="fa fa-calendar" style="margin-right:5px;">
+                                        </i>今日新增用户<i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip"
+                                            title="" data-original-title="延迟1分钟左右"></i>
+                                    </h3>
+                                </div>
+                                <div class="panel-body form-horizontal">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div id="user_first" style="height: 300px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: rgb(255, 255, 255);"
+                                                    _echarts_instance_="ec_1542361747699">
+                                                    <div style="position: relative; overflow: hidden; width: 299px; height: 300px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas
+                                                            width="299" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 299px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div>
+                                                    <div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font: 14px/21px &quot;Microsoft YaHei&quot;; padding: 5px; left: 100px; top: 260px;"><span
+                                                            style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#3b86e0;"></span>男性:
+                                                        2</div>
+                                                </div>
+                                                <p class="total_money" style="display:none;"></p>
+                                            </div>
+                                            <div class="col-md-7">
+
+
+                                                <div class="row">
+                                                    <table class="table  table-state">
+
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <td><i class="fa fa-circle " style="color:#3869b6;"></i>&nbsp;&nbsp;&nbsp;男性</td>
+                                                                <td style="color:#90aad5;"><b class="sex1_amount">2</b>人</td>
+                                                                <td>占有率</td>
+                                                                <td style="color:#90aad5;"><b class="sex1_percent">66.67</b>%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><i class="fa fa-circle " style="color:#f2ab34;"></i>&nbsp;&nbsp;&nbsp;女性</td>
+                                                                <td style="color:#e2a576;"><b class="sex2_amount">1</b>人</td>
+                                                                <td>占有率</td>
+                                                                <td style="color:#e2a576;"><b class="sex2_percent">33.33</b>%</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="row">
+                                                    <table class="table  table-state">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td><i class="fa fa-circle " style="color:#04959e;"></i>&nbsp;&nbsp;&nbsp;已关注</td>
+                                                                <td style="color:#56afb5;"><b class="follow_amount">3</b>人</td>
+                                                                <td>关注率</td>
+                                                                <td style="color:#56afb5;"><b class="follow_percent">60</b>%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><i class="fa fa-circle " style="color:#04959e;"></i>&nbsp;&nbsp;&nbsp;已充值</td>
+                                                                <td style="color:#56afb5;"><b class="paid_amount">0</b>人</td>
+                                                                <td>充值率</td>
+                                                                <td style="color:#56afb5"><b class="paid_percent">0</b>%</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel">
+                                <div class="panel-heading panel-header-bottom">
+                                    <h3 class="panel-title"><i class="fa fa-calendar" style="margin-right:5px;">
+                                        </i>昨日新增用户<i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip"
+                                            title="" data-original-title="延迟1分钟左右"></i>
+                                    </h3>
+                                </div>
+                                <div class="panel-body form-horizontal">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div id="user_second" style="height: 300px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: rgb(255, 255, 255);"
+                                                    _echarts_instance_="ec_1542361747701">
+                                                    <div style="position: relative; overflow: hidden; width: 299px; height: 300px; padding: 0px; margin: 0px; border-width: 0px;"><canvas
+                                                            width="299" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 299px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div>
+                                                    <div></div>
+                                                </div>
+                                                <p class="total_money" style="display:none;"></p>
+                                            </div>
+                                            <div class="col-md-7">
+
+
+                                                <div class="row">
+                                                    <table class="table  table-state">
+
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <td><i class="fa fa-circle " style="color:#4170b9;"></i>&nbsp;&nbsp;&nbsp;男性</td>
+                                                                <td style="color:#98aed6;"><b class="sex1_amount">1</b>人</td>
+                                                                <td>占有率</td>
+                                                                <td style="color:#3b86e0;"><b class="sex1_percent">100</b>%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><i class="fa fa-circle " style="color:#f2ab34;"></i>&nbsp;&nbsp;&nbsp;女性</td>
+                                                                <td style="color:#f2ab34;"><b class="sex2_amount">0</b>人</td>
+                                                                <td>占有率</td>
+                                                                <td style="color:#dd9351;"><b class="sex2_percent">0</b>%</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="row">
+                                                    <table class="table  table-state">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td><i class="fa fa-circle " style="color:#04959e;"></i>&nbsp;&nbsp;&nbsp;已关注</td>
+                                                                <td style="color:#7ac3c9;"><b class="follow_amount">2</b>人</td>
+                                                                <td>关注率</td>
+                                                                <td style="color:#7ac3c9;"><b class="follow_percent">28.57</b>%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><i class="fa fa-circle " style="color:#04959e;"></i>&nbsp;&nbsp;&nbsp;已充值</td>
+                                                                <td style="color:#7ac3c9;"><b class="paid_amount">0</b>人</td>
+                                                                <td>充值率</td>
+                                                                <td style="color:#7ac3c9;"><b class="paid_percent">0</b>%</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ORDER DATA  END-->
+
+
+                    <!-- USER DATA -->
+                    <div class="row">
+                    </div>
+                    <!-- USER DATA END -->
+
+
+
+                    <!-- CHART DATA -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel">
+                                <div class="panel-heading panel-header-bottom">
+                                    <h3 class="panel-title">
+                                        <i class="fa fa-calendar" style="margin-right:5px;"></i>
+                                        近7天订单走势
+                                    </h3>
+                                </div>
+                                <div class="panel-body form-horizontal" id="curr_month">
+                                    <div id="first_Data" style="width: 100%; height: 300px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;"
+                                        _echarts_instance_="ec_1542361747696">
+                                        <div style="position: relative; overflow: hidden; width: 790px; height: 300px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas
+                                                width="790" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 790px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div>
+                                        <div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font: 14px/21px &quot;Microsoft YaHei&quot;; padding: 5px; left: 532px; top: 159px;">2018/11/13<br><span
+                                                style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#3b86e0;"></span>总订单数:
+                                            14<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#36c0e4;"></span>已付订单数:
+                                            6<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#ffc425;"></span>未付订单数:
+                                            8</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel">
+                                <div class="panel-heading panel-header-bottom">
+                                    <h3 class="panel-title">
+                                        <i class="fa fa-calendar" style="margin-right:5px;"></i>
+                                        近7天新增用户走势
+                                    </h3>
+                                </div>
+                                <div class="panel-body form-horizontal" id="curr_month">
+                                    <div id="second_Data" style="width: 100%; height: 300px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;"
+                                        _echarts_instance_="ec_1542361747697">
+                                        <div style="position: relative; overflow: hidden; width: 790px; height: 300px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas
+                                                width="790" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 790px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div>
+                                        <div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font: 14px/21px &quot;Microsoft YaHei&quot;; padding: 5px; left: 66px; top: 115px;">2018/11/09<br><span
+                                                style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#3b86e0;"></span>新增人数:
+                                            10<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#36c0e4;"></span>关注人数:
+                                            1<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#ffc425;"></span>充值人数:
+                                            0</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CHART DATA  END -->
+
+
+
+
+                    <style>
+                        .progress>.progress-bar {
+                            background-color: #3b86e0;
+                        }
+
+                        .progress-second>.progress-bar {
+                            background-color: #ffc425;
+                        }
+
+                        .row-schedule {
+                            margin-top: 5%;
+                        }
+
+                        .table-state {
+                            margin: 0 auto;
+                            margin-top: 10%;
+                            width: 60%;
+                        }
+
+                        .table-state>tbody>tr>td {
+                            border: none;
+                        }
+
+                        .col-margin-4 {
+                            margin-left: 12%;
+                            margin-right: 13%;
+                        }
+
+                        .col-border-5 {
+                            border-left: 5px solid #3b86e0;
+                            border-radius: 6px;
+                        }
+
+                        .col-font-2 {
+                            color: #3b86e0;
+                        }
+
+                        b,
+                        strong {
+                            font-weight: normal;
+                        }
+
+                        .well {
+                            background-color: #fff;
+                        }
+
+                        .text-other {
+                            margin: 0px;
+                            font-size: 12px;
+                            color: #777;
+                        }
+
+                        .pt {
+                            padding-left: 0;
+                        }
+
+                        .info-box p {
+                            padding: 0;
+                            margin: 0;
+                        }
+
+                        .info-box .icon-img {
+                            float: right;
+                            width: 70px;
+                            height: 70px;
+                        }
+
+                        .info-box .info {
+                            float: left;
+                            padding-left: 10px;
+                        }
+
+                        .info-box .info .ti {
+                            font-size: 24px;
+                            padding-top: 5px;
+                        }
+
+                        .info-box .info .fnt {
+                            font-size: 30px;
+                        }
+
+                        .ico-rmoney {
+                            background: url(https://static01.tengwen.com/backend/novel/img/rmoney.png) no-repeat;
+                            background-size: 100%;
+                        }
+
+                        .ico-costmoney {
+                            background: url(https://static01.tengwen.com/backend/novel/img/costmoney.png) no-repeat;
+                            background-size: 100%;
+                        }
+
+                        .ico-profit {
+                            background: url(https://static01.tengwen.com/backend/novel/img/profit.png) no-repeat;
+                            background-size: 100%;
+                        }
+
+                        .ico-money {
+                            background: url(https://static01.tengwen.com/backend/novel/img/ico-money.png) no-repeat;
+                            background-size: 100%;
+                        }
+
+                        .ico-order-pt {
+                            background: url(https://static01.tengwen.com/backend/novel/img/ico-order-pt.png) no-repeat;
+                            background-size: 100%;
+                        }
+
+                        .ico-order-vip {
+                            background: url(https://static01.tengwen.com/backend/novel/img/ico-order-vip.png) no-repeat;
+                            background-size: 100%;
+                        }
+
+                        .ico-user-add {
+                            background: url(https://static01.tengwen.com/backend/novel/img/ico-user-add.png) no-repeat;
+                            background-size: 100%;
+                        }
+
+                        .ico-user-cz {
+                            background: url(https://static01.tengwen.com/backend/novel/img/ico-user-cz.png) no-repeat;
+                            background-size: 100%;
+                        }
+
+                        .ico-user-follow {
+                            background: url(https://static01.tengwen.com/backend/novel/img/ico-user-follow.png) no-repeat;
+                            background-size: 100%;
+                        }
+
+                        .itable {
+                            width: 100%;
+                        }
+
+                        .itable td {
+                            padding: 5px;
+                            padding-bottom: 0px;
+                            text-align: left;
+                        }
+                    </style>
+                    <script>
+                        $(function () {
+
+                            chartData('first');
+
+                            chartData('second');
+
+                            showEchart('order_first');
+                            showEchart('user_first');
+                            showEchart('order_second');
+                            showEchart('user_second');
+
+                            function showEchart(type) {
+                                switch (type) {
+                                    case 'order_first':
+                                        switchState = true;
+                                        var titleName = "今日充值总额(元)\n\n\n￥";
+                                        break;
+
+                                    case 'order_second':
+                                        switchState = true;
+                                        var titleName = "昨日充值总额(元)\n\n\n￥";
+                                        break;
+
+                                    case 'user_first':
+                                        switchState = false;
+                                        var titleName = "今日新增用户(人)\n\n\n";
+                                        break;
+
+                                    case 'user_second':
+                                        switchState = false;
+                                        var titleName = "昨日新增用户(人)\n\n\n";
+                                        break;
+                                }
+
+                                var dom = document.getElementById(type);
+
+                                var myChart = echarts.init(dom);
+
+                                var titleMoney = {
+                                    "order_first": {
+                                        "name": "510.00",
+                                        "pdata": {
+                                            "name": "\u666e\u901a\u5145\u503c",
+                                            "color": "#3b86e0",
+                                            "money": 510
+                                        },
+                                        "vdata": {
+                                            "name": "VIP\u5145\u503c",
+                                            "color": "#ffc425",
+                                            "money": 0
+                                        }
+                                    },
+                                    "order_second": {
+                                        "name": "1,249.00",
+                                        "pdata": {
+                                            "name": "\u666e\u901a\u5145\u503c",
+                                            "color": "#3b86e0",
+                                            "money": 750
+                                        },
+                                        "vdata": {
+                                            "name": "VIP\u5145\u503c",
+                                            "color": "#ffc425",
+                                            "money": 499
+                                        }
+                                    },
+                                    "user_first": {
+                                        "name": 5,
+                                        "pdata": {
+                                            "name": "\u7537\u6027",
+                                            "color": "#3b86e0",
+                                            "money": 2
+                                        },
+                                        "vdata": {
+                                            "name": "\u5973\u6027",
+                                            "color": "#ffc425",
+                                            "money": 1
+                                        }
+                                    },
+                                    "user_second": {
+                                        "name": 7,
+                                        "pdata": {
+                                            "name": "\u7537\u6027",
+                                            "color": "#3b86e0",
+                                            "money": 1
+                                        },
+                                        "vdata": {
+                                            "name": "\u5973\u6027",
+                                            "color": "#ffc425",
+                                            "money": 0
+                                        }
+                                    }
+                                };
+
+                                if (parseInt(titleMoney[type].pdata.money) > 0 && parseInt(titleMoney[type].vdata
+                                        .money) > 0) {
+
+                                    var data = [{
+                                        value: titleMoney[type].pdata.money,
+                                        name: titleMoney[type].pdata.name
+                                    }, {
+                                        value: titleMoney[type].vdata.money,
+                                        name: titleMoney[type].vdata.name
+                                    }]
+
+                                    var color = [titleMoney[type].pdata.color, titleMoney[type].vdata.color];
+
+                                } else if (parseInt(titleMoney[type].pdata.money) == 0 && parseInt(titleMoney[
+                                        type].vdata.money) == 0) {
+
+                                    var data = [{
+                                        value: 0,
+                                        name: "暂无数据"
+                                    }];
+
+                                    var color = ["#ededed"];
+
+                                } else {
+
+                                    if (parseInt(titleMoney[type].pdata.money) > 0 && parseInt(titleMoney[type]
+                                            .vdata.money) <= 0) {
+
+                                        var data = [{
+                                            value: titleMoney[type].pdata.money,
+                                            name: titleMoney[type].pdata.name
+                                        }]
+
+                                        var color = [titleMoney[type].pdata.color];
+
+                                    } else if (parseInt(titleMoney[type].vdata.money) > 0 && parseInt(
+                                            titleMoney[type].pdata.money) <= 0) {
+
+                                        var data = [{
+                                            value: titleMoney[type].vdata.money,
+                                            name: titleMoney[type].vdata.name
+                                        }]
+
+                                        var color = [titleMoney[type].vdata.color];
+
+                                    }
+                                }
+
+
+
+                                option = {
+
+                                    backgroundColor: '#fff',
+
+                                    title: {
+                                        left: 'center',
+                                        top: 110,
+                                        textStyle: {
+                                            fontSize: 20,
+                                        },
+                                        text: titleName + '' + titleMoney[type].name,
+                                    },
+
+                                    tooltip: {
+                                        trigger: 'item',
+                                    },
+
+                                    color: color,
+
+                                    visualMap: {
+                                        show: false,
+                                        min: 80,
+                                        max: 600,
+                                        inRange: {}
+                                    },
+
+                                    series: [{
+
+                                        type: 'pie',
+                                        center: ['50%', '50%'],
+                                        radius: ['73%', '80%'],
+                                        label: {
+                                            normal: {
+                                                show: false
+                                            }
+                                        },
+                                        labelLine: {
+                                            normal: {
+                                                show: false
+                                            },
+                                        },
+                                        itemStyle: {
+                                            normal: {
+                                                shadowBlur: 200,
+                                                shadowColor: '#fff',
+                                            },
+                                        },
+                                        data: data,
+                                    }]
+                                };
+
+                                myChart.setOption(option, true);
+                            }
+
+                        })
+
+                        function chartData(type) {
+                            var myChart = echarts.init(document.getElementById(type + '_Data'));
+
+                            if (type == "first") {
+
+                                var url = '/home/orderChart';
+
+                                option = {
+                                    tooltip: {
+                                        trigger: 'axis'
+                                    },
+                                    color: ['#3b86e0', '#36c0e4', '#ffc425', ],
+                                    legend: {
+                                        data: [{
+                                            name: '总订单数',
+                                            icon: 'image://https://static01.tengwen.com/backend/novel/img/tag-blue.png'
+                                        }, {
+                                            name: '已付订单数',
+                                            icon: 'image://https://static01.tengwen.com/backend/novel/img/tag-blue2.png'
+                                        }, {
+                                            name: '未付订单数',
+                                            icon: 'image://https://static01.tengwen.com/backend/novel/img/tag-yellow.png'
+                                        }, ],
+                                        itemWidth: 36,
+                                        itemHeight: 36,
+                                        itemGap: 50,
+                                    },
+                                    grid: {
+                                        left: '3%',
+                                        right: '6%',
+                                        bottom: '3%',
+                                        containLabel: true
+                                    },
+                                    xAxis: {
+                                        type: 'category',
+                                        boundaryGap: false,
+                                        data: []
+                                    },
+                                    yAxis: {
+                                        type: 'value'
+                                    },
+                                    series: []
+                                };
+
+                            } else if (type == "second") {
+
+                                var url = '/home/userChart';
+
+                                option = {
+                                    tooltip: {
+                                        trigger: 'axis'
+                                    },
+                                    color: ['#3b86e0', '#36c0e4', '#ffc425', ],
+                                    legend: {
+                                        data: [{
+                                            name: '新增人数',
+                                            icon: 'image://https://static01.tengwen.com/backend/novel/img/tag-blue.png'
+                                        }, {
+                                            name: '关注人数',
+                                            icon: 'image://https://static01.tengwen.com/backend/novel/img/tag-blue2.png'
+                                        }, {
+                                            name: '充值人数',
+                                            icon: 'image://https://static01.tengwen.com/backend/novel/img/tag-yellow.png'
+                                        }, ],
+                                        itemWidth: 36,
+                                        itemHeight: 36,
+                                        itemGap: 50,
+                                    },
+                                    grid: {
+                                        left: '3%',
+                                        right: '6%',
+                                        bottom: '3%',
+                                        containLabel: true
+                                    },
+                                    xAxis: {
+                                        type: 'category',
+                                        boundaryGap: false,
+                                        data: []
+                                    },
+                                    yAxis: {
+                                        type: 'value'
+                                    },
+                                    series: []
+                                };
+                            }
+
+                            myChart.setOption(option);
+                            myChart.showLoading();
+
+                            sendData(url, {
+                                'is_ajax': 1
+                            }, function (data) {
+
+                                myChart.hideLoading();
+                                if (type == "first") {
+                                    myChart.setOption(showOrder(data.data));
+                                } else if (type == "second") {
+                                    myChart.setOption(showUser(data.data));
+                                }
+                            });
+                        }
+
+                        function showOrder(data) {
+                            var total = data.date.length;
+                            var data1 = [],
+                                data2 = [],
+                                data3 = [];
+                            for (var i = 0; i < total; i++) {
+                                var strdate = data.date[i];
+                                var isdata = false;
+                                for (var ii = 0; ii < data.data.length; ii++) {
+                                    var info = data.data[ii];
+                                    if (info.addDate == strdate) {
+                                        data1.push(parseInt(info.ptUnapidAmount) + parseInt(info.vipUnapidAmount) +
+                                            parseInt(info.ptApidAmount) + parseInt(info.vipApidAmount));
+                                        data2.push(info.totalAmount);
+                                        data3.push(parseInt(info.ptUnapidAmount) + parseInt(info.vipUnapidAmount));
+                                        isdata = true;
+                                        break;
+                                    }
+                                }
+                                if (!isdata) {
+                                    data1.push(0);
+                                    data2.push(0);
+                                    data3.push(0);
+                                }
+                            }
+                            return {
+                                xAxis: {
+                                    data: data.date
+                                },
+                                series: [{
+                                        name: '总订单数',
+                                        type: 'line',
+                                        data: data1
+                                    },
+                                    {
+                                        name: '已付订单数',
+                                        type: 'line',
+                                        data: data2
+                                    },
+                                    {
+                                        name: '未付订单数',
+                                        type: 'line',
+                                        data: data3
+                                    }
+                                ]
+                            };
+                        }
+
+                        function showUser(data) {
+                            if (typeof data == 'undefined') {
+                                return false;
+                            }
+
+                            var total = data.date.length;
+                            var data1 = [],
+                                data2 = [],
+                                data3 = [];
+                            for (var i = 0; i < total; i++) {
+                                var strdate = data.date[i];
+                                var isdata = false;
+                                for (var ii = 0; ii < data.data.length; ii++) {
+                                    var info = data.data[ii];
+                                    if (info.addDate == strdate) {
+                                        data1.push(info.newAmount);
+                                        data2.push(info.followAmount);
+                                        data3.push(info.paidAmount);
+                                        isdata = true;
+                                        break;
+                                    }
+                                }
+                                if (!isdata) {
+                                    data1.push(0);
+                                    data2.push(0);
+                                    data3.push(0);
+                                }
+                            }
+                            return {
+                                xAxis: {
+                                    data: data.date
+                                },
+                                series: [{
+                                        name: '新增人数',
+                                        type: 'line',
+
+                                        data: data1
+                                    },
+                                    {
+                                        name: '关注人数',
+                                        type: 'line',
+                                        data: data2
+                                    },
+                                    {
+                                        name: '充值人数',
+                                        type: 'line',
+                                        data: data3
+                                    }
+                                ]
+                            };
+                        }
+                    </script>
+
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+        <footer></footer>
+    </div>
+
+    <style>
+        .toast-top-center {
+            top: 52px;
+        }
+    </style>
+
+    <script>
+        api.CopyText_modal();
+        var imgurl = 'static01.tengwen.com';
+
+        var menuName = $("h7.menu-name").text();
+
+        $("span.menu-span").each(function () {
+
+            var menuTitle = $(this).text();
+
+            if (menuTitle == menuName) {
+
+                $(this).parent().addClass('active');
+
+                if (menuName == "公告列表") {
+
+                    $(this).css('color', 'rgb(232, 86, 86)');
+
+                }
+            }
+
+        });
+
+
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-center", //toast-top-center toast-bottom-center
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        function adm_ajax_ckstat(stat) {
+            if (stat == "ok") return true;
+
+            if (stat == "nologin") {
+                window.location.reload();
+            }
+            return false;
+        }
+
+        var pdata = {
+            action: 'notice_msg'
+        };
+
+        sendData("/notice/notice_msg", pdata, function (data) {
+            var data = data.data;
+            _Notice = data.data.unrdnum;
+            _unReadTop = data.data.unrdmsg;
+            noticemsg.showmsgnumEx(_Notice);
+            noticemsg.autoreaddlg();
+
+        });
+    </script>
+
+</body>
+
+</html>

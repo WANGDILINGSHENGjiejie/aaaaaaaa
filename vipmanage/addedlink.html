@@ -1,0 +1,643 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>LOGO</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- jQuery 3 -->
+    <script src="https://static01.tengwen.com/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <!-- Font Awesome 图标字体库和CSS框架-->
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/media.css">
+    <!--<script type="text/javascript" src="https://static01.tengwen.com/backend/vip/js/cookies.min.js"></script>-->
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/vip/js/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/clipboard.min.js"></script>
+    <script type="text/javascript" src="./js/klorofil-common.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/moment.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/vip/js/moment_zh-cn.js"></script>
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.css">
+    <script type="text/javascript" src="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/vip/js/echarts.min.js"></script>
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+
+</head>
+
+<body>
+    <!-- WRAPPER -->
+    <div id="wrapper">
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-default navbar-fixed-top" style="height: 50px;background-color:#2a3747">
+            <!-- <div class="brand" style="padding:0;background:#3c8dbc"><a href="javascript:void(0);"><img src=""
+                            alt="Klorofil Logo" class="img-responsive logo" style="height:50px;"></a></div> -->
+            <div class="container-fluid">
+
+                <div class="navbar-btn">
+                    <button type="button" class="btn-toggle-fullwidth"><img src="./images/sidebar@2x.png" alt=""></i>
+                    </button>
+                </div>
+                <div id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="/notice/index" class="dropdown-toggle icon-menu"> 
+                                    <span class="badge bg-danger notice_msgnum"></span>
+                                </a>
+                            </li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="./images/headshot@2x.png"
+                                        class="img-circle">
+                                    <span style="color:#f1f1f1;">核桃书吧</span> <i class="fa fa-angle-down" aria-hidden="true" style="color:#f1f1f1;"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="./personaldata.gr.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>个人资料</span></a>
+                                    </li>
+                                    <li><a href="Publicnumbersetting-gz.html"><i class="fa fa-address-card-o" aria-hidden="true"></i><span>公众号设置/接入</span></a>
+                                    </li>
+                                    <li><a href="https://static01.tengwen.com/backend/novel/docx/tengwen_readme.docx"><i
+                                                class="fa fa-arrow-down" aria-hidden="true"></i><span>下载帮助文档</span></a>
+                                    </li>
+                                    <li><a href="./Platformlogin.html" onclick="return confirm('确认退出？')"><i class="fa fa-fw fa-power-off"
+                                                aria-hidden="true"></i> <span>安全退出</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+            </div>
+        </nav> <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        <div id="sidebar-nav" class="sidebar">
+            <div class="sidebar-scroll" style="overflow-y: auto;height: 100%;padding:20px 0;background-color:#354051;">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="./channel_q.html"><img src="./images/list@2x.png" alt="" class="png_wj"></i><span
+                                    class="menu-span">渠道列表</span></a></li>
+                        <li><a href="./generalize_t.html"><img src="./images/promotion@2x.png" alt="" class="png_wj"><span
+                                    class="menu-span">推广收入</span></a></li>
+                        <li><a href="./withdraw_tx.html"><img src="./images/withdrawal@2x.png" alt="" class="png_wj"><span
+                                    class="menu-span">提现明细</span></a></li>
+                        <li><a href="./merge_h.html"><img src="./images/merge@2x.png" alt="" class="png_wj"><span class="menu-span">合并支付</span></a></li>
+                        <li><a href="./shunt_f.html" class="active"><img src="./images/shunt@2x.png" alt="" class="png_wj"><span
+                                    class="menu-span">分流链接</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="main">
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <div class="panel" style="display:none;">
+                    <div class="panel-heading mynav">
+                        <h3 class="panel-title">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">首页&gt; </font>
+                            </font>
+                            <h7 class="menu-name">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">分流链接</font>
+                                </font>
+                            </h7>
+                        </h3>
+                    </div>
+                </div>
+                <div class="container-fluid" >
+                    <div class="panel">
+                        <div class="panel-heading mynav">
+                        </div>
+                        <div class="panel-body">
+                            <form action="/ujump/store" method="post" class="form-horizontal" >
+                                <input type="hidden" class="form-control" value="10" name="jump_id">
+                                <div class="form-group" >
+                                    <label class="control-label col-sm-3">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;font-size: 14px;">平台</font>
+                                        </font>
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" name="seruid" style="font-size:14px;">
+                                            <option value="">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">全部</font>
+                                                </font>
+                                            </option>
+                                            <option value="20039">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">鸭鸭书吧</font>
+                                                </font>
+                                            </option>
+                                            <option value="20040">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">小丫文学</font>
+                                                </font>
+                                            </option>
+                                            <option value="20041">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">核桃书吧</font>
+                                                </font>
+                                            </option>
+                                        </select>
+                                        <p class="help-block help-block-error col-sm-7 col-xs-10"></p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;font-size: 14px;">渠道</font>
+                                        </font>
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <select id="channels" class="form-control" name="channelid">
+                                            <option value="2743">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+扇+鬼探+头条+ 09-14 00：00+美丽</font>
+                                                </font>
+                                            </option>
+                                            <option value="2745">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+车+鬼探+ 9-15（17:30）+腾14</font>
+                                                </font>
+                                            </option>
+                                            <option value="2749">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">02+扇+鬼探+头条+ 09-14 19：30+平邑02</font>
+                                                </font>
+                                            </option>
+                                            <option value="2787">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01 +朕+鬼探+头条+ 9-15 12:00
+                                                        +新漫02</font>
+                                                </font>
+                                            </option>
+                                            <option value="2807">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">02+朕+鬼探+头条+ 9-16 8:00 +奇妙</font>
+                                                </font>
+                                            </option>
+                                            <option value="2808">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+钟+鬼探+ 09-15 19：00 +头条+港05</font>
+                                                </font>
+                                            </option>
+                                            <option value="2817">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">03+苏+鬼探+头条+ 09-15 22：00+神秘08</font>
+                                                </font>
+                                            </option>
+                                            <option value="2827">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+苏+鬼探+头条+ 09-17 18:30
+                                                        +乔果02</font>
+                                                </font>
+                                            </option>
+                                            <option value="2830">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+朕+鬼探+头条+ 9-17 21:00 +杏</font>
+                                                </font>
+                                            </option>
+                                            <option value="2835">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01 +朕+鬼探+头条+ 9-18 7：00+悠</font>
+                                                </font>
+                                            </option>
+                                            <option value="2837">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">02+苏+鬼探+头条+ 09-17 18：00+宇哥04</font>
+                                                </font>
+                                            </option>
+                                            <option value="2846">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">03+苏+鬼探+头条+ 09-18 15:00 +
+                                                        A先生05</font>
+                                                </font>
+                                            </option>
+                                            <option value="2849">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+胖+鬼探+头条+9.29 18：30+低调哥02</font>
+                                                </font>
+                                            </option>
+                                            <option value="2850">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+胖+鬼探+头条9.19（18:30）+老哥03</font>
+                                                </font>
+                                            </option>
+                                            <option value="2860">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+钟+鬼探+ 09-18 23：00 +头条+粤01</font>
+                                                </font>
+                                            </option>
+                                            <option value="2886">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+朕+鬼探+头条+ 9-19 17:00 +表情</font>
+                                                </font>
+                                            </option>
+                                            <option value="2894">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+苏+鬼探+头条+ 09-20 18：00 +
+                                                        4.4w +粤潮01</font>
+                                                </font>
+                                            </option>
+                                            <option value="2898">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">02+苏+鬼探+头条+ 09-19 00：30 +
+                                                        4.5w +黑金01</font>
+                                                </font>
+                                            </option>
+                                            <option value="2908">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+苏+鬼探+头条+ 09-24 11:00 +
+                                                        10w +滕州01</font>
+                                                </font>
+                                            </option>
+                                            <option value="2962">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+车+鬼探+头条+
+                                                        9-20（12:30）+6瓦特粉+玩05</font>
+                                                </font>
+                                            </option>
+                                            <option value="2964">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+苏+鬼探+头条+ 09-20 18：00 +
+                                                        1.5w +老张02</font>
+                                                </font>
+                                            </option>
+                                            <option value="2975">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+朕+鬼探+头条+ 9-21 +8瓦特+新月2</font>
+                                                </font>
+                                            </option>
+                                            <option value="2976">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">02+苏+鬼探+头条+ 09-20 15:30 +
+                                                        15w +四会01</font>
+                                                </font>
+                                            </option>
+                                            <option value="2977">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+车+鬼探+头条+ 9-22（22:30）+
+                                                        9.8W +恐01</font>
+                                                </font>
+                                            </option>
+                                            <option value="2978">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">02+朕+鬼探+头条+ 9-24 17:00 +乐2</font>
+                                                </font>
+                                            </option>
+                                            <option value="2980">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+朕+鬼探+头条+ 9-20 +14瓦特粉+翻2</font>
+                                                </font>
+                                            </option>
+                                            <option value="2981">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">03+苏+鬼探+头条+ 09-21 18:00 +
+                                                        7.6w +潭西01</font>
+                                                </font>
+                                            </option>
+                                            <option value="3012">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+朕+鬼探+头条+ 9-22 +鲜2</font>
+                                                </font>
+                                            </option>
+                                            <option value="3050">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+苏+鬼探+头条+ 09-23 10:00 + 6w
+                                                        +关埠02</font>
+                                                </font>
+                                            </option>
+                                            <option value="3063">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+钟+鬼探+头条+ 9-26 16：30+据04</font>
+                                                </font>
+                                            </option>
+                                            <option value="3068">02+苏+鬼探+头条+09-22 08:00+9w+小Q03</option>
+                                            <option value="3117">01+朕+鬼探+头条+9-25 21:00 +恐猎</option>
+                                            <option value="3120"> 01+钟+鬼探+头条+9-25 20:00+2.7w+王06</option>
+                                            <option value="3121">01+胖+鬼探+头条+9.26（18：30）+老田01</option>
+                                            <option value="3122">03+苏+鬼探+头条+09-26 12:00+9.8w+红八01</option>
+                                            <option value="3124">02+车+头条+鬼探+9-26 17:30+12w粉+逻辑01</option>
+                                            <option value="3125">01+车+头条+鬼探+9-28(10:00)+3w粉+道01</option>
+                                            <option value="3126">01+车+鬼探+头条+9-28(22:30)+22w粉+表情包02</option>
+                                            <option value="3129">01+胖+鬼探+头条+9.27（18：30）+黑人01</option>
+                                            <option value="3131">01+苏+鬼探+头条+09-27（21:00）+4w+鸿巨08</option>
+                                            <option value="3137">01+车+鬼探+头条+10-3(10:00)+6.6w粉+星08</option>
+                                            <option value="3138">01+车+鬼探+头条+10-3(10:00)+7.8w粉+星09</option>
+                                            <option value="3139">01+车+鬼探+头条+10-3(10:00)+7.5w粉+星10</option>
+                                            <option value="3141">01+车+鬼探+头条+10-3(10:00)+17.7w粉+叔01</option>
+                                            <option value="3147">04+苏+鬼探+头条+09-27 15:00+20w+A先生09</option>
+                                            <option value="3181">01+胖+鬼探+头条+9.28（18：30）+凌晨03</option>
+                                            <option value="3230">02+苏+鬼探+次条+09-29（00:00）+14w+不差钱01</option>
+                                            <option value="3273">01+钟+鬼探+头条+9-30 19:00+7.7w+哈05</option>
+                                            <option value="3364">02+苏+鬼探+头条+09-29（21:00）+4w+鸿巨09</option>
+                                            <option value="3372">03+苏+鬼探+头条+10-04（15:00）+13.4w+A先生11</option>
+                                            <option value="3394">04+苏+鬼探+头条+09-29（19:00）+5.3w+书童01</option>
+                                            <option value="3654">01+苏+鬼探+头条+10-09（12:00）+20w+网星02</option>
+                                            <option value="3677">01+钟+鬼探+头条+10-11 19:00+忻01</option>
+                                            <option value="3959">01+车+鬼探+头条+10-14(00:00)+29W粉+果01</option>
+                                            <option value="4013">01+车+鬼探+头条+10-16(18:00)+4w粉+懒人01</option>
+                                            <option value="4017">01+车+鬼探+次条+10-16(21:00)+14W粉+诡01</option>
+                                            <option value="4056">01+车+鬼探+头条+10-17(17:00)+33w粉+猎奇01</option>
+                                            <option value="4057">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">02+车+鬼探+头条+
+                                                        10-17（9:00）+8.5瓦特粉+狮子01</font>
+                                                </font>
+                                            </option>
+                                            <option value="4216">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+车+鬼探+头条+
+                                                        10-19（22:00）+7瓦特粉+晨曦01</font>
+                                                </font>
+                                            </option>
+                                            <option value="4218">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">02+车+鬼探+头条+
+                                                        10-19（22:00）+1.5瓦特粉+晨曦02</font>
+                                                </font>
+                                            </option>
+                                            <option value="4287">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+车+鬼探+头条+
+                                                        10-19（18时00）+7瓦特粉+大国01</font>
+                                                </font>
+                                            </option>
+                                            <option value="4288">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+车+鬼探+头条+
+                                                        10-19（18:00）+8瓦特粉+枕边01</font>
+                                                </font>
+                                            </option>
+                                            <option value="4289">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+车+鬼探+头条+
+                                                        10-19（18:00）+3瓦特粉+卿论01</font>
+                                                </font>
+                                            </option>
+                                            <option value="4290">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">01+车+鬼探+头条+
+                                                        10-21（18:00）+23瓦特粉+装逼01</font>
+                                                </font>
+                                            </option>
+                                            <option value="4291">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">02+车+鬼探+头条+
+                                                        10-20（12:00）+16瓦特粉+天秤01</font>
+                                                </font>
+                                            </option>
+                                            <option value="5266">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">大师</font>
+                                                </font>
+                                            </option>
+                                            <option value="5269">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">佑泰</font>
+                                                </font>
+                                            </option>
+                                            <option value="5270">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">冷笑话</font>
+                                                </font>
+                                            </option>
+                                            <option value="5272">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">小黄鸡</font>
+                                                </font>
+                                            </option>
+                                            <option value="5273">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">时尚笑话</font>
+                                                </font>
+                                            </option>
+                                            <option value="5274">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">鸡弯世界</font>
+                                                </font>
+                                            </option>
+                                            <option value="5275">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">奇事天下故事</font>
+                                                </font>
+                                            </option>
+                                            <option value="5619">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">京城</font>
+                                                </font>
+                                            </option>
+                                            <option value="5627">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">天秤</font>
+                                                </font>
+                                            </option>
+                                            <option value="5628">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">苏 - 宇哥01</font>
+                                                </font>
+                                            </option>
+                                            <option value="5635">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">表情包</font>
+                                                </font>
+                                            </option>
+                                            <option value="5945">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">灼见</font>
+                                                </font>
+                                            </option>
+                                            <option value="2684">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">1人+9.14+劝</font>
+                                                </font>
+                                            </option>
+                                            <option value="2769">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">毛+9.15+劝</font>
+                                                </font>
+                                            </option>
+                                            <option value="2772">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">XQE + 9.14 +劝</font>
+                                                </font>
+                                            </option>
+                                            <option value="2836">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">民+9.18+劝</font>
+                                                </font>
+                                            </option>
+                                            <option value="2848">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">S + 9.17 +杰</font>
+                                                </font>
+                                            </option>
+                                            <option value="3951">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">10-13绝世兵痞</font>
+                                                </font>
+                                            </option>
+                                            <option value="4438">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">10-26内推02</font>
+                                                </font>
+                                            </option>
+                                        </select>
+                                        <p class="help-block help-block-error col-sm-7 col-xs-10"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">权重</font>
+                                        </font>
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <input type="number" max="10" class="form-control " value="1" name="weight">
+                                        <p class="help-block help-block-error col-sm-7 col-xs-10"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">粉丝</font>
+                                        </font>
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <input type="number" class="form-control" value="" name="limitfans">
+                                        <p class="help-block help-block-error col-sm-7 col-xs-10"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3"></label>
+                                    <div class="col-sm-6">
+                                        <button type="submit" class="btn btn-primary" style="background-color: #52627d;">
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">保存</font>
+                                            </font>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- END MAIN CONTENT -->
+        </div> <!-- END MAIN -->
+        <div class="clearfix"></div>
+        <footer></footer>
+    </div> <!-- END WRAPPER -->
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/toastr.min.css">
+    <style>
+        .toast-top-center {
+            top: 52px;
+        }
+    </style>
+    <script src="https://static01.tengwen.com/common/toastr.min.js"></script>
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-center", //toast-top-center toast-bottom-center
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        var menuName = $("h7.menu-name").text();
+
+        $("span.menu-span").each(function () {
+
+            var menuTitle = $(this).text();
+
+            if (menuTitle == menuName) {
+
+                $(this).parent().addClass('active');
+
+            }
+
+        });
+
+
+        $(function () {
+            if (typeof datetimepickerSetting == 'undefined') {
+                var datetimepickerSetting = {
+                    format: 'YYYY-MM-DD',
+                    locale: moment.locale('zh-CN')
+                }
+            }
+            $('.datetimepicker').datetimepicker(datetimepickerSetting)
+        })
+    </script>
+    <script>
+        $('select[name=seruid]').change(function () {
+            var value = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '/ujump/channels',
+                dataType: 'json',
+                data: {
+                    seruid: value,
+                    isajax: 1
+                },
+                success: function (res) {
+                    if (res.code === 1) {
+                        $('#channels').html('')
+                        $.each(res.data, function (index, item) {
+                            $('#channels').append('<option value="' + index + '">' + item +
+                                '</option>')
+                        })
+                    }
+                }
+            })
+        })
+    </script>
+    <div id="goog-gt-tt" class="skiptranslate" dir="ltr">
+        <div style="padding: 8px;">
+            <div>
+                <div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png"
+                        width="20" height="20" alt="Google 翻译"></div>
+            </div>
+        </div>
+        <div class="top" style="padding: 8px; float: left; width: 100%;">
+            <h1 class="title gray">原文</h1>
+        </div>
+        <div class="middle" style="padding: 8px;">
+            <div class="original-text"></div>
+        </div>
+        <div class="bottom" style="padding: 8px;">
+            <div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span></div>
+            <div class="started-activity-container">
+                <hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;">
+                <div class="activity-root"></div>
+            </div>
+        </div>
+        <div class="status-message" style="display: none;"></div>
+    </div>
+
+
+    <div class="goog-te-spinner-pos">
+        <div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px"
+                height="96px" viewBox="0 0 66 66">
+                <circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33"
+                    r="30"></circle>
+            </svg></div>
+    </div>
+</body>

@@ -1,0 +1,861 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>首页 - 核桃书吧</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script src="https://static01.tengwen.com/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/clipboard.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/klorofil-common.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/comm.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/moment.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/moment_zh-cn.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/echarts.min.js"></script>
+    <script src="https://static01.tengwen.com/common/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/novel.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/backend/novel/css/media.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/toastr.min.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" style="height: 50px;background-color: #2a3747;">
+            <div class="brand" style="padding:0;background-color: #2a3747;"><a href="javascript:void(0);"></div>
+            <div class="container-fluid">
+                <div class="navbar-btn">
+                    <button type="button" class="btn-toggle-fullwidth"><i class="fa fa-list" aria-hidden="true" style="color:#fff;"></i>
+                    </button>
+                </div>
+                <div id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="/notice/index" class="dropdown-toggle icon-menu"> 
+                                    <span class="badge bg-danger notice_msgnum"></span>
+                                </a>
+                            </li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="./images/headshot@2x.png"
+                                        class="img-circle">
+                                    <span style="color:#f1f1f1;">核桃书吧</span> <i class="fa fa-angle-down" aria-hidden="true" style="color:#f1f1f1;"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="./personaldata.gr.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>个人资料</span></a>
+                                    </li>
+                                    <li><a href="Publicnumbersetting-gz.html"><i class="fa fa-address-card-o" aria-hidden="true"></i><span>公众号设置/接入</span></a>
+                                    </li>
+                                    <li><a href="https://static01.tengwen.com/backend/novel/docx/tengwen_readme.docx"><i
+                                                class="fa fa-arrow-down" aria-hidden="true"></i><span>下载帮助文档</span></a>
+                                    </li>
+                                    <li><a href="./Platformlogin.html" onclick="return confirm('确认退出？')"><i class="fa fa-fw fa-power-off"
+                                                aria-hidden="true"></i> <span>安全退出</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+        </nav> <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        <div id="sidebar-nav" class="sidebar">
+            <div class="sidebar-scroll" style="overflow-y: auto;height: 100%;padding:20px 0;background-color:#354051;">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="./AnnounceList_gg.html" id="noticemenu"><i class="fa fa-bell-o" aria-hidden="true"></i><span
+                                    class="menu-span">公告列表</span></a></li>
+                        <li><a href="./Profiledata_sj.html"><i class="fa fa-line-chart" aria-hidden="true"></i><span
+                                    class="menu-span">数据概况</span></a></li>
+                        <li><a href="./ordersummary.html"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="menu-span">订单汇总</span></a></li>
+                        <li><a href="./Usersummary.html"><i class="fa fa-pie-chart" aria-hidden="true"></i><span class="menu-span">用户汇总</span></a></li>
+                        <li><a href="./addsup_xs.html"><i class="fa fa-bars" aria-hidden="true"></i><span class="menu-span">小说充值汇总</span></a></li>
+                        <li><a href="./orderdetails_dd.html" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                    class="menu-span">订单明细</span></a></li>
+                        <li><a href="./subsidiary_fs.html"><i class="fa fa-id-card-o" aria-hidden="true"></i><span
+                                    class="menu-span">粉丝明细</span></a></li>
+                        <li><a href="./library-xs.html"><i class="fa fa-book" aria-hidden="true"></i><span class="menu-span">小说库</span></a></li>
+                        <li><a href="./Promotion-tg.html"><i class="fa fa-chain-broken" aria-hidden="true"></i><span
+                                    class="menu-span">推广列表</span></a></li>
+                        <li><a href="./listinterpolatel-nt.html"><i class="fa fa-link" aria-hidden="true"></i><span
+                                    class="menu-span">内推列表</span></a></li>
+                        <li><a href="./Listofactivities-hd.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span
+                                    class="menu-span">活动列表</span></a></li>
+                        <li><a href="./antistop-gj.html"><i class="fa fa-comments-o" aria-hidden="true"></i><span class="menu-span">关键词回复</span></a></li>
+                        <li><a href="./Linkstorecycle-lj.html"><i class="fa fa-recycle" aria-hidden="true"></i><span
+                                    class="menu-span">链接回收</span></a></li>
+                        <li><a href="./Intelligentpush-zn.html"><i class="fa fa-reply-all" aria-hidden="true"></i><span
+                                    class="menu-span">智能推送</span></a></li>
+                        <li><a href="./Templatemessage-mb.html"><i class="fa fa-envelope-open" aria-hidden="true"></i><span
+                                    class="menu-span">模版消息</span></a></li>
+                        <li><a href="newsoftheservice-kf.html"><i class="fa fa-commenting-o" aria-hidden="true"></i><span
+                                    class="menu-span">客服消息</span></a></li>
+                        <li><a href="./promoteincome-sr.html"><i class="fa fa-jpy" aria-hidden="true"></i><span class="menu-span">推广收入</span></a></li>
+                        <li><a href="./withdrawalofsubsidiary-tx.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                    class="menu-span">提现明细</span></a></li>
+                        <li><a href="./Publicnumbersetting-gz.html"><i class="fa fa-cog" aria-hidden="true"></i><span
+                                    class="menu-span">公众号设置</span></a></li>
+                        <li><a href="./OtherSettings-qt.html"><i class="fa fa-cogs" aria-hidden="true"></i><span class="menu-span">其它设置</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+        <div class="main">
+            <div class="main-content">
+                <div class="container-fluid">
+
+                    <style>
+                        .user-img{    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+    margin-right: 5px;}
+</style>
+                    <div class="panel">
+                        <div class="panel-heading mynav">
+                            <h3 class="panel-title">
+                                <i class="fa fa-home" aria-hidden="true"></i>首页 &gt; <h7 class="menu-name">订单明细</h7>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <form class="navbar-form navbar-left" role="search" action="" method="get" style="font-size:14px;">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="请输入订单号" name="orderno" value="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control datetimepicker" id="form-start_date"
+                                        placeholder="开始日期" name="stime" value="">
+                                    <input type="text" class="form-control datetimepicker" id="form-end_date"
+                                        placeholder="结束日期" name="etime" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label></label>
+
+                                    <select class="form-control" name="ispay">
+                                        <option value="">全部</option>
+                                        <option value="1">已支付</option>
+                                        <option value="0">待支付</option>
+                                    </select>
+                                    <input type="hidden" name="did" value="">
+                                </div>
+                                <button type="submit" class="btn" style="background-color:#52627d;color:#fff;">提交</button>
+
+                                <div class="form-group"> <button type="button" class="btn " style="background-color:#7a8dab;color:#fff;"
+                                        onclick="exportdata()">导出Excel数据</button> </div>
+
+                            </form>
+                            <table class="table table-striped table-hover table-bordered" style="font-size:14px;">
+                                <thead>
+                                    <tr>
+                                        <th>订单号</th>
+                                        <th>订单类型</th>
+                                        <th>充值用户</th>
+                                        <th>充值金额</th>
+                                        <th>支付方式</th>
+                                        <th>订单状态</th>
+                                        <th>支付时间</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2018111711450545631</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=2172637&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/Q3auHgzwzM5KpOkgVicicnoUUOwnWL2YY6mQMdhUMoNtBuwHDMSpictexsbFztPBvEvB86dpJnbHChduxFaaicqcVdrs8SoQVibDOQSv4pyXeELo/132"
+                                                    class="user-img">GY(2172637)</a></td>
+                                        <td>50</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#f2ab34;color:#fff;">未支付</span></td>
+                                        <td>2018-11-17 11:45:05</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111711403001622</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=2695085&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/XGRz5FnibYXpFHIq1nnbAy4EdEsp9vicPe7O0MLzHL1rbJ0e0Cy9N8KYVAXJg2a1TLGpGXPf8XDPCOKmKia5eicspdvy4QjqP005/132"
+                                                    class="user-img">陈文多(2695085)</a></td>
+                                        <td>50</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#f2ab34;color:#fff;">未支付</span></td>
+                                        <td>2018-11-17 11:40:30</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111711324510795</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=1988295&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/kXPcEPA1oNafTDmmSXNP3EWBvH0YMc7vqia0bLNOnxGicHJoycb3ibL4A6f1mRgtzcIcB9XrYFlEEYTPhGUgBA4mN5FffCpe0Zo/132"
+                                                    class="user-img">希希爷爷(1988295)</a></td>
+                                        <td>50</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#f2ab34;color:#fff;">未支付</span></td>
+                                        <td>2018-11-17 11:32:45</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111711262234833</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=2089026&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/XGRz5FnibYXoRASnp4ZqpWafGMLEbm222VEeNQ2pfL8JQqpC2Tz8CLkhe7fFGrMNe6aQWxu0AGzE1Ok7SQOqymEx9QDia0kuiaz/132"
+                                                    class="user-img">知足常乐(2089026)</a></td>
+                                        <td>30</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#04959e;color:#fff;">已支付</span></td>
+                                        <td>2018-11-17 11:26:42</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111710232790616</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=2260442&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/GUz7ZnAJRZujUkyZRS7GBrkWAicjOKDYib33ibvT99nZWrrVOjyuBYL8ogic1e03ToxVHHBYPPp4q8ywccDOk7po8g/132"
+                                                    class="user-img">春夏秋冬(2260442)</a></td>
+                                        <td>50</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#f2ab34;color:#fff;">未支付</span></td>
+                                        <td>2018-11-17 10:23:27</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111709510211089</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=1978766&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/PiajxSqBRaEIUqiaqwuVEcicBUXzJuPtt1Zzic3YMwAebmfD6BuknbNxxhGU0j6Pma0RgBxPhHLsqB413hpUJdwN9w/132"
+                                                    class="user-img">女人如茶李敏(1978766)</a></td>
+                                        <td>30</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#04959e;color:#fff;">已支付</span></td>
+                                        <td>2018-11-17 09:51:14</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111709463219730</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=1918045&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/GUz7ZnAJRZvWmptuQBLJicHpbp9icYr09BaFTqZgay6wgfYkibS8MKKFXfMAzZhtfbCOSflsaG0hwicG2yiaPS7My6uOEiaj6jUv1F/132"
+                                                    class="user-img">上善若水(1918045)</a></td>
+                                        <td>50</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#f2ab34;color:#fff;">未支付</span></td>
+                                        <td>2018-11-17 09:46:32</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111709122409662</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=2227429&amp;type=2" style="color:#5981c2;"><img src="" class="user-img">(2227429)</a></td>
+                                        <td>50</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#04959e;color:#fff;">已支付</span></td>
+                                        <td>2018-11-17 09:12:31</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111708320212619</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=2329036&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/n6IbSc2OE3Dv1en9lpicVLjiceLg7m6Qf7MSqBB1mZY3zwFvhCJq3AibVr5h18vjJibucibDJEmZIm14pgBbm5oHcBwJX12hFSZfJ/132"
+                                                    class="user-img">空气(2329036)</a></td>
+                                        <td>50</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#04959e;color:#fff;">已支付</span></td>
+                                        <td>2018-11-17 08:32:12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111708230719091</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=2271626&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/XGRz5FnibYXpFHIq1nnbAyy2Gv9aibVLB1l2jKFQkNSia2l0rG9QPVg3gZ6z7KL0hw8zuQxPIbIDPfW7eIKC3DmibpNZjVH1vAvd/132"
+                                                    class="user-img">CE(2271626)</a></td>
+                                        <td>50</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#f2ab34;color:#fff;">未支付</span></td>
+                                        <td>2018-11-17 08:23:07</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111707195315230</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=2070079&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/Q3auHgzwzM41Dx3cxLDxwR7icNqXmXNicibsMVNNcLW60LfribpRgud6Nf7V7QD2OF3ht3DdTicveZRceTgcxEko0WyFAoAicXu2pXD5pbhhJgiaCw/132"
+                                                    class="user-img">付小柒(2070079)</a></td>
+                                        <td>50</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#04959e;color:#fff;">已支付</span></td>
+                                        <td>2018-11-17 07:20:11</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111706542726344</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=2406909&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/GUz7ZnAJRZuWVrADZabBbsraF438DjzhToDQK1bFKH1MSibYWoJQ2icCe3VN10A7P5IBhtqDARQ8IlyRAmBLkWSUcmNqIrdSIe/132"
+                                                    class="user-img">李秀珍(2406909)</a></td>
+                                        <td>50</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#f2ab34;color:#fff;">未支付</span></td>
+                                        <td>2018-11-17 06:54:27</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111704033643210</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=1817373&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/n6IbSc2OE3DUVcuYic5zKbuSiaKFRmTnP1xp4N8WKefv7varOCXKxN7RW4ic6cZI6IFQ720IHpjOcQB5SZC1RaGErC6IePJ1hkb/132"
+                                                    class="user-img">户外安装 (阿林)(1817373)</a></td>
+                                        <td>50</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#04959e;color:#fff;">已支付</span></td>
+                                        <td>2018-11-17 04:03:46</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111701263082461</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=1885323&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/Q3auHgzwzM6ZXgVSxibbiaOB7WKgpjx2SQnvJ9ZJYNPib9kPZKWMfIbVJEIsf5s4ib3ia6sJ9XBWBZSDyWm8U9310yO5oAbmafR9hPl2dMtibfPAQ/132"
+                                                    class="user-img">倪儷緁(1885323)</a></td>
+                                        <td>50</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#f2ab34;color:#fff;">未支付</span></td>
+                                        <td>2018-11-17 01:26:30</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111700474287904</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=2003519&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/PiajxSqBRaEIuBLIrD9ooeWCaibKUkicIUADXRYl7UjenXeh0cbC2sYLicBmkpaumlnXIEL2TlF21auGdjeVqibQbAw/132"
+                                                    class="user-img">微淘玉人(2003519)</a></td>
+                                        <td>50</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#04959e;color:#fff;">已支付</span></td>
+                                        <td>2018-11-17 00:47:49</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111622151678178</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=2307105&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/XGRz5FnibYXofHRJ8WqwyzKrSNib6ia1JtVcfISx2rTyN0EKnpLMOUo1EGsvEqYxQIOLic8suBmICjibuLSTt5WGqIDkibyYuoicydl/132"
+                                                    class="user-img">jinhua(2307105)</a></td>
+                                        <td>50</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#f2ab34;color:#fff;">未支付</span></td>
+                                        <td>2018-11-16 22:15:16</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111621190601225</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=2181560&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/XGRz5FnibYXpFHIq1nnbAy0hWhibV1HqOpahF8CQvm5QIwyrDbPvFVohkam5ds1b6XLQBcOu47hG3ibcxf7BfLiaxOiaG49ePxLam/132"
+                                                    class="user-img">许你一世停留(2181560)</a></td>
+                                        <td>30</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#f2ab34;color:#fff;">未支付</span></td>
+                                        <td>2018-11-16 21:19:06</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111620540920795</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=2112652&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/GUz7ZnAJRZuHbdic2etERSlyR1ocUpA3iaEmpg8KxjqUoDZNdicWv3D9IuJ4XVQ3JkZ06chlNvYuLYe50gIhMhwNmg9SEqn0QT9/132"
+                                                    class="user-img">雅居窗帘布艺(2112652)</a></td>
+                                        <td>30</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#04959e;color:#fff;">已支付</span></td>
+                                        <td>2018-11-16 20:54:28</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111620220836421</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=2146085&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/Xewa2JUmZ1osQYUiaBEw2fzc9StOmeicIvxQzRf9HGewy65sP4XEeTOtgIt0gb5ur1kEnhFJYACruUxJzY5BWXTgVOPJsQIKmH/132"
+                                                    class="user-img">魏(2146085)</a></td>
+                                        <td>30</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#04959e;color:#fff;">已支付</span></td>
+                                        <td>2018-11-16 20:22:18</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018111619024976727</td>
+                                        <td>普通充值</td>
+                                        <td><a href="/fans/detail?id=2078126&amp;type=2" style="color:#5981c2;"><img src="http://thirdwx.qlogo.cn/mmopen/n6IbSc2OE3Dv1en9lpicVLhaynUPNvv0yvPvehrGZLEQWl4qNHHkLbNR4kJ3zhuSQMkOunvEVBkUFiagpTaWDIeH3QWNwhGw5e/132"
+                                                    class="user-img">童乐(2078126)</a></td>
+                                        <td>50</td>
+                                        <td>公众号支付</td>
+                                        <td><span class="label " style="background-color:#f2ab34;color:#fff;">未支付</span></td>
+                                        <td>2018-11-16 19:02:49</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div data-pagination="pagination_new" data-pagenumber="1" data-paginationurl="/order/index?page=customize_page_num"
+                                data-totalnumber="363" data-paginationmax="10" style="float: right;">
+                                <ul class="pagination">
+                                    <li value="pre" style="display: inline-block;"><a href="/order/index?page=1">首页</a></li>
+                                    <li value="1" class="active" style="display: inline-block;"><a href="/order/index?page=1">1</a></li>
+                                    <li value="2" style="display: inline-block;"><a href="/order/index?page=2">2</a></li>
+                                    <li value="3" style="display: inline-block;"><a href="/order/index?page=3">3</a></li>
+                                    <li value="4" style="display: inline-block;"><a href="/order/index?page=4">4</a></li>
+                                    <li value="5" style="display: inline-block;"><a href="/order/index?page=5">5</a></li>
+                                    <li value="6" style="display: inline-block;"><a href="/order/index?page=6">6</a></li>
+                                    <li value="7" style="display: inline-block;"><a href="/order/index?page=7">7</a></li>
+                                    <li value="8" style="display: inline-block;"><a href="/order/index?page=8">8</a></li>
+                                    <li value="9" style="display: inline-block;"><a href="/order/index?page=9">9</a></li>
+                                    <li value="10" style="display: inline-block;"><a href="/order/index?page=10">10</a></li>
+                                    <li value="11" style="display: none;"><a href="/order/index?page=11">11</a></li>
+                                    <li value="12" style="display: none;"><a href="/order/index?page=12">12</a></li>
+                                    <li value="13" style="display: none;"><a href="/order/index?page=13">13</a></li>
+                                    <li value="14" style="display: none;"><a href="/order/index?page=14">14</a></li>
+                                    <li value="15" style="display: none;"><a href="/order/index?page=15">15</a></li>
+                                    <li value="16" style="display: none;"><a href="/order/index?page=16">16</a></li>
+                                    <li value="17" style="display: none;"><a href="/order/index?page=17">17</a></li>
+                                    <li value="18" style="display: none;"><a href="/order/index?page=18">18</a></li>
+                                    <li value="19" style="display: none;"><a href="/order/index?page=19">19</a></li>
+                                    <li value="20" style="display: none;"><a href="/order/index?page=20">20</a></li>
+                                    <li value="21" style="display: none;"><a href="/order/index?page=21">21</a></li>
+                                    <li value="22" style="display: none;"><a href="/order/index?page=22">22</a></li>
+                                    <li value="23" style="display: none;"><a href="/order/index?page=23">23</a></li>
+                                    <li value="24" style="display: none;"><a href="/order/index?page=24">24</a></li>
+                                    <li value="25" style="display: none;"><a href="/order/index?page=25">25</a></li>
+                                    <li value="26" style="display: none;"><a href="/order/index?page=26">26</a></li>
+                                    <li value="27" style="display: none;"><a href="/order/index?page=27">27</a></li>
+                                    <li value="28" style="display: none;"><a href="/order/index?page=28">28</a></li>
+                                    <li value="29" style="display: none;"><a href="/order/index?page=29">29</a></li>
+                                    <li value="30" style="display: none;"><a href="/order/index?page=30">30</a></li>
+                                    <li value="31" style="display: none;"><a href="/order/index?page=31">31</a></li>
+                                    <li value="32" style="display: none;"><a href="/order/index?page=32">32</a></li>
+                                    <li value="33" style="display: none;"><a href="/order/index?page=33">33</a></li>
+                                    <li value="34" style="display: none;"><a href="/order/index?page=34">34</a></li>
+                                    <li value="35" style="display: none;"><a href="/order/index?page=35">35</a></li>
+                                    <li value="36" style="display: none;"><a href="/order/index?page=36">36</a></li>
+                                    <li value="37" style="display: none;"><a href="/order/index?page=37">37</a></li>
+                                    <li value="38" style="display: none;"><a href="/order/index?page=38">38</a></li>
+                                    <li value="39" style="display: none;"><a href="/order/index?page=39">39</a></li>
+                                    <li value="40" style="display: none;"><a href="/order/index?page=40">40</a></li>
+                                    <li value="41" style="display: none;"><a href="/order/index?page=41">41</a></li>
+                                    <li value="42" style="display: none;"><a href="/order/index?page=42">42</a></li>
+                                    <li value="43" style="display: none;"><a href="/order/index?page=43">43</a></li>
+                                    <li value="44" style="display: none;"><a href="/order/index?page=44">44</a></li>
+                                    <li value="45" style="display: none;"><a href="/order/index?page=45">45</a></li>
+                                    <li value="46" style="display: none;"><a href="/order/index?page=46">46</a></li>
+                                    <li value="47" style="display: none;"><a href="/order/index?page=47">47</a></li>
+                                    <li value="48" style="display: none;"><a href="/order/index?page=48">48</a></li>
+                                    <li value="49" style="display: none;"><a href="/order/index?page=49">49</a></li>
+                                    <li value="50" style="display: none;"><a href="/order/index?page=50">50</a></li>
+                                    <li value="51" style="display: none;"><a href="/order/index?page=51">51</a></li>
+                                    <li value="52" style="display: none;"><a href="/order/index?page=52">52</a></li>
+                                    <li value="53" style="display: none;"><a href="/order/index?page=53">53</a></li>
+                                    <li value="54" style="display: none;"><a href="/order/index?page=54">54</a></li>
+                                    <li value="55" style="display: none;"><a href="/order/index?page=55">55</a></li>
+                                    <li value="56" style="display: none;"><a href="/order/index?page=56">56</a></li>
+                                    <li value="57" style="display: none;"><a href="/order/index?page=57">57</a></li>
+                                    <li value="58" style="display: none;"><a href="/order/index?page=58">58</a></li>
+                                    <li value="59" style="display: none;"><a href="/order/index?page=59">59</a></li>
+                                    <li value="60" style="display: none;"><a href="/order/index?page=60">60</a></li>
+                                    <li value="61" style="display: none;"><a href="/order/index?page=61">61</a></li>
+                                    <li value="62" style="display: none;"><a href="/order/index?page=62">62</a></li>
+                                    <li value="63" style="display: none;"><a href="/order/index?page=63">63</a></li>
+                                    <li value="64" style="display: none;"><a href="/order/index?page=64">64</a></li>
+                                    <li value="65" style="display: none;"><a href="/order/index?page=65">65</a></li>
+                                    <li value="66" style="display: none;"><a href="/order/index?page=66">66</a></li>
+                                    <li value="67" style="display: none;"><a href="/order/index?page=67">67</a></li>
+                                    <li value="68" style="display: none;"><a href="/order/index?page=68">68</a></li>
+                                    <li value="69" style="display: none;"><a href="/order/index?page=69">69</a></li>
+                                    <li value="70" style="display: none;"><a href="/order/index?page=70">70</a></li>
+                                    <li value="71" style="display: none;"><a href="/order/index?page=71">71</a></li>
+                                    <li value="72" style="display: none;"><a href="/order/index?page=72">72</a></li>
+                                    <li value="73" style="display: none;"><a href="/order/index?page=73">73</a></li>
+                                    <li value="74" style="display: none;"><a href="/order/index?page=74">74</a></li>
+                                    <li value="75" style="display: none;"><a href="/order/index?page=75">75</a></li>
+                                    <li value="76" style="display: none;"><a href="/order/index?page=76">76</a></li>
+                                    <li value="77" style="display: none;"><a href="/order/index?page=77">77</a></li>
+                                    <li value="78" style="display: none;"><a href="/order/index?page=78">78</a></li>
+                                    <li value="79" style="display: none;"><a href="/order/index?page=79">79</a></li>
+                                    <li value="80" style="display: none;"><a href="/order/index?page=80">80</a></li>
+                                    <li value="81" style="display: none;"><a href="/order/index?page=81">81</a></li>
+                                    <li value="82" style="display: none;"><a href="/order/index?page=82">82</a></li>
+                                    <li value="83" style="display: none;"><a href="/order/index?page=83">83</a></li>
+                                    <li value="84" style="display: none;"><a href="/order/index?page=84">84</a></li>
+                                    <li value="85" style="display: none;"><a href="/order/index?page=85">85</a></li>
+                                    <li value="86" style="display: none;"><a href="/order/index?page=86">86</a></li>
+                                    <li value="87" style="display: none;"><a href="/order/index?page=87">87</a></li>
+                                    <li value="88" style="display: none;"><a href="/order/index?page=88">88</a></li>
+                                    <li value="89" style="display: none;"><a href="/order/index?page=89">89</a></li>
+                                    <li value="90" style="display: none;"><a href="/order/index?page=90">90</a></li>
+                                    <li value="91" style="display: none;"><a href="/order/index?page=91">91</a></li>
+                                    <li value="92" style="display: none;"><a href="/order/index?page=92">92</a></li>
+                                    <li value="93" style="display: none;"><a href="/order/index?page=93">93</a></li>
+                                    <li value="94" style="display: none;"><a href="/order/index?page=94">94</a></li>
+                                    <li value="95" style="display: none;"><a href="/order/index?page=95">95</a></li>
+                                    <li value="96" style="display: none;"><a href="/order/index?page=96">96</a></li>
+                                    <li value="97" style="display: none;"><a href="/order/index?page=97">97</a></li>
+                                    <li value="98" style="display: none;"><a href="/order/index?page=98">98</a></li>
+                                    <li value="99" style="display: none;"><a href="/order/index?page=99">99</a></li>
+                                    <li value="100" style="display: none;"><a href="/order/index?page=100">100</a></li>
+                                    <li value="101" style="display: none;"><a href="/order/index?page=101">101</a></li>
+                                    <li value="102" style="display: none;"><a href="/order/index?page=102">102</a></li>
+                                    <li value="103" style="display: none;"><a href="/order/index?page=103">103</a></li>
+                                    <li value="104" style="display: none;"><a href="/order/index?page=104">104</a></li>
+                                    <li value="105" style="display: none;"><a href="/order/index?page=105">105</a></li>
+                                    <li value="106" style="display: none;"><a href="/order/index?page=106">106</a></li>
+                                    <li value="107" style="display: none;"><a href="/order/index?page=107">107</a></li>
+                                    <li value="108" style="display: none;"><a href="/order/index?page=108">108</a></li>
+                                    <li value="109" style="display: none;"><a href="/order/index?page=109">109</a></li>
+                                    <li value="110" style="display: none;"><a href="/order/index?page=110">110</a></li>
+                                    <li value="111" style="display: none;"><a href="/order/index?page=111">111</a></li>
+                                    <li value="112" style="display: none;"><a href="/order/index?page=112">112</a></li>
+                                    <li value="113" style="display: none;"><a href="/order/index?page=113">113</a></li>
+                                    <li value="114" style="display: none;"><a href="/order/index?page=114">114</a></li>
+                                    <li value="115" style="display: none;"><a href="/order/index?page=115">115</a></li>
+                                    <li value="116" style="display: none;"><a href="/order/index?page=116">116</a></li>
+                                    <li value="117" style="display: none;"><a href="/order/index?page=117">117</a></li>
+                                    <li value="118" style="display: none;"><a href="/order/index?page=118">118</a></li>
+                                    <li value="119" style="display: none;"><a href="/order/index?page=119">119</a></li>
+                                    <li value="120" style="display: none;"><a href="/order/index?page=120">120</a></li>
+                                    <li value="121" style="display: none;"><a href="/order/index?page=121">121</a></li>
+                                    <li value="122" style="display: none;"><a href="/order/index?page=122">122</a></li>
+                                    <li value="123" style="display: none;"><a href="/order/index?page=123">123</a></li>
+                                    <li value="124" style="display: none;"><a href="/order/index?page=124">124</a></li>
+                                    <li value="125" style="display: none;"><a href="/order/index?page=125">125</a></li>
+                                    <li value="126" style="display: none;"><a href="/order/index?page=126">126</a></li>
+                                    <li value="127" style="display: none;"><a href="/order/index?page=127">127</a></li>
+                                    <li value="128" style="display: none;"><a href="/order/index?page=128">128</a></li>
+                                    <li value="129" style="display: none;"><a href="/order/index?page=129">129</a></li>
+                                    <li value="130" style="display: none;"><a href="/order/index?page=130">130</a></li>
+                                    <li value="131" style="display: none;"><a href="/order/index?page=131">131</a></li>
+                                    <li value="132" style="display: none;"><a href="/order/index?page=132">132</a></li>
+                                    <li value="133" style="display: none;"><a href="/order/index?page=133">133</a></li>
+                                    <li value="134" style="display: none;"><a href="/order/index?page=134">134</a></li>
+                                    <li value="135" style="display: none;"><a href="/order/index?page=135">135</a></li>
+                                    <li value="136" style="display: none;"><a href="/order/index?page=136">136</a></li>
+                                    <li value="137" style="display: none;"><a href="/order/index?page=137">137</a></li>
+                                    <li value="138" style="display: none;"><a href="/order/index?page=138">138</a></li>
+                                    <li value="139" style="display: none;"><a href="/order/index?page=139">139</a></li>
+                                    <li value="140" style="display: none;"><a href="/order/index?page=140">140</a></li>
+                                    <li value="141" style="display: none;"><a href="/order/index?page=141">141</a></li>
+                                    <li value="142" style="display: none;"><a href="/order/index?page=142">142</a></li>
+                                    <li value="143" style="display: none;"><a href="/order/index?page=143">143</a></li>
+                                    <li value="144" style="display: none;"><a href="/order/index?page=144">144</a></li>
+                                    <li value="145" style="display: none;"><a href="/order/index?page=145">145</a></li>
+                                    <li value="146" style="display: none;"><a href="/order/index?page=146">146</a></li>
+                                    <li value="147" style="display: none;"><a href="/order/index?page=147">147</a></li>
+                                    <li value="148" style="display: none;"><a href="/order/index?page=148">148</a></li>
+                                    <li value="149" style="display: none;"><a href="/order/index?page=149">149</a></li>
+                                    <li value="150" style="display: none;"><a href="/order/index?page=150">150</a></li>
+                                    <li value="151" style="display: none;"><a href="/order/index?page=151">151</a></li>
+                                    <li value="152" style="display: none;"><a href="/order/index?page=152">152</a></li>
+                                    <li value="153" style="display: none;"><a href="/order/index?page=153">153</a></li>
+                                    <li value="154" style="display: none;"><a href="/order/index?page=154">154</a></li>
+                                    <li value="155" style="display: none;"><a href="/order/index?page=155">155</a></li>
+                                    <li value="156" style="display: none;"><a href="/order/index?page=156">156</a></li>
+                                    <li value="157" style="display: none;"><a href="/order/index?page=157">157</a></li>
+                                    <li value="158" style="display: none;"><a href="/order/index?page=158">158</a></li>
+                                    <li value="159" style="display: none;"><a href="/order/index?page=159">159</a></li>
+                                    <li value="160" style="display: none;"><a href="/order/index?page=160">160</a></li>
+                                    <li value="161" style="display: none;"><a href="/order/index?page=161">161</a></li>
+                                    <li value="162" style="display: none;"><a href="/order/index?page=162">162</a></li>
+                                    <li value="163" style="display: none;"><a href="/order/index?page=163">163</a></li>
+                                    <li value="164" style="display: none;"><a href="/order/index?page=164">164</a></li>
+                                    <li value="165" style="display: none;"><a href="/order/index?page=165">165</a></li>
+                                    <li value="166" style="display: none;"><a href="/order/index?page=166">166</a></li>
+                                    <li value="167" style="display: none;"><a href="/order/index?page=167">167</a></li>
+                                    <li value="168" style="display: none;"><a href="/order/index?page=168">168</a></li>
+                                    <li value="169" style="display: none;"><a href="/order/index?page=169">169</a></li>
+                                    <li value="170" style="display: none;"><a href="/order/index?page=170">170</a></li>
+                                    <li value="171" style="display: none;"><a href="/order/index?page=171">171</a></li>
+                                    <li value="172" style="display: none;"><a href="/order/index?page=172">172</a></li>
+                                    <li value="173" style="display: none;"><a href="/order/index?page=173">173</a></li>
+                                    <li value="174" style="display: none;"><a href="/order/index?page=174">174</a></li>
+                                    <li value="175" style="display: none;"><a href="/order/index?page=175">175</a></li>
+                                    <li value="176" style="display: none;"><a href="/order/index?page=176">176</a></li>
+                                    <li value="177" style="display: none;"><a href="/order/index?page=177">177</a></li>
+                                    <li value="178" style="display: none;"><a href="/order/index?page=178">178</a></li>
+                                    <li value="179" style="display: none;"><a href="/order/index?page=179">179</a></li>
+                                    <li value="180" style="display: none;"><a href="/order/index?page=180">180</a></li>
+                                    <li value="181" style="display: none;"><a href="/order/index?page=181">181</a></li>
+                                    <li value="182" style="display: none;"><a href="/order/index?page=182">182</a></li>
+                                    <li value="183" style="display: none;"><a href="/order/index?page=183">183</a></li>
+                                    <li value="184" style="display: none;"><a href="/order/index?page=184">184</a></li>
+                                    <li value="185" style="display: none;"><a href="/order/index?page=185">185</a></li>
+                                    <li value="186" style="display: none;"><a href="/order/index?page=186">186</a></li>
+                                    <li value="187" style="display: none;"><a href="/order/index?page=187">187</a></li>
+                                    <li value="188" style="display: none;"><a href="/order/index?page=188">188</a></li>
+                                    <li value="189" style="display: none;"><a href="/order/index?page=189">189</a></li>
+                                    <li value="190" style="display: none;"><a href="/order/index?page=190">190</a></li>
+                                    <li value="191" style="display: none;"><a href="/order/index?page=191">191</a></li>
+                                    <li value="192" style="display: none;"><a href="/order/index?page=192">192</a></li>
+                                    <li value="193" style="display: none;"><a href="/order/index?page=193">193</a></li>
+                                    <li value="194" style="display: none;"><a href="/order/index?page=194">194</a></li>
+                                    <li value="195" style="display: none;"><a href="/order/index?page=195">195</a></li>
+                                    <li value="196" style="display: none;"><a href="/order/index?page=196">196</a></li>
+                                    <li value="197" style="display: none;"><a href="/order/index?page=197">197</a></li>
+                                    <li value="198" style="display: none;"><a href="/order/index?page=198">198</a></li>
+                                    <li value="199" style="display: none;"><a href="/order/index?page=199">199</a></li>
+                                    <li value="200" style="display: none;"><a href="/order/index?page=200">200</a></li>
+                                    <li value="201" style="display: none;"><a href="/order/index?page=201">201</a></li>
+                                    <li value="202" style="display: none;"><a href="/order/index?page=202">202</a></li>
+                                    <li value="203" style="display: none;"><a href="/order/index?page=203">203</a></li>
+                                    <li value="204" style="display: none;"><a href="/order/index?page=204">204</a></li>
+                                    <li value="205" style="display: none;"><a href="/order/index?page=205">205</a></li>
+                                    <li value="206" style="display: none;"><a href="/order/index?page=206">206</a></li>
+                                    <li value="207" style="display: none;"><a href="/order/index?page=207">207</a></li>
+                                    <li value="208" style="display: none;"><a href="/order/index?page=208">208</a></li>
+                                    <li value="209" style="display: none;"><a href="/order/index?page=209">209</a></li>
+                                    <li value="210" style="display: none;"><a href="/order/index?page=210">210</a></li>
+                                    <li value="211" style="display: none;"><a href="/order/index?page=211">211</a></li>
+                                    <li value="212" style="display: none;"><a href="/order/index?page=212">212</a></li>
+                                    <li value="213" style="display: none;"><a href="/order/index?page=213">213</a></li>
+                                    <li value="214" style="display: none;"><a href="/order/index?page=214">214</a></li>
+                                    <li value="215" style="display: none;"><a href="/order/index?page=215">215</a></li>
+                                    <li value="216" style="display: none;"><a href="/order/index?page=216">216</a></li>
+                                    <li value="217" style="display: none;"><a href="/order/index?page=217">217</a></li>
+                                    <li value="218" style="display: none;"><a href="/order/index?page=218">218</a></li>
+                                    <li value="219" style="display: none;"><a href="/order/index?page=219">219</a></li>
+                                    <li value="220" style="display: none;"><a href="/order/index?page=220">220</a></li>
+                                    <li value="221" style="display: none;"><a href="/order/index?page=221">221</a></li>
+                                    <li value="222" style="display: none;"><a href="/order/index?page=222">222</a></li>
+                                    <li value="223" style="display: none;"><a href="/order/index?page=223">223</a></li>
+                                    <li value="224" style="display: none;"><a href="/order/index?page=224">224</a></li>
+                                    <li value="225" style="display: none;"><a href="/order/index?page=225">225</a></li>
+                                    <li value="226" style="display: none;"><a href="/order/index?page=226">226</a></li>
+                                    <li value="227" style="display: none;"><a href="/order/index?page=227">227</a></li>
+                                    <li value="228" style="display: none;"><a href="/order/index?page=228">228</a></li>
+                                    <li value="229" style="display: none;"><a href="/order/index?page=229">229</a></li>
+                                    <li value="230" style="display: none;"><a href="/order/index?page=230">230</a></li>
+                                    <li value="231" style="display: none;"><a href="/order/index?page=231">231</a></li>
+                                    <li value="232" style="display: none;"><a href="/order/index?page=232">232</a></li>
+                                    <li value="233" style="display: none;"><a href="/order/index?page=233">233</a></li>
+                                    <li value="234" style="display: none;"><a href="/order/index?page=234">234</a></li>
+                                    <li value="235" style="display: none;"><a href="/order/index?page=235">235</a></li>
+                                    <li value="236" style="display: none;"><a href="/order/index?page=236">236</a></li>
+                                    <li value="237" style="display: none;"><a href="/order/index?page=237">237</a></li>
+                                    <li value="238" style="display: none;"><a href="/order/index?page=238">238</a></li>
+                                    <li value="239" style="display: none;"><a href="/order/index?page=239">239</a></li>
+                                    <li value="240" style="display: none;"><a href="/order/index?page=240">240</a></li>
+                                    <li value="241" style="display: none;"><a href="/order/index?page=241">241</a></li>
+                                    <li value="242" style="display: none;"><a href="/order/index?page=242">242</a></li>
+                                    <li value="243" style="display: none;"><a href="/order/index?page=243">243</a></li>
+                                    <li value="244" style="display: none;"><a href="/order/index?page=244">244</a></li>
+                                    <li value="245" style="display: none;"><a href="/order/index?page=245">245</a></li>
+                                    <li value="246" style="display: none;"><a href="/order/index?page=246">246</a></li>
+                                    <li value="247" style="display: none;"><a href="/order/index?page=247">247</a></li>
+                                    <li value="248" style="display: none;"><a href="/order/index?page=248">248</a></li>
+                                    <li value="249" style="display: none;"><a href="/order/index?page=249">249</a></li>
+                                    <li value="250" style="display: none;"><a href="/order/index?page=250">250</a></li>
+                                    <li value="251" style="display: none;"><a href="/order/index?page=251">251</a></li>
+                                    <li value="252" style="display: none;"><a href="/order/index?page=252">252</a></li>
+                                    <li value="253" style="display: none;"><a href="/order/index?page=253">253</a></li>
+                                    <li value="254" style="display: none;"><a href="/order/index?page=254">254</a></li>
+                                    <li value="255" style="display: none;"><a href="/order/index?page=255">255</a></li>
+                                    <li value="256" style="display: none;"><a href="/order/index?page=256">256</a></li>
+                                    <li value="257" style="display: none;"><a href="/order/index?page=257">257</a></li>
+                                    <li value="258" style="display: none;"><a href="/order/index?page=258">258</a></li>
+                                    <li value="259" style="display: none;"><a href="/order/index?page=259">259</a></li>
+                                    <li value="260" style="display: none;"><a href="/order/index?page=260">260</a></li>
+                                    <li value="261" style="display: none;"><a href="/order/index?page=261">261</a></li>
+                                    <li value="262" style="display: none;"><a href="/order/index?page=262">262</a></li>
+                                    <li value="263" style="display: none;"><a href="/order/index?page=263">263</a></li>
+                                    <li value="264" style="display: none;"><a href="/order/index?page=264">264</a></li>
+                                    <li value="265" style="display: none;"><a href="/order/index?page=265">265</a></li>
+                                    <li value="266" style="display: none;"><a href="/order/index?page=266">266</a></li>
+                                    <li value="267" style="display: none;"><a href="/order/index?page=267">267</a></li>
+                                    <li value="268" style="display: none;"><a href="/order/index?page=268">268</a></li>
+                                    <li value="269" style="display: none;"><a href="/order/index?page=269">269</a></li>
+                                    <li value="270" style="display: none;"><a href="/order/index?page=270">270</a></li>
+                                    <li value="271" style="display: none;"><a href="/order/index?page=271">271</a></li>
+                                    <li value="272" style="display: none;"><a href="/order/index?page=272">272</a></li>
+                                    <li value="273" style="display: none;"><a href="/order/index?page=273">273</a></li>
+                                    <li value="274" style="display: none;"><a href="/order/index?page=274">274</a></li>
+                                    <li value="275" style="display: none;"><a href="/order/index?page=275">275</a></li>
+                                    <li value="276" style="display: none;"><a href="/order/index?page=276">276</a></li>
+                                    <li value="277" style="display: none;"><a href="/order/index?page=277">277</a></li>
+                                    <li value="278" style="display: none;"><a href="/order/index?page=278">278</a></li>
+                                    <li value="279" style="display: none;"><a href="/order/index?page=279">279</a></li>
+                                    <li value="280" style="display: none;"><a href="/order/index?page=280">280</a></li>
+                                    <li value="281" style="display: none;"><a href="/order/index?page=281">281</a></li>
+                                    <li value="282" style="display: none;"><a href="/order/index?page=282">282</a></li>
+                                    <li value="283" style="display: none;"><a href="/order/index?page=283">283</a></li>
+                                    <li value="284" style="display: none;"><a href="/order/index?page=284">284</a></li>
+                                    <li value="285" style="display: none;"><a href="/order/index?page=285">285</a></li>
+                                    <li value="286" style="display: none;"><a href="/order/index?page=286">286</a></li>
+                                    <li value="287" style="display: none;"><a href="/order/index?page=287">287</a></li>
+                                    <li value="288" style="display: none;"><a href="/order/index?page=288">288</a></li>
+                                    <li value="289" style="display: none;"><a href="/order/index?page=289">289</a></li>
+                                    <li value="290" style="display: none;"><a href="/order/index?page=290">290</a></li>
+                                    <li value="291" style="display: none;"><a href="/order/index?page=291">291</a></li>
+                                    <li value="292" style="display: none;"><a href="/order/index?page=292">292</a></li>
+                                    <li value="293" style="display: none;"><a href="/order/index?page=293">293</a></li>
+                                    <li value="294" style="display: none;"><a href="/order/index?page=294">294</a></li>
+                                    <li value="295" style="display: none;"><a href="/order/index?page=295">295</a></li>
+                                    <li value="296" style="display: none;"><a href="/order/index?page=296">296</a></li>
+                                    <li value="297" style="display: none;"><a href="/order/index?page=297">297</a></li>
+                                    <li value="298" style="display: none;"><a href="/order/index?page=298">298</a></li>
+                                    <li value="299" style="display: none;"><a href="/order/index?page=299">299</a></li>
+                                    <li value="300" style="display: none;"><a href="/order/index?page=300">300</a></li>
+                                    <li value="301" style="display: none;"><a href="/order/index?page=301">301</a></li>
+                                    <li value="302" style="display: none;"><a href="/order/index?page=302">302</a></li>
+                                    <li value="303" style="display: none;"><a href="/order/index?page=303">303</a></li>
+                                    <li value="304" style="display: none;"><a href="/order/index?page=304">304</a></li>
+                                    <li value="305" style="display: none;"><a href="/order/index?page=305">305</a></li>
+                                    <li value="306" style="display: none;"><a href="/order/index?page=306">306</a></li>
+                                    <li value="307" style="display: none;"><a href="/order/index?page=307">307</a></li>
+                                    <li value="308" style="display: none;"><a href="/order/index?page=308">308</a></li>
+                                    <li value="309" style="display: none;"><a href="/order/index?page=309">309</a></li>
+                                    <li value="310" style="display: none;"><a href="/order/index?page=310">310</a></li>
+                                    <li value="311" style="display: none;"><a href="/order/index?page=311">311</a></li>
+                                    <li value="312" style="display: none;"><a href="/order/index?page=312">312</a></li>
+                                    <li value="313" style="display: none;"><a href="/order/index?page=313">313</a></li>
+                                    <li value="314" style="display: none;"><a href="/order/index?page=314">314</a></li>
+                                    <li value="315" style="display: none;"><a href="/order/index?page=315">315</a></li>
+                                    <li value="316" style="display: none;"><a href="/order/index?page=316">316</a></li>
+                                    <li value="317" style="display: none;"><a href="/order/index?page=317">317</a></li>
+                                    <li value="318" style="display: none;"><a href="/order/index?page=318">318</a></li>
+                                    <li value="319" style="display: none;"><a href="/order/index?page=319">319</a></li>
+                                    <li value="320" style="display: none;"><a href="/order/index?page=320">320</a></li>
+                                    <li value="321" style="display: none;"><a href="/order/index?page=321">321</a></li>
+                                    <li value="322" style="display: none;"><a href="/order/index?page=322">322</a></li>
+                                    <li value="323" style="display: none;"><a href="/order/index?page=323">323</a></li>
+                                    <li value="324" style="display: none;"><a href="/order/index?page=324">324</a></li>
+                                    <li value="325" style="display: none;"><a href="/order/index?page=325">325</a></li>
+                                    <li value="326" style="display: none;"><a href="/order/index?page=326">326</a></li>
+                                    <li value="327" style="display: none;"><a href="/order/index?page=327">327</a></li>
+                                    <li value="328" style="display: none;"><a href="/order/index?page=328">328</a></li>
+                                    <li value="329" style="display: none;"><a href="/order/index?page=329">329</a></li>
+                                    <li value="330" style="display: none;"><a href="/order/index?page=330">330</a></li>
+                                    <li value="331" style="display: none;"><a href="/order/index?page=331">331</a></li>
+                                    <li value="332" style="display: none;"><a href="/order/index?page=332">332</a></li>
+                                    <li value="333" style="display: none;"><a href="/order/index?page=333">333</a></li>
+                                    <li value="334" style="display: none;"><a href="/order/index?page=334">334</a></li>
+                                    <li value="335" style="display: none;"><a href="/order/index?page=335">335</a></li>
+                                    <li value="336" style="display: none;"><a href="/order/index?page=336">336</a></li>
+                                    <li value="337" style="display: none;"><a href="/order/index?page=337">337</a></li>
+                                    <li value="338" style="display: none;"><a href="/order/index?page=338">338</a></li>
+                                    <li value="339" style="display: none;"><a href="/order/index?page=339">339</a></li>
+                                    <li value="340" style="display: none;"><a href="/order/index?page=340">340</a></li>
+                                    <li value="341" style="display: none;"><a href="/order/index?page=341">341</a></li>
+                                    <li value="342" style="display: none;"><a href="/order/index?page=342">342</a></li>
+                                    <li value="343" style="display: none;"><a href="/order/index?page=343">343</a></li>
+                                    <li value="344" style="display: none;"><a href="/order/index?page=344">344</a></li>
+                                    <li value="345" style="display: none;"><a href="/order/index?page=345">345</a></li>
+                                    <li value="346" style="display: none;"><a href="/order/index?page=346">346</a></li>
+                                    <li value="347" style="display: none;"><a href="/order/index?page=347">347</a></li>
+                                    <li value="348" style="display: none;"><a href="/order/index?page=348">348</a></li>
+                                    <li value="349" style="display: none;"><a href="/order/index?page=349">349</a></li>
+                                    <li value="350" style="display: none;"><a href="/order/index?page=350">350</a></li>
+                                    <li value="351" style="display: none;"><a href="/order/index?page=351">351</a></li>
+                                    <li value="352" style="display: none;"><a href="/order/index?page=352">352</a></li>
+                                    <li value="353" style="display: none;"><a href="/order/index?page=353">353</a></li>
+                                    <li value="354" style="display: none;"><a href="/order/index?page=354">354</a></li>
+                                    <li value="355" style="display: none;"><a href="/order/index?page=355">355</a></li>
+                                    <li value="356" style="display: none;"><a href="/order/index?page=356">356</a></li>
+                                    <li value="357" style="display: none;"><a href="/order/index?page=357">357</a></li>
+                                    <li value="358" style="display: none;"><a href="/order/index?page=358">358</a></li>
+                                    <li value="359" style="display: none;"><a href="/order/index?page=359">359</a></li>
+                                    <li value="360" style="display: none;"><a href="/order/index?page=360">360</a></li>
+                                    <li value="361" style="display: none;"><a href="/order/index?page=361">361</a></li>
+                                    <li value="362" style="display: none;"><a href="/order/index?page=362">362</a></li>
+                                    <li value="363" style="display: none;"><a href="/order/index?page=363">363</a></li>
+                                    <li value="next" style="display: inline-block;"><a href="javascript:void(0);">»</a></li>
+                                    <li value="next" style="display: inline-block;"><a href="/order/index?page=363">尾页</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+            <footer></footer>
+        </div>
+
+        <style>
+            .toast-top-center {
+                top: 52px;
+            }
+        </style>
+
+        <script>
+            api.CopyText_modal();
+            var imgurl = 'static01.tengwen.com';
+
+            var menuName = $("h7.menu-name").text();
+
+            $("span.menu-span").each(function () {
+
+                var menuTitle = $(this).text();
+
+                if (menuTitle == menuName) {
+
+                    $(this).parent().addClass('active');
+
+                    if (menuName == "公告列表") {
+
+                        $(this).css('color', 'rgb(232, 86, 86)');
+
+                    }
+                }
+
+            });
+
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-center", //toast-top-center toast-bottom-center
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "3000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+            function adm_ajax_ckstat(stat) {
+                if (stat == "ok") return true;
+
+                if (stat == "nologin") {
+                    window.location.reload();
+                }
+                return false;
+            }
+
+            var pdata = {
+                action: 'notice_msg'
+            };
+
+            sendData("/notice/notice_msg", pdata, function (data) {
+                var data = data.data;
+                _Notice = data.data.unrdnum;
+                _unReadTop = data.data.unrdmsg;
+                noticemsg.showmsgnumEx(_Notice);
+                noticemsg.autoreaddlg();
+
+            });
+        </script>
+        <!-- <script src="https://static01.tengwen.com/common/paginate.js"></script> -->
+        <script>
+            $('.datetimepicker').datetimepicker({
+                format: 'YYYY-MM-DD',
+                locale: moment.locale('zh-CN'),
+            });
+
+            function exportdata() {
+                var key = $("#form-key").val();
+                var status = $("#form-status").val();
+                var start_date = $("#form-start_date").val();
+                var end_date = $("#form-end_date").val();
+                var did = $("#form-did").val();
+                var idid = $("#form-idid").val();
+
+                if (!start_date || !end_date) {
+                    toastr.warning('请选择有效日期范围');
+                    return;
+                }
+                var start_Time = (new Date(start_date)).getTime() / 1000; //得到秒数
+                var end_Time = (new Date(end_date)).getTime() / 1000; //得到秒数
+                if (end_Time < start_Time) {
+                    toastr.warning('请选择有效日期范围');
+                    return;
+                }
+                if ((end_Time - start_Time) / 86400 > 31) {
+                    toastr.warning('只可选择范围31天的数据');
+                    return;
+                }
+
+                var statu = "";
+
+                if (statu) {
+                    window.location = "/order/order_excel?key=&statu=&did=&stime=" + start_Time + "&etime=" + end_Time;
+                } else {
+                    window.location = "/order/order_excel?key=&did=&stime=" + start_Time + "&etime=" + end_Time;
+                }
+
+            }
+        </script>
+
+    </div>
+</body>
+
+</html>

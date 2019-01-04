@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>LOGO</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <!-- CSS  -->
+    <link rel="stylesheet" href="./css/common.css/common.css">
+    <!-- JS -->
+    <script src="./js/common.js/common.js"></script>
+    <!-- jQuery 3.3.1 -->
+    <script src="./dist/js/jquery.js"></script>
+
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="./dist/css/bootstrap.min.css">
+    <script src="./dist/js/bootstrap.min.js"></script>
+    <!--  Swiper-3.4.2. -->
+    <link rel="stylesheet" href="./dist/css/swiper.min.css">
+    <script src="./dist/js/swiper.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">
+            <span class="icon"><img src="./images/logo@2x.png" alt=""></span>
+            <ul class="nav nav-pills" style="font-weight: 700;">
+                <li role="presentation"><a href="./businessCooperation.html">商务合作</a></li>
+                <li role="presentation"><a href="./recruitment.html">人才招聘</a></li>
+                <li role="presentation"><a href="./culture.html">企业文化</a></li>
+                <li role="presentation"><a href="./regard.html">关于</a></li>
+                <li role="presentation" class="active"><a href="./index.html">首页</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <!-- Swiper -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="./regard.html" class="swiper-wr1 btn-bottom">了解详情</a>
+                        <img src="./images/slideshow 1.png" alt="">
+                    </div>
+                    <div class="swiper-slide"><img src="./images/slideshow2.png" alt=""></div>
+                    <div class="swiper-slide"><a href="./culture.html" class="swiper-wr2 btn-bottom">了解详情</a>
+                        <img src="./images/slideshow3.png" alt=""></div>
+                    <div class="swiper-slide"><a href="./culture.html" class="swiper-wr3 btn-bottom">了解详情</a>
+                        <img src="./images/slideshow4.png" alt=""></div>
+                    <div class="swiper-slide"><a href="./businessCooperation.html" class="swiper-wr4 btn-bottom">了解详情</a>
+                        <img src="./images/slideshow5.png" alt=""></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next swiper-button-white"></div>
+                <div class="swiper-button-prev swiper-button-white"></div>
+            </div>
+
+        </div>
+        <div class="footer clearfix">
+            <span class="title">广州哇嘎文化传媒有限公司</span>
+            <div class="wechsina">
+                <img src="./images/WeChat@2x.png">
+                <div class="chat_ewm" style="display: none;">
+                    <img src="./images/Network essay@2x.png" alt="">
+                </div>
+            </div>
+            <a href="https://weibo.com" class="weibo">
+                <img src="./images/sina@2x.png" alt="">
+            </a>
+        </div>
+
+</body>
+
+</html>
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        //pagination: '.swiper-pagination',//pagination分页器
+        nextButton: '.swiper-button-next', //前进后退按钮
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true, //参数设置为true时，点击分页器的指示点分页器会控制Swiper切换
+        //   spaceBetween: 30,//slide之间的距离（单位px）。
+        centeredSlides: true, //设定为true时，活动块会居中，而不是默认状态下的居左。
+        loop: true, //复制多份循环(这里就是让轮播看起来是循环的，去掉这个就恢复了默认的swiper轮播)
+        autoplay: 8000, //自动切换的时间间隔（单位ms），不设定该参数slide不会自动切换。
+        autoplayDisableOnInteraction: false //点击后打断auto-play
+    });
+</script>
+<script>
+    /* WeChat displays the qr code */
+    $(".wechsina").hover(function () {
+        $(this).find(".chat_ewm").slideDown(100, "linear");
+    }, function () {
+        $(this).find(".chat_ewm").slideUp(10, "linear");
+    }).trigger("mouseleave");
+</script>

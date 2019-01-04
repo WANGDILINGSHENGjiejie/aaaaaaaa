@@ -1,0 +1,385 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>资源转移 - 哇嘎互娱</title>
+    	<script src="{% static 'layerUI/layui.all.js'%}" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'layerUI/css/layui.css'%}" />
+    {% include 'public/static.html' %}
+    <script>
+        var api_url = '/api.php';
+        var cur_pos = '资源添加';
+        var _cdnurl = "//cdn.xxxx.com/";
+        var __cfg = false;
+        var imgurl = 'static/';
+
+        function adm_ajax_ckstat(stat) {
+            if (stat == "ok") return true;
+
+            if (stat == "nologin") {
+                window.location.reload();
+            }
+            return false;
+        }
+
+        var _Notice = 0;
+        var _unReadTop = [];
+
+    </script>
+
+</head>
+<body>
+{% include 'public/header.html' %}
+{% include 'public/left.html' %}
+
+
+<!-- MAIN -->
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <div id="tipdlg"></div>
+            <style type="text/css">
+                strong {
+                    margin-bottom: 5px;
+                    display: inline-block;
+                }
+
+                #template_edit .box {
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    margin: 15px;
+                    padding: 15px;
+                    word-break: break-all;
+                }
+
+                #template_edit .box .msg-title {
+                    font-size: 18px;
+                    color: #000;
+                    font-weight: 400;
+                    margin-bottom: 0;
+                }
+
+                #template_edit .box .fa {
+                    font-size: 16px;
+                }
+
+            </style>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- TABLE HOVER -->
+                    <div class="panel">
+                        <div class="panel-heading panel-header-bottom mynav">
+                            <h3 class="panel-title">
+                                <i class="fa fa-home" aria-hidden="true"></i>首页 > 资源转移
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div role="tabpanel" class="tab-pane active" tyle="padding:10px 0">
+                                <form id="editform" class="form-horizontal">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"><span
+                                                style="color: red;">*</span>要删除的主体：</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" list="companys" class="form-control" placeholder="" id="delete_main_body_name" name="delete_main_body_name" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label"><span
+                                                style="color: red;">*</span>要传输的主体：</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="transmission_main_body_name"
+                                                   name="transmission_main_body_name" placeholder="" value="">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group" id="inputButton">
+                                        <label for="inputPassword3" class="col-sm-2 control-label"></label>
+                                        <div class="col-sm-4">
+                                            <button type="button" id="up-submit" class="btn btn-success">提交</button>
+                                            <span class="green tipmsg">&nbsp;</span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+                            <div role="tabpanel" class="tab-pane active" tyle="padding:10px 0">
+                                <form id="editforms" class="form-horizontal">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"><span
+                                                style="color: red;">*</span>要修改的链接ID：</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" list="companys" class="form-control" placeholder="" id="update_order_bookID" name="update_order_bookID" value=""  onblur="focusEvent()">
+                                        </div>
+                                    </div>
+{#                                    <div class="form-group">#}
+{#                                        <label for="inputEmail3" class="col-sm-2 control-label "><span#}
+{#                                                style="color: red;">*</span>要修改的发文时间：</label>#}
+{#                                        <div class="col-sm-4 layui-input-inline"  style="width:150px;">#}
+{#                                            <input type="text" class="layui-input " style=" width: 250px; height: 34px;box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);#}
+{#                                                      border-radius: 2px;border-color: #eaeaea;background-color: #fcfcfc;#}
+{#                                                    display: block;padding: 6px 12px;font-size: 14px; line-height: 1.42857143;"#}
+{#                                                   placeholder="" lay-key="6" id="update_give_time" name="update_give_time" readonly/>#}
+{#                                        </div>#}
+{#                                    </div>#}
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label"><span
+                                                style="color: red;">*</span>要修改的发文时间：</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="update_give_time"
+                                                   name="update_give_time" placeholder="" value="">
+                                        </div>
+                                    </div>
+
+                                    <hr>
+                                    <div class="form-group" id="updateButton">
+                                        <label for="inputPassword3" class="col-sm-2 control-label"></label>
+                                        <div class="col-sm-4">
+                                            <button type="button" id="update-submit" class="btn btn-success" >提交</button>
+                                            <span class="green tipmsgs">&nbsp;</span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <div class="panel-body">
+                            <div role="tabpanel" class="tab-pane active" tyle="padding:10px 0">
+                                <form id="editformMain" class="form-horizontal">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"><span
+                                                style="color: red;">*</span>要修改的公众号ID：</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" list="companys" class="form-control" placeholder="" id="update_public_number_id" name="update_public_number_id" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label"><span
+                                                style="color: red;">*</span>要改成主体的ID：</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="update_main_body_id"
+                                                   name="update_main_body_id" placeholder="" value="">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group" id="inputButtonMain">
+                                        <label for="inputPassword3" class="col-sm-2 control-label"></label>
+                                        <div class="col-sm-4">
+                                            <button type="button" id="update_submit_mainId" class="btn btn-success">提交</button>
+                                            <span class="green tipmsg">&nbsp;</span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- END TABLE HOVER -->
+                </div>
+            </div>
+            <script>
+
+                {#var $=layui.$;#}
+                {#form = layui.form#}
+                {##}
+                {#<!--加载时间选择器-->#}
+                {#var laydate = layui.laydate;#}
+                {#//执行一个laydate实例#}
+                {#laydate.render({#}
+                {#    elem: '#update_give_time', //指定元素#}
+                {#    type: 'datetime'#}
+                {# });#}
+
+
+                //获取地址栏参数
+                function getUrlParam(name) {
+                     var pattern = new RegExp("[?&]"+name+"\=([^&]+)", "g");
+                     var matcher = pattern.exec(window.location.search);
+                     var items = null;
+                     if(null != matcher){
+                             try{
+                                    items = decodeURIComponent(decodeURIComponent(matcher[1]));
+                             }catch(e){
+                                     try{
+                                             items = decodeURIComponent(matcher[1]);
+                                     }catch(e){
+                                             items = matcher[1];
+                                     }
+                             }
+                     }
+                     return items;
+                }
+
+
+                function _postTemplateMsg(){
+                    if($("input#delete_main_body_name").val().length==0){
+                        $(".tipmsg").html("被删除的主体不能为空");
+                        return false;
+                    }
+                    if($("input#transmission_main_body_name").val().length==0){
+                        $(".tipmsg").html("要转移的主体不能为空");
+                        return false;
+                    }
+                    // var delete_main_body_name       = $("input#delete_main_body_name").val()
+                    // var transmission_main_body_name = $("input#transmission_main_body_name").val()
+                    var d=$('#editform').serialize();
+                    $(".tipmsg").html("");
+                    /*$.ajax({
+                        type: "POST",
+                        url: "/resource/save_transfer",
+                        data: {
+                                'transmission_main_body_name':transmission_main_body_name,
+                                'delete_main_body_name':delete_main_body_name
+                              },
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data)
+                        }
+                    });*/
+                    sendData("/resource/save_transfer",d,function(data){
+                             if (data.code == 200) {
+                                 toastr.success(data.errorMsg);
+                                 setTimeout(function(){window.location.href="/resource/list";},1500);
+                             } else if (data.code == 500) {
+                                 toastr.error(data.errorMsg);
+                                 api.submitStatus(false,"#up-submit",'保存');
+                             }
+
+
+                      });
+                  }
+                $("#up-submit").bind('click',function(event){
+                    event.preventDefault();
+                    _postTemplateMsg();
+                });
+
+
+                function updateGiveTime(){
+                    var regex=/^(?:19|20)[0-9][0-9]-(?:(?:0[1-9])|(?:1[0-2]))-(?:(?:[0-2][1-9])|(?:[1-3][0-1])) (?:(?:[0-2][0-3])|(?:[0-1][0-9])):[0-5][0-9]:[0-5][0-9]$/;
+                    if(!regex.test($("input#update_give_time").val())){
+                        toastr.error("格式不正确！请输入正确的时间格式，如：2010-07-07 09:12:00");
+                        return false;
+                    }
+
+                    if($("input#update_order_bookID").val().length==0){
+                        $(".tipmsgs").html("要修改的链接ID不能为空");
+                        return false;
+                    }
+                    if($("input#update_give_time").val().length==0){
+                        $(".tipmsgs").html("要修改的发文时间不能为空");
+                        return false;
+                    }
+                    var d = $('#editforms').serialize();
+                    {#console.log(d)#}
+                    $('.trpmsgs').html("");
+                    sendData("/resource/update_time",d,function(data){
+                             {#console.log(data)#}
+                             if (data.code == 200) {
+                                 toastr.success(data.errorMsg);
+                                 setTimeout(function(){window.location.href="/resource/list";},1500);
+                             } else if (data.code == 500) {
+                                 toastr.error(data.errorMsg);
+                                 api.submitStatus(false,"#update-submit",'保存');
+                             }
+
+
+                      });
+                }
+                $("#update-submit").bind('click',function(event){
+                    event.preventDefault();
+                    updateGiveTime();
+                });
+
+
+                function focusEvent(){
+                    $.ajax({
+                        url: '/resource/get_time/',
+                        type: 'GET',
+                        dataType: 'json',
+                        data:{
+                            'bookID': $('#update_order_bookID').val()
+                        },
+                        success:function(data){
+                            if (data.code == 500){
+                                toastr.error(data.errorMsg)
+                            }else {
+                                $('#update_give_time').attr('value', data.give_time);
+                            }
+
+                        }
+                     })
+                }
+
+
+                function updateMainId(){
+                    if($("input#update_public_number_id").val().length==0){
+                        $(".tipmsg").html("被修改的公众号ID不能为空");
+                        return false;
+                    }
+                    if($("input#update_main_body_id").val().length==0){
+                        $(".tipmsg").html("要修改成的主体ID不能为空");
+                        return false;
+                    }
+                    var d=$('#editformMain').serialize();
+                    $(".tipmsg").html("");
+                    sendData("/resource/save_mainId",d,function(data){
+                             if (data.code == 200) {
+                                 toastr.success(data.errorMsg);
+                                 setTimeout(function(){window.location.href="/resource/list";},1500);
+                             } else if (data.code == 500) {
+                                 toastr.error(data.errorMsg);
+                                 api.submitStatus(false,"#update_submit_mainId",'保存');
+                             }
+
+
+                      });
+                  }
+                $("#update_submit_mainId").bind('click',function(event){
+                    event.preventDefault();
+                    updateMainId();
+                });
+
+            </script>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>
+<!-- END MAIN -->
+<div class="clearfix"></div>
+<footer></footer>
+</div> <!-- END WRAPPER -->
+<style>
+    .toast-top-center {
+        top: 52px;
+    }
+</style>
+<script>
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-center",//toast-top-center toast-bottom-center
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "3000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+</script>
+<script></script>
+</body>
+</html>

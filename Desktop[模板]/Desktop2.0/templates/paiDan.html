@@ -1,0 +1,1103 @@
+<!--{% load staticfiles %}-->
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://novel.tengwen.com/dispatch_list.php -->
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>哇嘎互娱</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<!-- jQuery 3 -->
+		<script src="{% static 'jquery.min.js'%}"></script>
+		<!-- Font Awesome 图标字体库和CSS框架-->
+		<link rel="stylesheet" href="{% static 'font-awesome.min.css'%}">
+		<link rel="stylesheet" href="{% static 'css.css'%}">
+		<link rel="stylesheet" href="{% static 'media.css'%}">
+		<link rel="stylesheet" href="{% static 'bootstrap-select.min.css'%}">
+		<!--&lt;!&ndash; Font Awesome 图标字体库和CSS框架&ndash;&gt;-->
+		<link rel="stylesheet" href="{% static 'admin/bower_components/font-awesome/css/font-awesome.min.css' %}">
+
+		<script type="text/javascript" src="{% static 'jquery.qrcode.min.js'%}"></script>
+		<script type="text/javascript" src="{% static 'jquery.cookie.min.js'%}"></script>
+		<script type="text/javascript" src="{% static 'clipboard.min.js'%}"></script>
+		<script type="text/javascript" src="{% static 'klorofil-common.js'%}"></script>
+		<script type="text/javascript" src="{% static 'comm.js'%}"></script>
+		<script src="{% static 'layerUI/layui.all.js'%}" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'layerUI/css/layui.css'%}" />
+
+		<script type="text/javascript" src="{% static 'moment.min.js'%}"></script>
+		<script type="text/javascript" src="{% static 'moment_zh-cn.js'%}"></script>
+		<!--<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
+		<link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" />
+		<script src="{% static 'bootstrap.min.js'%}"></script>
+		<script src="{% static 'bootstrap-select.min.js'%}"></script>
+		<script src="{% static 'defaults-zh_CN.js'%}"></script>
+		<script type="text/javascript" src="{% static 'echarts.min.js'%}"></script>
+	</head>
+
+	<body>
+		<!-- WRAPPER -->
+		<div id="wrapper">
+			<!-- NAVBAR -->
+			{% include 'public/header.html' %}
+			<!-- END NAVBAR -->
+
+			<!-- LEFT SIDEBAR -->
+			{% include 'public/left.html' %}
+			<!-- END LEFT SIDEBAR -->
+
+			<!-- MAIN -->
+			<div class="main">
+				<!-- MAIN CONTENT -->
+				<div class="main-content">
+					<div class="container-fluid">
+						<div id="tipdlg"></div>
+						<style type="text/css">
+							.ft12 {
+								font-size: 12px;
+							}
+
+							.ft16 {
+								font-size: 16px;
+							}
+
+							.no-display {
+								display: none;
+							}
+
+							.paidanAdd {
+								width: 97%;
+								margin-top: 20px;
+								border-top-color: #ddd;
+								border-top-width: 2px;
+								word-wrap: break-word;
+								word-break: break-all;
+							}
+							.toast-top-center {
+								top: 52px;
+							}
+							.tdbreak{
+							    width:100%;
+                                word-break:keep-all;/* 不换行 */
+                                white-space:nowrap;/* 不换行 */
+                                overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+                                text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+							}
+							.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn){
+								width:160px;
+							}
+							.redandbig{
+								color:red;
+								font-weight:700;
+							}
+							.countNumb{
+								color:red;
+							}
+						</style>
+						<div class="panel">
+							<div class="panel-heading mynav">
+								<h3 class="panel-title">你的位置：派单表</h3> </div>
+							<div class="panel-body" style="position: relative;">
+
+								<form class="layui-form" action="" style="float:right">
+									{% if request.session.user_id.user_type == 'supervisor' or request.session.user_id.user_type == 'leader_find_number' %}
+									<div class="layui-input-inline" style="width:150px;">
+										<select name="modules" lay-verify="type"  id="selectUserName" lay-filter="selectUserName">
+											<option value="">选择派单人员</option>
+											<option value="">全部</option>
+										</select>
+									</div>
+									{% endif %}
+
+									<div class="layui-input-inline" style="width:150px;">
+										<select name="modules" lay-verify="type"  id="selectGZHOwn" lay-filter="selectGZHOwn" >
+											<option value="">选择自己公众号</option>
+											<option value="">全部</option>
+										</select>
+									</div>
+
+                                    <div class="layui-input-inline" style="width:150px;">
+										<input type="text" class="layui-input" id="searchMainBody" placeholder="主体" />
+									</div>
+
+									<div class="layui-input-inline" style="width:150px;">
+										<input type="text" class="layui-input" id="searchBookName" placeholder="书名" />
+									</div>
+
+									<div class="layui-input-inline" style="width:150px;">
+										<input type="text" class="layui-input" id="searchPublicOther" placeholder="别人公众号" />
+									</div>
+
+									<div class="layui-input-inline" style="width:150px;">
+										<input type="text" class="layui-input" id="searchBookId" placeholder="链接ID" />
+									</div>
+
+
+									&nbsp;&nbsp;&nbsp;&nbsp;
+									<div class="layui-input-inline" style="width:150px;">
+										<input type="text" class="layui-input" id="startTime" placeholder="开始时间" readonly/>
+									</div>
+
+
+									<div class="layui-inline" style="width:150px;">
+										<input type="text" class="layui-input" id="endTime" placeholder="结束时间" readonly/>
+									</div>
+
+									<div class="layui-input-inline" style="width:110px;">
+										<select  id="selectTimeType" width=10px>
+											<option value="发文时间">发文时间</option>
+											<option value="创建时间">创建时间</option>
+										</select>
+									</div>
+
+									<div class="layui-input-inline" >
+										 <button type="button" class="btn btn-success" onclick="searchForAll()">查询</button>
+									</div>
+
+									<div class="form-group" style=" float: right;margin-right:5px; "></div>
+								</form>
+
+								<form class="layui-form" action="/getinfo" method="get" style="padding-bottom: 50px;">
+									{% csrf_token %}
+									<!--<div class="form-group" style=" float: left;margin-right:5px; "> <input type="text" class="form-control" placeholder="请输入派单员姓名" id="formKey" name="key" value=""> </div>-->
+									<!--<div class="form-group" style=" float: left;margin-right:5px; "> <input type="hidden" value="{{request.session.user_name}}"><button type="submit" class="btn btn-success" >查询</button></div>-->
+									<div class="form-group" style=" float: left; "> <button type="button" class="btn btn-success" onclick="layerUItest()">添加派单</button> </div>
+								</form>
+								<table class="table table-striped table-hover table-bordered" id="paidanData" style="table-layout:fixed;">
+									<thead>
+										<tr>
+											<!--<th>系统时间</th>-->
+											<th width="6%">发文时间</th>
+											<th>公众号(self)</th>
+											<th width="4%">派单员</th>
+											<th>书名</th>
+											<th>标题</th>
+											<th>公众号(other)</th>
+											<th>推广成本</th>
+											<th>新增用户</th>
+											<th>点击数</th>
+											<th>新增关注</th>
+											<th>关注成本</th>
+											<th>总回款</th>
+											<th width="5%">总回款率</th>
+											<th width="4%">24小时</th>
+											<th width="4%">7天</th>
+											<th width="4%">15天</th>
+											<th width="4%">30天</th>
+											<!--<th width="4%">60天</th>-->
+											<!--<th width="4%">90天</th>-->
+											<th width="5%">投放天数</th>
+											<th width="5%">链接ID</th>
+											<th>备注</th>
+                                            <th width="5%">创建时间</th>
+											<!--<th>ID</th>-->
+										</tr>
+									</thead>
+									<form id="form_data"></form>
+									<tbody>
+									{% for item in items.object_list %}
+										<tr>
+											<!--<td>{{ item.create_time }}</td>-->
+                                            <!--title="{{ item.year_time }}{{item.platform_prefix}}{{item.book_ID}}"-->
+											<td id ="giveTime" class="tdbreak" data-time="{{ item.give_time }}" title="{{ item.year_time }}{{item.platform_prefix}}{{item.book_ID}}">{{ item.new_give_time }}</td>
+											<td class="tdbreak" >{{item.self_public_number}}</td>
+											<td>{{item.user_name}}</td>
+                                            <td class="tdbreak" title="{{item.book_name}}">{{item.book_name}}</td>
+                                            <td class="tdbreak" title="{{item.title}}">{{item.title}}</td>
+											<td class="tdbreak" title="{{item.public_number}}">{{item.public_number}}</td>
+											<td class="tdbreak" id="costMoney">{{item.cost}}</td>
+											<td id="userAmount"></td>
+											<td id="clickNum"></td>
+											<td id="userFollowAmount"></td>
+											<td id="GZCost"></td><!--关注成本-->
+											<td id="backMoney" style="color: #770505;font-weight:700;"></td>
+											<td id="percent"></td>
+											<td id="oneDay">{{item.one_day}}</td>
+											<td id="sevenDay">{{item.seven_day}}</td>
+											<td id="fifteenDay">{{item.fifteen_day}}</td>
+											<td id="thirtyDay">{{item.thirty_day}}</td>
+											<!--<td id="sixtyDay">{{item.sixty_day}}</td>-->
+											<!--<td id="nintyDay">{{item.ninty_day}}</td>-->
+											<td id="numday" style="color: #770505;font-weight:700;">{{item.numday}}天</td>
+                                            <td id="bookid">{{item.book_ID}}</td>
+											<td class="tdbreak" title="{{item.remark}}" ondblclick="ondblclick_f($(this), {{ item.book_ID }})">{{item.remark}}</td>
+											<td class="create" title="{{item.create_time}}">{{item.create_time | date:'n-d'}}</td>
+											<!--<td id="bookID" name="{{item.book_ID}}">{{item.book_ID}}</td>-->
+										</tr>
+									{% endfor %}
+
+									</tbody>
+								</table>
+								<div>
+
+									<ul class="pagination pagination-sm" style="float:left;">
+										<!--  如果当前页有前一页，则上一页链接有效  -->
+										{% if items.has_previous %}
+										<li class="prev">
+											<a href="?page={{items.previous_page_number}}&key={{keyword}}&selectGZHOwn={{selectGZHOwn}}&startTime={{startTime}}&endTime={{endTime}}&searchBookId={{searchBookId}}&searchMainBody={{ searchMainBody }}&searchBookName={{searchBookName}}&searchPublicOther={{searchPublicOther}}&selectTimeType={{ selectTimeType }}&selectUserName={{ keyword }}"><span>上一页</span></a>
+										</li>
+										{% else %}
+										<li class="prev disabled"><span>上一页</span></li>
+										{% endif %}
+
+                                        <li>
+                                            <a href="?page=1&key={{keyword}}&selectGZHOwn={{selectGZHOwn}}&startTime={{startTime}}&endTime={{endTime}}&searchBookId={{searchBookId}}&searchMainBody={{ searchMainBody }}&searchBookName={{searchBookName}}&searchPublicOther={{searchPublicOther}}&selectTimeType={{ selectTimeType }}&selectUserName={{ keyword }}">首页</a>
+                                        </li>
+
+
+										{% for page in pageList %}
+
+										{% if page %}
+										<!-- 如果该页码是当前页，活跃显示 -->
+										{% ifequal page items.number %}
+										<li class="active"><span>{{ page }}</span></li>
+										{% else %}
+										<li>
+											<a href="?page={{ page }}&key={{ keyword }}&selectGZHOwn={{selectGZHOwn}}&startTime={{startTime}}&endTime={{endTime}}&searchBookId={{searchBookId}}&searchMainBody={{ searchMainBody }}&searchBookName={{searchBookName}}&searchPublicOther={{searchPublicOther}}&selectTimeType={{ selectTimeType }}&selectUserName={{ keyword }}">{{ page }}</a>
+										</li>
+										{% endifequal %}
+										{% endif %}
+										{% endfor %}
+
+                                        <li>
+                                            <a href="?page={{ totalPage }}&key={{keyword}}&selectGZHOwn={{selectGZHOwn}}&startTime={{startTime}}&endTime={{endTime}}&searchBookId={{searchBookId}}&searchMainBody={{ searchMainBody }}&searchBookName={{searchBookName}}&searchPublicOther={{searchPublicOther}}&selectTimeType={{ selectTimeType }}&selectUserName={{ keyword }}">尾页</a>
+                                        </li>
+
+
+										<!-- 如果当前页有下一页，则下一页链接有效-->
+										{% if items.has_next %}
+										<li class="next">
+											<a href="?page={{ items.next_page_number }}&key={{keyword}}&selectGZHOwn={{selectGZHOwn}}&startTime={{startTime}}&endTime={{endTime}}&searchBookId={{searchBookId}}&searchMainBody={{ searchMainBody }}&searchBookName={{searchBookName}}&searchPublicOther={{searchPublicOther}}&selectTimeType={{ selectTimeType }}&selectUserName={{ keyword }}"><span>下一页</span></a>
+										</li>
+										{% else %}
+										<li class="next disabled"><span>下一页</span></li>
+										{% endif %}
+									</ul>
+
+								</div>
+								{% if request.session.user_id.user_type == 'supervisor' or request.session.user_id.user_type == 'leader_find_number' or request.session.user_id.user_type == 'order' %}
+                                    {% if searchBookName or searchMainBody or timeField or searchPublicOther or searchBookId or searPageList or searTotalPageNumber or keyword or selectGZHOwn or startTime or endTime %}
+                                        {% if items.object_list %}
+                                            <div id="countRes" style="text-align:center; ">
+                                                总推广成本：<b id="allCost" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;总平均推广成本：<b id="allAveCost" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;总新增用户：<b id="allNewUser" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;总平均新增用户：<b id="allAveNewUser" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;总点击数：<b id="allClick" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;总平均点击数：<b id="allAveClick" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;总新增关注：<b id="allNewFollow" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;总平均新增关注：<b id="allAveFollow" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;总平均关注成本：<b id="allAveFollowCost" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;总回款：<b id="allBack" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;总回款率：<b id="allBackPercent" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;24小时平均回款率：<b id="aveOneDay" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;7天平均回款率：<b id="aveSevenDay" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;15天平均回款率：<b id="aveFifteenDay" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;30天平均回款率：<b id="aveThirtyDay" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;60天平均回款率：<b id="aveSixtyDay" class="countNumb"></b>
+                                                &nbsp;&nbsp;&nbsp;90天平均回款率：<b id="aveNintyDay" class="countNumb"></b>
+									        </div>
+                                        {% endif %}
+                                    {% endif %}
+{#								{% if request.session.user_id.user_type == 'supervisor' %}#}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END MAIN CONTENT -->
+			</div>
+			<!-- END MAIN -->
+		</div>
+
+
+
+		<div id="waga" class="no-display" style="display: none;">
+			<div>
+				<table contenteditable="true" class="container-fluid panel table table-striped table-hover table-bordered paidanAdd">
+					<thead>
+						<tr contenteditable="false">
+							<th width="12%">发文时间</th>
+							<th width="14%">公众号(self)</th>
+							<th width="13%">书名</th>
+							<th width="13%">标题</th>
+							<th width="16%">公众号(other)</th>
+							<th width="10%">推广成本</th>
+							<th width="14%">备注</th>
+							<th width="6%">链接ID</th>
+						</tr>
+					</thead>
+					<!-- 表内容 START -->
+					<tbody>
+						<tr>
+							<td id="time_w" style="vertical-align:middle;"><div class="layui-inline"><input type="text" value="2012-05-15 21:05" id="datetimepicker" readonly/></div></td>
+							<td id="selfSubscription_w" >
+										<select class="selectpicker"  data-live-search="true" id="selectGZHUs" >
+
+										</select>
+							</td>
+							<td id="bookname_w">
+										<select class="selectpicker"  data-live-search="true" id="selectBookName" >
+
+										</select>
+							</td>
+							<td id="title_w">
+										<select class="selectpicker"  data-live-search="true" id="selectBookTitle" >
+
+										</select>
+							</td>
+							<td id="selfSubscriptionOther_w">
+
+										<select class="selectpicker" multiple data-live-search="true" id="selectGZH" >
+
+										</select>
+
+							</td>
+							<td >
+								<input class="form-control" id="cost_w" type="text" style="width:100px;">
+							</td>
+							<td >
+								<input class="form-control" id="remark_w" type="text" style="width:150px;">
+							</td>
+							<td >
+								<input class="form-control" id="bookId_w" type="text" style="width:72px;">
+							</td>
+						</tr>
+
+					</tbody>
+					<!-- 表内容 END -->
+				</table>
+				<div style="float: right;margin-right: 20px;">
+					<button id="addOrderBtn" class="btn " onclick="addPaidan()">确定</button>
+				</div>
+
+			</div>
+		</div>
+
+
+
+			<script>
+                function ondblclick_f(t, bookID) {
+                    console.log(t)
+                    var _t=t.text();
+                    var _w=t.width();
+                    var _h=t.height();
+                    t.html("").css({"padding":"0,0,0,0"});
+                    var $input=$("<input type='text'>");
+                    $input.appendTo(t).width(_w).height(_h).val(_t).focus().blur(function(){
+                        t.html($(this).val());
+                        console.log(t.text(), bookID)
+                        $.ajax({
+                        url: 'update_remark',
+                        type: 'GET',
+                        contentType:"application/json",
+					    data: {
+                            remark:t.text(),
+                            bookID:bookID
+                        },
+                        success: function (data) {
+                            return
+                        }
+
+                       })
+                    });
+                }
+
+
+			 form = layui.form;
+			 <!--渲染layUI-->
+			 form.render();
+			getDetailData();
+			getUserName();
+			getGZHUs();
+			switchPercent();
+			getredis5();
+			<!--window.onload=function(){-->
+			  <!--recoveryParm();-->
+			<!--}-->
+
+
+			var laydate = layui.laydate;
+			var startTimeRecover = getUrlParam("startTime")
+			var endTimeRecover = getUrlParam("endTime")
+			//执行一个laydate实例
+			laydate.render({
+				elem: '#startTime', //指定元素
+				type: 'date',
+				value: startTimeRecover
+			});
+			laydate.render({
+				elem: '#endTime', //指定元素
+				type: 'date',
+				value: endTimeRecover
+			});
+
+
+			function getredis5(){
+			    $.ajax({
+					type: 'get',
+					url: "/getrediscount",
+					data: "",
+					success: function(data) {
+						data = eval("("+data+")")
+						$("#allCost").text(data.allCost)//总推广成本
+						$("#allAveCost").text(keepNum(data.allAveCost, 2))//总平均推广成本
+
+						$("#allNewUser").text(data.allNewUser)//总新增用户
+						$("#allAveNewUser").text(keepNum(data.allAveNewUser, 2))//总平均新增用户
+
+						$("#allClick").text(data.allClick)//总点击数
+						$("#allAveClick").text(keepNum(data.allAveClick, 2))//总平均点击数
+
+						$("#allNewFollow").text(data.allNewFollow)//总新增关注
+						$("#allAveFollow").text(keepNum(data.allAveFollow, 2))//总平均新增关注
+
+						$("#allBack").text(keepNum(data.allBack,2))//总回款
+
+						var allAveFollowCost = data.allCost/Number(data.allNewFollow) //总平均关注成本  = 总推广成本/总新增关注
+						$("#allAveFollowCost").text(keepNum(allAveFollowCost,2))
+
+						var allBackPercent = data.allBack/Number(data.allCost)  //总回款率
+						$("#allBackPercent").text(toPercent(allBackPercent))
+
+                        var allAveOneDay = data.aveOneDay/Number(data.allCost)  // 24小时平均回款
+                        $("#aveOneDay").text(toPercent(allAveOneDay))
+
+                        var allAveSevenDay = data.aveSevenDay/Number(data.allCost)  // 7天平均回款
+                        $("#aveSevenDay").text(toPercent(allAveSevenDay))
+
+                        var allAveFifteenDay = data.aveFifteenDay/Number(data.allCost)  // 15天平均回款
+                        $("#aveFifteenDay").text(toPercent(allAveFifteenDay))
+
+                        var allAveThirtyDay = data.aveThirtyDay/Number(data.allCost)  // 30天平均回款
+                        $("#aveThirtyDay").text(toPercent(allAveThirtyDay))
+
+                        var allAveSixtyDay = data.aveSixtyDay/Number(data.allCost)  // 60天平均回款
+                        $("#aveSixtyDay").text(toPercent(allAveSixtyDay))
+
+                        var allAveNintyDay = data.aveNintyDay/Number(data.allCost)  // 90天平均回款
+                        $("#aveNintyDay").text(toPercent(allAveNintyDay))
+
+
+					},
+					error: function(xmlHttpRequest, textStatus, errors) {
+						alert("报错了")
+						console.log(xmlHttpRequest.status);
+						console.log(textStatus);
+						console.log(errors)
+					}
+				});
+			}
+
+			function recoveryParm(){
+				var searchBookName = getUrlParam("searchBookName")
+				var searchMainBody = getUrlParam("searchMainBody")
+				var searchPublicOther = getUrlParam("searchPublicOther")
+				var searchBookId = getUrlParam("searchBookId")
+				var selectGZHOwn = getUrlParam("selectGZHOwn")
+				var selectUserName = getUrlParam("selectUserName")
+				var selectTimeType = getUrlParam("selectTimeType")
+
+				$("#selectGZHOwn").val(selectGZHOwn)
+				$("#selectUserName").val(selectUserName)
+				$("#searchMainBody").val(searchMainBody)
+				$("#searchBookName").val(searchBookName)
+				$("#searchPublicOther").val(searchPublicOther)
+				$("#searchBookId").val(searchBookId)
+				$("#selectTimeType").val(selectTimeType)
+				form.render();
+
+			}
+
+			//获取地址栏参数
+			function getUrlParam(name) {
+				 var pattern = new RegExp("[?&]"+name+"\=([^&]+)", "g");
+				 var matcher = pattern.exec(window.location.search);
+				 var items = null;
+				 if(null != matcher){
+						 try{
+								items = decodeURIComponent(decodeURIComponent(matcher[1]));
+						 }catch(e){
+								 try{
+										 items = decodeURIComponent(matcher[1]);
+								 }catch(e){
+										 items = matcher[1];
+								 }
+						 }
+				 }
+				 return items;
+			}
+
+			//搜索
+			function searchForAll(){
+				var selectUserName = $('#selectUserName').val();
+				var selectGZHOwn = $('#selectGZHOwn').val();
+				var startTime = $('#startTime').val()
+				var endTime = $('#endTime').val()
+				var searchBookId = $("#searchBookId").val().trim()
+				var searchMainBody = $("#searchMainBody").val().trim()
+				var searchBookName = $("#searchBookName").val().trim()
+				var searchPublicOther = $("#searchPublicOther").val().trim()
+				var selectTimeType = $("#selectTimeType").val()
+				location.href = "/getinfo?selectUserName="+selectUserName+"&selectGZHOwn="+selectGZHOwn+"&startTime="+startTime+"&endTime="+endTime+"&searchBookId="+searchBookId+"&searchMainBody="+searchMainBody+"&searchBookName="+searchBookName+"&searchPublicOther="+searchPublicOther+"&selectTimeType="+selectTimeType
+			}
+
+
+			function getGZHUs(){
+			//加载公众号(自己)下拉列表
+				$.ajax({
+					type: 'get',
+					url: "/getgzhOwn",
+					async : false,
+					data: "",
+					success: function(data) {
+						var $html = ""
+							form = layui.form;
+						 data = eval("("+data+")")
+						$.each(data, function(index, item) {
+							$html += "<option value='" + item.public_name + "' account= '"+item.account_name+"'  password='"+item.password+"' platformName='"+item.Platform_name+"'>" + item.public_name + "</option>";
+						});
+						$("select[id='selectGZHOwn']").append($html);
+						$("select[id='selectGZHUs']").append($html);
+						 //重新渲染
+						 recoveryParm();
+					},
+					error: function(xmlHttpRequest, textStatus, errors) {
+						alert("报错了")
+						console.log(xmlHttpRequest.status);
+						console.log(textStatus);
+						console.log(errors)
+					}
+				});
+			}
+
+			function getUserName(){
+			//加载派单员下拉列表
+				$.ajax({
+					type: 'get',
+					url: "/getuserinfo",
+					async : false,
+					data: "",
+					success: function(data) {
+						var $html = ""
+							form = layui.form;
+						data = eval("("+data+")")
+						$.each(data, function(index, item) {
+							$html += "<option value='" + item.fields.name + "'>" + item.fields.name + "</option>";
+						});
+						$("select[id='selectUserName']").append($html);
+
+					},
+					error: function(xmlHttpRequest, textStatus, errors) {
+						alert("报错了")
+						console.log(xmlHttpRequest.status);
+						console.log(textStatus);
+						console.log(errors)
+					}
+				});
+			}
+
+			function switchPercent(){
+				$("#paidanData tbody tr").each(function(){
+					var oneDay = $(this).children("#oneDay").text();
+					var sevenDay = $(this).children("#sevenDay").text();
+					var fifteenDay = $(this).children("#fifteenDay").text();
+					var thirtyDay = $(this).children("#thirtyDay").text();
+					var sixtyDay = $(this).children("#sixtyDay").text();
+					var nintyDay = $(this).children("#nintyDay").text();
+					var costMoney = $(this).children("#costMoney").text();
+
+					$(this).children("#oneDay").text(getPercentOfDay(oneDay,costMoney));
+					$(this).children("#sevenDay").text(getPercentOfDay(sevenDay,costMoney));
+					$(this).children("#fifteenDay").text(getPercentOfDay(fifteenDay,costMoney));
+					$(this).children("#thirtyDay").text(getPercentOfDay(thirtyDay,costMoney));
+					$(this).children("#sixtyDay").text(getPercentOfDay(sixtyDay,costMoney));
+					$(this).children("#nintyDay").text(getPercentOfDay(nintyDay,costMoney));
+
+				})
+			}
+
+			function getPercentOfDay(day,costMoney){
+				if(costMoney==null||String(costMoney)==""){
+				return ""
+				}
+				if(day==null||String(day)==""){
+				return ""
+				}
+
+				var result = ((Number(day)/Number(costMoney))*100).toFixed(2);
+				result +="%";
+				return result;
+			}
+
+			function getDetailData(){
+			    var array = new Array()
+				$("#paidanData tbody tr").each(function(){
+					var a = $(this).children("#giveTime").attr("title");
+					array.push(a)
+				})
+				$.ajax({
+					type: 'get',
+					url: "/getdetail" ,
+					contentType:"application/json",
+					data: {array:JSON.stringify(array)},
+					success: function(data) {
+					    data = JSON.parse(data)
+					    for(var i=0 ,l=data.length;i<l;i++){
+
+					    	//若当前时间大于发文时间且 点击数小于10 则点击数变红
+					    	var clickNum = data[i].clicknum.replace(/\"/g, "");//点击数
+							var giveTime = $("td[title="+data[i].bookId+"]").parent().children("#giveTime").attr("data-time");//发文时间
+							var curtime = new Date();//当前时间
+							var endtime = new Date(Date.parse(giveTime));//发文时间转换成可比较形式
+							if(curtime>endtime){
+								if(Number(clickNum)<=10){
+									$("td[title="+data[i].bookId+"]").parent().children("#clickNum").addClass("redandbig")
+								}
+							}
+
+					        $("td[title="+data[i].bookId+"]").parent().children("#userAmount").text(data[i].user_amount.replace(/\"/g, ""))//新增用户
+					        $("td[title="+data[i].bookId+"]").parent().children("#clickNum").text(data[i].clicknum.replace(/\"/g, ""))//点击数
+					        $("td[title="+data[i].bookId+"]").parent().children("#userFollowAmount").text(data[i].user_follow_amount.replace(/\"/g, ""))//新增关注
+					        $("td[title="+data[i].bookId+"]").parent().children("#backMoney").text(data[i].money.replace(/\"/g, ""))//总回款
+					        var costMoney = $("td[title="+data[i].bookId+"]").parent().children("#costMoney").text()//获取推广成本
+					        var GZcost
+					        if(Number(data[i].user_follow_amount.replace(/\"/g, ""))==0){
+					        	GZcost = keepNum(costMoney,1)
+					        }else{
+					        	GZcost = keepNum(costMoney/Number(data[i].user_follow_amount.replace(/\"/g, "")),1)
+					        }
+					        $("td[title="+data[i].bookId+"]").parent().children("#GZCost").text(GZcost)//关注成本赋值
+					        if(costMoney!=null&&costMoney!=""){
+					        	var percent = data[i].money/costMoney
+					        	$("td[title="+data[i].bookId+"]").parent().children("#percent").text(toPercent(percent))
+					        }
+					    }
+
+					},
+					error: function(xmlHttpRequest, textStatus, errors) {
+						alert("报错了")
+						console.log(xmlHttpRequest.status);
+						console.log(textStatus);
+						console.log(errors);
+					}
+				});
+			}
+
+			//小数转百分比 保留两位
+			function toPercent(point){
+				if(point==null||String(point)==""){
+				return ""
+				}
+				var str=Number(point*100).toFixed(2);
+				str+="%";
+				return str;
+			}
+
+			//保留自定义小数位
+			function keepNum(point,num){
+				if(point==null||String(point)==""){
+				return ""
+				}
+				return Number(point).toFixed(num);
+			}
+
+
+			function layerUItest() {
+			//layui和jquery会有冲突 $必须使用layui的
+			var $=layui.$;
+			    form = layui.form
+
+			<!--加载时间选择器-->
+			var laydate = layui.laydate;
+			//执行一个laydate实例
+			laydate.render({
+				elem: '#datetimepicker', //指定元素
+				type: 'datetime'
+			});
+
+			getGZH();
+			getBookName();
+
+
+			//监听书名下拉框 被选中后在标题下拉框加载对应的数据
+			$("#selectBookName").change(function(){
+        $("#selectBookTitle").empty();
+				getBookTitle($("#selectBookName").val())
+			});
+
+
+
+
+				layer.open({
+					type: 1,
+					title: ["添加派单", 'background-color:rgb(54, 188, 228);color:#fff'],
+					area: ['1300px', '600px'],
+					scrollbar: false,
+					closeBtn: 2,
+					content: $(".no-display"),
+					success: function() {
+
+					},
+					end: function() {
+					  //清空数据
+					  $("#selectBookName").empty();
+					  $("#selectBookTitle").empty();
+					  $("#selectGZH").empty();
+					  $("#cost_w").val("");
+					  $("#remark_w").val("");
+					  $("#bookId_w").val("");
+					  <!--$("#selectGZHUs").empty("");-->
+
+					}
+				});
+			}
+
+			function checkForm(selfSubscription,copyWritingID,resourceId,cost,bookId) {
+				if(selfSubscription==null||String(selfSubscription)==""){
+					return "你还没填写公众号";
+				}
+				if(copyWritingID==null||String(copyWritingID)==""){
+					return "你还没选择标题"
+				}
+				if(resourceId==null||String(resourceId)==""){
+					return "你还没选择公众号"
+				}
+				if(cost==null||String(cost)==""){
+					return "你还没填写推广成本"
+				}
+				var regNeg = /[^\d{1,}\d{1,}|\d{1,}]/g; // 判断数字及整数
+                if(regNeg.test(cost)){
+                    return "推广成本必须填写数字"
+                }
+				if(cost==null||String(cost)==""){
+					return "你还没填写推广成本"
+				}
+				if(bookId==null||String(bookId)==""){
+					return "你还没填写ID"
+				}
+
+				return true
+
+			}
+
+			function confirmID(bookId,account,password,platformName){
+				var res = false ;
+				$.ajax({
+						type: 'GET',
+						url: "/confirmid" ,
+						data: {ID:bookId,account:account,password:password,platformName:platformName},
+						async : false,
+						success: function(data) {
+							if(Number(data)>0){
+								res = true
+							}
+						},
+						error: function(xmlHttpRequest, textStatus, errors) {
+							alert("报错了")
+							console.log(xmlHttpRequest.status);
+							console.log(textStatus);
+							console.log(errors);
+						}
+					});
+				return res;
+			}
+
+
+
+			function addPaidan() {
+				var creatTime = $("#datetimepicker").val();
+				var selfSubscription = $("#selectGZHUs").val();
+				var account  = $("#selectGZHUs option:selected").attr("account")
+				var password = $("#selectGZHUs option:selected").attr("password")
+				var platformName = $("#selectGZHUs option:selected").attr("platformName")
+				var copyWritingID = $("#selectBookTitle").val()
+				var resourceId = $("#selectGZH").val()
+				var cost = $("#cost_w").val()
+				var remark = $("#remark_w").val()
+				var bookId = $("#bookId_w").val().trim();
+				var checkFormRes = checkForm(selfSubscription,copyWritingID,resourceId,cost,bookId)
+				if(checkFormRes!=true){
+				    alert(checkFormRes)
+					return
+				}
+				if(!confirmID(bookId,account,password,platformName)){
+					alert("你所填写的ID已存在于数据库，或不存在于第三方平台");
+					return
+				}
+
+				$('#addOrderBtn').attr('disabled',true);  // 禁用按钮
+				$.ajax({
+					type: 'post',
+					url: "/addorder" ,
+					data: {creatTime:creatTime,selfSubscription:selfSubscription,cost:cost,remark:remark,bookId:bookId,resourceId:JSON.stringify(resourceId),copyWritingID:copyWritingID,platformName:platformName},
+					success: function(data) {
+						alert("添加成功");
+						$('#addOrderBtn').attr('disabled',false);
+						location.reload()
+					},
+					error: function(xmlHttpRequest, textStatus, errors) {
+					    $('#addOrderBtn').attr('disabled',false);
+						alert("报错了");
+						console.log(xmlHttpRequest.status);
+						console.log(textStatus);
+						console.log(errors);
+					}
+				});
+			}
+
+
+
+			function getGZH() {
+				//加载公众号下拉列表
+				$.ajax({
+					type: 'get',
+					url: "/getresource",
+					data: "",
+					success: function(data) {
+						var $html = ""
+							form = layui.form;
+						 data = eval("("+data+")")
+						$.each(data, function(index, item) {
+							$html += "<option value='" + item.id + "'>" + item.public_number+ "</option>";
+						});
+						$("select[id='selectGZH']").append($html);
+						 //重新渲染
+						$('#selectGZH').selectpicker('refresh');
+
+					},
+					error: function(xmlHttpRequest, textStatus, errors) {
+						alert("报错了")
+						console.log(xmlHttpRequest.status);
+						console.log(textStatus);
+						console.log(errors)
+					}
+				});
+			}
+
+			function getBookName() {
+				//加载书名
+					$.ajax({
+						type: 'get',
+						url: "/getbookname",
+						data: "",
+						success: function(data) {
+							var $html = "<option value=''>选择或搜索</option>"
+								form = layui.form;
+							data = eval("("+data+")")
+							$.each(data, function(index, item) {
+								$html += "<option value='" + item.book_name + "'>" + item.book_name + "</option>";
+							});
+							$("select[id='selectBookName']").append($html);
+							 //重新渲染
+							 $('#selectBookName').selectpicker('refresh');
+
+						},
+						error: function(xmlHttpRequest, textStatus, errors) {
+							alert("报错了")
+							console.log(xmlHttpRequest.status);
+							console.log(textStatus);
+							console.log(errors)
+						}
+					});
+			}
+
+
+			function getBookTitle(bookname){
+
+				//加载标题
+				$.ajax({
+					type: 'get',
+					url: "/getbooktitle",
+					data: {bookName:bookname},
+					success: function(data) {
+						 var $html = "<option value=''>选择或搜索</option>"
+							form = layui.form;
+						 data = eval("("+data+")")
+						$.each(data, function(index, item) {
+							$html += "<option value='" + item.pk + "'>" + item.fields.title + "</option>";
+						});
+						$("select[id='selectBookTitle']").append($html);
+						 //重新渲染
+						 $('#selectBookTitle').selectpicker('refresh');
+
+					},
+					error: function(xmlHttpRequest, textStatus, errors) {
+						alert("报错了")
+						console.log(xmlHttpRequest.status);
+						console.log(textStatus);
+						console.log(errors)
+					}
+				});
+			}
+
+
+			function view_subject(public_number) {
+
+                html = '';
+                $.ajax({
+                    type: "POST",
+                    url: "subject",
+                    headers: {'X-CSRFtoken': $.cookie('csrftoken')},
+                    data: {'public_number': public_number},
+                    datatype: "json",
+                    success: function (data) {
+                        if (data.length != 0) {
+                            html =  '<table class="table table-striped table-hover table-bordered" style="font-size:12px;" >' +
+                                    '<thead>' +
+                                    '<tr >' +
+                                    '<th style="width: 15.4%">公众号</th>' +
+                                    '<th style="width: 10%">微信号</th>' +
+                                    '<th>类型</th>' +
+                                    '<th style="width: 5%">总粉/万</th>' +
+                                    '<th style="width: 6%">平均阅读数</th>' +
+                                    '<th style="width: 3%">派单价格</th>' +
+                                    '<th style="width: 6%">UV</th>' +
+                                    '<th style="width: 6%">万粉单价</th>' +
+                                    '<th style="width: 6%">阅读单价</th>' +
+                                    '<th style="width: 6%">审核状态</th>' +
+                                    '<th style="width: 6%">领取状态</th>' +
+                                    '<th>备注</th>' +
+                                    '</tr>' +
+                                    '</thead>' +
+                                    '<form id="form_data">' +
+                                    '</tbody>' +
+                                    '<tbody id="examination">';
+                            data = JSON.parse(data);
+                            if (data == ''){
+                                alert(1)
+                            }else {
+                                $.each(data, function (index, val) {
+                                switch(val.fields.supervisor_review)
+                                {
+                                    case 1:
+                                        var supervisor = '通过'
+                                        break;
+                                    case 2:
+                                        var supervisor = '不通过'
+                                        break;
+                                    default:
+                                        var supervisor = '待审'
+                                }
+                                if (val.fields.status == 0) {
+                                    var status = '未领'
+                                } else {
+                                    var status = '已领'
+                                }
+                                html += '<tr>' +
+                                '<td><div><a href="javascript:void(0);" onclick=data_view("'+val.fields.public_number.trim()+'")>' + val.fields.public_number.trim() + '</a></div></td>' +
+                                '<td>' +
+                                '<div><a href="javascript:void(0);" style="width:60px;" onclick=data_view("'+val.fields.we_char_number.trim()+'")>' + val.fields.we_char_number.trim() + '</a></div>' +
+                                '</td>' +
+                                '<td>' +
+                                '<div>' + val.fields.type + '</div>' +
+                                '</td>' +
+                                '<td>' + val.fields.total_fans + '</td>' +
+                                '<td>' + val.fields.average_readings + '</td>' +
+                                '<td id="td_cost"><span name="cost" id="cost" title="'+ val.pk +'" autocomplete="off">'+ val.fields.cost +'</span></td>' +
+                                '<td>' + (val.fields.average_readings/val.fields.total_fans/100).toFixed(2) + '</td>' +
+                                '<td>' + (val.fields.cost/val.fields.total_fans).toFixed(2) + '</td>' +
+                                '<td>' + (val.fields.cost/val.fields.average_readings).toFixed(2) + '</td>' +
+                                '<td>' + supervisor + '</td>' +
+                                '<td>' + status + '</td>' +
+                                '<td id="remark" title="'+val.pk+'">' + val.fields.remark + '</td>' +
+                                '</tr>'
+                            })
+                            html += '</tbody>' +
+                                    '</table>'
+
+                            popup(html, public_number, data.length)
+                            }
+
+                        } else {
+                            console.log(1)
+                        }
+
+                    }
+                })
+            }
+
+            function popup(html, main_name, total) {
+                        Ewin.alert({
+                                message: html,
+                                title: '公众号：' + main_name + '　　　　共'+ total +'个公众号'
+                            }
+                        );
+                        $('.modal-sm').attr('style', 'width:80%;');
+                    }
+
+            function data_view(data) {
+                        var en_data = escape(data, 'utf-8')
+                        var watermelon     = 'http://data.xiguaji.com/Home#/Search/SearchAct/?type=1&key='+ data +'&miniAppId=0'
+                        var micro_treasure = 'https://data.wxb.com/searchResult?kw='+ data +'&page=1'
+                        var sogou_weChat   = 'http://weixin.sogou.com/weixin?type=1&query='+ data +'&ie=utf8&s_from=input&_sug_=n&_sug_type_='
+                        var new_list       = 'https://www.newrank.cn/public/info/search.html?value='+ en_data +'&isBind=false'
+                        var help           = 'http://top.aiweibang.com/user/search?kw='+ data
+                        html =  '<table class="table">' +
+                                '<thead>' +
+                                '<tr>' +
+                                '<th style="width: 20%; text-align:center;"><a class="btn btn-success ok" href="'+watermelon+'" target="_blank">西瓜数据</a></th>' +
+                                '<th style="width: 20%; text-align:center;"><a class="btn btn-success ok" href="'+micro_treasure+'" target="_blank">微小宝</a></th>' +
+                                '<th style="width: 20%; text-align:center;"><a class="btn btn-success ok" href="'+sogou_weChat+'" target="_blank">搜狗微信</a></th>' +
+                                '<th style="width: 20%; text-align:center;"><a class="btn btn-success ok" href="'+new_list+'" target="_blank">新榜</a></th>' +
+                                '<th style="width: 20%; text-align:center;"><a class="btn btn-success ok" href="'+help+'" target="_blank">爱微帮</a></th>' +
+                                '</tr>' +
+                                '</thead>' +
+                                '</table>';
+                        popups(html)
+                    }
+
+            function popups(html) {
+                Ewin.alert({
+                        message: html,
+                        title: '数据分析'
+                    }
+                );
+                $('.modal-sm').attr('style', 'width:95%;');
+            }
+
+
+            $(function () {
+
+                $("#paidanData").find("tbody tr").each(function () {
+                    var tdStr = $.trim($(this).find("td").eq(5).html());
+                    view_subject1(tdStr,this);
+                });
+
+                 function view_subject1(public_number,t) {
+                        html = '';
+                        $.ajax({
+                            type: "POST",
+                            url: "subject",
+                            headers: {'X-CSRFtoken': $.cookie('csrftoken')},
+                            data: {'public_number': public_number},
+                            datatype: "json",
+                            success: function (data) {
+                                data = JSON.parse(data);
+                                if(data.length!=0){
+                                    var result = "<a href='javascript:void (0)' onclick=\"view_subject('"+public_number+"')\">"+
+                                        public_number+"</a>";
+                                    $(t).find("td").eq(5).html(result);
+                                }
+                            }})
+                        }
+
+
+
+            })
+
+
+
+
+
+		</script>
+
+
+
+	</body>
+
+</html>

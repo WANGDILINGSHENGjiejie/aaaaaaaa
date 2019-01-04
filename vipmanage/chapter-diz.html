@@ -1,0 +1,902 @@
+<html lang="en">
+
+        <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                <title>首页 - 核桃书吧</title>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+                <meta http-equiv="pragma" content="no-cache">
+                <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+                <meta http-equiv="expires" content="0">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+                <script src="https://static01.tengwen.com/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+                <script src="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.qrcode.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.cookie.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/common/clipboard.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/klorofil-common.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/comm.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/common/moment.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/moment_zh-cn.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/echarts.min.js"></script>
+                <script src="https://static01.tengwen.com/common/toastr.min.js"></script>
+                <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+                <link rel="stylesheet" href="./css/novel.css">
+                <link rel="stylesheet" href="https://static01.tengwen.com/backend/novel/css/media.css">
+                <link rel="stylesheet" href="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.css">
+                <link rel="stylesheet" href="https://static01.tengwen.com/common/toastr.min.css">
+            </head>
+
+<body class="modal-open" style="padding-right: 17px;">
+    <div id="wrapper">
+            <nav class="navbar navbar-default navbar-fixed-top" style="height: 50px;background-color: #2a3747;">
+                    <div class="brand" style="padding:0;background-color: #2a3747;"><a href="javascript:void(0);"></div>
+                    <div class="container-fluid">
+                        <div class="navbar-btn">
+                            <button type="button" class="btn-toggle-fullwidth"><i class="fa fa-list" aria-hidden="true" style="color:#fff;"></i>
+                            </button>
+                        </div>
+                        <div id="navbar-menu">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown">
+                                        <a href="/notice/index" class="dropdown-toggle icon-menu"> 
+                                            <span class="badge bg-danger notice_msgnum"></span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="./images/headshot@2x.png"
+                                                class="img-circle">
+                                            <span style="color:#f1f1f1;">核桃书吧</span> <i class="fa fa-angle-down" aria-hidden="true" style="color:#f1f1f1;"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="./personaldata.gr.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>个人资料</span></a>
+                                            </li>
+                                            <li><a href="Publicnumbersetting-gz.html"><i class="fa fa-address-card-o" aria-hidden="true"></i><span>公众号设置/接入</span></a>
+                                            </li>
+                                            <li><a href="https://static01.tengwen.com/backend/novel/docx/tengwen_readme.docx"><i
+                                                        class="fa fa-arrow-down" aria-hidden="true"></i><span>下载帮助文档</span></a>
+                                            </li>
+                                            <li><a href="./Platformlogin.html" onclick="return confirm('确认退出？')"><i class="fa fa-fw fa-power-off"
+                                                        aria-hidden="true"></i> <span>安全退出</span></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                    </div>
+                </nav> <!-- END NAVBAR -->
+                <!-- LEFT SIDEBAR -->
+                <div id="sidebar-nav" class="sidebar">
+                    <div class="sidebar-scroll" style="overflow-y: auto;height: 100%;padding:20px 0;background-color:#354051;">
+                        <nav>
+                            <ul class="nav">
+                                <li><a href="./AnnounceList_gg.html" id="noticemenu"><i class="fa fa-bell-o" aria-hidden="true"></i><span
+                                            class="menu-span">公告列表</span></a></li>
+                                <li><a href="./Profiledata_sj.html"><i class="fa fa-line-chart" aria-hidden="true"></i><span
+                                            class="menu-span">数据概况</span></a></li>
+                                <li><a href="./ordersummary.html"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="menu-span">订单汇总</span></a></li>
+                                <li><a href="./Usersummary.html"><i class="fa fa-pie-chart" aria-hidden="true"></i><span class="menu-span">用户汇总</span></a></li>
+                                <li><a href="./addsup_xs.html"><i class="fa fa-bars" aria-hidden="true"></i><span class="menu-span">小说充值汇总</span></a></li>
+                                <li><a href="./orderdetails_dd.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                            class="menu-span">订单明细</span></a></li>
+                                <li><a href="./subsidiary_fs.html"><i class="fa fa-id-card-o" aria-hidden="true"></i><span
+                                            class="menu-span">粉丝明细</span></a></li>
+                                <li><a href="./library-xs.html" class="active"><i class="fa fa-book" aria-hidden="true"></i><span
+                                            class="menu-span">小说库</span></a></li>
+                                <li><a href="./Promotion-tg.html"><i class="fa fa-chain-broken" aria-hidden="true"></i><span
+                                            class="menu-span">推广列表</span></a></li>
+                                <li><a href="./listinterpolatel-nt.html"><i class="fa fa-link" aria-hidden="true"></i><span
+                                            class="menu-span">内推列表</span></a></li>
+                                <li><a href="./Listofactivities-hd.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span
+                                            class="menu-span">活动列表</span></a></li>
+                                <li><a href="./antistop-gj.html"><i class="fa fa-comments-o" aria-hidden="true"></i><span class="menu-span">关键词回复</span></a></li>
+                                <li><a href="/channel/linkRecycling"><i class="fa fa-recycle" aria-hidden="true"></i><span
+                                            class="menu-span">链接回收</span></a></li>
+                                <li><a href="/pushmsg/index"><i class="fa fa-reply-all" aria-hidden="true"></i><span class="menu-span">智能推送</span></a></li>
+                                <li><a href="/msg/template"><i class="fa fa-envelope-open" aria-hidden="true"></i><span class="menu-span">模版消息</span></a></li>
+                                <li><a href="/msg/customMsg"><i class="fa fa-commenting-o" aria-hidden="true"></i><span class="menu-span">客服消息</span></a></li>
+                                <li><a href="/income/index"><i class="fa fa-jpy" aria-hidden="true"></i><span class="menu-span">推广收入</span></a></li>
+                                <li><a href="/withdrawal/index"><i class="fa fa-list-alt" aria-hidden="true"></i><span class="menu-span">提现明细</span></a></li>
+                                <li><a href="/setting/index"><i class="fa fa-cog" aria-hidden="true"></i><span class="menu-span">公众号设置</span></a></li>
+                                <li><a href="/setting/more"><i class="fa fa-cogs" aria-hidden="true"></i><span class="menu-span">其它设置</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+        
+                </div>
+        <div class="main">
+            <div class="main-content">
+                <div class="container-fluid">
+
+                    <style type="text/css">
+                        .dropdown {
+                            position: relative;
+                            display: inline-block;
+                            vertical-align: middle;
+                        }
+
+                        .settj {
+                            background: red;
+                            color: #fff;
+                            padding: 3px 8px;
+                            font-size: 12px;
+                        }
+                    </style>
+
+                    <div class="panel">
+                        <!--TITLE-->
+                        <div class="panel-heading mynav">
+                            <h3 class="panel-title">
+                                <i class="fa fa-home" aria-hidden="true"></i>首页 &gt; <h7 class="menu-name">小说库</h7>
+                                &gt; 天眼神医
+                            </h3>
+                        </div>
+                        <!--TITLE END-->
+
+                        <div class="panel-body form-horizontal">
+
+
+                            <!--#DETAIL#-->
+                            <div class="col-md-3">
+                                <img src="https://static.tengwen.com/updata/book/201806/20180628144157432.jpg" style="width:80%;">
+
+
+                                <div class="autinfo_title">天眼神医</div>
+                                <div class="autinfo">字数：5901658</div>
+                                <div class="autinfo">简介：一次偶然，让李勇不仅拥有透视能力更拥有八十个医生的毕生经验！从此疑难杂症，全包！你有隐疾？没问题！开刀难度大？小意思！妇科病？额，等等，真的没有那方面的想法，毕竟能看的，都看的到......</div>
+                            </div>
+                            <!--#DETAIL END#-->
+
+                            <!--SELECT -->
+                            <div class="col-sm-2">
+                            </div>
+                            <!--SELECT END-->
+
+                            <!--TABLE-->
+                            <div class="col-md-9">
+                                <table class="table table-striped table-hover " style="font-size:14px;">
+                                    <thead>
+                                        <tr>
+                                            <th width="10%">章节</th>
+                                            <th width="90%">标题</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 0 , 0 )">第一章
+                                                    有种今晚你就别回来</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                                <span class="pull-right">
+                                                    <div class="dropdown">
+                                                        <a title="原文链接为下一章节" class="dropdown-toggle" data-toggle="dropdown"
+                                                            href="javascript:;">
+                                                            <i class="fa fa-link" aria-hidden="true"></i>获取推广文案
+                                                            <i class="caret"> </i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-right">
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?bid=272&amp;num=1">
+                                                                    <i class="fa fa-text-width"></i> 文字模式
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?pic=1&amp;bid=272&amp;num=1">
+                                                                    <i class="fa fa-image"></i> 图片模式
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                    <a title="原文链接为当前章节" data-link="" href="javascript:GetALink( 0 , 0 , 0 , 272  ,  1 , 0 ) ;"
+                                                        id="getLink" data-continuenum="2" data-follownum="5">
+                                                        <i class="fa fa-link" aria-hidden="true"></i>获取推广链接
+                                                    </a>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 1 , 0 )">第二章
+                                                    我们去开房吧</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+                                                <span class="settj">推荐文案章节</span>
+
+
+                                                <span class="pull-right">
+                                                    <div class="dropdown">
+                                                        <a title="原文链接为下一章节" class="dropdown-toggle" data-toggle="dropdown"
+                                                            href="javascript:;">
+                                                            <i class="fa fa-link" aria-hidden="true"></i>获取推广文案
+                                                            <i class="caret"> </i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-right">
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?bid=272&amp;num=2">
+                                                                    <i class="fa fa-text-width"></i> 文字模式
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?pic=1&amp;bid=272&amp;num=2">
+                                                                    <i class="fa fa-image"></i> 图片模式
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                    <a title="原文链接为当前章节" data-link="" href="javascript:GetALink( 0 , 0 , 0 , 272  ,  2 , 0 ) ;"
+                                                        id="getLink" data-continuenum="2" data-follownum="5">
+                                                        <i class="fa fa-link" aria-hidden="true"></i>获取推广链接
+                                                    </a>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 2 , 0 )">第三章
+                                                    摸着很舒服</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                                <span class="pull-right">
+                                                    <div class="dropdown">
+                                                        <a title="原文链接为下一章节" class="dropdown-toggle" data-toggle="dropdown"
+                                                            href="javascript:;">
+                                                            <i class="fa fa-link" aria-hidden="true"></i>获取推广文案
+                                                            <i class="caret"> </i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-right">
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?bid=272&amp;num=3">
+                                                                    <i class="fa fa-text-width"></i> 文字模式
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?pic=1&amp;bid=272&amp;num=3">
+                                                                    <i class="fa fa-image"></i> 图片模式
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                    <a title="原文链接为当前章节" data-link="" href="javascript:GetALink( 0 , 0 , 0 , 272  ,  3 , 0 ) ;"
+                                                        id="getLink" data-continuenum="2" data-follownum="5">
+                                                        <i class="fa fa-link" aria-hidden="true"></i>获取推广链接
+                                                    </a>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 3 , 0 )">第四章
+                                                    你有病啊</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                                <span class="pull-right">
+                                                    <div class="dropdown">
+                                                        <a title="原文链接为下一章节" class="dropdown-toggle" data-toggle="dropdown"
+                                                            href="javascript:;">
+                                                            <i class="fa fa-link" aria-hidden="true"></i>获取推广文案
+                                                            <i class="caret"> </i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-right">
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?bid=272&amp;num=4">
+                                                                    <i class="fa fa-text-width"></i> 文字模式
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?pic=1&amp;bid=272&amp;num=4">
+                                                                    <i class="fa fa-image"></i> 图片模式
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                    <a title="原文链接为当前章节" data-link="" href="javascript:GetALink( 0 , 0 , 0 , 272  ,  4 , 0 ) ;"
+                                                        id="getLink" data-continuenum="2" data-follownum="5">
+                                                        <i class="fa fa-link" aria-hidden="true"></i>获取推广链接
+                                                    </a>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 4 , 0 )">第五章
+                                                    第三者插足</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+                                                <span class="settj">推荐关注章节</span>
+
+                                                <span class="pull-right">
+                                                    <div class="dropdown">
+                                                        <a title="原文链接为下一章节" class="dropdown-toggle" data-toggle="dropdown"
+                                                            href="javascript:;">
+                                                            <i class="fa fa-link" aria-hidden="true"></i>获取推广文案
+                                                            <i class="caret"> </i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-right">
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?bid=272&amp;num=5">
+                                                                    <i class="fa fa-text-width"></i> 文字模式
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?pic=1&amp;bid=272&amp;num=5">
+                                                                    <i class="fa fa-image"></i> 图片模式
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                    <a title="原文链接为当前章节" data-link="" href="javascript:GetALink( 0 , 0 , 0 , 272  ,  5 , 0 ) ;"
+                                                        id="getLink" data-continuenum="2" data-follownum="5">
+                                                        <i class="fa fa-link" aria-hidden="true"></i>获取推广链接
+                                                    </a>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 5 , 0 )">第六章
+                                                    我不想做太监</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                                <span class="pull-right">
+                                                    <div class="dropdown">
+                                                        <a title="原文链接为下一章节" class="dropdown-toggle" data-toggle="dropdown"
+                                                            href="javascript:;">
+                                                            <i class="fa fa-link" aria-hidden="true"></i>获取推广文案
+                                                            <i class="caret"> </i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-right">
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?bid=272&amp;num=6">
+                                                                    <i class="fa fa-text-width"></i> 文字模式
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?pic=1&amp;bid=272&amp;num=6">
+                                                                    <i class="fa fa-image"></i> 图片模式
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                    <a title="原文链接为当前章节" data-link="" href="javascript:GetALink( 0 , 0 , 0 , 272  ,  6 , 0 ) ;"
+                                                        id="getLink" data-continuenum="2" data-follownum="5">
+                                                        <i class="fa fa-link" aria-hidden="true"></i>获取推广链接
+                                                    </a>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 6 , 0 )">第七章
+                                                    这病我治不了</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                                <span class="pull-right">
+                                                    <div class="dropdown">
+                                                        <a title="原文链接为下一章节" class="dropdown-toggle" data-toggle="dropdown"
+                                                            href="javascript:;">
+                                                            <i class="fa fa-link" aria-hidden="true"></i>获取推广文案
+                                                            <i class="caret"> </i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-right">
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?bid=272&amp;num=7">
+                                                                    <i class="fa fa-text-width"></i> 文字模式
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?pic=1&amp;bid=272&amp;num=7">
+                                                                    <i class="fa fa-image"></i> 图片模式
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                    <a title="原文链接为当前章节" data-link="" href="javascript:GetALink( 0 , 0 , 0 , 272  ,  7 , 0 ) ;"
+                                                        id="getLink" data-continuenum="2" data-follownum="5">
+                                                        <i class="fa fa-link" aria-hidden="true"></i>获取推广链接
+                                                    </a>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 7 , 0 )">第八章
+                                                    你是什么味的</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                                <span class="pull-right">
+                                                    <div class="dropdown">
+                                                        <a title="原文链接为下一章节" class="dropdown-toggle" data-toggle="dropdown"
+                                                            href="javascript:;">
+                                                            <i class="fa fa-link" aria-hidden="true"></i>获取推广文案
+                                                            <i class="caret"> </i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-right">
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?bid=272&amp;num=8">
+                                                                    <i class="fa fa-text-width"></i> 文字模式
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a target="_blank" href="/copywriting/index?pic=1&amp;bid=272&amp;num=8">
+                                                                    <i class="fa fa-image"></i> 图片模式
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                    <a title="原文链接为当前章节" data-link="" href="javascript:GetALink( 0 , 0 , 0 , 272  ,  8 , 0 ) ;"
+                                                        id="getLink" data-continuenum="2" data-follownum="5">
+                                                        <i class="fa fa-link" aria-hidden="true"></i>获取推广链接
+                                                    </a>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 8 , 0 )">第九章
+                                                    我什么都答应你</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 9 , 0 )">第十章 找工作</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 10 , 0 )">第十一章
+                                                    以事业为重</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 11 , 0 )">第十二章
+                                                    医者父母心</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>13</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 12 , 0 )">第十三章
+                                                    市场价</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>14</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 13 , 0 )">第十四章
+                                                    连环杀人魔</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>15</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 14 , 0 )">第十五章
+                                                    陷害</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>16</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 15 , 0 )">第十六章
+                                                    生意好转</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>17</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 16 , 0 )">第十七章
+                                                    你不能喜欢我</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>18</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 17 , 0 )">第十八章
+                                                    有眼光</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>19</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 18 , 0 )">第十九章
+                                                    前夫哥</a>
+                                                [<span class="green">
+                                                    免费
+                                                </span>]
+
+
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>20</td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="showInfo( 272 , 19 , 0 )">第二十章
+                                                    没有经验</a>
+                                                [<span class="" style="color: #E01305;">
+                                                    <i class="fa fa-diamond">40</i>
+                                                </span>]
+
+
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div data-pagination="pagination_new" data-pagenumber="1" data-paginationurl="/book/body?bid=272&amp;ver=&amp;page=customize_page_num"
+                                    data-totalnumber="2" data-paginationmax="2" style="float: right;">
+                                    <ul class="pagination">
+                                        <li value="pre" style="display: inline-block;"><a href="/book/body?bid=272&amp;ver=&amp;page=1">首页</a></li>
+                                        <li value="1" class="active" style="display: inline-block;"><a href="/book/body?bid=272&amp;ver=&amp;page=1">1</a></li>
+                                        <li value="2" style="display: inline-block;"><a href="/book/body?bid=272&amp;ver=&amp;page=2">2</a></li>
+                                        <li value="next" style="display: inline-block;"><a href="javascript:void(0);">»</a></li>
+                                        <li value="next" style="display: inline-block;"><a href="/book/body?bid=272&amp;ver=&amp;page=2">尾页</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--TABLE END-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+    </div>
+    <footer></footer>
+
+
+    <style>
+        .toast-top-center {
+            top: 52px;
+        }
+    </style>
+
+    <script>
+        api.CopyText_modal();
+        var imgurl = 'static01.tengwen.com';
+
+        var menuName = $("h7.menu-name").text();
+
+        $("span.menu-span").each(function () {
+
+            var menuTitle = $(this).text();
+
+            if (menuTitle == menuName) {
+
+                $(this).parent().addClass('active');
+
+                if (menuName == "公告列表") {
+
+                    $(this).css('color', 'rgb(232, 86, 86)');
+
+                }
+            }
+
+        });
+
+
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-center", //toast-top-center toast-bottom-center
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        function adm_ajax_ckstat(stat) {
+            if (stat == "ok") return true;
+
+            if (stat == "nologin") {
+                window.location.reload();
+            }
+            return false;
+        }
+
+        var pdata = {
+            action: 'notice_msg'
+        };
+
+        sendData("/notice/notice_msg", pdata, function (data) {
+            var data = data.data;
+            _Notice = data.data.unrdnum;
+            _unReadTop = data.data.unrdmsg;
+            noticemsg.showmsgnumEx(_Notice);
+            noticemsg.autoreaddlg();
+
+        });
+    </script>
+    <script src="https://static01.tengwen.com/common/paginate.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/select2.full.min.js"></script>
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/select2.min.css">
+    <script>
+
+        //getbodyName
+    
+        $(".select2").select2();
+    
+        function GetALink (inLink,type,ltype,bid,num,ver){
+    
+            if( inLink > 0 ){
+                submitInDispatch(type,ltype,bid,num,ver,'/channel/pop_ups_internal');
+            } else{
+                submitDispatch(type,ltype,bid,num,ver,'/channel/pop_ups');
+            }
+        }
+    
+        function showInfo( bid , num , ver){
+            $.post( '/book/body_data' , { 'bid':bid , 'num' : num , 'ver' : ver , 'is_ajax' : 1 } , function(data){
+    
+                var rows = data.data.data;
+    
+                var msg = data.data.msg;
+    
+                if( msg == 404 ) {
+                    toastr.warning('网络繁忙,请刷新重试');
+                    return false;
+                } else if( msg  == 200){
+                    var dialog = Ewin.dialog({
+                        'title': rows.name,
+                        'message': rows.body,
+                        'prev':'上一章',
+                        'next': '下一章',
+                        'isprev':true,
+                        'isnext':true,
+                        'backdropstate':false,
+                        'isbtncl': false,
+                        'isbtnok': false,
+                    });
+                    $('.modal-body').css({'text-indent':'2em','line-height':'25px'});
+    
+                    prevNum = num - 1 >= 0 ? num-1 : num ;
+    
+                    nextNum = num+1;
+    
+                    $('button.next').on('click',function(){
+    
+                        showInfo(bid,nextNum,0);
+                    });
+                    $('button.prev').on('click',function(){
+    
+                        showInfo(bid,prevNum,0);
+                    });
+    
+                    if( nextNum > 1 ){
+                        if( !data.data.pnum ){
+                            $('button.next').hide();
+                        }
+                            $('button.prev').show();
+                    } else {
+                            $('button.prev').hide();
+                            $('button.next').show();
+                    }
+                }
+            },'json');
+        }
+    </script>
+
+    <div id="mdl1542616972777" class="modal fade in" role="dialog" aria-labelledby="modalLabel" style="display: block; padding-right: 17px;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="modalLabel">第一章 有种今晚你就别回来</h4>
+                </div>
+                <div class="modal-body" style="text-indent: 2em; line-height: 25px;font-size:14px;">
+                    <p>砰砰砰！</p>
+                    <p>“小勇，你在吗？”晚上八点，李勇刚回到出租屋，屁股还没坐热呢，外面就响起了敲门声，紧接着是房东甜腻的询问。</p>
+                    <p>李勇顿时心中一惊，暗自嘀咕道：“奶奶的，真是怕什么来什么啊？”</p>
+                    <p>今天是交房租的日子，可他前段时间才找到工作，工资还没发呢，之前攒的一点钱早都花光了，现在浑身一毛钱都没有，哪还有脸去开门啊？</p>
+                    <p>可躲着也不是办法，李勇心中无奈，也只能不情愿的挪动步子，前去开门。</p>
+                    <p>房门打开，张玉容那漂亮的脸蛋显现，她穿着紫色的睡裙，配合着白嫩的肌肤，无处不彰显着成熟女人的韵味。</p>
+                    <p>似是刚洗过澡，张玉容湿漉漉的头发披在肩上，散发出诱人的香味。</p>
+                    <p>李勇顿时眼前一亮，闻着张玉容身上的清香，大咧咧的道：“张姐，晚上好啊，最近天气转凉了，要不要我过去给你暖被窝啊？”</p>
+                    <p>他在这住也有一段时间了，和张玉容也熟，所以开起玩笑来尽是荤段子。</p>
+                    <p>“你走开。”张玉容嫌弃的退后两步，接着伸出小手，没好气的道：“小子，你少在这给我贫，该交房租了，一共八百块，拿来吧。”</p>
+                    <p>说话的时候，张玉容还调皮的眨眨眼，一脸得意。</p>
+                    <p>李勇也想交，可无奈囊中羞涩啊，他直接拉过张玉容的小手，轻轻的抚摸，嬉笑道：“张姐，那个啥，最近有点不方便，要不我下个月一起交吧？”</p>
+                    <p>“真是个好主意，就这么愉快的决定了，张姐慢走，明天去你家喝茶。”他这话说出来，不给张玉容回绝的机会，直接就要溜进房间。</p>
+                    <p>可是他刚转身，就感觉左耳一疼，艰难的回过头来，正好对上张玉容恼怒的小脸，而那小手正揪着他的耳朵呢。</p>
+                    <p>“小子，你今儿到底交不交？不交的话现在就给我搬出去。”张玉容早就见识过他这无赖手段，一点也不上当，揪着他的耳朵，娇憨的道。</p>
+                    <p>“哎呦，疼。”没有糊弄过去，李勇干脆也放弃了，难为情的道：“张姐，我不是不交，是真没钱啊，咱再缓两天，就两天。”</p>
+                    <p>“你真没钱？”张玉容只是想要房租，看他这个样子，略带吃惊的问道。</p>
+                    <p>李勇认真的点头，他要是有钱，才不会在这扯这些没用的呢。</p>
+                    <p>张玉容顿时有些为难，她总不能真把李勇给赶出去吧，两人都这么熟了，她还真做不出那么无情的事情。</p>
+                    <p>可这小子实在太过气人，她不甘心就这么放过李勇，漂亮的丹凤眼在李勇身上扫视，忽然眼前一亮，指着李勇脖子上的红色吊坠，兴奋的道：“这个，你用它来做抵押吧。”</p>
+                    <p>李勇下意识的就捂住了吊坠，他从小就是孤儿，这是他父母唯一留下的东西，还指着它认祖归宗呢，要是被张玉容给弄丢了，他所有的希望可都没了。</p>
+                    <p>没办法，李勇只能丢掉面皮不要，不好意思的道：“张姐，这是我父母留下的，不方便，你看能不能换个东西？”</p>
+                    <p>张玉容也不想强人所难，可在李勇身上扫视一圈，这小子连个像样的手机都没有，更别说能值八百块的东西了。</p>
+                    <p>她不满的撇撇嘴，双手抱胸，有些傲娇的道：“那你自己说，用什么来做抵押？”</p>
+                    <p>李勇顿时为难起来，他最大的资产就是那破手机，可还不到五百块，都用了两年了，估计拿出来也会被张玉容嫌弃。</p>
+                    <p>看着张玉容那傲娇的脸蛋，他眼珠子一转，颇有些兴奋的来到张玉容身边，低头闻着那秀发上的香气，低声坏笑道：“张姐，要不我用身体抵债，咱今晚去你那，我保证把你伺候舒坦咯。”</p>
+                    <p>说话的时候，他那咸猪手就搭在了张玉容纤细的腰肢上。</p>
+                    <p>啊……</p>
+                    <p>张玉容吓得赶紧跳开，小脸羞得通红，恼怒的道：“小子，你再这样，现在就给我搬出去。”</p>
+                    <p>话虽这么说，但张玉容的眼睛，还是忍不住在李勇身上多瞟了几眼。</p>
+                    <p>张玉容虽然三十来岁，可皮肤却保养的很好，就像二十五六岁的大姑娘，再加上她那妖娆的身材，成熟女人的韵味，是个男人就会动心。</p>
+                    <p>可偏偏她那死鬼男人，在外面花天酒地，好几个月都不回一次家，她这身材虽好，可已经很久没被滋润过了。</p>
+                    <p>张玉容想到这些就生气，也无心和李勇扯皮，恼怒的道：“我就给你缓两天，到时候你再不交，就给我搬出去。”</p>
+                    <p>话说完，她直接转身，扭着丰挺的翘臀进了自己家门。</p>
+                    <p>总算躲过了一劫，李勇不禁长出一口气，两天后就是十五号，到时候发了工资，他也就不会这么不堪了。</p>
+                    <p>他越想越兴奋，嘴中哼着荤调子，走进房间，仰面就趴在了床上。</p>
+                    <p>啊……</p>
+                    <p>可是下一刻，他就从床上跳了起来，乐极生悲，他刚才动作太猛，被吊坠给硌在了胸腔上。</p>
+                    <p>李勇吃痛的坐在床上，赶紧低头去看伤势，可是这一看，他顿时傻了，奶奶的，吊坠竟然直接刺进了胸腔，鲜红的血液逐渐溢了出来。</p>
+                    <p>所幸李勇就是医生，知道怎么包扎，他赶紧就要去找纱布，可是刚起身，脑中猛地一阵刺痛，接着就晕了过去。</p>
+                    <p>迷糊中，一段段记忆汇聚成流，不断涌向李勇的脑海，塞得他脑袋都快要爆了，但那些记忆流却没有半点停下的意思。</p>
+                    <p>“奶奶的，我竟然要死的这么悲催，真是丢人啊。”李勇不甘而又无奈的骂着，他在蛋疼的时候，想过无数种死法，可却从没想过，会被一堆不知名的记忆把脑袋给塞爆而死。</p>
+                    <p>他简直不敢想象，等有人发现他尸体的时候，媒体会怎么报道。</p>
+                    <p>世上最安乐的死法：男子直接睡死；</p>
+                    <p>世上最悲催的死法，男子被吊坠给硌死；</p>
+                    <p>……</p>
+                    <p>要是被人知道，他在临死之前，还有这么多逗逼的想法，恐怕会直接笑死。</p>
+                    <p>李勇乱七八糟的想了一通，他甚至已经做好了迎接死亡的准备，可那些记忆流最后一波冲刺，竟然全部涌进了脑海。</p>
+                    <p>紧接着他的脑袋一片清明，那些记忆偶尔涌出，就像是他自己的一般，可李勇能够确认，自己确实没有那种经历。</p>
+                    <p>“哈哈，老子没死。”劫后余生的爽感，让李勇直接大笑出来，他激动的坐起来，不断查看身体，确认没有问题，这才松了一口气。</p>
+                    <p>可是接下来的场景，惊得李勇长大了嘴巴，半天一句话也说不出来，眼前原本坚厚的墙壁消失，张玉容浑身不着片缕，一脸幽怨的坐在床上。</p>
+                    <p>李勇长这么大，还从没在现实中见过女人的身体，此刻眼珠子都快瞪出来了，嘴角更是不堪的流出了口水。</p>
+                    <p>在他的注视中，张玉容忽然看向这边，羞恼的抱怨道：“那个死鬼也不知死哪去了，整天让老娘独守空房，惹火了老娘，给你弄顶绿帽子带着。”</p>
+                    <p>张玉容虽然在看这边，可似乎并没有发现李勇。</p>
+                    <p>说话的时候，她低头看向自己的身体，满脸哀怨，似是像找个男人，轻柔的抚摸。</p>
+                    <p>李勇也没想到，自己竟会意外看到这种场景，不过他却不敢再看下去了，不是不想，而是怕经受不住那种诱惑。</p>
+                    <p>他赶紧收回目光，转而躺在床上，回想刚才的事情。</p>
+                    <p>这他娘的也太神奇了，老子的眼竟然能穿透墙壁，看到那边的情景。</p>
+                    <p>他迫切想要弄清事情的真相，静下心来，开始梳理脑中的记忆，这些东西现在就像是他的一般，只要他想，就能随意翻看。</p>
+                    <p>在记忆流中翻看，李勇很快就搞清楚了真相，这神奇的事情都因脖子上的吊坠而起，那玩意有个好听的名字，叫做回魂玉。</p>
+                    <p>只依附在医者身上，等主人死亡之后，就会把主人的行医记忆收进玉中，等到下一任主人的时候，又把前主人的记忆释放出来，而在李勇之前，回魂玉已经有了八十个主人。</p>
+                    <p>也就是说，现在的李勇不仅有透视能力，更拥有八十个医者的毕生经验，其中包含各种行医经验，还有古老的药方，这简直是无价之宝啊。</p>
+                    <p>而且李勇的透视眼，还有一个神奇的功能，可以透过人体的皮肤，看清里面的病症，这对医者来说，简直就是不二法宝。</p>
+                    <p>搞清楚了这些，李勇顿时兴奋起来，有了这些宝贝，他还做哪门子的工作啊，随便开个诊所，就能赚翻天。</p>
+                    <p>李勇越想越兴奋，他恨不能直接跑去医院辞职，可此刻天还没放亮，他只能收起内心的激动，转而找出一套内功心法修炼起来。</p>
+                    <p>据说这是扁鹊留下的东西，不仅能够强身健体，而且还能用于治病，只可惜这东西几经流传，损失了很多，只有前三层的心法。</p>
+                    <p>不过这已经很不错了，毕竟是天上掉下来的馅饼，你总不能要求它还是肉馅的。</p>
+                    <p>李勇向来看的开，也不管那么多，直接修炼起来。</p>
+                    <p>心法修炼倒也简单，李勇很快就已入门，他安静的坐在床上，一直修炼到七点，这才起身去洗漱。</p>
+                    <p>虽然一晚上没睡，但他却一点也不觉得困，反倒是精神抖擞，浑身有使不完的力气。</p>
+                    <p>他洗漱完毕，着急的就向医院赶去，如此神奇的东西，他得先去试试才行。</p>
+                    <p>可是他刚开门，迎面就遇到了张玉容。</p>
+                    <p>今天的张玉容，经过了特意的打扮，一件紫色的紧身长裙，将那窈窕的身姿完全展现出来，右腿侧开着一条很长的岔，裙摆随风摇摆，偶尔间能看到一条浑圆白嫩的美腿。</p>
+                    <p>李勇不禁看的一愣，脑中不由想起了昨晚看到的场景，不过他现在可不敢再去看了，这万一要是流鼻血了，可就糗大了。</p>
+                    <p>因为昨天的事，张玉容怨气很大，看到李勇的眼神，羞恼的瞪了他一眼，嗔怪道：“看什么看？再看把你眼珠子抠出来。”</p>
+                    <p>“你穿这么漂亮，不就是给男人看的嘛。”李勇嘿笑一声，在张玉容发飙之前，赶紧跑了出去。</p>
+                    <p>“小子，有种你今晚就别回来。”等到他跑远了，张玉容这才反应过来，在后面羞恼的吼道。</p>
+                </div>
+                <div class="modal-footer"><button type="button" class="btn btn-default cancel" data-dismiss="modal"
+                        style="display: none;">取消</button><button type="button" class="btn btn-success ok" data-dismiss="modal"
+                        style="display: none;">确定</button><button type="button" class="btn btn-success prev"
+                        data-dismiss="modal" style="display: none;">上一章</button><button type="button" class="btn btn-success next"
+                        data-dismiss="modal">下一章</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade in"></div>
+</body>
+
+</html>

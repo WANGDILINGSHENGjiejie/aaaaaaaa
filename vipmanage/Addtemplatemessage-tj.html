@@ -1,0 +1,686 @@
+<html lang="en">
+        <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                <title>首页 - 核桃书吧</title>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+                <meta http-equiv="pragma" content="no-cache">
+                <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+                <meta http-equiv="expires" content="0">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+                <script src="https://static01.tengwen.com/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+                <script src="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.qrcode.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.cookie.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/common/clipboard.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/klorofil-common.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/comm.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/common/moment.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/moment_zh-cn.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/echarts.min.js"></script>
+                <script src="https://static01.tengwen.com/common/toastr.min.js"></script>
+                <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+                <link rel="stylesheet" href="./css/novel.css">
+                <link rel="stylesheet" href="https://static01.tengwen.com/backend/novel/css/media.css">
+                <link rel="stylesheet" href="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.css">
+                <link rel="stylesheet" href="https://static01.tengwen.com/common/toastr.min.css">
+            </head>
+            
+<body>
+    <div id="wrapper">
+            <nav class="navbar navbar-default navbar-fixed-top" style="height: 50px;background-color: #2a3747;">
+                    <div class="brand" style="padding:0;background-color: #2a3747;"><a href="javascript:void(0);"></div>
+                    <div class="container-fluid">
+                        <div class="navbar-btn">
+                            <button type="button" class="btn-toggle-fullwidth"><i class="fa fa-list" aria-hidden="true" style="color:#fff;"></i>
+                            </button>
+                        </div>
+                        <div id="navbar-menu">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown">
+                                        <a href="/notice/index" class="dropdown-toggle icon-menu"> 
+                                            <span class="badge bg-danger notice_msgnum"></span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="./images/headshot@2x.png"
+                                                class="img-circle">
+                                            <span style="color:#f1f1f1;">核桃书吧</span> <i class="fa fa-angle-down" aria-hidden="true" style="color:#f1f1f1;"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="./personaldata.gr.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>个人资料</span></a>
+                                            </li>
+                                            <li><a href="Publicnumbersetting-gz.html"><i class="fa fa-address-card-o" aria-hidden="true"></i><span>公众号设置/接入</span></a>
+                                            </li>
+                                            <li><a href="https://static01.tengwen.com/backend/novel/docx/tengwen_readme.docx"><i
+                                                        class="fa fa-arrow-down" aria-hidden="true"></i><span>下载帮助文档</span></a>
+                                            </li>
+                                            <li><a href="./Platformlogin.html" onclick="return confirm('确认退出？')"><i class="fa fa-fw fa-power-off"
+                                                        aria-hidden="true"></i> <span>安全退出</span></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                    </div>
+                </nav> <!-- END NAVBAR -->
+                <!-- LEFT SIDEBAR -->
+                <div id="sidebar-nav" class="sidebar">
+                    <div class="sidebar-scroll" style="overflow-y: auto;height: 100%;padding:20px 0;background-color:#354051;">
+                        <nav>
+                            <ul class="nav">
+                                <li><a href="./AnnounceList_gg.html" id="noticemenu"><i class="fa fa-bell-o" aria-hidden="true"></i><span
+                                            class="menu-span">公告列表</span></a></li>
+                                <li><a href="./Profiledata_sj.html"><i class="fa fa-line-chart" aria-hidden="true"></i><span
+                                            class="menu-span">数据概况</span></a></li>
+                                <li><a href="./ordersummary.html"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="menu-span">订单汇总</span></a></li>
+                                <li><a href="./Usersummary.html"><i class="fa fa-pie-chart" aria-hidden="true"></i><span class="menu-span">用户汇总</span></a></li>
+                                <li><a href="./addsup_xs.html"><i class="fa fa-bars" aria-hidden="true"></i><span class="menu-span">小说充值汇总</span></a></li>
+                                <li><a href="./orderdetails_dd.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                            class="menu-span">订单明细</span></a></li>
+                                <li><a href="./subsidiary_fs.html"><i class="fa fa-id-card-o" aria-hidden="true"></i><span
+                                            class="menu-span">粉丝明细</span></a></li>
+                                <li><a href="./library-xs.html"><i class="fa fa-book" aria-hidden="true"></i><span
+                                            class="menu-span">小说库</span></a></li>
+                                <li><a href="./Promotion-tg.html"><i class="fa fa-chain-broken" aria-hidden="true"></i><span
+                                            class="menu-span">推广列表</span></a></li>
+                                <li><a href="./listinterpolatel-nt.html"><i class="fa fa-link" aria-hidden="true"></i><span
+                                            class="menu-span">内推列表</span></a></li>
+                                <li><a href="./Listofactivities-hd.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span
+                                            class="menu-span">活动列表</span></a></li>
+                                <li><a href="./antistop-gj.html"><i class="fa fa-comments-o" aria-hidden="true"></i><span class="menu-span">关键词回复</span></a></li>
+                                <li><a href="./Linkstorecycle-lj.html"><i class="fa fa-recycle" aria-hidden="true"></i><span
+                                            class="menu-span">链接回收</span></a></li>
+                                <li><a href="./Intelligentpush-zn.html"><i class="fa fa-reply-all" aria-hidden="true"></i><span
+                                            class="menu-span">智能推送</span></a></li>
+                                <li><a href="./Templatemessage-mb.html" class="active"><i class="fa fa-envelope-open"
+                                            aria-hidden="true"></i><span class="menu-span">模版消息</span></a></li>
+                                <li><a href="newsoftheservice-kf.html"><i class="fa fa-commenting-o" aria-hidden="true"></i><span
+                                            class="menu-span">客服消息</span></a></li>
+                                <li><a href="./promoteincome-sr.html"><i class="fa fa-jpy" aria-hidden="true"></i><span class="menu-span">推广收入</span></a></li>
+                                <li><a href="./withdrawalofsubsidiary-tx.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                            class="menu-span">提现明细</span></a></li>
+                                <li><a href="./Publicnumbersetting-gz.html"><i class="fa fa-cog" aria-hidden="true"></i><span
+                                            class="menu-span">公众号设置</span></a></li>
+                                <li><a href="./OtherSettings-qt.html"><i class="fa fa-cogs" aria-hidden="true"></i><span class="menu-span">其它设置</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+        
+                </div>
+    <div class="main">
+        <div class="main-content">
+            <div class="container-fluid">
+                
+<style type="text/css">
+    strong{
+        margin-bottom: 5px;display: inline-block;
+    }
+    #template_edit .box{
+        background:#fff;border:1px solid #ccc;margin:15px;padding:15px;    word-break: break-all;
+    }
+    #template_edit .box .msg-title{
+        font-size:18px;color: #000;font-weight: 400;margin-bottom: 0;
+    }
+    #template_edit .box .fa{
+        font-size: 16px;
+    }
+
+</style>
+
+
+
+<div class="panel">
+        <div class="panel-heading mynav">
+            <h3 class="panel-title">
+                <i class="fa fa-home" aria-hidden="true"></i>首页 &gt; <h7 class="menu-name">模版消息</h7> &gt; 添加模板消息任务
+            </h3>
+        </div>
+<!--CONTENT-->
+    <div class="panel-body">
+        <div role="tabpanel" class="tab-pane active" style="padding:10px 0">
+            <form class="form-horizontal" id="editform" style="font-size:14px;">
+                <input type="hidden" class="form-control" name="data[eid]" placeholder="" value="">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label" >任务名称</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="title" name="data[title]" placeholder="" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">选择模版</label>
+                    <textarea name="data[content]" id="tmplate_content" style=" display:none; "></textarea>
+                    <div class="col-sm-4">
+                        <div class="col-sm-12 " id="template_list" style="padding: 0px; display: none;">
+                            <div class="input-group">
+                                <input type="hidden" id="template_id" name="data[template_id]" value="">
+                                <select class="form-control" onchange="tmplateMsg.templateChange()">
+                                </select>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-success tmpMsg-btn-refresh" data-cache="1">更新</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12" id="template_empty" style="padding: 0px;">
+                            <div class="alert alert-info" style="background-color:#b6c1d2;border: #b6c1d2;"> <span style="color:#000;"> 请先到公众号后台申请模版，如已申请，请点击按钮刷新</span>
+                                <p style="margin-top:10px">
+                                    <button type="button" class="btn btn-success tmpMsg-btn-refresh" data-cache="1" style="background-color:#7a8dab;border:#7a8dab;">更新</button>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12" id="template_edit" style="padding:0; display:none ;background: #F5F5F5; ">
+                            <div class="box">
+                                <div class="msg-title"></div>
+                                <p>11月21日</p>
+                                <div class="msg-main"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">跳转链接</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="url" name="data[url]" placeholder="" value="">
+                        <span class="inputtip">仅限您小说网站内部的链接；为空消息则不能点击</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">发送时间</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control datetimepicker" id="send_time" name="data[send_time]" placeholder="" value="">
+                        <div style="padding-top:5px; color: #5e85c3;">
+                            【<a style="color:#5e85c3;" href="javascript:;" onclick="setDataValue(10,'minutes')">10分钟后</a>】
+                            【<a style="color:#5e85c3;" href="javascript:;" onclick="setDataValue(30,'minutes')">30分钟后</a>】
+                            【<a style="color:#5e85c3;" href="javascript:;" onclick="setDataValue(1,'hours')">1小时后</a>】
+                            【<a style="color:#5e85c3;" href="javascript:;" onclick="setDataValue(2,'hours')">2小时后</a>】
+                            【<a style="color:#5e85c3;" href="javascript:;" onclick="setDataValue(3,'hours')">3小时后</a>】
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">测试粉丝ID</label>
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="test_userid" name="data[test_user]" value="">
+                            <span class="input-group-btn"><button type="button" id="test-submit" class="btn btn-success" style="background-color:#7a8dab;border:#7a8dab;">测试发送</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">发送用户群</label>
+                    <div class="col-sm-6">
+                        <div class="row" style="margin-bottom:15px;">
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control datetimepicker1" id="start_date" name="data[start_date]" placeholder="开始日期" value="">
+                            </div>
+                            <div class="col-sm-4"><input type="text" class="form-control datetimepicker1" id="end_date" name="data[end_date]" placeholder="结束日期" value=""></div>
+                            <span style="color:#5e85c3;">日期为空表示所有时间范围</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="con-sm-6">
+                                    <strong>按性别</strong>
+                                </div>
+                                <div class="con-sm-6">
+                                    <label class="fancy-radio"><input name="data[sendtype]" value="0" type="radio" checked="">
+                                        <span><i></i>所有会员</span>
+                                    </label>
+                                    <label class="fancy-radio"><input name="data[sendtype]" value="1" type="radio">
+                                        <span><i></i>男粉会员</span>
+                                    </label>
+                                    <label class="fancy-radio"><input name="data[sendtype]" value="2" type="radio">
+                                        <span><i></i>女粉会员</span>
+                                    </label>
+                                    <label class="fancy-radio"><input name="data[sendtype]" value="3" type="radio">
+                                        <span><i></i>未知会员</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="con-sm-6">
+                                    <strong>按订单</strong>
+                                </div>
+                                <div class="con-sm-6">
+                                    <label class="fancy-radio">
+                                        <input name="data[sendtype]" value="11" type="radio"><span><i></i>已充值会员</span>
+                                    </label>
+                                    <label class="fancy-radio">
+                                        <input name="data[sendtype]" value="12" type="radio"><span><i></i>未充值会员</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="con-sm-6">
+                                    <strong>按已充金额</strong>
+                                </div>
+                                <div class="con-sm-6">
+                                    <label class="fancy-radio">
+                                        <input name="data[sendtype]" value="21" type="radio"><span><i></i>30元会员</span>
+                                    </label>
+                                    <label class="fancy-radio">
+                                        <input name="data[sendtype]" value="22" type="radio"><span><i></i>50元会员</span>
+                                    </label>
+                                    <label class="fancy-radio">
+                                        <input name="data[sendtype]" value="23" type="radio"><span><i></i>100元会员</span>
+                                    </label>
+                                    <label class="fancy-radio">
+                                        <input name="data[sendtype]" value="24" type="radio"><span><i></i>300元会员</span>
+                                    </label>
+                                    <label class="fancy-radio">
+                                        <input name="data[sendtype]" value="25" type="radio"><span><i></i>VIP会员</span>
+                                    </label>
+                                    <label class="fancy-radio">
+                                        <input name="data[sendtype]" value="26" type="radio"><span><i></i>普通会员</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-4">
+                        <button type="button" id="msg-submit" class="btn btn-success" style="width:200px; background-color: #52627d;border: #52627d;">保存</button>
+                        <span class="green tipmsg">&nbsp;</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<!--CONTENT END-->
+
+
+</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+    </div>
+    <footer></footer>
+</div>
+
+<style>
+    .toast-top-center {
+        top: 52px;
+    }
+</style>
+
+<script>
+    api.CopyText_modal();
+    var imgurl = 'static01.tengwen.com';
+
+    var menuName = $("h7.menu-name").text();
+
+    $("span.menu-span").each(function () {
+
+        var menuTitle = $(this).text();
+
+        if (menuTitle == menuName) {
+
+            $(this).parent().addClass('active');
+
+            if (menuName == "公告列表") {
+
+                $(this).css('color', 'rgb(232, 86, 86)');
+
+            }
+        }
+
+    });
+
+
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-center",//toast-top-center toast-bottom-center
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "3000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut",
+    }
+
+    function adm_ajax_ckstat(stat) {
+        if (stat == "ok") return true;
+
+        if (stat == "nologin") {
+            window.location.reload();
+        }
+        return false;
+    }
+
+    var pdata = { action:'notice_msg' };
+
+    sendData("/notice/notice_msg", pdata, function(data){
+        var data = data.data;
+        _Notice    = data.data.unrdnum;
+        _unReadTop = data.data.unrdmsg;
+        noticemsg.showmsgnumEx(_Notice);
+        noticemsg.autoreaddlg();
+
+    });
+
+
+</script>
+<script>
+
+    var　linkVal = !linkVal ? $("input#url").val() : '' ;
+
+    linkVal = linkVal ;
+
+    $("input#url").on( "focus blur keyup",function(){
+
+        toastr.clear();
+
+        var  value = $(this).val();
+
+        value = value;
+
+        if(linkVal == value){
+
+            return false;
+
+        }
+
+        linkVal = value;
+
+        if( value ){
+
+            var msg = "https://"+"wx7e242259719c60fc"+".";
+
+            if(value.indexOf(msg) != 0 ){
+
+                toastr.warning('此链接非号内链接,请慎用!');
+
+            }
+        }
+
+    });
+
+    function setDataValue(value,type){
+        $("#send_time").val(moment().add(value,type).format('YYYY-MM-DD HH:mm'));
+    }
+    $(function(){
+        tmplateMsg.init();
+
+        $('.datetimepicker').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm',
+            locale: moment.locale('zh-CN'),
+        });
+        $('.datetimepicker1').datetimepicker({
+            format: 'YYYY-MM-DD',
+            locale: moment.locale('zh-CN'),
+        });
+    });
+
+    var tmplateMsg=new function(){
+        var _edit_templatekey="";
+        var _edit_templatecontent=[];
+        var _index='';
+        var _dataTemplate=null;
+        var _selectObj=$("#template_list select");
+        var _editObj=$("#template_edit");
+
+        this.init=function(){
+            _loadNetTemplateMsg(0);
+
+            $(".tmpMsg-btn-refresh").bind('click',function(event){
+                event.preventDefault();
+                var cache=$(this).data('cache');
+                _loadNetTemplateMsg(cache);
+            });
+
+            $("#msg-submit").bind('click',function(event){
+                event.preventDefault();
+                _postTemplateMsg();
+            });
+            $("#test-submit").bind('click',function(event){
+                event.preventDefault();
+                _testSendMsg();
+            });
+        }
+        this.templateChange=function(){
+            _index=_selectObj.val();
+            if(_index==''){
+                _editObj.hide();
+                return;
+            }
+            _editObj.show();
+            _loadPreviewData(_index);
+        }
+        function _loadNetTemplateMsg(cache){
+            api.submitStatus(true,".tmpMsg-btn-refresh",'更新中');
+
+            sendData('/msg/get_msg_list',{'isajax':1}, function(msg){
+
+                var data = msg.data;
+
+                api.submitStatus(false,".tmpMsg-btn-refresh",'更新');
+
+                if(data != "error"){
+                    _dataTemplate=data.data.template_list;
+                    if(_dataTemplate.length>0){
+                        template_empty(false);
+                        _SelectCrontrollInit();
+                    }else{
+                        template_empty(true);
+                    }
+                }
+
+            });
+        }
+
+        function _SelectCrontrollInit(){
+            _index=-1;
+            var temp_index=0;
+            var list=_dataTemplate;
+            var itemstr='<option value=""></option>';
+            $.each(list, function(index, item) {
+                var selected='';
+                if(item.template_id==_edit_templatekey){
+                    selected='selected';
+                    temp_index=index;
+                }
+
+                itemstr+='<option value="'+ index +'" '+ selected +'>'+ item.title +'</option>';
+            });
+
+            _selectObj.html(itemstr);
+
+            if(JSON.parse(null)!=''){
+
+                var params=[];
+
+                $.each(JSON.parse(null), function(index, item) {
+                    params.push({field: item.field, value: item.value, color: item.color });
+                });
+
+                _dataTemplate[temp_index].params=params;
+                tmplateMsg.templateChange();
+            }
+
+            _loadPreviewData(_selectObj.val());
+        }
+
+        function _loadPreviewData(index){
+            var template=_dataTemplate[index];
+            var html = template.content.replace(/\n/g, '<br/>');
+            html = html.replace(/\{\{([\w\_\-]+)\.DATA\}\}/ig, function (){
+                return '<span class="msg-field" _field="' + arguments[1] + '"><span class="msg-value" _color=""></span> <i class="fa fa-file-o" aria-hidden="true" title="点击修改"></i></span>';
+            });
+            _editObj.find('.msg-title').html(template.title);
+            _editObj.find('.msg-main').html(html);
+            var params=_dataTemplate[_index].params;
+            if(params && params.length>0){
+                $.each(params, function(index, item) {
+                    _updateField(item.field,item.value,item.color);
+                });
+            }
+            _bandEditClick();
+        }
+
+        function _bandEditClick(){
+            _editObj.find('.msg-field i').unbind('click').bind('click',function(event){
+                event.preventDefault();
+                var parent=$(this).parent();
+                var field=parent.attr('_field');
+                var value=parent.find('.msg-value').text();
+                var color=parent.find('.msg-value').attr('_color');
+                console.log(color);
+                var htmlDlg='\
+          <div class="input-group field_name"  _field="'+field+'"><input type="text" class="form-control field_value" value="'+value+'">\
+          <span class="input-group-btn"><select class="form-control field_color" style="width:100px;">\
+          <option value="#000000" '+(color=='#000000'?'selected':'')+'>黑</option>\
+          <option value="#ff0000" '+(color=='#ff0000'?'selected':'')+'>红</option>\
+          <option value="#9370db" '+(color=='#9370db'?'selected':'')+'>紫</option>\
+          <option value="#0000ff" '+(color=='#0000ff'?'selected':'')+'>蓝</option>\
+          <option value="#ff1493" '+(color=='#ff1493'?'selected':'')+'>粉</option>\
+          </select></span></div><span style="padding: 5px;display: inline-block;">使用{wx_name}占位符, 发送时会被替换为用户昵称</span>';
+                var dialog=Ewin.dialog({
+                    btnok:'确定',
+                    isbtncl:false,
+                    title:"配置模版消息",
+                    message:htmlDlg,
+                });
+                dialog.on(function(result){
+                    if(result){///确定
+                        var obj=$("#"+dialog.id).find('.modal-body');
+                        var filed=obj.find('.field_name').attr('_field');
+                        var value=obj.find('.field_value').val();
+                        var color=obj.find('.field_color').val();
+                        _updateField(filed,value,color);
+                        _dataTemplate[_index].params=_getFields();
+                    }
+                });
+
+            });
+        }
+        function _updateField(filed,value,color){
+            var obj=_editObj.find('.msg-field[_field="'+filed+'"]');
+            obj.find('.msg-value').text(value).attr('_color',color).css('color',color);
+        }
+        function _getFields() {
+            var param = [];
+            _editObj.find('.msg-field').each(function () {
+                var field = $(this).attr('_field');
+                var value = $(this).find('.msg-value').text().trim();
+                var color = $(this).find('.msg-value').attr('_color');
+                if (field && value && color) {
+                    param.push({field: field, value: value, color: color });
+                }
+            });
+            return param;
+        };
+        function _handleContent(){
+
+            var temp=_dataTemplate[_index];
+            var content={
+                title:temp.title,
+                content:temp.params,
+                template_id:temp.template_id,
+            }
+            $("#tmplate_content").val(JSON.stringify(content));
+            $("#template_id").val(temp.template_id);
+            return true;
+        }
+        function _postTemplateMsg(){
+
+            if($("#title").val().length==0){
+                $(".tipmsg").html("任务标题不能为空");
+                return false;
+            }
+
+            if($("#send_time").val().length==0){
+                $(".tipmsg").html("发送时间不能空");
+                return false;
+            }
+            var start_date=$("#start_date").val();
+            var end_date=$("#end_date").val();
+            if((start_date=='' && end_date!='') || (start_date!='' && end_date=='')){
+                $(".tipmsg").html("发送用户群中的开始/结束日期:要么都不填，要么都要填");
+                return false;
+            }
+
+            if(_index==-1 || !_dataTemplate || !_dataTemplate[_index].params){
+                $(".tipmsg").html("模版未正确设置");
+                return false;
+            }
+
+            if(!_handleContent()){
+                return;
+            }
+            var d=$('#editform').serialize();
+
+            d  = d + "&is_ajax=1";
+
+            $(".tipmsg").html("");
+            api.submitStatus(true,"#msg-submit",'');
+            sendData('/msg/template_save',d,function(data){
+                toastr.success('提交成功');
+                setTimeout(function(){window.location.href='/msg/template';},1500);
+
+            });
+        }
+        function _testSendMsg(){
+
+            if($("#test_userid").val().length==0){
+                toastr.error('粉丝ID不能为空');
+                return false;
+            }
+            if (!/^\d+$/.test($("#test_userid").val())) {
+                toastr.error('粉丝ID必须为数字');
+                return false;
+            }
+            if(_index==-1 || !_dataTemplate || !_dataTemplate[_index].params){
+                toastr.error('模版未正确设置');
+                return false;
+            }
+
+            if(!_handleContent()){
+                return;
+            }
+            var d=$('#editform').serialize();
+
+            d  = d + "&is_ajax=1";
+
+            api.submitStatus(true,"#test-submit",'发送中');
+            sendData(  "/msg/test_template",d,function(data){
+                api.submitStatus(false,"#test-submit",'测试发送');
+                if( data.data.error == "404" ){
+                    toastr.error('网络繁忙，请稍候再试');
+                } else {
+                    if( data.data.errcode == 0 ){
+                        toastr.success('已发送成功,请检查是否收到');
+                    } else if( data.data.errcode == "40037" ){
+                        toastr.warning('请使用新增的模板');
+                    } else {
+                        toastr.error('请联系管理员,错误代码:'+data.data.errcode);
+                    }
+                }
+            });
+        }
+    }
+
+    function template_empty(status){
+        $("#template_edit").hide();
+        if(status){
+            $("#template_empty").show();
+            $("#template_list").hide();
+        }else{
+            $("#template_empty").hide();
+            $("#template_list").show();
+        }
+
+    }
+
+
+</script>
+
+</body></html>

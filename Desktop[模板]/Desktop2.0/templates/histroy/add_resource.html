@@ -1,0 +1,268 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>资源添加 - 哇嘎互娱</title>
+    {% include 'public/static.html' %}
+    <script>
+        var api_url = '/api.php';
+        var cur_pos = '资源添加';
+        var _cdnurl = "//cdn.xxxx.com/";
+        var __cfg = false;
+        var imgurl = 'static/';
+
+        function adm_ajax_ckstat(stat) {
+            if (stat == "ok") return true;
+
+            if (stat == "nologin") {
+                window.location.reload();
+            }
+            return false;
+        }
+
+        var _Notice = 0;
+        var _unReadTop = [];
+
+    </script>
+
+</head>
+<body>
+{% include 'public/header.html' %}
+{% include 'public/left.html' %}
+
+
+<!-- MAIN -->
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <div id="tipdlg"></div>
+            <style type="text/css">
+                strong {
+                    margin-bottom: 5px;
+                    display: inline-block;
+                }
+
+                #template_edit .box {
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    margin: 15px;
+                    padding: 15px;
+                    word-break: break-all;
+                }
+
+                #template_edit .box .msg-title {
+                    font-size: 18px;
+                    color: #000;
+                    font-weight: 400;
+                    margin-bottom: 0;
+                }
+
+                #template_edit .box .fa {
+                    font-size: 16px;
+                }
+
+            </style>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- TABLE HOVER -->
+                    <div class="panel">
+                        <div class="panel-heading panel-header-bottom mynav">
+                            <h3 class="panel-title">
+                                <i class="fa fa-home" aria-hidden="true"></i>首页 > 添加资源　　　　　　　　　　　　　　　　　　　　　　　　<span style="color: red;">请注意带＊号的字段必须要填写</span>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div role="tabpanel" class="tab-pane active" tyle="padding:10px 0">
+                                <form action="{% url 'resource_library:save_resource' %}" class="form-horizontal"
+                                      method="post">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"><span
+                                                style="color: red;">*</span>公众号主体：</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" list="companys" class="form-control" placeholder="请选择或填写此次添加的公众号主体" id="main_body"
+                                                   name="main_body" value="">
+                                            <datalist id="companys">
+                                                {% for main in mains %}
+                                                    <option value="{{ main.main_body_name }}">
+                                                {% endfor %}
+                                            </datalist>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label"><span
+                                                style="color: red;">*</span>联系方式：</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="contact_information"
+                                                   name="contact_information" placeholder="请填写该主体的联系方式" value="">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label"><span
+                                                style="color: red;">*</span>公众号：</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="public_number"
+                                                   name="public_number[]" placeholder="请填写公众号" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label"><span
+                                                style="color: red;">*</span>总粉/万：</label>
+                                        <div class="col-sm-4">
+                                            <input type="number" class="form-control" id="total_fans"
+                                                   name="total_fans[]" placeholder="请填写公众号的总粉丝量，单位：万" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label"><span
+                                                style="color: red;">*</span>类型：</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="type" name="type[]"
+                                                   placeholder="请填写该公众号的类型" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label"><span
+                                                style="color: red;">*</span>微信号：</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="we_char_number"
+                                                   name="we_char_number[]" placeholder="请填写该公众号的微信号" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label"><span
+                                                style="color: red;">*</span>平均阅读：</label>
+                                        <div class="col-sm-4">
+                                            <input type="number" class="form-control" id="average_readings"
+                                                   name="average_readings[]" placeholder="请输入该公众号的平均阅读数" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">备注：</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="remark" name="remark[]"
+                                                   placeholder="公众号备注，可不填" value="">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group" id="inputButton">
+                                        <label for="inputPassword3" class="col-sm-2 control-label"></label>
+                                        <div class="col-sm-4">
+                                            <a class="btn btn-default"
+                                               href="{% url 'resource_library:resource_library' %}">返回 </a>
+                                            <input type="submit" class="btn btn-success" value="提交"/>
+                                            <a id="msg-submit" class="btn btn-success">再添加一个</a>
+                                            <span class="green tipmsg">&nbsp;</span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END TABLE HOVER -->
+                </div>
+            </div>
+            <script>
+
+                $("#msg-submit").click(function () {
+
+                    var that = this
+
+                    var html = '<div class="form-group">'+
+                                        '<label for="inputEmail3" class="col-sm-2 control-label"><span\n' +
+                        '                                                style="color: red;">*</span>公众号：</label>'+
+                                        '<div class="col-sm-4">'+
+                                            '<input type="text" class="form-control" id="public_number"'+
+                                                   'name="public_number[]" placeholder="请填写公众号" value="">'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="form-group">'+
+                                        '<label for="inputEmail3" class="col-sm-2 control-label"><span\n' +
+                        '                                                style="color: red;">*</span>总粉/万：</label>'+
+                                        '<div class="col-sm-4">'+
+                                            '<input type="number" class="form-control" id="total_fans"'+
+                                                   'name="total_fans[]" placeholder="请填写公众号的总粉丝量，单位：万" value="">'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="form-group">'+
+                                        '<label for="inputEmail3" class="col-sm-2 control-label"><span\n' +
+                        '                                                style="color: red;">*</span>类型：</label>'+
+                                        '<div class="col-sm-4">'+
+                                            '<input type="text" class="form-control" id="type" name="type[]"'+
+                                                   'placeholder="请填写该公众号的类型" value="">'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="form-group">'+
+                                        '<label for="inputEmail3" class="col-sm-2 control-label"><span\n' +
+                        '                                                style="color: red;">*</span>微信号：</label>'+
+                                        '<div class="col-sm-4">'+
+                                            '<input type="text" class="form-control" id="we_char_number"'+
+                                                   'name="we_char_number[]" placeholder="请填写该公众号的微信号" value="">'+
+                                        '</div>'+
+                                    '</div>'+
+                                    /*'<div class="form-group">'+
+                                        '<label for="inputEmail3" class="col-sm-2 control-label"><span'+
+                                                'style="color: red;">*</span>联系方式：</label>'+
+                                        '<div class="col-sm-4">'+
+                                            '<input type="text" class="form-control" id="contact_information"'+
+                                                   'name="contact_information[]" placeholder="请填写该公众号的联系方式" value="">'+
+                                        '</div>'+
+                                    '</div>'+*/
+                                    '<div class="form-group">'+
+                                        '<label for="inputEmail3" class="col-sm-2 control-label"><span\n' +
+                        '                                                style="color: red;">*</span>平均阅读：</label>'+
+                                        '<div class="col-sm-4">'+
+                                            '<input type="number" class="form-control" id="average_readings"'+
+                                                   'name="average_readings[]" placeholder="请输入该公众号的平均阅读数" value="">'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="form-group">'+
+                                        '<label for="inputEmail3" class="col-sm-2 control-label">备注：</label>'+
+                                        '<div class="col-sm-4">'+
+                                            '<input type="text" class="form-control" id="remark" name="remark[]"'+
+                                                   'placeholder="公众号备注，可不填" value="">'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<hr>';
+                    console.log($("#inputButton").before(html))
+                });
+
+            </script>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>
+<!-- END MAIN -->
+<div class="clearfix"></div>
+<footer></footer>
+</div> <!-- END WRAPPER -->
+<style>
+    .toast-top-center {
+        top: 52px;
+    }
+</style>
+<script>
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-center",//toast-top-center toast-bottom-center
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "3000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+</script>
+<script></script>
+</body>
+</html>

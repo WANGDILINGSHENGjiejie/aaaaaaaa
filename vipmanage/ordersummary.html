@@ -1,0 +1,1393 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>首页 - 核桃书吧</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script src="https://static01.tengwen.com/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/clipboard.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/klorofil-common.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/comm.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/moment.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/moment_zh-cn.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/echarts.min.js"></script>
+    <script src="https://static01.tengwen.com/common/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/novel.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/backend/novel/css/media.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/toastr.min.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" style="height: 50px;background-color: #2a3747;">
+            <div class="brand" style="padding:0;background-color: #2a3747;"><a href="javascript:void(0);"></div>
+            <div class="container-fluid">
+                <div class="navbar-btn">
+                    <button type="button" class="btn-toggle-fullwidth"><i class="fa fa-list" aria-hidden="true" style="color:#fff;"></i>
+                    </button>
+                </div>
+                <div id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="/notice/index" class="dropdown-toggle icbon-menu"> 
+                                    <span class="badge bg-danger notice_msgnum"></span>
+                                </a>
+                            </li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="./images/headshot@2x.png"
+                                        class="img-circle">
+                                    <span style="color:#f1f1f1;">核桃书吧</span> <i class="fa fa-angle-down" aria-hidden="true" style="color:#f1f1f1;"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="./personaldata.gr.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>个人资料</span></a>
+                                    </li>
+                                    <li><a href="Publicnumbersetting-gz.html"><i class="fa fa-address-card-o" aria-hidden="true"></i><span>公众号设置/接入</span></a>
+                                    </li>
+                                    <li><a href="https://static01.tengwen.com/backend/novel/docx/tengwen_readme.docx"><i
+                                                class="fa fa-arrow-down" aria-hidden="true"></i><span>下载帮助文档</span></a>
+                                    </li>
+                                    <li><a href="./Platformlogin.html" onclick="return confirm('确认退出？')"><i class="fa fa-fw fa-power-off"
+                                                aria-hidden="true"></i> <span>安全退出</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+        </nav> <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        <div id="sidebar-nav" class="sidebar">
+            <div class="sidebar-scroll" style="overflow-y: auto;height: 100%;padding:20px 0;background-color:#354051;">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="./AnnounceList_gg.html" id="noticemenu"><i class="fa fa-bell-o" aria-hidden="true"></i><span
+                                    class="menu-span">公告列表</span></a></li>
+                        <li><a href="./Profiledata_sj.html"><i class="fa fa-line-chart" aria-hidden="true"></i><span
+                                    class="menu-span">数据概况</span></a></li>
+                        <li><a href="./ordersummary.html" class="active"><i class="fa fa-bar-chart" aria-hidden="true"></i><span
+                                    class="menu-span">订单汇总</span></a></li>
+                        <li><a href="./Usersummary.html"><i class="fa fa-pie-chart" aria-hidden="true"></i><span class="menu-span">用户汇总</span></a></li>
+                        <li><a href="./addsup_xs.html"><i class="fa fa-bars" aria-hidden="true"></i><span class="menu-span">小说充值汇总</span></a></li>
+                        <li><a href="./orderdetails_dd.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                    class="menu-span">订单明细</span></a></li>
+                        <li><a href="./subsidiary_fs.html"><i class="fa fa-id-card-o" aria-hidden="true"></i><span
+                                    class="menu-span">粉丝明细</span></a></li>
+                        <li><a href="./library-xs.html"><i class="fa fa-book" aria-hidden="true"></i><span class="menu-span">小说库</span></a></li>
+                        <li><a href="./Promotion-tg.html"><i class="fa fa-chain-broken" aria-hidden="true"></i><span
+                                    class="menu-span">推广列表</span></a></li>
+                        <li><a href="./listinterpolatel-nt.html"><i class="fa fa-link" aria-hidden="true"></i><span
+                                    class="menu-span">内推列表</span></a></li>
+                        <li><a href="./Listofactivities-hd.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span
+                                    class="menu-span">活动列表</span></a></li>
+                        <li><a href="./antistop-gj.html"><i class="fa fa-comments-o" aria-hidden="true"></i><span class="menu-span">关键词回复</span></a></li>
+                        <li><a href="./Linkstorecycle-lj.html"><i class="fa fa-recycle" aria-hidden="true"></i><span
+                                    class="menu-span">链接回收</span></a></li>
+                        <li><a href="./Intelligentpush-zn.html"><i class="fa fa-reply-all" aria-hidden="true"></i><span
+                                    class="menu-span">智能推送</span></a></li>
+                        <li><a href="./Templatemessage-mb.html"><i class="fa fa-envelope-open" aria-hidden="true"></i><span
+                                    class="menu-span">模版消息</span></a></li>
+                        <li><a href="newsoftheservice-kf.html"><i class="fa fa-commenting-o" aria-hidden="true"></i><span
+                                    class="menu-span">客服消息</span></a></li>
+                        <li><a href="./promoteincome-sr.html"><i class="fa fa-jpy" aria-hidden="true"></i><span class="menu-span">推广收入</span></a></li>
+                        <li><a href="./withdrawalofsubsidiary-tx.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                    class="menu-span">提现明细</span></a></li>
+                        <li><a href="./Publicnumbersetting-gz.html"><i class="fa fa-cog" aria-hidden="true"></i><span
+                                    class="menu-span">公众号设置</span></a></li>
+                        <li><a href="./OtherSettings-qt.html"><i class="fa fa-cogs" aria-hidden="true"></i><span class="menu-span">其它设置</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+        <div class="main">
+            <div class="main-content">
+                <div class="container-fluid">
+
+                    <style type="text/css">
+                        @media screen and (max-width: 768px) {
+                            strong {
+                                padding-top: 10px;
+                                display: inline-block;
+                            }
+
+                            .pc {
+                                display: none;
+                            }
+                        }
+
+                        b {
+                            font-weight: normal;
+                        }
+
+                        .well {
+                            background-color: #fff;
+                        }
+
+                        .text-other {
+                            margin: 0px;
+                            font-size: 12px;
+                            color: #777;
+                        }
+
+                        .text-primary {
+                            color: #3b86e0;
+                        }
+                    </style>
+
+                    <!-- TITLE -->
+                    <div class="panel" style="display:none;">
+                        <div class="panel-heading mynav">
+                            <h3 class="panel-title">
+                                <i class="fa fa-home" aria-hidden="true">
+                                </i>首页 &gt;
+                                <h7 class="menu-name">订单汇总</h7>
+                            </h3>
+                        </div>
+                    </div>
+                    <!-- TITLE END-->
+
+                    <!-- TOP DATA  -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="panel">
+                                <div class="panel-heading panel-header-bottom">
+                                    <h3 class="panel-title">
+                                        <i class="fa fa-calendar" style="margin-right:5px;">
+                                        </i>本月充值订单汇总
+                                        <!--<i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="" data-original-title="">-->
+                                        <!--</i>-->
+                                    </h3>
+                                </div>
+                                <div class="panel-body form-horizontal" id="curr_month">
+                                    <div class="text-primary" style="font-size:32px;margin:5px 0">
+                                        <span class="total_money text_moneyred">¥18,798.30</span>
+                                        <span style="font-size:14px;color:#777">不含当日</span>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-6" style="padding:0">
+                                                <strong>普通充值</strong>
+                                                <div>金额: <b class="text_moneyyellow pt_money">¥17,301.30</b>
+                                                </div>
+                                                <div>已支付: <b class="text-primary pt_apid_amount">739</b> 单</div>
+                                                <div>未支付: <b class="text-primary pt_unapid_amount">371</b> 单</div>
+                                                <div>充值率: <b class="text-primary pt_percent">66.58</b>%</div>
+                                            </div>
+                                            <div class="col-sm-6" style="padding:0">
+                                                <strong>年费VIP会员</strong>
+                                                <div>金额: <b class="text_moneyyellow vip_money">¥1,497.00</b>
+                                                </div>
+                                                <div>已支付: <b class="text-primary vip_apid_amount">3</b> 单</div>
+                                                <div>未支付: <b class="text-primary vip_unapid_amount">7</b> 单</div>
+                                                <div>充值率: <b class="text-primary vip_percent">30</b> %</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel">
+                                <div class="panel-heading panel-header-bottom">
+                                    <h3 class="panel-title">
+                                        <i class="fa fa-calendar" style="margin-right:5px;">
+                                        </i>上月充值订单汇总
+                                        <!--<i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="" data-original-title="">-->
+                                        <!--</i>-->
+                                    </h3>
+                                </div>
+                                <div class="panel-body form-horizontal" id="curr_month">
+                                    <div class="text-primary" style="font-size:32px;margin:5px 0">
+                                        <span class="total_money text_moneyred">¥100,119.00</span>
+                                        <span style="font-size:14px;color:#777">不含当日</span>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-6" style="padding:0">
+                                                <strong>普通充值</strong>
+                                                <div>金额: <b class="text_moneyyellow pt_money">¥94,630.00</b>
+                                                </div>
+                                                <div>已支付: <b class="text-primary pt_apid_amount">2117</b> 单</div>
+                                                <div>未支付: <b class="text-primary pt_unapid_amount">1322</b> 单</div>
+                                                <div>充值率: <b class="text-primary pt_percent">61.56</b>%</div>
+                                            </div>
+                                            <div class="col-sm-6" style="padding:0">
+                                                <strong>年费VIP会员</strong>
+                                                <div>金额: <b class="text_moneyyellow vip_money">¥5,489.00</b>
+                                                </div>
+                                                <div>已支付: <b class="text-primaryvip_apid_amount">11</b> 单</div>
+                                                <div>未支付: <b class="text-primaryvip_unapid_amount">48</b> 单</div>
+                                                <div>充值率: <b class="text-primaryvip_percent">18.64</b> %</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel">
+                                <div class="panel-heading panel-header-bottom">
+                                    <h3 class="panel-title">
+                                        <i class="fa fa-calendar" style="margin-right:5px;">
+                                        </i>累计充值订单汇总
+                                        <!--<i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="" data-original-title="">-->
+                                        <!--</i>-->
+                                    </h3>
+                                </div>
+                                <div class="panel-body form-horizontal" id="curr_month">
+                                    <div class="text-primary" style="font-size:32px;margin:5px 0">
+                                        <span class="total_money text_moneyred">¥190,231.70</span>
+                                        <span style="font-size:14px;color:#777">不含当日</span>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-6" style="padding:0">
+                                                <strong>普通充值</strong>
+                                                <div>金额: <b class="text_moneyyellow pt_money">¥178,754.70</b>
+                                                </div>
+                                                <div>已支付: <b class="text-primary pt_apid_amount">4406</b> 单</div>
+                                                <div>未支付: <b class="text-primary pt_unapid_amount">2722</b> 单</div>
+                                                <div>充值率: <b class="text-primary pt_percent">61.81</b>%</div>
+                                            </div>
+                                            <div class="col-sm-6" style="padding:0">
+                                                <strong>年费VIP会员</strong>
+                                                <div>金额: <b class="text_moneyyellow vip_money">¥11,477.00</b>
+                                                </div>
+                                                <div>已支付: <b class="text-primary vip_apid_amount">23</b> 单</div>
+                                                <div>未支付: <b class="text-primary vip_unapid_amount">88</b> 单</div>
+                                                <div>充值率: <b class="text-primary vip_percent">20.72</b> %</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TOP DATA END -->
+
+                    <!-- CHART DATA -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-heading panel-header-bottom">
+                                    <h3 class="panel-title">
+                                        <i class="fa fa-calendar" style="margin-right:5px;">
+                                        </i>充值走势</h3>
+                                </div>
+                                <form method="get">
+                                    <div class="panel-body form-horizontal" id="curr_month">
+                                        <div class="form-group" style="  float: left;margin-left:20px; ">
+                                            <input type="text" class="form-control datetimepicker stime" name="stime"
+                                                placeholder="开始日期" value="">
+                                        </div>
+                                        <div class="form-group" style="  float: left;margin-left:20px; ">
+                                            <input type="text" class="form-control datetimepicker etime" name="etime"
+                                                placeholder="结束日期" value="">
+                                        </div>
+                                        <div class="form-group" style="  float: left;margin-left:20px; ">
+                                            <button type="button" class="btn  customize" style="background-color:#52627d;color:#fff;">查询</button>
+                                            <input type="hidden" name="atime" value="customize">
+                                        </div>
+                                        <!--CHART SEARCH -->
+                                        <div class="form-group" style="float: left;margin-left:20px;">
+                                            <button type="button" class="btn " value="three" style="background-color:#7a8dab;color:#fff;"
+                                                onclick="loadDay30Data('sevenDay')">七天
+                                            </button>
+                                        </div>
+                                        <div class="form-group" style="float: left;margin-left:20px;">
+                                            <button type="button" class="btn " style="background-color:#7a8dab;color:#fff;border-radius:5px;"
+                                                value="second" onclick="loadDay30Data('oneMonth')">一个月
+                                            </button>
+                                        </div>
+                                        <!--CHART SEARCH END-->
+                                    </div>
+                                </form>
+                                <div class="panel-body form-horizontal" id="curr_month">
+                                    <div id="order_weekimg" style="width: 100%; height: 300px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;"
+                                        _echarts_instance_="ec_1542426851525">
+                                        <div style="position: relative; overflow: hidden; width: 1641px; height: 300px; padding: 0px; margin: 0px; border-width: 0px;"><canvas
+                                                width="1641" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 1641px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CHART DATA END -->
+
+
+                    <!-- TABLE -->
+                    <div class="panel">
+                        <div class="panel-heading mynav">
+                            <h3 class="panel-title" style="font-size: 16px!important;">
+                                <i class="fa fa-calendar" style="margin-right:5px;">
+                                </i>近30天充值汇总</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped table-hover table-bordered" id="table_list" style="font-size:14px;">
+                                <thead>
+                                    <tr>
+                                        <th>汇总日期</th>
+                                        <th>总充值</th>
+                                        <th class="pc">普通充值</th>
+                                        <th class="pc">普通充值支付订单数</th>
+                                        <th class="pc">VIP充值</th>
+                                        <th class="pc">VIP充值支付订单数</th>
+                                        <th>充值率</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-16</td>
+                                        <td class="text-primary">
+                                            ¥570.00
+                                            <p class="text-other">充值27人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥570.00
+                                        </td>
+                                        <td class="pc">
+                                            11单
+                                            <p class="text-other">未支付16单，充值率:40.74%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付0单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            40.74%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-15</td>
+                                        <td class="text-primary">
+                                            ¥1,249.00
+                                            <p class="text-other">充值30人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥750.00
+                                        </td>
+                                        <td class="pc">
+                                            16单
+                                            <p class="text-other">未支付13单，充值率:55.17%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥499.00</td>
+                                        <td class="pc">
+                                            1单
+                                            <p class="text-other">未支付0单，充值率:100.00%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            56.67%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-14</td>
+                                        <td class="text-primary">
+                                            ¥670.00
+                                            <p class="text-other">充值24人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥670.00
+                                        </td>
+                                        <td class="pc">
+                                            12单
+                                            <p class="text-other">未支付12单，充值率:50.00%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付0单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            50.00%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-13</td>
+                                        <td class="text-primary">
+                                            ¥260.00
+                                            <p class="text-other">充值14人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥260.00
+                                        </td>
+                                        <td class="pc">
+                                            6单
+                                            <p class="text-other">未支付8单，充值率:42.86%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付0单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            42.86%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-12</td>
+                                        <td class="text-primary">
+                                            ¥650.00
+                                            <p class="text-other">充值36人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥650.00
+                                        </td>
+                                        <td class="pc">
+                                            15单
+                                            <p class="text-other">未支付21单，充值率:41.67%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付0单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            41.67%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-11</td>
+                                        <td class="text-primary">
+                                            ¥712.00
+                                            <p class="text-other">充值45人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥712.00
+                                        </td>
+                                        <td class="pc">
+                                            33单
+                                            <p class="text-other">未支付12单，充值率:73.33%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付0单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            73.33%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-10</td>
+                                        <td class="text-primary">
+                                            ¥1,179.00
+                                            <p class="text-other">充值86人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥1,179.00
+                                        </td>
+                                        <td class="pc">
+                                            62单
+                                            <p class="text-other">未支付24单，充值率:72.09%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付0单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            72.09%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-09</td>
+                                        <td class="text-primary">
+                                            ¥1,955.00
+                                            <p class="text-other">充值138人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥1,955.00
+                                        </td>
+                                        <td class="pc">
+                                            107单
+                                            <p class="text-other">未支付29单，充值率:78.68%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付2单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            77.54%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-08</td>
+                                        <td class="text-primary">
+                                            ¥600.00
+                                            <p class="text-other">充值32人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥600.00
+                                        </td>
+                                        <td class="pc">
+                                            13单
+                                            <p class="text-other">未支付18单，充值率:41.94%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付1单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            40.63%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-07</td>
+                                        <td class="text-primary">
+                                            ¥1,718.00
+                                            <p class="text-other">充值32人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥1,219.00
+                                        </td>
+                                        <td class="pc">
+                                            20单
+                                            <p class="text-other">未支付9单，充值率:68.97%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥499.00</td>
+                                        <td class="pc">
+                                            1单
+                                            <p class="text-other">未支付2单，充值率:33.33%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            65.63%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-06</td>
+                                        <td class="text-primary">
+                                            ¥1,149.00
+                                            <p class="text-other">充值39人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥1,149.00
+                                        </td>
+                                        <td class="pc">
+                                            20单
+                                            <p class="text-other">未支付18单，充值率:52.63%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付1单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            51.28%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-05</td>
+                                        <td class="text-primary">
+                                            ¥420.00
+                                            <p class="text-other">充值21人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥420.00
+                                        </td>
+                                        <td class="pc">
+                                            10单
+                                            <p class="text-other">未支付11单，充值率:47.62%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付0单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            47.62%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-04</td>
+                                        <td class="text-primary">
+                                            ¥1,659.00
+                                            <p class="text-other">充值49人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥1,160.00
+                                        </td>
+                                        <td class="pc">
+                                            26单
+                                            <p class="text-other">未支付22单，充值率:54.17%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥499.00</td>
+                                        <td class="pc">
+                                            1单
+                                            <p class="text-other">未支付0单，充值率:100.00%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            55.10%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-03</td>
+                                        <td class="text-primary">
+                                            ¥986.60
+                                            <p class="text-other">充值66人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥986.60
+                                        </td>
+                                        <td class="pc">
+                                            49单
+                                            <p class="text-other">未支付17单，充值率:74.24%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付0单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            74.24%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-02</td>
+                                        <td class="text-primary">
+                                            ¥3,146.70
+                                            <p class="text-other">充值346人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥3,146.70
+                                        </td>
+                                        <td class="pc">
+                                            250单
+                                            <p class="text-other">未支付96单，充值率:72.25%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付0单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            72.25%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-11-01</td>
+                                        <td class="text-primary">
+                                            ¥1,874.00
+                                            <p class="text-other">充值135人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥1,874.00
+                                        </td>
+                                        <td class="pc">
+                                            89单
+                                            <p class="text-other">未支付45单，充值率:66.42%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付1单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            65.93%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-10-31</td>
+                                        <td class="text-primary">
+                                            ¥1,420.00
+                                            <p class="text-other">充值51人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥1,420.00
+                                        </td>
+                                        <td class="pc">
+                                            32单
+                                            <p class="text-other">未支付19单，充值率:62.75%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付0单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            62.75%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-10-30</td>
+                                        <td class="text-primary">
+                                            ¥1,470.00
+                                            <p class="text-other">充值46人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥1,470.00
+                                        </td>
+                                        <td class="pc">
+                                            31单
+                                            <p class="text-other">未支付12单，充值率:72.09%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付3单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            67.39%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-10-29</td>
+                                        <td class="text-primary">
+                                            ¥990.00
+                                            <p class="text-other">充值37人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥990.00
+                                        </td>
+                                        <td class="pc">
+                                            22单
+                                            <p class="text-other">未支付15单，充值率:59.46%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付0单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            59.46%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-10-28</td>
+                                        <td class="text-primary">
+                                            ¥1,140.00
+                                            <p class="text-other">充值43人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥1,140.00
+                                        </td>
+                                        <td class="pc">
+                                            27单
+                                            <p class="text-other">未支付16单，充值率:62.79%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付0单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            62.79%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-10-27</td>
+                                        <td class="text-primary">
+                                            ¥1,249.00
+                                            <p class="text-other">充值35人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥1,249.00
+                                        </td>
+                                        <td class="pc">
+                                            24单
+                                            <p class="text-other">未支付11单，充值率:68.57%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付0单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            68.57%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-10-26</td>
+                                        <td class="text-primary">
+                                            ¥1,749.00
+                                            <p class="text-other">充值42人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥1,250.00
+                                        </td>
+                                        <td class="pc">
+                                            25单
+                                            <p class="text-other">未支付15单，充值率:62.50%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥499.00</td>
+                                        <td class="pc">
+                                            1单
+                                            <p class="text-other">未支付1单，充值率:50.00%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            61.90%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-10-25</td>
+                                        <td class="text-primary">
+                                            ¥2,009.00
+                                            <p class="text-other">充值49人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥2,009.00
+                                        </td>
+                                        <td class="pc">
+                                            34单
+                                            <p class="text-other">未支付15单，充值率:69.39%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付0单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            69.39%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-10-24</td>
+                                        <td class="text-primary">
+                                            ¥2,149.00
+                                            <p class="text-other">充值72人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥2,149.00
+                                        </td>
+                                        <td class="pc">
+                                            44单
+                                            <p class="text-other">未支付27单，充值率:61.97%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付1单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            61.11%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-10-23</td>
+                                        <td class="text-primary">
+                                            ¥2,459.00
+                                            <p class="text-other">充值73人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥1,960.00
+                                        </td>
+                                        <td class="pc">
+                                            41单
+                                            <p class="text-other">未支付29单，充值率:58.57%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥499.00</td>
+                                        <td class="pc">
+                                            1单
+                                            <p class="text-other">未支付2单，充值率:33.33%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            57.53%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-10-22</td>
+                                        <td class="text-primary">
+                                            ¥1,879.00
+                                            <p class="text-other">充值58人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥1,879.00
+                                        </td>
+                                        <td class="pc">
+                                            37单
+                                            <p class="text-other">未支付21单，充值率:63.79%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付0单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            63.79%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-10-21</td>
+                                        <td class="text-primary">
+                                            ¥1,820.00
+                                            <p class="text-other">充值72人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥1,820.00
+                                        </td>
+                                        <td class="pc">
+                                            41单
+                                            <p class="text-other">未支付30单，充值率:57.75%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付1单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            56.94%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-10-20</td>
+                                        <td class="text-primary">
+                                            ¥1,850.00
+                                            <p class="text-other">充值75人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥1,850.00
+                                        </td>
+                                        <td class="pc">
+                                            39单
+                                            <p class="text-other">未支付34单，充值率:53.42%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付2单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            52.00%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-10-19</td>
+                                        <td class="text-primary">
+                                            ¥2,260.00
+                                            <p class="text-other">充值72人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥2,260.00
+                                        </td>
+                                        <td class="pc">
+                                            49单
+                                            <p class="text-other">未支付22单，充值率:69.01%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付1单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            68.06%
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td>2018-10-18</td>
+                                        <td class="text-primary">
+                                            ¥2,480.00
+                                            <p class="text-other">充值96人</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥2,480.00
+                                        </td>
+                                        <td class="pc">
+                                            55单
+                                            <p class="text-other">未支付37单，充值率:59.78%</p>
+                                        </td>
+                                        <td class="pc text-primary">
+                                            ¥0.00</td>
+                                        <td class="pc">
+                                            0单
+                                            <p class="text-other">未支付4单，充值率:0%</p>
+                                        </td>
+                                        <td style="color:#DB2424;">
+                                            57.29%
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- TABLE END -->
+
+
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+        <footer></footer>
+    </div>
+
+    <style>
+        .toast-top-center {
+            top: 52px;
+        }
+    </style>
+
+    <script>
+        api.CopyText_modal();
+        var imgurl = 'static01.tengwen.com';
+
+        var menuName = $("h7.menu-name").text();
+
+        $("span.menu-span").each(function () {
+
+            var menuTitle = $(this).text();
+
+            if (menuTitle == menuName) {
+
+                $(this).parent().addClass('active');
+
+                if (menuName == "公告列表") {
+
+                    $(this).css('color', 'rgb(232, 86, 86)');
+
+                }
+            }
+
+        });
+
+
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-center", //toast-top-center toast-bottom-center
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        function adm_ajax_ckstat(stat) {
+            if (stat == "ok") return true;
+
+            if (stat == "nologin") {
+                window.location.reload();
+            }
+            return false;
+        }
+
+        var pdata = {
+            action: 'notice_msg'
+        };
+
+        sendData("/notice/notice_msg", pdata, function (data) {
+            var data = data.data;
+            _Notice = data.data.unrdnum;
+            _unReadTop = data.data.unrdmsg;
+            noticemsg.showmsgnumEx(_Notice);
+            noticemsg.autoreaddlg();
+
+        });
+    </script>
+    <script src="https://static01.tengwen.com/common/paginate.js"></script>
+    <script>
+        $(function () {
+            loadDay30Data('oneMonth');
+
+            $('.datetimepicker').datetimepicker({
+                format: 'YYYY-MM-DD',
+                locale: moment.locale('zh-CN'),
+            });
+
+        })
+
+        $(".customize").on('click', function () {
+
+            var stime = $('.stime').val();
+
+            var etime = $('.etime').val();
+
+            sdate = new Date(Date.parse(stime.replace(/-/g, "/")));
+
+            sdate = sdate.getTime();
+
+            edate = new Date(Date.parse(etime.replace(/-/g, "/")));
+
+            edate = edate.getTime();
+
+            if (!stime && !etime) {
+
+                toastr.error('请填写日期!');
+
+                return false;
+
+            }
+
+            if (edate < sdate) {
+
+                toastr.error('结束时间不得小于开始时间');
+
+                return false;
+            }
+
+            loadDay30Data('customize', stime, etime);
+
+        })
+
+        function loadDay30Data(type, stime, etime) {
+
+            var myChart = echarts.init(document.getElementById('order_weekimg'));
+            option = {
+                tooltip: {
+                    trigger: 'axis'
+                },
+
+                color: ['#3b86e0', '#36c0e4', '#ffc425', ],
+                legend: {
+                    data: [{
+                        name: '总充值',
+                        icon: 'image://https://static01.tengwen.com/backend/novel/img/tag-blue.png'
+                    }, {
+                        name: '普通充值',
+                        icon: 'image://https://static01.tengwen.com/backend/novel/img/tag-blue2.png'
+                    }, {
+                        name: 'VIP充值',
+                        icon: 'image://https://static01.tengwen.com/backend/novel/img/tag-yellow.png'
+                    }, ],
+                    itemWidth: 36,
+                    itemHeight: 36,
+                    itemGap: 50,
+                },
+
+                grid: {
+                    left: '3%',
+                    right: '6%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: []
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: []
+            };
+
+            myChart.setOption(option);
+
+            myChart.showLoading();
+
+            var pdata = {
+                'is_ajax': 1,
+                'atime': type,
+                'stime': stime,
+                'etime': etime
+            };
+
+            sendData('/order/summary_chart', pdata, function (data) {
+
+                if (data.err == 404) {
+                    toastr.warning(data.msg);
+                    setTimeout("window.location.reload()", 2000);
+                    return;
+                }
+
+                $(".listdata_loading").remove();
+                myChart.hideLoading();
+                var total = data.data.length;
+                var time = [];
+                var first = [];
+                var second = [];
+                var three = [];
+                for (var i = 0; i < total; i++) {
+                    time[time.length] = data.data[i].adate;
+                    first[first.length] = data.data[i].amounts;
+                    second[second.length] = Math.round((data.data[i].amounts - data.data[i].amounts_vip) * 100) /
+                        100;
+                    three[three.length] = data.data[i].amounts_vip;
+                }
+                time.reverse();
+                first.reverse();
+                second.reverse();
+                three.reverse();
+                row = {
+                    xAxis: {
+                        data: time
+                    },
+                    series: [{
+                        name: '总充值',
+                        type: 'line',
+                        data: first
+                    }, {
+                        name: '普通充值',
+                        type: 'line',
+                        data: second
+                    }, {
+                        name: 'VIP充值',
+                        type: 'line',
+                        data: three
+                    }]
+                };
+                myChart.setOption(row);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

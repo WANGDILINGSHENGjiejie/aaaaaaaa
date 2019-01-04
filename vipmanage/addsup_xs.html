@@ -1,0 +1,385 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>首页 - 核桃书吧</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script src="https://static01.tengwen.com/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/clipboard.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/klorofil-common.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/comm.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/moment.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/moment_zh-cn.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/echarts.min.js"></script>
+    <script src="https://static01.tengwen.com/common/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/novel.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/backend/novel/css/media.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.css">
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/toastr.min.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" style="height: 50px;background-color: #2a3747;">
+            <div class="brand" style="padding:0;background-color: #2a3747;"><a href="javascript:void(0);"></div>
+            <div class="container-fluid">
+                <div class="navbar-btn">
+                    <button type="button" class="btn-toggle-fullwidth"><i class="fa fa-list" aria-hidden="true" style="color:#fff;"></i>
+                    </button>
+                </div>
+                <div id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="/notice/index" class="dropdown-toggle icon-menu"> 
+                                    <span class="badge bg-danger notice_msgnum"></span>
+                                </a>
+                            </li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="./images/headshot@2x.png"
+                                        class="img-circle">
+                                    <span style="color:#f1f1f1;">核桃书吧</span> <i class="fa fa-angle-down" aria-hidden="true" style="color:#f1f1f1;"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="./personaldata.gr.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>个人资料</span></a>
+                                    </li>
+                                    <li><a href="Publicnumbersetting-gz.html"><i class="fa fa-address-card-o" aria-hidden="true"></i><span>公众号设置/接入</span></a>
+                                    </li>
+                                    <li><a href="https://static01.tengwen.com/backend/novel/docx/tengwen_readme.docx"><i
+                                                class="fa fa-arrow-down" aria-hidden="true"></i><span>下载帮助文档</span></a>
+                                    </li>
+                                    <li><a href="./Platformlogin.html" onclick="return confirm('确认退出？')"><i class="fa fa-fw fa-power-off"
+                                                aria-hidden="true"></i> <span>安全退出</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+        </nav> <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        <div id="sidebar-nav" class="sidebar">
+            <div class="sidebar-scroll" style="overflow-y: auto;height: 100%;padding:20px 0;background-color:#354051;">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="./AnnounceList_gg.html" id="noticemenu"><i class="fa fa-bell-o" aria-hidden="true"></i><span
+                                    class="menu-span">公告列表</span></a></li>
+                        <li><a href="./Profiledata_sj.html"><i class="fa fa-line-chart" aria-hidden="true"></i><span
+                                    class="menu-span">数据概况</span></a></li>
+                        <li><a href="./ordersummary.html"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="menu-span">订单汇总</span></a></li>
+                        <li><a href="./Usersummary.html"><i class="fa fa-pie-chart" aria-hidden="true"></i><span class="menu-span">用户汇总</span></a></li>
+                        <li><a href="./addsup_xs.html" class="active"><i class="fa fa-bars" aria-hidden="true"></i><span
+                                    class="menu-span">小说充值汇总</span></a></li>
+                        <li><a href="./orderdetails_dd.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                    class="menu-span">订单明细</span></a></li>
+                        <li><a href="./subsidiary_fs.html"><i class="fa fa-id-card-o" aria-hidden="true"></i><span
+                                    class="menu-span">粉丝明细</span></a></li>
+                        <li><a href="./library-xs.html"><i class="fa fa-book" aria-hidden="true"></i><span class="menu-span">小说库</span></a></li>
+                        <li><a href="./Promotion-tg.html"><i class="fa fa-chain-broken" aria-hidden="true"></i><span
+                                    class="menu-span">推广列表</span></a></li>
+                        <li><a href="./listinterpolatel-nt.html"><i class="fa fa-link" aria-hidden="true"></i><span
+                                    class="menu-span">内推列表</span></a></li>
+                        <li><a href="./Listofactivities-hd.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span
+                                    class="menu-span">活动列表</span></a></li>
+                        <li><a href="./antistop-gj.html"><i class="fa fa-comments-o" aria-hidden="true"></i><span class="menu-span">关键词回复</span></a></li>
+                        <li><a href="./Linkstorecycle-lj.html"><i class="fa fa-recycle" aria-hidden="true"></i><span
+                                    class="menu-span">链接回收</span></a></li>
+                        <li><a href="./Intelligentpush-zn.html"><i class="fa fa-reply-all" aria-hidden="true"></i><span
+                                    class="menu-span">智能推送</span></a></li>
+                        <li><a href="./Templatemessage-mb.html"><i class="fa fa-envelope-open" aria-hidden="true"></i><span
+                                    class="menu-span">模版消息</span></a></li>
+                        <li><a href="newsoftheservice-kf.html"><i class="fa fa-commenting-o" aria-hidden="true"></i><span
+                                    class="menu-span">客服消息</span></a></li>
+                        <li><a href="./promoteincome-sr.html"><i class="fa fa-jpy" aria-hidden="true"></i><span class="menu-span">推广收入</span></a></li>
+                        <li><a href="./withdrawalofsubsidiary-tx.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                    class="menu-span">提现明细</span></a></li>
+                        <li><a href="./Publicnumbersetting-gz.html"><i class="fa fa-cog" aria-hidden="true"></i><span
+                                    class="menu-span">公众号设置</span></a></li>
+                        <li><a href="./OtherSettings-qt.html"><i class="fa fa-cogs" aria-hidden="true"></i><span class="menu-span">其它设置</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+        <div class="main">
+            <div class="main-content">
+                <div class="container-fluid">
+
+                    <style type="text/css">
+                        @media screen and (max-width: 768px) {
+                            strong {
+                                padding-top: 10px;
+                                display: inline-block;
+                            }
+
+                            .pc {
+                                display: none;
+                            }
+                        }
+
+                        b {
+                            font-weight: normal;
+                        }
+
+                        .well {
+                            background-color: #fff;
+                        }
+
+                        .text-other {
+                            margin: 0px;
+                            font-size: 12px;
+                            color: #777;
+                        }
+                    </style>
+
+                    <!-- TITLE -->
+                    <div class="panel" style="display:none;">
+                        <div class="panel-heading mynav">
+                            <h3 class="panel-title">
+                                <i class="fa fa-home" aria-hidden="true">
+                                </i>首页 &gt;
+                                <h7 class="menu-name">小说充值汇总</h7>
+                            </h3>
+                        </div>
+                    </div>
+                    <!-- TITLE END-->
+
+                    <!-- TABLE -->
+                    <div class="panel">
+                        <div class="panel-heading mynav">
+                            <h3 class="panel-title"><i class="fa fa-home" aria-hidden="true"></i>首页 &gt; 小说充值汇总
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <form class="navbar-form navbar-left" role="search" action="" method="get" >
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="请输入书名" name="orderno" value="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control datetimepicker" id="form-start_date"
+                                        placeholder="开始日期" name="stime" value="">
+                                    <input type="text" class="form-control datetimepicker" id="form-end_date"
+                                        placeholder="结束日期" name="etime" value="">
+                                </div>
+                                <button type="submit" class="btn" style="background-color:#52627d;color:#fff;">查询</button>
+
+                                <div class="form-group"> <button type="button" class="btn " style="background-color:#7a8dab;color:#fff;"
+                                        onclick="exportdata()">导出Excel数据</button> </div>
+
+                            </form>
+                            <table class="table table-striped table-hover table-bordered" style="font-size:14px;">
+                                <thead>
+                                    <tr>
+                                        <th width="25%">书名</th>
+                                        <th width="25%">
+                                            <a href="/book/summary?type=today&amp;sort=asc">今日充值</a>
+                                            <!-- <i class="fa fa-sort-amount-desc"></i> -->
+                                        </th>
+                                        <th width="25%">
+                                            <a href="/book/summary?type=yesterday&amp;sort=asc">昨日充值</a>
+                                        </th>
+                                        <th width="25%">
+                                            <a href="/book/summary?type=total&amp;sort=asc">总充值</a>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span>
+                                                <a href="/book/body?bid=386">鬼探</a>
+                                            </span>
+                                        </td>
+                                        <td>¥180.00<br>4单</td>
+                                        <td>¥280.00<br>5单</td>
+                                        <td>¥140,817.00<br>3056单</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>
+                                                <a href="/book/body?bid=402">男神老公别乱来</a>
+                                            </span>
+                                        </td>
+                                        <td>¥50.00<br>1单</td>
+                                        <td>¥0.00<br>0单</td>
+                                        <td>¥50.00<br>1单</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>
+                                                <a href="/book/body?bid=199">阴缘鬼妻</a>
+                                            </span>
+                                        </td>
+                                        <td>¥50.00<br>1单</td>
+                                        <td>¥100.00<br>1单</td>
+                                        <td>¥2,219.00<br>46单</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>
+                                                <a href="/book/body?bid=75">狂龙</a>
+                                            </span>
+                                        </td>
+                                        <td>¥0.00<br>0单</td>
+                                        <td>¥0.00<br>0单</td>
+                                        <td>¥180.00<br>4单</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>
+                                                <a href="/book/body?bid=426">行尸走肉</a>
+                                            </span>
+                                        </td>
+                                        <td>¥0.00<br>0单</td>
+                                        <td>¥0.00<br>0单</td>
+                                        <td>¥50.00<br>1单</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <div data-pagination="pagination_new" data-pagenumber="1" data-paginationurl="/book/summary?page=customize_page_num"
+                                data-totalnumber="4" data-paginationmax="4" style="float: right;">
+                                <ul class="pagination">
+                                    <li value="pre" style="display: inline-block;"><a href="/book/summary?page=1">首页</a></li>
+                                    <li value="1" class="active" style="display: inline-block;"><a href="/book/summary?page=1">1</a></li>
+                                    <li value="2" style="display: inline-block;"><a href="/book/summary?page=2">2</a></li>
+                                    <li value="3" style="display: inline-block;"><a href="/book/summary?page=3">3</a></li>
+                                    <li value="4" style="display: inline-block;"><a href="/book/summary?page=4">4</a></li>
+                                    <li value="next" style="display: inline-block;"><a href="javascript:void(0);">»</a></li>
+                                    <li value="next" style="display: inline-block;"><a href="/book/summary?page=4">尾页</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TABLE END -->
+
+
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+        <footer></footer>
+    </div>
+
+    <style>
+        .toast-top-center {
+            top: 52px;
+        }
+    </style>
+
+    <script>
+        api.CopyText_modal();
+        var imgurl = 'static01.tengwen.com';
+
+        var menuName = $("h7.menu-name").text();
+
+        $("span.menu-span").each(function () {
+
+            var menuTitle = $(this).text();
+
+            if (menuTitle == menuName) {
+
+                $(this).parent().addClass('active');
+
+                if (menuName == "公告列表") {
+
+                    $(this).css('color', 'rgb(232, 86, 86)');
+
+                }
+            }
+
+        });
+
+
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-center", //toast-top-center toast-bottom-center
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        function adm_ajax_ckstat(stat) {
+            if (stat == "ok") return true;
+
+            if (stat == "nologin") {
+                window.location.reload();
+            }
+            return false;
+        }
+
+        var pdata = {
+            action: 'notice_msg'
+        };
+
+        sendData("/notice/notice_msg", pdata, function (data) {
+            var data = data.data;
+            _Notice = data.data.unrdnum;
+            _unReadTop = data.data.unrdmsg;
+            noticemsg.showmsgnumEx(_Notice);
+            noticemsg.autoreaddlg();
+
+        });
+    </script>
+    <script>
+        $('.datetimepicker').datetimepicker({
+            format: 'YYYY-MM-DD',
+            locale: moment.locale('zh-CN'),
+        });
+
+        function exportdata() {
+            var key = $("#form-key").val();
+            var status = $("#form-status").val();
+            var start_date = $("#form-start_date").val();
+            var end_date = $("#form-end_date").val();
+            var did = $("#form-did").val();
+            var idid = $("#form-idid").val();
+
+            if (!start_date || !end_date) {
+                toastr.warning('请选择有效日期范围');
+                return;
+            }
+            var start_Time = (new Date(start_date)).getTime() / 1000; //得到秒数
+            var end_Time = (new Date(end_date)).getTime() / 1000; //得到秒数
+            if (end_Time < start_Time) {
+                toastr.warning('请选择有效日期范围');
+                return;
+            }
+            if ((end_Time - start_Time) / 86400 > 31) {
+                toastr.warning('只可选择范围31天的数据');
+                return;
+            }
+
+            var statu = "";
+
+            if (statu) {
+                window.location = "/order/order_excel?key=&statu=&did=&stime=" + start_Time + "&etime=" + end_Time;
+            } else {
+                window.location = "/order/order_excel?key=&did=&stime=" + start_Time + "&etime=" + end_Time;
+            }
+
+        }
+    </script>
+    <!-- <script src="https://static01.tengwen.com/common/paginate.js"></script> -->
+
+</body>
+
+</html>

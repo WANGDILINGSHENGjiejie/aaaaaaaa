@@ -1,0 +1,569 @@
+<!--{% load staticfiles %}-->
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://novel.tengwen.com/dispatch_list.php -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>定金表</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- jQuery 3 -->
+    <script src="{% static 'jquery.min.js'%}"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css'%}">
+    <script src="{% static 'bootstrap.min.js'%}"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <!-- Font Awesome 图标字体库和CSS框架-->
+    <link rel="stylesheet" href="{% static 'font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css.css'%}">
+    <link rel="stylesheet" href="{% static 'media.css'%}">
+    <link rel="stylesheet" href="{% static 'bootstrap-select.min.css'%}">
+    <!-- Font Awesome 图标字体库和CSS框架-->
+    <link rel="stylesheet" href="{% static 'admin/bower_components/font-awesome/css/font-awesome.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'bootstrap-datetimepicker-4.17.min.css'%}">
+
+    <script src="{% static 'layerUI/layui.all.js'%}" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'layerUI/css/layui.css'%}" />
+    <script type="text/javascript" src="{% static 'moment.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'moment_zh-cn.js'%}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap-datetimepicker-4.17.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'echarts.min.js'%}"></script>
+
+
+
+
+</head>
+
+<body class="" style="">
+    <!-- WRAPPER -->
+    <div id="wrapper">
+        <!-- NAVBAR -->
+        {% include 'public/header.html' %}
+        <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        {% include 'public/left.html' %}
+
+
+        <!-- MAIN -->
+        <div class="main">
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <div class="container-fluid">
+                    <div id="tipdlg"></div>
+                    <style type="text/css">
+                        .ft12 {
+                            font-size: 12px;
+                        }
+
+                        .ft16 {
+                            font-size: 16px;
+                        }
+
+                        .copy-tips {
+                            position: fixed;
+                            z-index: 999;
+                            bottom: 50%;
+                            left: 50%;
+                            margin: 0 0 -20px -80px;
+                            background-color: rgba(0, 0, 0, 0.2);
+                            filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#30000000, endColorstr=#30000000);
+                            padding: 6px;
+                        }
+
+                        .copy-tips-wrap {
+                            padding: 10px 20px;
+                            text-align: center;
+                            border: 1px solid #F4D9A6;
+                            background-color: #FFFDEE;
+                            font-size: 14px;
+                        }
+                    </style>
+                    <div class="panel">
+                        <div class="panel-heading mynav">
+                            <h3 class="panel-title">首页 > 定金表</h3>
+                        </div>
+                        <div class="panel-body" style="position: relative; ">
+                            <form class="form-inline" action="#" method="get" style="padding-bottom: 20px;">
+                                <div class="btn-group form-group">
+                                    <button type="button" class="btn btn-success dropdown-toggle" onclick="layerUItest()">
+                                        添加定金表 </button>
+                                </div>
+                                <div class="form-group" style=" float: right;margin-right:5px; ">
+                                    <button type="button" class="btn btn-success" onclick="selectMessage()">查询</button>
+                                </div>
+
+                                <div class="form-group" style=" float: right;margin-right:5px; "><input style="width: 210px;"
+                                        type="text" class="form-control datetimepicker" id="select" name="select" value=""
+                                        placeholder="创建人，主体，公众号，备注">
+                                </div>
+
+                            </form>
+                            <table class="table table-striped table-hover table-bordered" style="text-align:center;table-layout:fixed;">
+                                <thead>
+                                    <tr>
+                                        <th width="5%" style="text-align:center">创建人</th>
+                                        <th width="15%" style="text-align:center">主体</th>
+                                        <th width="15%" style="text-align:center">公众号</th>
+                                        <th width="5%" style="text-align:center">定金</th>
+                                        <th width="8%" style="text-align:center">预约档期</th>
+                                        <th width="8%" style="text-align:center">创建时间</th>
+                                        <th width="5%" style="text-align:center">备注</th>
+                                    </tr>
+                                </thead>
+
+                                <form id="form_data"></form>
+
+                                <tbody>
+                                    {% for item in items.object_list %}
+                                    <tr>
+                                        <td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">{{
+                                            item.order_member_id }}</td>
+                                        <td title="{{ item.main_body }}" style="white-space:nowrap;overflow:hidden;word-break:keep-all;">{{
+                                            item.main_body }}</td>
+                                        <td title="{{ item.public_number }}" style="white-space:nowrap;overflow:hidden;word-break:keep-all;">{{
+                                            item.public_number }}</td>
+                                        <td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">{{
+                                            item.deposit }}</td>
+                                        <td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">{{
+                                            item.reservation_time }}</td>
+                                        <td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">{{
+                                            item.create_time }}</td>
+                                        <td title="{{ item.remark }}" style="white-space:nowrap;overflow:hidden;word-break:keep-all;">{{
+                                            item.remark }}</td>
+                                    </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+
+                            <div style='height :80px'>
+                                <ul class="pagination pagination-sm" style="float:left;margin-top:20px">
+                                    {% if items.has_previous %}
+                                    <li class="prev" id="previous">
+                                        <a href="?page={{ items.previous_page_number }}">上一页</a>
+                                    </li>
+                                    {% else %}
+                                    <li class="prev disabled"><span>上一页</span></li>
+                                    {% endif %}
+
+
+                                    <li>
+                                        <a href="?page=1">首页</a>
+                                    </li>
+
+
+                                    {% for page in pageList %}
+                                    {% if page %}
+                                    <!-- 如果该页码是当前页，活跃显示 -->
+                                    {% ifequal page items.number %}
+                                    <li class="active"><span>{{ page }}</span></li>
+                                    {% else %}
+                                    <li>
+                                        <a href="?page{{ page }}">{{ page }}</a>
+                                    </li>
+                                    {% endifequal %}
+                                    {% endif %}
+                                    {% endfor %}
+
+
+                                    <li>
+                                        <a href="?page={{ totalPage }}">尾页</a>
+                                    </li>
+
+
+                                    {% if items.has_next %}
+                                    <li class="next" id="next">
+                                        <a href="?page={{ items.next_page_number }}">下一页</a>
+                                    </li>
+                                    {% else %}
+                                    <li class="next disabled"><span>下一页</span></li>
+                                    {% endif %}
+                                </ul>
+
+                                <div style="padding-top: 20px; float:right">
+                                    <span id='index'></span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div> <!-- END MAIN CONTENT -->
+    </div> <!-- END MAIN -->
+    <div class="clearfix"></div>
+    <footer></footer>
+    </div> <!-- END WRAPPER -->
+
+    <div id="waga" class="no-display" style="display: none;">
+        <div style="text-align:center">
+            <table contenteditable="true" class="container-fluid panel table table-striped table-hover table-bordered paidanAdd"
+                style="table-layout:fixed;">
+                <thead>
+                    <tr contenteditable="false">
+                        <th width="15%" style="text-align:center">主体</th>
+                        <th width="15%" style="text-align:center">公众号</th>
+                        <th width="15%" style="text-align:center">定金</th>
+                        <th width="15%" style="text-align:center">预约档期</th>
+                        <th width="15%" style="text-align:center">备注</th>
+                    </tr>
+                </thead>
+                <!-- 表内容 START -->
+                <tbody>
+                    <tr>
+                        <td style="white-space:nowrap;overflow:hidden;word-break:keep-all;"><input id='input_main_body'></td>
+                        <td style="white-space:nowrap;overflow:hidden;word-break:keep-all;"><input id='input_public_number'></td>
+                        <td style="white-space:nowrap;overflow:hidden;word-break:keep-all;"><input id='input_deposit'></td>
+                        <td id="time_w" style="vertical-align:middle;">
+                            <div class="layui-inline"><input type="text" value="2012-05-15 21:05" id="input_reservation_time"
+                                    readonly /></div>
+                        </td>
+                        <td style="white-space:nowrap;overflow:hidden;word-break:keep-all;"><input id='input_remark'></td>
+                    </tr>
+                </tbody>
+                <!-- 表内容 END -->
+            </table>
+            <div style="float: right;margin-right: 20px;">
+                <button class="btn " id="submit_db" onclick="submitMessage()">确定</button>
+            </div>
+
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="{% static 'toastr.min.css'%}">
+    <style>
+        .toast-top-center {
+            top: 52px;
+        }
+    </style>
+
+    <script>
+        function layerUItest() {
+            //layui和jquery会有冲突 $必须使用layui的
+            var $ = layui.$;
+            form = layui.form
+
+            <!--加载时间选择器-->
+            var laydate = layui.laydate;
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#input_reservation_time', //指定元素
+                type: 'datetime'
+            });
+
+
+            layer.open({
+                type: 1,
+                title: ["添加定金表", 'background-color:rgb(54, 188, 228);color:#fff'],
+                area: ['1300px', '600px'],
+                scrollbar: false,
+                closeBtn: 2,
+                content: $(".no-display"),
+                success: function () {
+
+                },
+                end: function () {
+                    //清空数据
+                    $("#input_main_body").empty();
+                    $("#input_public_number").empty();
+                    $("#input_deposit").empty();
+                    $("#input_reservation_time").val("");
+                    $("#input_remark").val("");
+
+                }
+            });
+        }
+
+        // 获取首页数据
+        {#
+            function getAllMessage() {#} {#
+                $.ajax({#} {#
+                    url: '/dp_get_message/',
+                    #
+                } {#
+                    type: 'GET',
+                    #
+                } {#
+                    dataType: 'json',
+                    #
+                } {#
+                    success: function (data) {#} {#
+                        var count = data['count'];#
+                    } {#
+                        var next = data['next']#
+                    } {#
+                        var previous = data['previous']#
+                    } {#
+                        var results = data['results']#
+                    } {#
+                        var pageNumber = Math.ceil(parseInt(count) / 100) < 1 ? 1 : Math.ceil(parseInt(
+                            count) / 100)#
+                    } {#
+                        $('#index').append('共' + count + '条数据 共' + pageNumber + '页100条/页')#
+                    } {#
+                        data.previous == null ? $('#previous a').attr({
+                            'title': 'not_click',
+                            'disabled': true
+                        }) : $('#previous a').attr('title', previous + '&format=json')#
+                    } {#
+                        data.next == null ? $('#next a').attr({
+                            'title': 'not_click',
+                            'disabled': true
+                        }) : $('#next a').attr('title', next + '&format=json')#
+                    } {##} {#
+                        for (var i = 0; i < results.length; i++) {#} {#
+                            console.log(results[i])#
+                        } {#
+                            var order_member_id = results[i]['order_member'];#
+                        } {#
+                            var main_body = results[i]['main_body'];#
+                        } {#
+                            var public_number = results[i]['public_number'];#
+                        } {#
+                            var deposit = results[i]['deposit'];#
+                        } {#
+                            var reservation_time = results[i]['reservation_time'];#
+                        } {#
+                            var remark = results[i]['remark'];#
+                        } {#
+                            var html = '<tr>' + #
+                        } {#
+                            '<td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                            order_member_id + '</td>' + #
+                        } {#
+                            '<td title="' + main_body +
+                                '" style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                                main_body + '</td>' + #
+                        } {#
+                            '<td title="' + public_number +
+                                '" style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                                public_number + '</td>' + #
+                        } {#
+                            '<td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                            deposit + '</td>' + #
+                        } {#
+                            '<td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                            reservation_time + '</td>' + #
+                        } {#
+                            '<td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' + remark
+                                + '</td>' + #
+                        } {#
+                            '</tr>' + #
+                        } {#
+                            '<tr>' + #
+                        } {#
+                            '</tr>';#
+                        } {#
+                            $('#all_message').append(html)#
+                        } {#}#
+                    } {#},
+                    #
+                } {#
+                    error: function () {#} {#
+                        alert('服务器超时，请重试！');#
+                    } {#}#
+                } {#})#
+            } {#}#
+        }
+
+        // function test(link) {
+        //     window.open(link);
+        // }
+
+        // 下一页
+        $('li#next a').click(function (data) {
+            var that = $(this)
+            var url = that.attr('title')
+            if (url != 'not_click') {
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        $('#all_message').empty()
+                        $('#index').empty()
+                        var count = data['count'];
+                        var next = data['next']
+                        var previous = data['previous']
+                        var results = data['results']
+                        var pageNumber = Math.ceil(parseInt(count) / 100) < 1 ? 1 : Math.ceil(
+                            parseInt(count) / 100)
+                        $('#index').append('共' + count + '条数据 共' + pageNumber + '页100条/页')
+                        data.previous == null ? $('#previous a').attr({
+                            'title': 'not_click',
+                            'disabled': true
+                        }) : $('#previous a').attr('title', previous + '&format=json')
+                        data.next == null ? $('#next a').attr({
+                            'title': 'not_click',
+                            'disabled': true
+                        }) : $('#next a').attr('title', next + '&format=json')
+
+                        for (var i = 0; i < results.length; i++) {
+                            var order_member_id = results[i]['order_member'];
+                            var main_body = results[i]['main_body'];
+                            var public_number = results[i]['public_number'];
+                            var deposit = results[i]['deposit'];
+                            var reservation_time = results[i]['reservation_time'];
+                            var remark = results[i]['remark'];
+                            var html = '<tr>' +
+                                '<td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                                order_member_id + '</td>' +
+                                '<td title="' + main_body +
+                                '" style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                                main_body + '</td>' +
+                                '<td title="' + public_number +
+                                '" style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                                public_number + '</td>' +
+                                '<td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                                deposit + '</td>' +
+                                '<td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                                reservation_time + '</td>' +
+                                '<td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                                remark + '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '</tr>';
+                            $('#all_message').append(html)
+                        }
+                    },
+                    error: function () {
+                        alert('服务器超时，请重试！');
+                    }
+                })
+            }
+        })
+
+        // 上一页
+        $('li#previous a').click(function (data) {
+            var that = $(this)
+            var url = that.attr('title')
+            if (url != 'not_click') {
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        $('#all_message').empty()
+                        $('#index').empty()
+                        var count = data['count'];
+                        var next = data['next']
+                        var previous = data['previous']
+                        var results = data['results']
+                        var pageNumber = Math.ceil(parseInt(count) / 100) < 1 ? 1 : Math.ceil(
+                            parseInt(count) / 100)
+                        $('#index').append('共' + count + '条数据 共' + pageNumber + '页100条/页')
+                        data.previous == null ? $('#previous a').attr({
+                            'title': 'not_click',
+                            'disabled': true
+                        }) : $('#previous a').attr('title', previous + '&format=json')
+                        data.next == null ? $('#next a').attr({
+                            'title': 'not_click',
+                            'disabled': true
+                        }) : $('#next a').attr('title', next + '&format=json')
+
+                        for (var i = 0; i < results.length; i++) {
+                            var order_member_id = results[i]['order_member'];
+                            var main_body = results[i]['main_body'];
+                            var public_number = results[i]['public_number'];
+                            var deposit = results[i]['deposit'];
+                            var reservation_time = results[i]['reservation_time'];
+                            var remark = results[i]['remark'];
+                            var html = '<tr>' +
+                                '<td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                                order_member_id + '</td>' +
+                                '<td title="' + main_body +
+                                '" style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                                main_body + '</td>' +
+                                '<td title="' + public_number +
+                                '" style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                                public_number + '</td>' +
+                                '<td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                                deposit + '</td>' +
+                                '<td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                                reservation_time + '</td>' +
+                                '<td style="white-space:nowrap;overflow:hidden;word-break:keep-all;">' +
+                                remark + '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '</tr>';
+                            $('#all_message').append(html)
+                        }
+                    },
+                    error: function () {
+                        alert('服务器超时，请重试！');
+                    }
+                })
+            }
+        })
+
+        // 获取搜索数据
+        function selectMessage() {
+            var select = $('#select').val();
+            location.href = "/into_dp?select=" + select;
+        }
+
+        // 保存数据
+        function submitMessage() {
+            var main_body = $('#input_main_body').val().trim();
+            var public_number = $('#input_public_number').val().trim();
+            var deposit = $('#input_deposit').val().trim();
+            var reservation_time = $('#input_reservation_time').val();
+            var remark = $('#input_remark').val();
+            var checkFormRes = checkForm(main_body, public_number, deposit);
+            if (checkFormRes != true) {
+                alert(checkFormRes);
+                return
+            }
+
+            $.ajax({
+                url: '/dp_entry/',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    'main_body': main_body,
+                    'public_number': public_number,
+                    'deposit': deposit,
+                    'reservation_time': reservation_time,
+                    'remark': remark,
+                },
+                success: function (data) {
+                    if (data == 200) {
+                        alert('保存成功!');
+                    } else {
+                        alert('保存失败!');
+                    }
+
+                    location.reload()
+                }
+            });
+
+        }
+
+        function checkForm(main_body, public_number, deposit) {
+            if (main_body == null || String(main_body) == "") {
+                return "你还没填写主体";
+            }
+            if (public_number == null || String(public_number) == "") {
+                return "你还没填写公众号"
+            }
+            if (deposit == null || String(deposit) == "") {
+                return "你还没填写定金"
+            }
+            return true
+
+        }
+    </script>
+
+
+</body>
+
+</html>

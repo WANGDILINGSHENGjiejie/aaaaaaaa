@@ -1,0 +1,383 @@
+<!---->
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://novel.tengwen.com/dispatch_list.php -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>哇嘎互娱</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- jQuery 3 -->
+    <script src="../static/jquery.min.js"></script>
+    <!-- Font Awesome 图标字体库和CSS框架-->
+    <link rel="stylesheet" href="../static/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css.css">
+    <link rel="stylesheet" href="../static/media.css">
+    <link rel="stylesheet" href="../static/bootstrap-select.min.css">
+    <!--&lt;!&ndash; Font Awesome 图标字体库和CSS框架&ndash;&gt;-->
+    <link rel="stylesheet" href="../static/admin/bower_components/font-awesome/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="../static/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="../static/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="../static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../static/klorofil-common.js"></script>
+    
+    <script src="../static/layerUI/layui.all.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="../static/layerUI/css/layui.css" />
+
+    <script type="text/javascript" src="../static/moment.min.js"></script>
+    <script type="text/javascript" src="../static/moment_zh-cn.js"></script>
+    <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../static/bootstrap.min.js"></script>
+    <script src="../static/bootstrap-select.min.js"></script>
+    <script src="../static/defaults-zh_CN.js"></script>
+    <script type="text/javascript" src="../static/echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- WRAPPER -->
+    <div id="wrapper">
+        <!-- NAVBAR -->
+
+        <!-- WRAPPER -->
+        <div id="wrapper">
+            <!-- NAVBAR -->
+            <nav class="navbar navbar-default navbar-fixed-top" style="height: 50px;">
+                <div class="brand" style="padding:0;">
+                    <a href="javascript:void(0);">
+                        <img src="../static/static/novel/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"
+                            style="height:50px;">
+                    </a>
+                </div>
+                <div class="container-fluid">
+                    <div class="navbar-btn">
+                        <button type="button" class="btn-toggle-fullwidth">
+                            <i class="fa fa-list" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-right">
+                            <!-- <li class="dropdown">
+              <a href="/user_notice.php" class="dropdown-toggle icon-menu">
+                <i class="fa fa-bell-o" aria-hidden="true" ></i>
+                <span class="badge bg-danger notice_msgnum"></span>
+              </a>
+            </li> -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="../static/static/novel/img/user.png" class="img-circle" alt="Avatar">
+                                    <span>欢迎您：</span>
+                                    <span style="color: red">admin</span>
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- <li>
+                  <a href="/user_modpw.php">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <span>个人资料</span>
+                  </a>
+                </li> -->
+                                    <!-- <li>
+                  <a href="/wxsetting.php">
+                    <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                    <span>公众号设置/接入</span>
+                  </a>
+                </li> -->
+                                    <!-- <li>
+                  <a href="/tengwen_readme.docx">
+                    <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <span>下载帮助文档</span>
+                  </a>
+                </li> -->
+                                    <li>
+                                        <a href="/logout" onclick="return confirm('确认退出？')">
+                                            <i class="fa fa-fw fa-power-off" aria-hidden="true"></i>
+                                            <span>退出登录</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- END NAVBAR -->
+            <!-- END NAVBAR -->
+
+            <!-- LEFT SIDEBAR -->
+            <!-- LEFT SIDEBAR -->
+            <div id="sidebar-nav" class="sidebar">
+                <div class="sidebar-scroll" style="overflow-y: auto;height: 100%;padding:20px 0;">
+                    <nav>
+                        <ul class="nav">
+
+                            <li>
+                                <a href="/resource/list" id="resource_list">
+                                    <span>资源库</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/into_cp" id="into_cp">
+                                    <span>文案库</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/getinfo" id="getinfo">
+                                    <span>派单表</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/histroy/list" id="histroy_list">
+                                    <span>派单历史</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/resource/public_list" id="resource_public_list">
+                                    <span>公众号库</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/resource/transfer" id="resource_transfer">
+                                    <span>转移公众号</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/into_bh" id="into_bh">
+                                    <span>小黑屋</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./PutInTheSummary.html" id="">
+                                    <span>投放汇总</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./titleSummary.html" id="">
+                                    <span>标题汇总</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./Novelsummary.html" id="">
+                                    <span>小说汇总</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./mainSummary.html" id="">
+                                    <span>主体汇总</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- MAIN -->
+            <div class="main">
+                <!-- MAIN CONTENT -->
+                <div class="main-content">
+                    <div class="container-fluid">
+                        <div id="tipdlg"></div>
+                        <style type="text/css">
+                            .ft12 {
+                                font-size: 12px;
+                            }
+
+                            .ft16 {
+                                font-size: 16px;
+                            }
+
+                            .no-display {
+                                display: none;
+                            }
+
+                            .paidanAdd {
+                                width: 97%;
+                                margin-top: 20px;
+                                border-top-color: #ddd;
+                                border-top-width: 2px;
+                                word-wrap: break-word;
+                                word-break: break-all;
+                            }
+
+                            .toast-top-center {
+                                top: 52px;
+                            }
+
+                            .tdbreak {
+                                width: 100%;
+                                word-break: keep-all;
+                                /* 不换行 */
+                                white-space: nowrap;
+                                /* 不换行 */
+                                overflow: hidden;
+                                /* 内容超出宽度时隐藏超出部分的内容 */
+                                text-overflow: ellipsis;
+                                /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+                            }
+
+                            .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+                                width: 160px;
+                            }
+
+                            .redandbig {
+                                color: red;
+                                font-weight: 700;
+                            }
+
+                            .countNumb {
+                                color: red;
+                            }
+                        </style>
+                        <div class="panel">
+                            <div class="panel-heading mynav">
+                                <h3 class="panel-title">你的位置：投放汇总</h3>
+                            </div>
+                            <div class="panel-body" style="position: relative;">
+
+                                <form class="layui-form" action="" style="float:left">
+                                    <div class="layui-input-inline" style="width:150px;">
+                                        <input type="text" class="layui-input" id="startTime" placeholder="开始时间"
+                                            readonly />
+                                    </div>
+
+                                    <div class="layui-inline" style="width:150px;">
+                                        <input type="text" class="layui-input" id="endTime" placeholder="结束时间" readonly />
+                                    </div>
+
+
+                                    <div class="layui-input-inline" style="width:150px;">
+                                        <select name="modules" lay-verify="type" id="selectUserName" lay-filter="selectUserName">
+                                            <option value="">派单员</option>
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="layui-input-inline" style="width:150px;">
+                                        <select name="modules" lay-verify="type" id="selectGZHOwn" lay-filter="selectGZHOwn">
+                                            <option value="">自家公众号</option>
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+                                    <div class="layui-input-inline">
+                                        <button type="button" class="btn btn-success" onclick="searchForAll()">查询</button>
+                                    </div>
+                                    <div class="form-group" style=" float: right;margin-right:5px; "></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="graph" style="width: 100%; height: 600px; bottom: 5%;"></div>
+                    </div>
+                </div>
+                <!-- END MAIN CONTENT -->
+            </div>
+            <!-- END MAIN -->
+        </div>
+        <script type="text/javascript">
+			$(function(){
+			
+			
+			var param_arr = ['总成本','总充值','关注成本'];
+			 var bar_data = [];
+			 var time_arr = ['2018.12.04', '2018.12.05', '2018.12.06', '2018.12.07', '2018.12.08',
+                        '2018.12.09', '2018.12.10','2018.12.11','2018.12.12','2018.12.13','2018.12.14','2018.12.15','2018.12.16','2018.12.17','2018.12.18'
+                    ];
+					
+					
+
+			 for(var i = 0 ; i<param_arr.length;i++){
+				
+				var data = [(i+1)*50, 75, 100, 130, 180, 200, 250,800,480,460,410,300,60,90,490];
+				
+				
+				
+				var bar_arr = {};
+				bar_arr.name = param_arr[i];
+				bar_arr.type = "bar";
+				bar_arr.barWidth = 10;
+				bar_arr.data = data;
+				bar_data.push(bar_arr);
+				
+				
+				var line_arr = {};
+				line_arr.name = param_arr[i];
+				line_arr.type = "line";
+				line_arr.barWidth = 10;
+				line_arr.data = data;
+				bar_data.push(line_arr);
+				
+			 }
+			
+			
+			
+			
+			
+			 // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('graph'));
+            var option = {
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: param_arr
+                },
+                grid: {
+                    y2: 240
+                },
+                xAxis: [{
+                    type: 'category',
+                    axisLabel: {
+                        interval: 0, //横轴信息全部显示
+                        rotate: 30, //30度角倾斜显示
+                    },
+                    data: time_arr
+                }],
+                yAxis: [{
+                    type: 'value',
+                    name: '金额',
+                    axisLabel: {
+                        formatter: '{value} '
+                    }
+                }],
+                series: bar_data
+            };
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+			
+			
+			
+			
+			
+			});
+		
+			 
+
+			
+           
+        </script>
+
+
+        
+
+
+
+</body>
+
+</html>

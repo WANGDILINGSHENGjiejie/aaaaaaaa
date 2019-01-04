@@ -1,0 +1,2088 @@
+<html lang="en">
+
+        <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                <title>首页 - 核桃书吧</title>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+                <meta http-equiv="pragma" content="no-cache">
+                <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+                <meta http-equiv="expires" content="0">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+                <script src="https://static01.tengwen.com/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+                <script src="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.qrcode.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/common/jquery.cookie.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/common/clipboard.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/klorofil-common.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/comm.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/common/moment.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/moment_zh-cn.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.js"></script>
+                <script type="text/javascript" src="https://static01.tengwen.com/backend/novel/js/echarts.min.js"></script>
+                <script src="https://static01.tengwen.com/common/toastr.min.js"></script>
+                <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" href="https://static01.tengwen.com/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+                <link rel="stylesheet" href="./css/novel.css">
+                <link rel="stylesheet" href="https://static01.tengwen.com/backend/novel/css/media.css">
+                <link rel="stylesheet" href="https://static01.tengwen.com/common/bootstrap-datetimepicker-4.17.min.css">
+                <link rel="stylesheet" href="https://static01.tengwen.com/common/toastr.min.css">
+            </head>
+<body class="modal-open">
+    <div id="wrapper">
+            <nav class="navbar navbar-default navbar-fixed-top" style="height: 50px;background-color: #2a3747;">
+                    <div class="brand" style="padding:0;background-color: #2a3747;"><a href="javascript:void(0);"></div>
+                    <div class="container-fluid">
+                        <div class="navbar-btn">
+                            <button type="button" class="btn-toggle-fullwidth"><i class="fa fa-list" aria-hidden="true" style="color:#fff;"></i>
+                            </button>
+                        </div>
+                        <div id="navbar-menu">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown">
+                                        <a href="/notice/index" class="dropdown-toggle icon-menu"> 
+                                            <span class="badge bg-danger notice_msgnum"></span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="./images/headshot@2x.png"
+                                                class="img-circle">
+                                            <span style="color:#f1f1f1;">核桃书吧</span> <i class="fa fa-angle-down" aria-hidden="true" style="color:#f1f1f1;"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="./personaldata.gr.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>个人资料</span></a>
+                                            </li>
+                                            <li><a href="Publicnumbersetting-gz.html"><i class="fa fa-address-card-o" aria-hidden="true"></i><span>公众号设置/接入</span></a>
+                                            </li>
+                                            <li><a href="https://static01.tengwen.com/backend/novel/docx/tengwen_readme.docx"><i
+                                                        class="fa fa-arrow-down" aria-hidden="true"></i><span>下载帮助文档</span></a>
+                                            </li>
+                                            <li><a href="./Platformlogin.html" onclick="return confirm('确认退出？')"><i class="fa fa-fw fa-power-off"
+                                                        aria-hidden="true"></i> <span>安全退出</span></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                    </div>
+                </nav> <!-- END NAVBAR -->
+                <!-- LEFT SIDEBAR -->
+                <div id="sidebar-nav" class="sidebar">
+                        <div class="sidebar-scroll" style="overflow-y: auto;height: 100%;padding:20px 0;background-color:#354051;">
+                            <nav>
+                                <ul class="nav">
+                                    <li><a href="./AnnounceList_gg.html" id="noticemenu"><i class="fa fa-bell-o" aria-hidden="true"></i><span
+                                                class="menu-span">公告列表</span></a></li>
+                                    <li><a href="./Profiledata_sj.html"><i class="fa fa-line-chart" aria-hidden="true"></i><span
+                                                class="menu-span">数据概况</span></a></li>
+                                    <li><a href="./ordersummary.html"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="menu-span">订单汇总</span></a></li>
+                                    <li><a href="./Usersummary.html"><i class="fa fa-pie-chart" aria-hidden="true"></i><span class="menu-span">用户汇总</span></a></li>
+                                    <li><a href="./addsup_xs.html"><i class="fa fa-bars" aria-hidden="true"></i><span class="menu-span">小说充值汇总</span></a></li>
+                                    <li><a href="./orderdetails_dd.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                                class="menu-span">订单明细</span></a></li>
+                                    <li><a href="./subsidiary_fs.html"><i class="fa fa-id-card-o" aria-hidden="true"></i><span
+                                                class="menu-span">粉丝明细</span></a></li>
+                                    <li><a href="./library-xs.html"><i class="fa fa-book" aria-hidden="true"></i><span
+                                                class="menu-span">小说库</span></a></li>
+                                    <li><a href="./Promotion-tg.html"><i class="fa fa-chain-broken" aria-hidden="true"></i><span
+                                                class="menu-span">推广列表</span></a></li>
+                                    <li><a href="./listinterpolatel-nt.html"><i class="fa fa-link" aria-hidden="true"></i><span
+                                                class="menu-span">内推列表</span></a></li>
+                                    <li><a href="./Listofactivities-hd.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span
+                                                class="menu-span">活动列表</span></a></li>
+                                    <li><a href="./antistop-gj.html" class="active"><i class="fa fa-comments-o" aria-hidden="true"></i><span class="menu-span">关键词回复</span></a></li>
+                                    <li><a href="./Linkstorecycle-lj.html"><i class="fa fa-recycle" aria-hidden="true"></i><span
+                                        class="menu-span">链接回收</span></a></li>
+                            <li><a href="./Intelligentpush-zn.html"><i class="fa fa-reply-all" aria-hidden="true"></i><span
+                                        class="menu-span">智能推送</span></a></li>
+                            <li><a href="./Templatemessage-mb.html"><i class="fa fa-envelope-open" aria-hidden="true"></i><span
+                                        class="menu-span">模版消息</span></a></li>
+                            <li><a href="newsoftheservice-kf.html"><i class="fa fa-commenting-o" aria-hidden="true"></i><span
+                                        class="menu-span">客服消息</span></a></li>
+                            <li><a href="./promoteincome-sr.html"><i class="fa fa-jpy" aria-hidden="true"></i><span class="menu-span">推广收入</span></a></li>
+                            <li><a href="./withdrawalofsubsidiary-tx.html"><i class="fa fa-list-alt" aria-hidden="true"></i><span
+                                        class="menu-span">提现明细</span></a></li>
+                            <li><a href="./Publicnumbersetting-gz.html"><i class="fa fa-cog" aria-hidden="true"></i><span
+                                        class="menu-span">公众号设置</span></a></li>
+                            <li><a href="./OtherSettings-qt.html"><i class="fa fa-cogs" aria-hidden="true"></i><span class="menu-span">其它设置</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+            
+                    </div>
+        <div class="main">
+                <div class="main-content">
+                        <div class="container-fluid">
+        
+                            <style>
+                                .user-img{    width: 24px;
+                height: 24px;
+                border-radius: 100px;
+                margin-right: 5px;}
+            </style>
+        
+        
+        
+                            <div class="panel">
+                                <div class="panel-heading mynav">
+                                    <h3 class="panel-title">
+                                        <i class="fa fa-home" aria-hidden="true"></i>首页 &gt; <h7 class="menu-name">关键词回复</h7>
+                                    </h3>
+                                </div>
+        
+                                <div class="panel-body">
+        
+                                        <!--SEARCH-->
+                                        <div class="form-group"> <a href="./Createkey-cj.html"
+                                                class="btn  popUps" style="background-color:#7a8dab;color:#fff;border-color:#7a8dab;"><i
+                                                   ></i> 创建关键字</a> </div>
+                                        <!--SEARCH END-->
+                                        <!--TABLE-->
+                                        <table class="table table-striped table-hover table-bordered" style="font-size:14px;">
+                                            <thead>
+                                                <tr>
+                                                    <th>关键词</th>
+                                                    <th>关键词</th>
+                                                    <th>限购次数</th>
+                                                    <th>充值金额</th>
+                                                    <th>有效订单数</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div id="title_3169">
+                                                           武侠
+                                                        </div>   
+                                                    </td>
+                                                    <td><span>至尊皇图 第一章</span>
+                                                    <span>地球已沦陷三百年</span></td>
+                                         
+                                                    <td class="clicknum">
+                                                        <a href="javascript:void(0);" onclick="line_chart(2296)">216</a>
+                                                    </td>
+                                                    <td class="money">￥1,049.40</td>
+                                                    <td class="order_paid">210</td>
+                                             
+                                                    <td>
+                                                        <span class="btn-group dropdown">
+                                                            <a class="btn btn-info" href="./orderdetails_dd.html"  style="background-color:#04959e;">
+                                                                <i class="fa fa-link"></i> 订单明细
+                                                            </a>
+                                                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                                                                aria-expanded="false"  style="background-color:#04959e;">
+                                                                <span class="caret"></span>
+                                                            </button>
+                                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                                <li>
+                                                                    <a href="./Modifytheproperties-xg.html">
+                                                                        <i class="fa fa-edit"></i> 修改
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a target="_blank" href="javascript:void(0);" onclick="line_chart(3169)">
+                                                                        <i class="fa fa-line-chart"></i> 数据表
+                                                                    </a>
+                                                                </li>
+                                                                <li class="divider"></li>
+                                                                <li>
+                                                                    <a href="javascript:delout(3169);" name="delLink" id="delLink"
+                                                                        data-id="3169">
+                                                                        <i class="fa fa-trash-o"></i> 删除
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                            <div id="title_3169">
+                                                               武侠
+                                                            </div>   
+                                                        </td>
+                                                        <td><span>至尊皇图 第一章</span>
+                                                        <span>地球已沦陷三百年</span></td>
+                                             
+                                                        <td class="clicknum">
+                                                            <a href="javascript:void(0);" onclick="line_chart(2296)">216</a>
+                                                        </td>
+                                                        <td class="money">￥1,049.40</td>
+                                                        <td class="order_paid">210</td>
+                                                 
+                                                        <td>
+                                                            <span class="btn-group dropdown">
+                                                                <a class="btn btn-info" href="./orderdetails_dd.html"  style="background-color:#04959e;">
+                                                                    <i class="fa fa-link"></i> 订单明细
+                                                                </a>
+                                                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                                                                    aria-expanded="false"  style="background-color:#04959e;">
+                                                                    <span class="caret"></span>
+                                                                </button>
+                                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                                    <li>
+                                                                        <a href="./Modifytheproperties-xg.html">
+                                                                            <i class="fa fa-edit"></i> 修改
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a target="_blank" href="javascript:void(0);" onclick="line_chart(3169)">
+                                                                            <i class="fa fa-line-chart"></i> 数据表
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="divider"></li>
+                                                                    <li>
+                                                                        <a href="javascript:delout(3169);" name="delLink" id="delLink"
+                                                                            data-id="3169">
+                                                                            <i class="fa fa-trash-o"></i> 删除
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>
+                                                                <div id="title_3169">
+                                                                   武侠
+                                                                </div>   
+                                                            </td>
+                                                            <td><span>至尊皇图 第一章</span>
+                                                            <span>地球已沦陷三百年</span></td>
+                                                 
+                                                            <td class="clicknum">
+                                                                <a href="javascript:void(0);" onclick="line_chart(2296)">216</a>
+                                                            </td>
+                                                            <td class="money">￥1,049.40</td>
+                                                            <td class="order_paid">210</td>
+                                                     
+                                                            <td>
+                                                                <span class="btn-group dropdown">
+                                                                    <a class="btn btn-info" href="./orderdetails_dd.html"  style="background-color:#04959e;">
+                                                                        <i class="fa fa-link"></i> 订单明细
+                                                                    </a>
+                                                                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                                                                        aria-expanded="false"  style="background-color:#04959e;">
+                                                                        <span class="caret"></span>
+                                                                    </button>
+                                                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                                        <li>
+                                                                            <a href="./Modifytheproperties-xg.html">
+                                                                                <i class="fa fa-edit"></i> 修改
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a target="_blank" href="javascript:void(0);" onclick="line_chart(3169)">
+                                                                                <i class="fa fa-line-chart"></i> 数据表
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="divider"></li>
+                                                                        <li>
+                                                                            <a href="javascript:delout(3169);" name="delLink" id="delLink"
+                                                                                data-id="3169">
+                                                                                <i class="fa fa-trash-o"></i> 删除
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                            </tbody>
+                                        </table>
+                                        <!--TABLE END-->
+            
+                                    </div>>
+        
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        <div class="clearfix">
+        </div>
+        <footer></footer>
+    </div>
+
+    <style>
+        .toast-top-center {
+            top: 52px;
+        }
+    </style>
+
+    <script>
+        api.CopyText_modal();
+        var imgurl = 'static01.tengwen.com';
+
+        var menuName = $("h7.menu-name").text();
+
+        $("span.menu-span").each(function () {
+
+            var menuTitle = $(this).text();
+
+            if (menuTitle == menuName) {
+
+                $(this).parent().addClass('active');
+
+                if (menuName == "公告列表") {
+
+                    $(this).css('color', 'rgb(232, 86, 86)');
+
+                }
+            }
+
+        });
+
+
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-center", //toast-top-center toast-bottom-center
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut",
+        }
+
+        function adm_ajax_ckstat(stat) {
+            if (stat == "ok") return true;
+
+            if (stat == "nologin") {
+                window.location.reload();
+            }
+            return false;
+        }
+
+        var pdata = {
+            action: 'notice_msg'
+        };
+
+        sendData("/notice/notice_msg", pdata, function (data) {
+            var data = data.data;
+            _Notice = data.data.unrdnum;
+            _unReadTop = data.data.unrdmsg;
+            noticemsg.showmsgnumEx(_Notice);
+            noticemsg.autoreaddlg();
+
+        });
+    </script>
+    <script src="https://static01.tengwen.com/common/paginate.js"></script>
+    <script type="text/javascript" src="https://static01.tengwen.com/common/select2.full.min.js"></script>
+    <link rel="stylesheet" href="https://static01.tengwen.com/common/select2.min.css">
+    <script>
+
+        function chart_exportdata (cid){
+            var sdate = $("input#start_date").val();
+            var edate = $("input#end_date").val();
+            sendData( '/channel/line_chart?sdate='+sdate+'&edate='+edate, { is_ajax:'1', 'cid':cid }, function(data){
+                if(data.data){
+                    showchartdata(data.data);
+                }
+            });
+        }
+        function first_day (cid){
+            sendData( '/channel/line_chart?daynum=1', {  is_ajax:'1', 'cid':cid }, function(data){
+                if(data.data){
+                    showchartdata(data.data);
+                }
+            });
+        }
+    
+        function second_day (cid){
+            sendData( '/channel/line_chart?daynum=3', {  is_ajax:'1', 'cid':cid }, function(data){
+                if(data.data){
+                    showchartdata(data.data);
+                }
+            });
+        }
+    
+        function three_day (cid){
+            sendData( '/channel/line_chart?daynum=7', {  is_ajax:'1', 'cid':cid }, function(data){
+                if(data.data){
+                    showchartdata(data.data);
+                }
+            });
+        }
+    
+        function line_chart( cid ) {
+            Ewin.alert({message:
+                    '<div class="row">'+
+                    '<div class="col-md-12 divwidth" >'+
+                    '<div class="panel-body form-horizontal"  id="curr_month">'+
+                    '<button type="button" class="btn" style="background-color:#3b86e0; color:#fff;"  value="first"  onclick="first_day('+cid+')">一天</button>&nbsp;'+
+                    '<button type="button" class="btn" style="background-color:#3b86e0; color:#fff;"  value="second" onclick="second_day('+cid+')">三天</button>&nbsp;'+
+                    '<button type="button" class="btn" style="background-color:#3b86e0; color:#fff;"  value="three"  onclick="three_day('+cid+')">七天</button>'+
+                    '<div class="form-group" style="  float: right;margin-right:20px; "><button type="button" class="btn" style="background-color:#3b86e0; color:#fff;" onclick="chart_exportdata('+cid+')">查询</button></div>'+
+                    '<div class="form-group" style="  float: right;margin-right:20px; "><input type="text" class="form-control datetimepicker" id="end_date" name="end_date" placeholder="结束日期"  value=""></div>'+
+                    '<div class="form-group" style="  float: right;margin-right:20px; "><input type="text" class="form-control datetimepicker" id="start_date" name="start_date" placeholder="开始日期"  value=""></div>'+
+                    '</div>'+
+                    '<div id="order_line_chart" ></div>'+
+                    '</div>'+
+                    '</div>',
+                    title:'引导数统计表',
+                    btnok:'关闭'
+                }
+            );
+    
+            $('input.datetimepicker').datetimepicker({
+                format: 'YYYY-MM-DD',
+                locale: moment.locale('zh-CN'),
+            });
+    
+            $('.modal-sm').attr('style','width:90%;');
+    
+            var widths = $(window).width() * 0.9;
+    
+            $('#order_line_chart').attr('style','width:'+widths+'px;height:300px;');
+    
+            sendData( '/channel/line_chart', { is_ajax:'1','cid':cid}, function(data){
+                if(data){
+                    showchartdata(data.data);
+                }
+    
+            });
+        }
+        function showchartdata(msg){
+    
+            var myChart = echarts.init(document.getElementById('order_line_chart'));
+            option = {
+                tooltip: {
+                    trigger: 'axis'
+                },
+    
+                color:['#3b86e0','#ffc425',],
+                legend: {
+                    data:[{name:'引导数' , icon : 'image://https://static01.tengwen.com/backend/novel/img/tag-blue.png' },{name:'新增用户', icon : 'image://https://static01.tengwen.com/backend/novel/img/tag-yellow.png'},],
+                    itemWidth:36,
+                    itemHeight:36,
+                    itemGap:50,
+                },
+    
+                grid: {
+                    left: '3%',
+                    right: '6%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+    
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: msg.time
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        name:'引导数',
+                        type:'line',
+                        data:msg.clk
+                    },
+                    {
+                        name:'新增用户',
+                        type:'line',
+                        data:msg.users
+                    }]
+    
+            };
+            myChart.setOption(option);
+            myChart.showLoading();
+            if(msg){
+                myChart.hideLoading();
+            }
+        }
+    
+    </script>
+
+    <div id="mdl1542702664868" class="modal fade in" role="dialog" aria-labelledby="modalLabel" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="modalLabel">创建关键词</h4>
+                </div>
+                <div class="modal-body">
+                    <style type="text/css">
+                        .form-control {
+                            -moz-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+                            -webkit-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+                            box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+                            -webkit-border-radius: 2px;
+                            -moz-border-radius: 2px;
+                            border-radius: 2px;
+                            border-color: #eaeaea;
+                            background-color: #fcfcfc;
+                        }
+
+                        .form-control:focus {
+                            -moz-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+                            -webkit-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+                            box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+                            border-color: #d6d6d6;
+                            background-color: #fff;
+                        }
+
+                        .input-group {
+                            -moz-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+                            -webkit-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+                            box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+                        }
+
+                        .input-group .form-control,
+                        .input-group-addon,
+                        .input-group-btn {
+                            -moz-box-shadow: none;
+                            -webkit-box-shadow: none;
+                            box-shadow: none;
+                        }
+
+                        .input-group-addon {
+                            border: 1px solid #eaeaea;
+                        }
+                    </style>
+                    <form class="form-horizontal" id="dispatch-form" style="font-size:14px;">
+                        <input type="hidden" name="data[type]" value="2">
+                        <input type="hidden" name="data[ltype]" value="1">
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">关键词</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="data[key]" value="">
+                                <p></p>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3"><span class="required"></span> 小说名称</label>
+                            <div class="col-sm-7">
+                                <select class="select2 select2-hidden-accessible" name="data[bid]" id="book" tabindex="-1"
+                                    aria-hidden="true">
+                                    <option value="-1">请选择书本</option>
+                                    <option value="73">至尊皇图</option>
+                                    <option value="74">相士至尊</option>
+                                    <option value="75">狂龙</option>
+                                    <option value="76">巅峰兵王</option>
+                                    <option value="77">帝少的宝贝千金</option>
+                                    <option value="78">神荒春秋</option>
+                                    <option value="79">仙途霸业</option>
+                                    <option value="80">武极镇神</option>
+                                    <option value="81">武极兵锋</option>
+                                    <option value="82">三国新天子</option>
+                                    <option value="83">全能仙师</option>
+                                    <option value="84">南疆传人在都市</option>
+                                    <option value="85">势不可挡，妖孽男神太危险</option>
+                                    <option value="86">绝品狂少</option>
+                                    <option value="87">甜妻卧倒，大叔乖乖就擒</option>
+                                    <option value="88">猎道登天</option>
+                                    <option value="89">嫡女当道</option>
+                                    <option value="90">武道圣尊</option>
+                                    <option value="91">千金来袭，擒获男神心</option>
+                                    <option value="92">一诺成婚，宝贝别闹了</option>
+                                    <option value="93">我身上有条美女蛇</option>
+                                    <option value="94">心婚醉爱</option>
+                                    <option value="95">猎妖武神</option>
+                                    <option value="96">老婆乖，别乱跑</option>
+                                    <option value="97">诡女友</option>
+                                    <option value="98">我的驱鬼天师男友</option>
+                                    <option value="99">不死修罗</option>
+                                    <option value="100">鬼墓迷灯</option>
+                                    <option value="101">冒牌大神医</option>
+                                    <option value="102">废材狂妃，拐个王爷当钱袋</option>
+                                    <option value="103">夫君莫跑，娘子在这儿呢</option>
+                                    <option value="104">绝世战帝</option>
+                                    <option value="105">超能狂少在都市</option>
+                                    <option value="106">九天杀神</option>
+                                    <option value="107">暖妻成瘾</option>
+                                    <option value="108">逼婚1001天，暖妻太缠人</option>
+                                    <option value="109">一闪成婚，欧少请接招</option>
+                                    <option value="110">我的身上有条龙</option>
+                                    <option value="111">桃花谷的见习弟子</option>
+                                    <option value="112">前夫早上好</option>
+                                    <option value="113">不娶何撩，前夫骚够没</option>
+                                    <option value="116">绝世圣尊</option>
+                                    <option value="117">魔主焚天</option>
+                                    <option value="118">隐婚前夫请签字</option>
+                                    <option value="119">男神老公太高冷</option>
+                                    <option value="120">万法之刃</option>
+                                    <option value="121">暖婚盛爱</option>
+                                    <option value="122">总裁的心尖萌宠</option>
+                                    <option value="123">甜妻，爱你入怀</option>
+                                    <option value="124">战破三域</option>
+                                    <option value="126">强抱萌媳带回家</option>
+                                    <option value="127">崂山道</option>
+                                    <option value="128">穿入西游</option>
+                                    <option value="129">杀出个轮回</option>
+                                    <option value="130">Boss大叔束手就擒</option>
+                                    <option value="131">星际矿工</option>
+                                    <option value="132">顽妻来袭，老公约吗</option>
+                                    <option value="133">鬼手毒妃</option>
+                                    <option value="134">天才舞王</option>
+                                    <option value="135">神医侯妃</option>
+                                    <option value="136">二胎萌纪</option>
+                                    <option value="137">神武大转盘</option>
+                                    <option value="138">反唐</option>
+                                    <option value="139">国民老公绯闻妻</option>
+                                    <option value="140">深海迷航</option>
+                                    <option value="141">皇后在上，请受为夫一拜</option>
+                                    <option value="142">无极神尊</option>
+                                    <option value="143">深夜老公缠上我</option>
+                                    <option value="144">我的鬼夫大人</option>
+                                    <option value="145">终身妻约，老公太欺人</option>
+                                    <option value="146">猎艳仙医</option>
+                                    <option value="147">替婚，大叔可以了</option>
+                                    <option value="148">鬼才王妃，夫君请上榻</option>
+                                    <option value="149">九龙系统</option>
+                                    <option value="150">运镖三国</option>
+                                    <option value="151">闪婚，新妻不可欺</option>
+                                    <option value="152">鬼夫养成记</option>
+                                    <option value="153">末世争雄</option>
+                                    <option value="154">百鬼劫</option>
+                                    <option value="155">医道花都</option>
+                                    <option value="156">大叔，谈个爱吧</option>
+                                    <option value="157">葬天特警</option>
+                                    <option value="158">豪门通缉令，宫先生请赐教</option>
+                                    <option value="159">永恒法则</option>
+                                    <option value="160">妖怪生活大事记</option>
+                                    <option value="161">追妻密令，老公太粘人</option>
+                                    <option value="162">黄河秘墓</option>
+                                    <option value="163">艾德尔冒险</option>
+                                    <option value="164">大男神的小萌妻</option>
+                                    <option value="165">圣皇传</option>
+                                    <option value="166">麻衣刑警</option>
+                                    <option value="167">超级影帝</option>
+                                    <option value="168">我当捞尸人的那几年</option>
+                                    <option value="169">试婚，男人你压线了</option>
+                                    <option value="170">狼性老公么么哒</option>
+                                    <option value="171">老子是马超</option>
+                                    <option value="172">醉卧美人笑</option>
+                                    <option value="173">武侠聊天群</option>
+                                    <option value="174">王牌大主播</option>
+                                    <option value="175">老侯的滴滴生活</option>
+                                    <option value="176">全家养成系统</option>
+                                    <option value="178">雷撼九天</option>
+                                    <option value="179">凰珏，三嫁成后</option>
+                                    <option value="180">都市医圣系统</option>
+                                    <option value="181">捡个欧巴暖被窝</option>
+                                    <option value="182">致命诱惑，大叔约不约</option>
+                                    <option value="183">都市最强王者</option>
+                                    <option value="184">催眠王妃，晚安摄政王</option>
+                                    <option value="185">阿姐</option>
+                                    <option value="186">都市之疯狂兵王</option>
+                                    <option value="187">林二娃的彪悍人生</option>
+                                    <option value="188">狂霸武神</option>
+                                    <option value="189">偷心小妻，晚上见</option>
+                                    <option value="199">阴缘鬼妻</option>
+                                    <option value="202">总裁的偷心小妖精</option>
+                                    <option value="203">透视圣瞳</option>
+                                    <option value="204">都市鸿途</option>
+                                    <option value="205">金玉神眼</option>
+                                    <option value="206">圣医游侠</option>
+                                    <option value="207">通天神眼</option>
+                                    <option value="208">阴宅诡事</option>
+                                    <option value="209">鉴宝宗师</option>
+                                    <option value="210">符诀</option>
+                                    <option value="211">圣天主宰</option>
+                                    <option value="212">神祭天下</option>
+                                    <option value="213">最强纨绔</option>
+                                    <option value="214">盛婚独宠</option>
+                                    <option value="215">暖婚溺爱：总裁轻轻宠</option>
+                                    <option value="216">逍遥侠医</option>
+                                    <option value="217">无敌兵锋</option>
+                                    <option value="218">最强仙医</option>
+                                    <option value="219">天医圣手</option>
+                                    <option value="220">贴身神卫</option>
+                                    <option value="221">潜龙魅影</option>
+                                    <option value="222">至尊护卫</option>
+                                    <option value="223">冷面总裁宠上瘾</option>
+                                    <option value="224">绝世兵痞</option>
+                                    <option value="225">军神归来</option>
+                                    <option value="226">阴阳主宰</option>
+                                    <option value="227">逍遥小厨神</option>
+                                    <option value="228">助鬼天师</option>
+                                    <option value="229">一眼通天</option>
+                                    <option value="230">狱战狂兵</option>
+                                    <option value="231">圣瞳</option>
+                                    <option value="232">济世狂医</option>
+                                    <option value="233">国术神医</option>
+                                    <option value="234">无冕之王</option>
+                                    <option value="235">游龙狂医</option>
+                                    <option value="236">铁血狂龙</option>
+                                    <option value="237">至尊草民</option>
+                                    <option value="238">诸天之上</option>
+                                    <option value="239">剑破天极</option>
+                                    <option value="240">宠妻无度：总裁的甜心暖妻</option>
+                                    <option value="241">天才神相</option>
+                                    <option value="242">天域至尊</option>
+                                    <option value="243">医道逍遥</option>
+                                    <option value="244">无尽透视</option>
+                                    <option value="245">透视神兵</option>
+                                    <option value="246">无双神眼</option>
+                                    <option value="247">护花危情</option>
+                                    <option value="248">无敌神眼</option>
+                                    <option value="249">修真狂徒</option>
+                                    <option value="250">至强战兵</option>
+                                    <option value="251">邪少降临</option>
+                                    <option value="253">超级士官</option>
+                                    <option value="254">医绝天下</option>
+                                    <option value="255">帝临星空</option>
+                                    <option value="256">玄逆之境</option>
+                                    <option value="257">收阴簿</option>
+                                    <option value="258">医道风流</option>
+                                    <option value="259">无双灵眼</option>
+                                    <option value="260">万域主宰</option>
+                                    <option value="261">末世之徒</option>
+                                    <option value="262">零度恐慌</option>
+                                    <option value="263">儒门武圣</option>
+                                    <option value="264">无上医师</option>
+                                    <option value="265">炎尊纪</option>
+                                    <option value="266">剑临九霄</option>
+                                    <option value="267">傲世医圣</option>
+                                    <option value="268">火辣女教官</option>
+                                    <option value="269">魔道医圣</option>
+                                    <option value="270">点金圣手</option>
+                                    <option value="271">超品逆袭</option>
+                                    <option value="272">天眼神医</option>
+                                    <option value="273">扭转乾坤</option>
+                                    <option value="274">巅峰医王</option>
+                                    <option value="275">医道宗师</option>
+                                    <option value="276">圣手狂兵</option>
+                                    <option value="277">风流医圣</option>
+                                    <option value="278">一品宗师</option>
+                                    <option value="279">战兵无双</option>
+                                    <option value="280">都市无上仙帝</option>
+                                    <option value="281">特种玄医</option>
+                                    <option value="282">鬼手神医</option>
+                                    <option value="283">巅峰狂尊</option>
+                                    <option value="284">绝品狂医</option>
+                                    <option value="285">花都纵横</option>
+                                    <option value="286">混世枭雄</option>
+                                    <option value="287">危情边缘</option>
+                                    <option value="288">异能纨绔</option>
+                                    <option value="289">妙手神医</option>
+                                    <option value="290">暗夜猎美</option>
+                                    <option value="291">全能奶爸</option>
+                                    <option value="292">极品玄师</option>
+                                    <option value="293">九九归医</option>
+                                    <option value="294">不朽天医</option>
+                                    <option value="296">传奇保镖</option>
+                                    <option value="297">药神</option>
+                                    <option value="298">极战先锋</option>
+                                    <option value="303">君临天下</option>
+                                    <option value="305">狂兵天下</option>
+                                    <option value="308">万界行者</option>
+                                    <option value="309">明祸</option>
+                                    <option value="310">绝世猛男</option>
+                                    <option value="358">亡灵公交</option>
+                                    <option value="359">余生太长，你好难忘</option>
+                                    <option value="360">我在等风也在等你</option>
+                                    <option value="361">许你情深似海</option>
+                                    <option value="362">明明你也深爱我</option>
+                                    <option value="363">夏洛迟暮，爱微凉</option>
+                                    <option value="364">执子之手，与子偕老</option>
+                                    <option value="365">君不识妾</option>
+                                    <option value="366">当爱已成往事</option>
+                                    <option value="367">青山不及你眉长</option>
+                                    <option value="368">对不起，我爱你</option>
+                                    <option value="369">只为你笑靥如花</option>
+                                    <option value="370">且以深情到白头</option>
+                                    <option value="371">我爱你，是一场劫</option>
+                                    <option value="372">许你情深共白首</option>
+                                    <option value="373">错爱一生</option>
+                                    <option value="374">缠爱</option>
+                                    <option value="375">爱的囚徒</option>
+                                    <option value="376">周而复始都是你</option>
+                                    <option value="377">思你成疾</option>
+                                    <option value="378">赎爱</option>
+                                    <option value="379">人生若只如初见</option>
+                                    <option value="382">幽冥主播</option>
+                                    <option value="386">鬼探</option>
+                                    <option value="390">5678</option>
+                                    <option value="391">无敌兵王</option>
+                                    <option value="393">武帝</option>
+                                    <option value="395">龙神</option>
+                                    <option value="396">九星诀</option>
+                                    <option value="397">全能兵王</option>
+                                    <option value="399">开棺人</option>
+                                    <option value="400">尸女</option>
+                                    <option value="401">龙武纪</option>
+                                    <option value="402">男神老公别乱来</option>
+                                    <option value="403">无上圣皇</option>
+                                    <option value="404">铁血教官</option>
+                                    <option value="411">终极神卫</option>
+                                    <option value="412">幻界星辰</option>
+                                    <option value="413">乱图</option>
+                                    <option value="414">狂虫至尊</option>
+                                    <option value="415">幻世邪帝</option>
+                                    <option value="416">至尊秦皇</option>
+                                    <option value="417">修道斗神</option>
+                                    <option value="418">永恒大帝</option>
+                                    <option value="419">我的鬼怪夫君</option>
+                                    <option value="420">招阴人</option>
+                                    <option value="422">民间阴阳师</option>
+                                    <option value="423">猛鬼老公太难缠</option>
+                                    <option value="424">阴间鬼医</option>
+                                    <option value="425">鬼画皮</option>
+                                    <option value="426">行尸走肉</option>
+                                    <option value="444">凤倾天下：重生庶女要翻天</option>
+                                    <option value="475">萌宝出没：爹地要倒霉</option>
+                                    <option value="483">神医毒妃：无良皇家商女</option>
+                                    <option value="488">剩女大作战</option>
+                                    <option value="493">偷拍绯闻大BOSS</option>
+                                    <option value="505">女王嫁到：影后归来</option>
+                                    <option value="516">庶女重生：废后妖娆</option>
+                                    <option value="522">冥魂鬼洞</option>
+                                    <option value="528">大唐迷踪</option>
+                                    <option value="534">天骄红颜：逆天四小姐</option>
+                                    <option value="543">王爷，我们不约</option>
+                                    <option value="551">早安，boss大人</option>
+                                    <option value="556">帝王俯首：逆天战妃</option>
+                                    <option value="586">萌妃来袭：倾城小王妃</option>
+                                    <option value="594">邪魅王爷勾心妾</option>
+                                    <option value="607">如果重新来过</option>
+                                    <option value="613">你的温暖给了谁</option>
+                                    <option value="622">如果下辈子我还遇见你</option>
+                                    <option value="629">不懂事的那些年</option>
+                                    <option value="636">缘何不识君</option>
+                                    <option value="645">陌上花开笑倾城</option>
+                                    <option value="653">走过那场盛夏</option>
+                                    <option value="660">原来你还在</option>
+                                    <option value="666">今生今世之归期</option>
+                                    <option value="672">终情</option>
+                                    <option value="678">疑是惊鸿照影来</option>
+                                    <option value="686">假如和你在前世相遇</option>
+                                    <option value="691">临水照花之灯火阑珊</option>
+                                    <option value="700">梦里不知身是客</option>
+                                    <option value="705">总裁请轻爱</option>
+                                    <option value="712">余生有你，慢慢爱</option>
+                                    <option value="718">三生三世：梦醒无痕</option>
+                                    <option value="723">我家啥时能消停</option>
+                                    <option value="731">我和我的傲娇老师</option>
+                                    <option value="739">左边狐狸右边狼</option>
+                                    <option value="746">你好，教主大人</option>
+                                    <option value="752">桥</option>
+                                    <option value="759">一笑倾国</option>
+                                    <option value="764">阔少缠欢：萌妻撩情</option>
+                                    <option value="769">灵之爱</option>
+                                    <option value="774">拐个总裁当保姆</option>
+                                    <option value="781">重生之庶不为后</option>
+                                    <option value="790">盛世贵女</option>
+                                    <option value="797">霸道总裁：独宠亿万娇妻</option>
+                                    <option value="802">悬空之世</option>
+                                    <option value="807">特刑队之绝密档案</option>
+                                    <option value="814">死亡七部曲</option>
+                                    <option value="819">重生种田之爱情事业两手抓</option>
+                                    <option value="828">霸情狂枭：调教娇宠情人</option>
+                                    <option value="836">傲娇总裁驯逃妻</option>
+                                    <option value="844">别再调戏我</option>
+                                    <option value="850">爹地，妈咪不要你</option>
+                                    <option value="857">豪门霸宠：boss要离婚</option>
+                                    <option value="862">豪门毒宠：别惹重生傲娇妻</option>
+                                    <option value="871">家有恶少：二婚妈咪抢手爱</option>
+                                    <option value="877">冷情圈爱</option>
+                                    <option value="882">冷艳总裁的傲娇逃妻</option>
+                                    <option value="888">奶爸遇上奶妈</option>
+                                    <option value="897">虐你：总裁的女王殿下</option>
+                                    <option value="905">女人，别太冷</option>
+                                    <option value="912">情薄天下：劫爱难逃</option>
+                                    <option value="926">深情锁爱：总裁的娇妻</option>
+                                    <option value="934">重生之总裁请爱我一次</option>
+                                    <option value="942">暗色晨曦</option>
+                                    <option value="950">虐爱锁情欢</option>
+                                    <option value="958">霸爱：女人，别嚣张</option>
+                                    <option value="964">邪少的秘密恋人</option>
+                                    <option value="984">艳妾夺心</option>
+                                    <option value="993">萌妻逆袭：完胜霸道首席</option>
+                                    <option value="998">古墓红颜：倒斗娘子驱魔夫</option>
+                                    <option value="1003">拐个师傅好下棋</option>
+                                    <option value="1008">帝倾心：王妃要休夫</option>
+                                    <option value="1013">恶魔总裁的落跑新娘</option>
+                                    <option value="1021">恋爱契约：娇妻你别闹</option>
+                                    <option value="1029">夺命娇妻</option>
+                                    <option value="1035">总裁，你的肥皂掉了</option>
+                                    <option value="1041">第一萌后：暴君滚来宠我</option>
+                                    <option value="1046">先婚厚爱：挑战腹黑总裁</option>
+                                    <option value="1052">魅惑乖女斗邪夫</option>
+                                    <option value="1059">惹上复仇女王</option>
+                                    <option value="1084">离婚　你准备好了吗</option>
+                                    <option value="1099">契约危情：双面探戈</option>
+                                    <option value="1104">莫道美人不消魂</option>
+                                    <option value="1112">魅夜掠情</option>
+                                    <option value="1118">重生女帝：弃妃妖姬乱江山</option>
+                                    <option value="1125">点绛唇：相府小姐追夫命</option>
+                                    <option value="1140">豪门萌妻：扑倒冰山总裁</option>
+                                    <option value="1149">丑女惊华：绝色小妾</option>
+                                    <option value="1157">霸道首席：宝贝别跑</option>
+                                    <option value="1163">白头薇易半寸心</option>
+                                    <option value="1172">碧落茫茫</option>
+                                    <option value="1177">丞相站住！</option>
+                                    <option value="1183">丑女原来是魔妃</option>
+                                    <option value="1198">穿越女记之微笑</option>
+                                    <option value="1205">穿越之歌月徘徊</option>
+                                    <option value="1212">穿越之王爷的女驸马</option>
+                                    <option value="1220">大清迷梦：玄烟之恋</option>
+                                    <option value="1226">毒后成长记</option>
+                                    <option value="1232">妃天而降，皇上接住我</option>
+                                    <option value="1246">凤凰情之风华天</option>
+                                    <option value="1254">腹黑娘亲萌宝贝</option>
+                                    <option value="1260">腹黑王爷霸傲妃</option>
+                                    <option value="1267">国师大人的女王陛下</option>
+                                    <option value="1275">和亲公主</option>
+                                    <option value="1292">红妆劫：阎倾彼岸</option>
+                                    <option value="1299">淮安河畔雨潇潇</option>
+                                    <option value="1306">幻世歌姬</option>
+                                    <option value="1314">荒漠孤城</option>
+                                    <option value="1320">皇帝成盗，皇后为贼</option>
+                                    <option value="1328">凰舞霓裳，凤倾心</option>
+                                    <option value="1343">君临天下：枕边语</option>
+                                    <option value="1352">冷面杀手俏王爷</option>
+                                    <option value="1367">凉薄如雪</option>
+                                    <option value="1374">琉璃泪，殇一世</option>
+                                    <option value="1379">木槿华殇</option>
+                                    <option value="1388">那年浅浅的夏</option>
+                                    <option value="1403">娘子请乖乖听话</option>
+                                    <option value="1408">凝脂泪：醉梦帝王心</option>
+                                    <option value="1414">女皇倾国萌天下</option>
+                                    <option value="1420">弃妃之笑看人生一世风流</option>
+                                    <option value="1428">俏厨娘：娘亲我想要爹爹</option>
+                                    <option value="1436">倾尽繁华之杀手神医</option>
+                                    <option value="1445">倾卿一笑尽余生</option>
+                                    <option value="1450">倾情一梦</option>
+                                    <option value="1455">卿城虐爱</option>
+                                    <option value="1461">容我许你一世</option>
+                                    <option value="1473">盛世天娇：皇上王爷都别急</option>
+                                    <option value="1482">霜染繁城：锦花落</option>
+                                    <option value="1490">唯愿宸蒾</option>
+                                    <option value="1498">西月长歌</option>
+                                    <option value="1507">相公乖乖来受罚</option>
+                                    <option value="1515">邪魅皇后征服圣君</option>
+                                    <option value="1520">许你一世痴缠</option>
+                                    <option value="1526">医见倾心</option>
+                                    <option value="1535">与鬼成说</option>
+                                    <option value="1544">粘上王爷不放手</option>
+                                    <option value="1553">醉叹离愁春微凉</option>
+                                    <option value="1561">超级通缉犯</option>
+                                    <option value="1567">迪恩的魔物记录薄</option>
+                                    <option value="1595">疯狂的机械师</option>
+                                    <option value="1600">给我一个女朋友</option>
+                                    <option value="1607">行者天魂</option>
+                                    <option value="1615">红劫传</option>
+                                    <option value="1620">祭灵</option>
+                                    <option value="1628">祭祀之夜</option>
+                                    <option value="1635">麻辣萌徒擒鲜师</option>
+                                    <option value="1650">魔荒</option>
+                                    <option value="1658">青春兵路</option>
+                                    <option value="1670">商周牧野决战</option>
+                                    <option value="1676">时间掌控者</option>
+                                    <option value="1681">噬天传奇</option>
+                                    <option value="1686">天地律：兽影异传</option>
+                                    <option value="1692">网游之凡人传说</option>
+                                    <option value="1698">武神焰魂</option>
+                                    <option value="1703">武域刀神</option>
+                                    <option value="1712">侠义双魔</option>
+                                    <option value="1718">逍遥修真录</option>
+                                    <option value="1732">阴阳魔幡</option>
+                                    <option value="1737">元素：鬼王</option>
+                                    <option value="1756">仇女有情</option>
+                                    <option value="1770">都市异能人</option>
+                                    <option value="1777">古墓探险记</option>
+                                    <option value="1785">混混旅途</option>
+                                    <option value="1790">魂役天下</option>
+                                    <option value="1796">祭流年：幻世浮华录</option>
+                                    <option value="1801">加勒比海岸</option>
+                                    <option value="1809">见龙卸甲</option>
+                                    <option value="1818">江湖夜雨十年灯之诗酒篇</option>
+                                    <option value="1832">咖啡情缘</option>
+                                    <option value="1840">迷情深陷：爱上薄情痞男</option>
+                                    <option value="1847">冕策</option>
+                                    <option value="1855">魔振天</option>
+                                    <option value="1861">破梦焚天</option>
+                                    <option value="1870">蛇城雾散</option>
+                                    <option value="1875">圣魔之妖皇崛起</option>
+                                    <option value="1884">碎灵</option>
+                                    <option value="1892">天狼传奇</option>
+                                    <option value="1897">甜心老师：情挑酷公子</option>
+                                    <option value="1906">温暖我的冷漠老婆</option>
+                                    <option value="1912">我的青春，因你完整</option>
+                                    <option value="1920">我的有钱老婆</option>
+                                    <option value="1941">楼上的高跟鞋</option>
+                                    <option value="1960">落难格格之欠债还情</option>
+                                    <option value="1968">无限之血统</option>
+                                    <option value="1977">武道遮天</option>
+                                    <option value="1986">香水有毒：迷情乱都市</option>
+                                    <option value="1991">小山玉女</option>
+                                    <option value="1996">校花与狼的传说</option>
+                                    <option value="2001">轩辕琴轩</option>
+                                    <option value="2006">血恋之瑞雪纷飞</option>
+                                    <option value="2012">血筱</option>
+                                    <option value="2018">殉剑</option>
+                                    <option value="2024">夜美狐</option>
+                                    <option value="2030">一路向北之君临天下</option>
+                                    <option value="2036">一起走过的青春</option>
+                                    <option value="2043">异世狂少</option>
+                                    <option value="2049">异战苍穹</option>
+                                    <option value="2056">狱界2</option>
+                                    <option value="2062">战神之龙行天下</option>
+                                    <option value="2069">重生之西楚霸王</option>
+                                    <option value="2083">极品冤家翘情缘</option>
+                                    <option value="2088">剑倾天下</option>
+                                    <option value="2101">巫法界</option>
+                                    <option value="2118">半夏半暖半倾城</option>
+                                    <option value="2127">本编等你来扑倒</option>
+                                    <option value="2142">花心少爷的专宠女神</option>
+                                    <option value="2149">皇家学院：恋上倔强小公主</option>
+                                    <option value="2157">皇家学院：遵命，公主殿下</option>
+                                    <option value="2170">落难萝莉猎爱记</option>
+                                    <option value="2185">木棉情糜花事了</option>
+                                    <option value="2191">南无阿米豆腐</option>
+                                    <option value="2196">泡沫公主的专属王子</option>
+                                    <option value="2204">泡沫太寒冷</option>
+                                    <option value="2213">七个活宝在校园</option>
+                                    <option value="2221">蔷薇之花学院</option>
+                                    <option value="2229">神秘特务之炸弹小姐</option>
+                                    <option value="2235">圣涅亚斯神族学院</option>
+                                    <option value="2244">盛夏光年，若水生花</option>
+                                    <option value="2252">嗜血王子千年恋</option>
+                                    <option value="2261">守护甜心的水漾爱恋</option>
+                                    <option value="2269">天降魔法师</option>
+                                    <option value="2275">通灵少女：霹雳丫头的红途暝梦</option>
+                                    <option value="2282">我的诱受小公主</option>
+                                    <option value="2290">夏之恋：凌乱的华丽</option>
+                                    <option value="2295">校园霸王花</option>
+                                    <option value="2302">邪风恋之爱情伊甸园</option>
+                                    <option value="2319">樱花祭落雪</option>
+                                    <option value="2324">樱花飘落</option>
+                                    <option value="2330">萤火之夏天涯之境</option>
+                                    <option value="2336">鸢米娅宿命的扭转</option>
+                                    <option value="2351">纯纯小丫头</option>
+                                    <option value="2357">灰姑娘的向左向右</option>
+                                    <option value="2362">梦幻之旅之水晶恋</option>
+                                    <option value="2381">将军，接招吧</option>
+                                    <option value="2389">倾世情缘：霸道总裁独宠妻</option>
+                                    <option value="2412">危爱迷情</option>
+                                    <option value="2417">狼性大发：妖孽首席别过来</option>
+                                    <option value="2429">霸爱固宠：首席娇妻不是人</option>
+                                    <option value="2434">腹黑花旦：总裁，啵一个</option>
+                                    <option value="2443">温柔总裁的落跑新娘</option>
+                                    <option value="2451">总裁之老婆很强势</option>
+                                    <option value="2459">腹黑总裁的契约小姐</option>
+                                    <option value="2476">拒嫁豪门：只调情不说爱</option>
+                                    <option value="2485">豪门娇妻：冷少霸上弓</option>
+                                    <option value="2499">都市危情</option>
+                                    <option value="2508">总裁别想逃：宝贝的报复游戏</option>
+                                    <option value="2513">总裁宠溺小甜妻</option>
+                                    <option value="2521">宠妻无敌：扑倒豪门总裁</option>
+                                    <option value="2532">搞怪宝宝：腹黑妈咪狠惹人</option>
+                                    <option value="2538">囧妻难追</option>
+                                    <option value="2563">豪门霸宠：娇妻狠绝色</option>
+                                    <option value="2572">冷情逃妻</option>
+                                    <option value="2579">独宠娇妻：腹黑首席霸道爱</option>
+                                    <option value="2585">复仇攻略：引诱前夫总裁</option>
+                                    <option value="2591">百变甜心：总裁不要太霸道</option>
+                                    <option value="2606">霸道总裁赖上我</option>
+                                    <option value="2613">祸爱成殇：软萌娇妻你别逃</option>
+                                    <option value="2619">仇情强爱：冷少囚爱</option>
+                                    <option value="2648">替身错爱，墨少的甜妻</option>
+                                    <option value="2657">WOW混沌龙骑士</option>
+                                    <option value="2662">西界纪年</option>
+                                    <option value="2670">一剑凌云</option>
+                                    <option value="2676">九夜杀</option>
+                                    <option value="2690">特工穿越：毒宠军校女王</option>
+                                    <option value="2698">阵惊天下</option>
+                                    <option value="2707">盛妆天下</option>
+                                    <option value="2715">盛世红颜：惑倾天下</option>
+                                    <option value="2729">剑破九霄</option>
+                                    <option value="2737">清宫帝妃</option>
+                                    <option value="2745">逆天剑神</option>
+                                    <option value="2751">我的重生不是梦</option>
+                                    <option value="2756">天才魔女桃花多</option>
+                                    <option value="2761">圣灵殇</option>
+                                    <option value="2771">重生之庶女为后</option>
+                                    <option value="2785">不败剑尊</option>
+                                    <option value="2791">大道窥天</option>
+                                    <option value="2803">妖妃斗虐皇</option>
+                                    <option value="2809">吃货王妃升职记</option>
+                                    <option value="2814">选道</option>
+                                    <option value="2820">诱婚</option>
+                                    <option value="2825">三世豪门：扛上绝情总裁</option>
+                                    <option value="2832">不败神王</option>
+                                    <option value="2841">羽灵</option>
+                                    <option value="2849">冥王老大：鬼眼小娇妻</option>
+                                    <option value="2857">权倾天下之妖妃传</option>
+                                    <option value="2862">寒月流觞</option>
+                                    <option value="2867">思念在阳光的早晨</option>
+                                    <option value="2875">羊入虎口：皇后不易当</option>
+                                    <option value="2880">仙剑问梦</option>
+                                    <option value="2886">美人计：祸水红颜</option>
+                                    <option value="2894">邪帝霸后：心锁后宫</option>
+                                    <option value="2903">不死灵神</option>
+                                    <option value="2916">重生之皇后炼成记</option>
+                                    <option value="2922">爱情，有时就像一团云</option>
+                                    <option value="2934">穿越之逆天改命</option>
+                                    <option value="2946">拒婚郡主：腹黑妖孽太难缠</option>
+                                    <option value="2953">静水寒：萌女穿越记</option>
+                                    <option value="2966">仙界帝师</option>
+                                    <option value="2973">邪王霸宠：庶女王妃狠嚣张</option>
+                                    <option value="2980">万年情深：魔王追妻</option>
+                                    <option value="2988">陨落创神</option>
+                                    <option value="2994">致命蔷薇</option>
+                                    <option value="2999">花开茉语香：美男坠入琼花帐</option>
+                                    <option value="3013">一见钟情：霸道总裁的乖乖妻</option>
+                                    <option value="3019">百变夫君猎顽妻</option>
+                                    <option value="3027">至尊狂妻：全能驯兽师</option>
+                                    <option value="3036">邪王轻宠：嫡女毒妃</option>
+                                    <option value="3070">花月危情</option>
+                                    <option value="3075">不灭巅峰</option>
+                                    <option value="3083">霸宠傲妻成瘾</option>
+                                    <option value="3091">无双王妃：凤华天下</option>
+                                    <option value="3096">腹黑宝宝：强悍娘亲霸天下</option>
+                                    <option value="3104">天骄红颜：苏五小姐传奇史</option>
+                                    <option value="3112">网王：花菱之樱</option>
+                                    <option value="3118">灵若幽雪梦难安</option>
+                                    <option value="3125">乱世红尘梦</option>
+                                    <option value="3131">向天夺命</option>
+                                    <option value="3144">两界释厄传</option>
+                                    <option value="3150">美颜倾世：绝爱北周</option>
+                                    <option value="3165">穿越千年时空</option>
+                                    <option value="3171">攻略之境&ensp;</option>
+                                    <option value="3186">都别搭理他</option>
+                                    <option value="3194">萌狐来袭</option>
+                                    <option value="3206">一世倾情</option>
+                                    <option value="3214">浪漫修仙路</option>
+                                    <option value="3221">天下为聘：盛宠呆萌妃！</option>
+                                    <option value="3229">我本无名：皇室风云</option>
+                                    <option value="3235">圣灵大陆</option>
+                                    <option value="3257">倾世圣妃</option>
+                                    <option value="3262">谁在你身边</option>
+                                    <option value="3271">倾世雇佣兵：废柴小姐要修仙</option>
+                                    <option value="3279">遮天魔尊</option>
+                                    <option value="3284">祸水国师：逆天逃妃斗邪皇</option>
+                                    <option value="3299">逸如既往</option>
+                                    <option value="3312">甜心妻的专属总裁</option>
+                                    <option value="3319">若不爱，请放手</option>
+                                    <option value="3325">等风来，请你忆起我</option>
+                                    <option value="3330">魔帝专宠：废柴庶女要逆天</option>
+                                    <option value="3337">拐个明星去古代</option>
+                                    <option value="3342">倾城毒蝎：幻兽狂王驭兽妃</option>
+                                    <option value="3367">异界之天殇</option>
+                                    <option value="3374">漫漫重修行</option>
+                                    <option value="3379">凤涅天下：相公们，别闹</option>
+                                    <option value="3387">为仙为情</option>
+                                    <option value="3394">世誓情牵</option>
+                                    <option value="3402">爱情到来的样子</option>
+                                    <option value="3420">红尘一笑往事焚</option>
+                                    <option value="3426">天命诀</option>
+                                    <option value="3435">凤尊天下：废柴庶女逆九天</option>
+                                    <option value="3442">宠溺娇妻</option>
+                                    <option value="3450">从良撒旦Ⅰ</option>
+                                    <option value="3457">极品剑道至尊</option>
+                                    <option value="3462">神偷小萌妃</option>
+                                    <option value="3471">一纸婚书：误入豪门的小萌妻</option>
+                                    <option value="3477">麻辣总裁连连看</option>
+                                    <option value="3482">豪门婚爱情未了</option>
+                                    <option value="3490">四盏缘</option>
+                                    <option value="3498">霸情总裁的替身妻</option>
+                                    <option value="3503">站住！我的编剧老婆</option>
+                                    <option value="3510">穿越之离奇爱恋</option>
+                                    <option value="3515">庄周之燕</option>
+                                    <option value="3521">凤谋天下：冷王的废后妻</option>
+                                    <option value="3529">重生之盛世浮歌</option>
+                                    <option value="3538">六夫穷追：坏坏娘子别想逃</option>
+                                    <option value="3544">穿越只为你：王爷好正太</option>
+                                    <option value="3557">一夏晴深</option>
+                                    <option value="3563">嫡系特工：傲凤苍穹</option>
+                                    <option value="3587">逐影</option>
+                                    <option value="3598">最长的电影</option>
+                                    <option value="3603">战裂轮回</option>
+                                    <option value="3609">槐园殇。祭</option>
+                                    <option value="3618">穿越之朔月传奇</option>
+                                    <option value="3626">瞳色深处</option>
+                                    <option value="3634">引玉石的花儿</option>
+                                    <option value="3639">西延</option>
+                                    <option value="3645">至死不渝之搞怪王妃</option>
+                                    <option value="3657">素心如月清照人</option>
+                                    <option value="3665">遥遥无绝妻</option>
+                                    <option value="3673">变性人</option>
+                                    <option value="3681">亦儿</option>
+                                    <option value="3690">血色蔓延之守护者</option>
+                                    <option value="3698">蝴蝶恋花长恨无涯</option>
+                                    <option value="3705">妖媚鱼精傻书生</option>
+                                    <option value="3713">穿越网王之千夜</option>
+                                    <option value="3719">我们、熟悉到陌生</option>
+                                    <option value="3728">爱在日暮之前</option>
+                                    <option value="3737">一念秋池</option>
+                                    <option value="3744">霰雪无垠</option>
+                                    <option value="3751">注定的邂逅：老婆,我错了</option>
+                                    <option value="3757">穿越之唐宫风云</option>
+                                    <option value="3763">跑到古代做祸水：美男我来了</option>
+                                    <option value="3768">双城</option>
+                                    <option value="3775">黑帝情殇</option>
+                                    <option value="3782">乱世奇缘之情劫</option>
+                                    <option value="3790">离水之鱼</option>
+                                    <option value="3796">我的单身得罪了谁</option>
+                                    <option value="3804">你是王爷我是妃</option>
+                                    <option value="3813">鲛妻</option>
+                                    <option value="3818">倾城王妃之袖手天下</option>
+                                    <option value="3824">黑帝的驯养计划：女人太犀利</option>
+                                    <option value="3829">墨墨淡夏</option>
+                                    <option value="3834">卖萌侠女驯夫记</option>
+                                    <option value="3840">韶华为谁许流年</option>
+                                    <option value="3845">重生之云淡风轻</option>
+                                    <option value="3852">坏女孩</option>
+                                    <option value="3866">魅妃当道，惑乱异国</option>
+                                    <option value="3875">妃常顽皮，本宫不翻牌</option>
+                                    <option value="3881">唯愿君心似我心</option>
+                                    <option value="3887">惊情六百年</option>
+                                    <option value="3902">彼岸奏迟</option>
+                                    <option value="3909">别跑，我的小受太子</option>
+                                    <option value="3914">陆小凤同人之叶落归花</option>
+                                    <option value="3923">穿越之帝后心计</option>
+                                    <option value="3931">时光隧道</option>
+                                    <option value="3938">极品情侣</option>
+                                    <option value="3944">天定风华之四国皇后</option>
+                                    <option value="3950">婚然厚爱</option>
+                                    <option value="3958">寂寞恋爱</option>
+                                    <option value="3965">笑笑追夫记</option>
+                                    <option value="3970">君临城下：盛世迷离</option>
+                                    <option value="3978">穿越异世</option>
+                                    <option value="3984">戚氏王妃</option>
+                                    <option value="3997">千年殇·千年恋</option>
+                                    <option value="4002">花样年华的他们，她们</option>
+                                    <option value="4007">倾世逃妃</option>
+                                    <option value="4012">凤凰于飞之此生相依</option>
+                                    <option value="4021">真实的选择</option>
+                                    <option value="4026">菩提烟雨三生戏</option>
+                                    <option value="4034">绝世守财奴</option>
+                                    <option value="4043">明月夜：相思倾城</option>
+                                    <option value="4049">调皮小姐戏妖王</option>
+                                    <option value="4057">幸福，你站住</option>
+                                    <option value="4066">天际的白线 gl</option>
+                                    <option value="4074">萧瑟兰阁倚花愁</option>
+                                    <option value="4090">圈爱之伤情入骨</option>
+                                    <option value="4095">菜鸟，不怕不怕</option>
+                                    <option value="4101">二度钟夏</option>
+                                    <option value="4110">高干老公，别走！</option>
+                                    <option value="4118">不覆当年</option>
+                                    <option value="4125">霸道总裁太痴情</option>
+                                    <option value="4131">许你水木两相依</option>
+                                    <option value="4137">小心，我家隔壁有男神</option>
+                                    <option value="4143">穿到原始社会当中医</option>
+                                    <option value="4150">小妖惑情</option>
+                                    <option value="4157">倾世红颜之第一女皇</option>
+                                    <option value="4163">夜极光</option>
+                                    <option value="4168">遇上你是我的错</option>
+                                    <option value="4173">翡翠缘</option>
+                                    <option value="4179">黑夜里的星星</option>
+                                    <option value="4186">胡斐的月光</option>
+                                    <option value="4193">一梦三生卿心照</option>
+                                    <option value="4205">不满分的爱情</option>
+                                    <option value="4213">冥域：首席护法</option>
+                                    <option value="4222">那些我们的青春</option>
+                                    <option value="4230">红颜一梦</option>
+                                    <option value="4237">罪爱：恶魔霸宠冰山小娇妻！</option>
+                                    <option value="4245">胭脂烫</option>
+                                    <option value="4254">一醉煞女倾王侯</option>
+                                    <option value="4263">恋上淘气公主</option>
+                                    <option value="4281">风落经年</option>
+                                    <option value="4293">茶色天机</option>
+                                    <option value="4299">三嫁新娘</option>
+                                    <option value="4306">冷爱</option>
+                                    <option value="4312">收服大头兵</option>
+                                    <option value="4319">我们的地老天荒</option>
+                                    <option value="4327">缘于异世</option>
+                                    <option value="4335">腹黑宝宝：妈咪赖上坏爹地</option>
+                                    <option value="4341">抓住流星的尾巴</option>
+                                    <option value="4348">蓦然回首总是情</option>
+                                    <option value="4357">凤舞沧华</option>
+                                    <option value="4362">卿本蝴蝶，奈何为妖</option>
+                                    <option value="4367">黑客风云</option>
+                                    <option value="4380">我就要嫁给你</option>
+                                    <option value="4385">十年</option>
+                                    <option value="4391">长安戈</option>
+                                    <option value="4397">逆转小姐退学记</option>
+                                    <option value="4404">梦的彼岸</option>
+                                    <option value="4409">绝色杀手不好惹：美男哪里跑</option>
+                                    <option value="4414">半城重华半城秋</option>
+                                    <option value="4421">桃花桃花你快来</option>
+                                    <option value="4430">须臾以南</option>
+                                    <option value="4437">雪蝶因你、才幸福</option>
+                                    <option value="4446">总裁大叔不可以</option>
+                                    <option value="4455">相府嫡女：倾世皇妃</option>
+                                    <option value="4461">最强搭档：我的刑侦笔记</option>
+                                    <option value="4470">桃花源记</option>
+                                    <option value="4476">相府医女：惹上四爷情难解</option>
+                                    <option value="4485">一夜沉沦：花心大少从良记</option>
+                                    <option value="4497">在劫难逃：重逢爱人要结婚</option>
+                                    <option value="4505">凤倾天下：邪王独宠妖娆妃</option>
+                                    <option value="4512">穿越小商女</option>
+                                    <option value="4519">宇宙第一公子和他的红粉知己们</option>
+                                    <option value="4526">凤舞一世情</option>
+                                    <option value="4535">霸道天子第一妃</option>
+                                    <option value="4541">我的女友叫阿飘</option>
+                                    <option value="4549">蛊魅三少：妖曾盛装嫁给你</option>
+                                    <option value="4556">恶魔首席的复仇逃妻</option>
+                                    <option value="4565">医刀在手：王妃太难惹</option>
+                                    <option value="4574">风华天下：嚣张嫡女</option>
+                                    <option value="4583">素绝医妃</option>
+                                    <option value="4590">天命靠边站：出塞公主不认输</option>
+                                    <option value="4595">步步惊心：天价皇后</option>
+                                    <option value="4603">前夫快滚</option>
+                                    <option value="4609">绝色倾城：神医宠妃</option>
+                                    <option value="4615">糊涂王妃：宝宝找爹爹</option>
+                                    <option value="4620">豪门老公来追我</option>
+                                    <option value="4627">丫鬟翻身：痴心大少好温柔</option>
+                                    <option value="4636">无忧王妃</option>
+                                    <option value="4644">邪恶老公轻轻亲</option>
+                                    <option value="4651">纵宠相府庶女</option>
+                                    <option value="4660">恶魔首席的极品萌妻</option>
+                                    <option value="4667">重生归来：嫡女复仇记</option>
+                                    <option value="4678">帝女无伤</option>
+                                    <option value="4687">霸道首席：请你放过我</option>
+                                    <option value="4695">首席大人的极品辣妻</option>
+                                    <option value="4701">深宫锁爱：巾帼皇后别想逃</option>
+                                    <option value="4707">错惹花心大少</option>
+                                    <option value="4712">霸道总裁的纯洁小娇妻</option>
+                                    <option value="4719">冷情皇后难下堂</option>
+                                    <option value="4728">豪门契约：霸道总裁复仇妻</option>
+                                    <option value="4734">盛世荣宠之天降皇妃</option>
+                                    <option value="4741">冷妃不太冷</option>
+                                    <option value="4747">爆笑王妃爱爬墙</option>
+                                    <option value="4753">痴情大少别宠我</option>
+                                    <option value="4758">因为遇见你：白首不相离</option>
+                                    <option value="4764">重生豪门：心机姣娘</option>
+                                    <option value="4773">拳皇妈咪带球跑</option>
+                                    <option value="4780">痴情首长嫁给我</option>
+                                    <option value="4786">民国怪谈</option>
+                                    <option value="4792">强宠虐爱：霸道总裁你死开</option>
+                                    <option value="4799">嫁你妹啊！</option>
+                                    <option value="4814">驭男有术：美男都爱天然呆</option>
+                                    <option value="4821">温柔女友大姐大</option>
+                                    <option value="4826">不飞的天使</option>
+                                    <option value="4833">天微</option>
+                                    <option value="4840">含蕾</option>
+                                    <option value="4849">太监文的逆袭</option>
+                                    <option value="4856">倾城之恋：梨花下的约定</option>
+                                    <option value="4864">错位爱情</option>
+                                    <option value="4869">萝卜，白菜，各有所爱</option>
+                                    <option value="4883">灯盏依稀</option>
+                                    <option value="4888">雪落的声音</option>
+                                    <option value="4897">契约母子逃不掉</option>
+                                    <option value="4906">暮落之故城</option>
+                                    <option value="4914">霸道老公：我要给你生个娃</option>
+                                    <option value="4923">昨夜秋风告诉我，爱情曾来过</option>
+                                    <option value="4932">妃你不嫁：搞笑王妃霸天下</option>
+                                    <option value="4937">等来世在爱你</option>
+                                    <option value="4944">笛箫旧约</option>
+                                    <option value="4953">恬然自安</option>
+                                    <option value="4959">潋滟侠侣传</option>
+                                    <option value="4964">古剑奇谭之浮生执念</option>
+                                    <option value="4970">几度晚风恰似爱情</option>
+                                    <option value="4975">妖孽装矜持：美男收收吧</option>
+                                    <option value="4984">惟愿一世倾君心</option>
+                                    <option value="4992">曹操民国风云录</option>
+                                    <option value="5000">爱你的感觉</option>
+                                    <option value="5008">不离</option>
+                                    <option value="5017">青梅嗅九锁</option>
+                                    <option value="5024">忆之三部曲：忆昔辞</option>
+                                    <option value="5033">甜蜜新娘</option>
+                                    <option value="5042">绕天涯</option>
+                                    <option value="5047">岁陌呢喃</option>
+                                    <option value="5054">超脱命运</option>
+                                    <option value="5061">守护晨曦</option>
+                                    <option value="5076">邪王独宠：古灵精怪五小姐</option>
+                                    <option value="5081">让爱回到我身边</option>
+                                    <option value="5086">绝世轻狂：佣兵皇后</option>
+                                    <option value="5092">炼狱良女</option>
+                                    <option value="5099">顽劣邪皇，妖后无双</option>
+                                    <option value="5111">目送芳尘</option>
+                                    <option value="5120">一生书之宫墙尽</option>
+                                    <option value="5127">妖孽乱：吾本无心</option>
+                                    <option value="5133">我怀念的女孩儿</option>
+                                    <option value="5147">谁说，我喜欢你</option>
+                                    <option value="5155">素年锦心</option>
+                                    <option value="5162">太子师傅：契约太子妃</option>
+                                    <option value="5168">无非是想要为皇</option>
+                                    <option value="5179">公主难为</option>
+                                    <option value="5187">一夕繁华梦</option>
+                                    <option value="5194">童话二分之一</option>
+                                    <option value="5208">你必须知道的事</option>
+                                    <option value="5216">留守的青春</option>
+                                    <option value="5224">爱你或许只是兴起</option>
+                                    <option value="5232">错的时间，对的人</option>
+                                    <option value="5240">解锁</option>
+                                    <option value="5246">仙来后到</option>
+                                    <option value="5252">暴君的现代皇后</option>
+                                    <option value="5259">二分女遇上七分男</option>
+                                    <option value="5266">错嫁</option>
+                                    <option value="5273">她，他</option>
+                                    <option value="5278">青书月</option>
+                                    <option value="5286">暮叶年华</option>
+                                    <option value="5292">未来机器</option>
+                                    <option value="5301">戏水长留</option>
+                                    <option value="5310">娘亲快跑父王追来了</option>
+                                    <option value="5319">栀子花香飘过的整个夏天</option>
+                                    <option value="5327">王爷，我只做你的王妃好不好</option>
+                                    <option value="5335">如果还能再爱</option>
+                                    <option value="5342">胭脂璧</option>
+                                    <option value="5351">希拉维亚的祝福</option>
+                                    <option value="5356">卿本佳人</option>
+                                    <option value="5371">月明心惜</option>
+                                    <option value="5379">星际大唐</option>
+                                    <option value="5388">青涩的救赎</option>
+                                    <option value="5396">旧夏</option>
+                                    <option value="5402">泡沫里的秘密</option>
+                                    <option value="5407">奇剑情缘</option>
+                                    <option value="5413">亲亲我的娘子大人</option>
+                                    <option value="5421">寻找蝴蝶童话</option>
+                                    <option value="5426">逃不出的爱</option>
+                                    <option value="5434">爱情小厮</option>
+                                    <option value="5442">大妈小姐我爱你</option>
+                                    <option value="5451">我用生命来爱你</option>
+                                    <option value="5456">Q妹正传</option>
+                                    <option value="5463">白发皇后：本宫不倾城</option>
+                                    <option value="5476">帝姬倾城，腹黑少主休要逃</option>
+                                    <option value="5484">繁华惊梦</option>
+                                    <option value="5501">锦色未央</option>
+                                    <option value="5516">逆袭女警花穿越：相公是只仙</option>
+                                    <option value="5528">游走面位的女孩</option>
+                                    <option value="5537">与君知</option>
+                                    <option value="5546">这辈子，我别无所求</option>
+                                    <option value="5554">爱情三部曲之爱情重奏曲</option>
+                                    <option value="5563">爱若冰心</option>
+                                    <option value="5591">厨神要回家</option>
+                                    <option value="5598">穿越东宫之碟中谍</option>
+                                    <option value="5605">浮世曲终月残雪</option>
+                                    <option value="5626">宫殇：明月未央</option>
+                                    <option value="5638">豪门失宠：踢走高干老公</option>
+                                    <option value="5659">欢喜冤家：神狐青凤</option>
+                                    <option value="5686">佳邻是鬼</option>
+                                    <option value="5692">江城子</option>
+                                    <option value="5728">泪倾城之梦汐醉</option>
+                                    <option value="5733">莲华公子</option>
+                                    <option value="5740">临水似锁</option>
+                                    <option value="5748">另类皇子</option>
+                                    <option value="5769">梦断何方</option>
+                                    <option value="5777">梦里梦到醒不来的痛</option>
+                                    <option value="5788">陌路：琴音</option>
+                                    <option value="5793">陌上花开，青丝未白</option>
+                                    <option value="5810">逆转情缘</option>
+                                    <option value="5856">千世之疏白</option>
+                                    <option value="5862">青春永宿</option>
+                                    <option value="5877">倾拂天下</option>
+                                    <option value="5886">倾酌下天</option>
+                                    <option value="5894">卿城</option>
+                                    <option value="5922">如您所愿</option>
+                                    <option value="5928">杀神之煞女惊世</option>
+                                    <option value="5945">时光作冷</option>
+                                    <option value="5967">晚歌爱</option>
+                                    <option value="5995">昔人惜人</option>
+                                    <option value="6004">弦断烟华</option>
+                                    <option value="6048">异世劫，降爱痞子男</option>
+                                    <option value="6081">越前bg造化不轻负</option>
+                                    <option value="6104">致命暗诱惑</option>
+                                    <option value="6117">子衿曲</option>
+                                    <option value="6131">总裁爱宠季：霸道总裁爱上我</option>
+                                    <option value="6139">野生原型体的卖萌之旅</option>
+                                    <option value="6148">等你来爱我</option>
+                                    <option value="6154">逆袭小农女</option>
+                                    <option value="6160">王爷，不好了，王妃出逃了！</option>
+                                    <option value="6169">云醉了，芙蓉微红</option>
+                                    <option value="6202">二婚女人之再嫁豪门</option>
+                                    <option value="6211">盛宠萌妻：老婆，我只疼你！</option>
+                                    <option value="6218">诱宠萌妻：宝贝，再来一次！</option>
+                                    <option value="6225">邪王宠妻：倾城小王妃</option>
+                                    <option value="6234">惊销厚事</option>
+                                    <option value="6242">我是爱情末等生</option>
+                                    <option value="6259">两只老虎</option>
+                                    <option value="6268">天地决</option>
+                                    <option value="6277">阴阳笔谈</option>
+                                    <option value="6285">暗陨</option>
+                                    <option value="6299">枫度残颜</option>
+                                    <option value="6304">冥荒寂</option>
+                                    <option value="6310">水域雷天</option>
+                                    <option value="6325">若爱情深</option>
+                                    <option value="6340">我的鬼王夫君</option>
+                                    <option value="6347">奈何唯独钟情你</option>
+                                    <option value="6352">异界杀皇</option>
+                                    <option value="6358">保家仙</option>
+                                    <option value="6363">冬季走远</option>
+                                    <option value="6368">江门夜话</option>
+                                    <option value="6374">龙斗狂沙西辽传奇</option>
+                                    <option value="6381">神魔录</option>
+                                    <option value="6387">步步为营：高冷帝少腹黑妻</option>
+                                    <option value="6395">独家宠婚：高冷老公呆萌妻</option>
+                                    <option value="6402">凤动九天：一等皇妃倾天下</option>
+                                    <option value="6408">宫心计：弃后霸君宠</option>
+                                    <option value="6413">换魂锁爱：小白掠爱冷总裁</option>
+                                    <option value="6420">特工穿越之时空轮回</option>
+                                    <option value="6425">天命逆凰：重生庶女不可欺</option>
+                                    <option value="6433">王爷，你给本宫趴下</option>
+                                    <option value="6438">枕上豪门：独宠契约女友</option>
+                                    <option value="6443">总裁，别嚣张</option>
+                                    <option value="6448">仙魔缘之九州传</option>
+                                    <option value="6456">网游之傲世修罗</option>
+                                    <option value="6465">烈焰情人</option>
+                                    <option value="6473">弑魔的温柔</option>
+                                    <option value="6479">沉烟香</option>
+                                    <option value="6485">无双情缘</option>
+                                    <option value="6490">葬神</option>
+                                    <option value="6496">天意人弄</option>
+                                    <option value="6502">异世缘倾世恋</option>
+                                    <option value="6513">不作就不会死</option>
+                                    <option value="6520">听说</option>
+                                    <option value="6526">涅槃重生：嫡女要逆天</option>
+                                    <option value="6539">碧玉歌</option>
+                                    <option value="6545">灯火阑珊在末途</option>
+                                    <option value="6554">周南异闻录</option>
+                                    <option value="6563">豪门劫：无情总裁的前妻</option>
+                                    <option value="6571">南方有美人</option>
+                                    <option value="6580">盗成大神</option>
+                                    <option value="6594">凤涅重生：倾尽天下</option>
+                                    <option value="6609">霸情邪少：专宠小娇妻</option>
+                                    <option value="6617">尹少追妻，老婆请入坑</option>
+                                    <option value="6631">重生之嫡女妖妃</option>
+                                    <option value="6646">无盐王妃</option>
+                                    <option value="6661">如若君愿之承欢错</option>
+                                    <option value="6683">冰块王子爱上灰姑娘</option>
+                                    <option value="6688">恨与爱的边缘</option>
+                                    <option value="6693">多面王爷霸夺冷血妻</option>
+                                    <option value="6708">绝世枭雄</option>
+                                    <option value="6717">仙尊归来</option>
+                                    <option value="6726">护花高手</option>
+                                    <option value="6734">亿万总裁宠不停</option>
+                                    <option value="6747">九天至尊</option>
+                                    <option value="6755">仙武帝尊</option>
+                                    <option value="6761">总裁大人放肆宠</option>
+                                    <option value="6767">逆天战纪</option>
+                                    <option value="6784">龙潜都市</option>
+                                    <option value="6793">都市长生仙帝</option>
+                                    <option value="6821">萌小妻</option>
+                                    <option value="6834">狩猎美男守则</option>
+                                    <option value="6841">强宠挚爱：老婆嫁一送一</option>
+                                    <option value="6847">我被总裁宠上天</option>
+                                    <option value="6855">买一送一：盗圣王妃哪里逃</option>
+                                    <option value="6858">总裁说要嫁给我</option>
+                                    <option value="6867">冥婚诡事：鬼王大人太难缠</option>
+                                    <option value="6873">豪门惊梦：总裁的复仇娇妻</option>
+                                    <option value="6883">幸遇男神：闪婚老公宠妻如宝</option>
+                                    <option value="6894">攻其不备</option>
+                                    <option value="6898">云泥馆</option>
+                                    <option value="6902">宠上迷糊小萌妻</option>
+                                    <option value="6909">追击校草大人</option>
+                                    <option value="6914">那年夏天，我们正好</option>
+                                    <option value="6923">末日之我是谁</option>
+                                    <option value="6936">我的伪药罐子夫君</option>
+                                    <option value="6948">总裁大人骗个婚</option>
+                                    <option value="6954">逍遥小农女</option>
+                                    <option value="6970">黑老婆现世</option>
+                                    <option value="6975">上册天书</option>
+                                    <option value="6982">大魔仙</option>
+                                    <option value="6988">往来驿</option>
+                                    <option value="6991">异界明仙</option>
+                                    <option value="7001">冷情嫡女：帝君，请自重</option>
+                                    <option value="7008">倾世独宠：全能王子轻轻爱</option>
+                                    <option value="7016">超级学生</option>
+                                    <option value="7022">天才保镖贼美人</option>
+                                    <option value="7025">重生之凤凰浴火</option>
+                                    <option value="7028">后宫路漫漫</option>
+                                    <option value="7062">流影刀</option>
+                                    <option value="7073">嗜宠成婚：首席谈谈情</option>
+                                    <option value="7077">冷面总裁强宠妻</option>
+                                    <option value="7080">逆天爆宠：女王谋天下</option>
+                                    <option value="7084">逆天狂妻：天才炼丹师</option>
+                                    <option value="7091">毒医世子妃</option>
+                                    <option value="7094">那些年的灵异事件</option>
+                                    <option value="7097">皇上息怒：惹上无良妃</option>
+                                    <option value="7112">网游之神话心记</option>
+                                    <option value="7116">魔音狂妃</option>
+                                    <option value="7121">金牌特工：王妃太狂</option>
+                                    <option value="7127">屌丝的逆袭</option>
+                                    <option value="7138">染指成婚：军少别乱来</option>
+                                    <option value="7145">暧昧人生</option>
+                                    <option value="7151">妖王追妻：逆天绝色小兽妃</option>
+                                    <option value="7156">嫡女荣华：夫君请自重</option>
+                                    <option value="7159">王妃嫁到：王爷请躺好</option>
+                                    <option value="7166">都市封神传</option>
+                                    <option value="7172">灵异见闻录</option>
+                                    <option value="7179">天才儿子极品娘亲</option>
+                                    <option value="7208">推开青春这扇门</option>
+                                    <option value="7217">隔壁住着草泥马</option>
+                                    <option value="7223">一碰即燃</option>
+                                    <option value="7238">生死决杀</option>
+                                    <option value="7247">总裁的小公举</option>
+                                    <option value="7250">总裁小妻要从良</option>
+                                    <option value="7262">誓不为妃</option>
+                                    <option value="7265">弈谋天下</option>
+                                    <option value="7268">总裁，你命中缺我</option>
+                                    <option value="7273">亲爱哒，陆先生</option>
+                                    <option value="7276">宠妻狂魔：霸道总裁爱使坏</option>
+                                    <option value="7279">妈咪糊涂：总裁爹地你做主</option>
+                                    <option value="7287">启禀皇后：皇上有喜了！</option>
+                                    <option value="7294">如娇似妻：腹黑总裁宠上天</option>
+                                    <option value="7298">溺爱宠妻：神秘总裁太嚣张</option>
+                                    <option value="7305">鬼夫归来：夫人不太乖</option>
+                                    <option value="7320">我的老公是只鬼</option>
+                                    <option value="7324">医本轻狂：冒牌王妃不好宠</option>
+                                    <option value="7327">怦然婚动：惹上腹黑总裁</option>
+                                    <option value="7334">娇宠令：毒妃倾天下</option>
+                                    <option value="7339">重生之毒后归来</option>
+                                    <option value="7342">老婆大人卖个萌</option>
+                                    <option value="7345">蜜染成婚：娇妻，早上好</option>
+                                    <option value="7352">神棍小甜妻：误惹冰山boss</option>
+                                    <option value="7358">娇妾太难宠</option>
+                                    <option value="7368">毒医狂妃：邪王的心尖宠</option>
+                                    <option value="7375">邪王专宠小蛮妃</option>
+                                    <option value="7388">侯门娇女：一等世子妃</option>
+                                    <option value="7391">替嫁成欢：悍妃要逆天</option>
+                                    <option value="7397">闪婚蜜爱：国民女神拎回家</option>
+                                    <option value="7403">溺宠甜妻：神秘总裁消停点</option>
+                                    <option value="7410">嚣张宠妻：顾少独家冠名</option>
+                                    <option value="7420">蜜宠甜心：首席快婿别乱来</option>
+                                    <option value="7428">误潜总裁：甜妻，休想逃</option>
+                                    <option value="7434">宠妃当道：娘子太凶残</option>
+                                    <option value="7449">染宠成婚：男神老公夜敲门</option>
+                                    <option value="7452">阴婚诡嫁：妖孽鬼夫缠上身</option>
+                                    <option value="7457">紫炎天帝</option>
+                                    <option value="7464">医妃本色：夫君有病就治</option>
+                                    <option value="7471">傲娇鬼夫夜夜袭</option>
+                                    <option value="7477">棺中有喜：鬼夫深深宠</option>
+                                    <option value="7481">侯门娇宠：锦绣小医女</option>
+                                    <option value="7492">染指成婚：封少别乱来</option>
+                                    <option value="7496">超品修真高手</option>
+                                    <option value="7502">总裁的秘宠情人</option>
+                                    <option value="7510">医手狂武</option>
+                                    <option value="7514">天才宝宝腹黑娘亲</option>
+                                    <option value="7525">灵童鬼恋</option>
+                                    <option value="7530">帝凰绝宠：夫君太腹黑</option>
+                                    <option value="7543">邪皇御宠：娘子太狂野</option>
+                                    <option value="7547">山河剑影</option>
+                                    <option value="7559">娘子来袭：夫君如此多娇</option>
+                                    <option value="7562">倾世女皇</option>
+                                    <option value="7574">倾城女帝</option>
+                                    <option value="7584">三生三世：狐仙大人笑一个</option>
+                                    <option value="7589">来自大清朝的鬼老公</option>
+                                    <option value="7596">星际玄士</option>
+                                    <option value="7602">彪悍王妃之王爷休逃</option>
+                                    <option value="7606">荒古天帝</option>
+                                    <option value="7609">逆袭草包狂妃</option>
+                                    <option value="7616">最终在青春里走散</option>
+                                    <option value="7627">都市极品符箓师</option>
+                                    <option value="7638">超级购物车</option>
+                                    <option value="7648">一纸婚约：鲜妻18岁</option>
+                                    <option value="7654">噬神战天</option>
+                                    <option value="7661">雷电神兵</option>
+                                    <option value="7666">抓鬼那些事</option>
+                                    <option value="7673">我的老婆是萌仙</option>
+                                    <option value="7677">僵尸日记</option>
+                                    <option value="7684">玄武战神</option>
+                                    <option value="7689">染指天下：宠魅小医妃</option>
+                                    <option value="7697">炼天圣皇</option>
+                                    <option value="7711">我的绝美女总裁</option>
+                                    <option value="7717">补尸人</option>
+                                    <option value="7723">绝品高手混花都</option>
+                                    <option value="7734">总裁别碰我</option>
+                                    <option value="7737">我的鬼女儿</option>
+                                    <option value="7743">强势夺妻：盛少的心尖宠</option>
+                                    <option value="7754">邪帝狂宠：纨绔大小姐</option>
+                                    <option value="7761">一枕缠欢：总裁宠上瘾</option>
+                                    <option value="7765">最强迅雷神器</option>
+                                    <option value="7775">女神的贴身保镖</option>
+                                    <option value="7788">我与狐仙有个约会</option>
+                                    <option value="7791">六道仙尊</option>
+                                    <option value="7801">天域神尊</option>
+                                    <option value="7808">颠倒西游</option>
+                                    <option value="7814">娇妻难驯：总裁大人宠不够</option>
+                                    <option value="7820">误惹豪门：高冷总裁夜夜宠</option>
+                                    <option value="7824">契约甜妻：狼性总裁狠狠爱</option>
+                                    <option value="7829">名门独宠：总裁的头号鲜妻</option>
+                                    <option value="7834">校花的贴身狂少</option>
+                                    <option value="7842">萌宝来袭：总裁撩妻无下限</option>
+                                    <option value="7846">霸天武神</option>
+                                    <option value="7850">校草大人万万岁</option>
+                                    <option value="7854">逆天狂魔</option>
+                                    <option value="7858">护花高手</option>
+                                    <option value="7861">倾世医妃：相公从了吧</option>
+                                    <option value="7869">妃本张狂：王爷夫君有礼了</option>
+                                    <option value="7876">霸爱纯情鲜妻：腹黑总裁太凶猛</option>
+                                    <option value="7879">重生之惑国鬼妃</option>
+                                    <option value="7886">豪门暖婚：老婆大人节操掉了</option>
+                                    <option value="7890">娇妻鲜嫩：总裁消停点</option>
+                                    <option value="7893">倾世妖仙：冥尊大人狠纯情</option>
+                                    <option value="7905">都市狂少</option>
+                                    <option value="7908">网游之幸运混混</option>
+                                    <option value="7915">纨绔医仙</option>
+                                    <option value="7924">不死神皇</option>
+                                    <option value="7927">大汉宫阙：盛世长公主</option>
+                                    <option value="7934">极品海贼混都市</option>
+                                    <option value="7940">狼行都市</option>
+                                    <option value="7943">总裁太凶猛：娇妻别想逃</option>
+                                    <option value="7955">我的傲娇美女保镖</option>
+                                    <option value="7962">超级透视眼</option>
+                                    <option value="7966">最强快递员</option>
+                                    <option value="7971">与校花的捉妖日志</option>
+                                    <option value="7974">极品小子混都市</option>
+                                    <option value="7985">指点江山</option>
+                                    <option value="7992">狐王来袭:盛宠独家冷妻</option>
+                                    <option value="7995">玲珑心劫之千年傀儡师</option>
+                                    <option value="8005">妖孽夫君:今生虐缘恋</option>
+                                    <option value="8015">吞天宝鉴</option>
+                                    <option value="8022">命运玩超界之噬魂邪神</option>
+                                    <option value="8029">狼人进化</option>
+                                    <option value="8039">盛宠仙妃：魔尊大人别得意</option>
+                                    <option value="8062">傀儡王神</option>
+                                    <option value="8072">炼狱神魔道</option>
+                                    <option value="8078">梅花刃</option>
+                                    <option value="8083">魔妃逆袭：冷峻君王哪里跑</option>
+                                    <option value="8087">阴差之天道轮回</option>
+                                    <option value="8093">麻辣小尼姑</option>
+                                    <option value="8099">都市夜侠传奇</option>
+                                    <option value="8108">倾城俏佳人</option>
+                                    <option value="8115">仙魂</option>
+                                    <option value="8122">妖孽总裁：专宠呆萌妻</option>
+                                    <option value="8131">狂野精灵</option>
+                                    <option value="8139">三国之纵横大汉</option>
+                                    <option value="8142">风雪轶闻</option>
+                                    <option value="8146">大君子</option>
+                                    <option value="8151">逆道战天</option>
+                                    <option value="8154">苍生劫</option>
+                                    <option value="8157">云天狂斗</option>
+                                    <option value="8162">武道剑尊</option>
+                                    <option value="8165">纵横都市</option>
+                                    <option value="8172">奇闻异事录</option>
+                                    <option value="8203">双生引</option>
+                                    <option value="8210">景年里不知伤怀</option>
+                                    <option value="8214">南山有月</option>
+                                    <option value="8218">女总裁的全职高手</option>
+                                    <option value="8224">美男图：太监相亲记</option>
+                                    <option value="8237">九品碎龙决</option>
+                                    <option value="8242">道树至尊</option>
+                                    <option value="8245">绝仙灭道</option>
+                                    <option value="8249">闪婚蜜爱，杠上腹黑总裁</option>
+                                    <option value="8253">我只想对你宠爱</option>
+                                    <option value="8264">凰权天下</option>
+                                    <option value="8268">冥界快递员</option>
+                                    <option value="8273">人神进化</option>
+                                    <option value="8280">无极剑神</option>
+                                    <option value="8284">宇皇记</option>
+                                    <option value="8290">豪宅怨魂</option>
+                                    <option value="8294">灵异相册</option>
+                                    <option value="8301">龙神霸天</option>
+                                    <option value="8308">魔王也重生</option>
+                                    <option value="8311">最强小职员</option>
+                                    <option value="8314">我的妖孽女总裁</option>
+                                    <option value="8317">贴身男秘有春天</option>
+                                    <option value="8324">野蛮女总裁</option>
+                                    <option value="8329">天姿国色</option>
+                                    <option value="8336">权路风云</option>
+                                    <option value="8341">漂亮女领导</option>
+                                    <option value="8355">一号人物</option>
+                                    <option value="8359">情陷极品美女上司</option>
+                                    <option value="8366">极品御医</option>
+                                    <option value="8372">傍上女领导</option>
+                                    <option value="8378">杀手奶爸</option>
+                                    <option value="8385">恐怖末班车</option>
+                                    <option value="8400">绝品护花使者</option>
+                                    <option value="8412">随身带了个仙府</option>
+                                    <option value="8428">超级高手</option>
+                                    <option value="8431">医流宗师</option>
+                                    <option value="8438">极品妖孽小农民</option>
+                                    <option value="8442">蛇蝎美人</option>
+                                    <option value="8447">鬼车来了</option>
+                                    <option value="8456">鬼事缠身</option>
+                                    <option value="8488">那些风花雪月的事</option>
+                                    <option value="8495">健身器材</option>
+                                    <option value="8503">入殓笔记</option>
+                                    <option value="8525">我和美女姐姐的秘密</option>
+                                    <option value="8546">蛇妻美人</option>
+                                    <option value="8549">殡仪馆诡异录</option>
+                                    <option value="8561">奉天诡闻</option>
+                                    <option value="8575">借命先生</option>
+                                    <option value="8593">诡坟</option>
+                                    <option value="8600">龙女</option>
+                                    <option value="8605">白蛇传</option>
+                                    <option value="8612">大叔的小甜妻</option>
+                                    <option value="8619">盛世婚宠之天价萌妻</option>
+                                    <option value="8629">迷途红颜</option>
+                                    <option value="8632">铁血硬汉</option>
+                                    <option value="8645">纯情小神医</option>
+                                    <option value="8663">极品邪医在校园</option>
+                                    <option value="8670">校花的超级全能高手</option>
+                                    <option value="8677">九环之重回1998</option>
+                                    <option value="8688">无敌修仙圣医</option>
+                                    <option value="8692">都市无上仙医</option>
+                                    <option value="8700">妙手小神医</option>
+                                    <option value="8712">村色生香</option>
+                                    <option value="8718">绝世魂医</option>
+                                    <option value="8722">女总裁的神级兵王</option>
+                                    <option value="8729">我的老婆有点神</option>
+                                    <option value="8742">与鬼同行</option>
+                                    <option value="8746">美女总裁的贴身兵王</option>
+                                    <option value="8763">绝世药仙在都市</option>
+                                    <option value="8773">百年妖妻</option>
+                                    <option value="8776">我的绝色女房客</option>
+                                    <option value="8781">三界红包群</option>
+                                    <option value="8790">天道逍遥神</option>
+                                    <option value="8799">大小姐的贴身神医</option>
+                                    <option value="8813">兽撩娇妻：狼性老公难伺候</option>
+                                    <option value="8816">枕上欢：妖孽狼君请上榻</option>
+                                    <option value="8820">邪王霸爱：溺宠狂野小兽妃</option>
+                                    <option value="8827">蚀骨缠绵：纯禽帝少深深爱</option>
+                                    <option value="8830">亿万老公请躺好</option>
+                                    <option value="8834">席少宠上瘾：老婆，要投降</option>
+                                    <option value="8843">枭王盛宠：金牌法医狠绝色</option>
+                                    <option value="8853">千金归来：拐个太子宠翻天</option>
+                                    <option value="8857">重生毒妻太撩人</option>
+                                    <option value="8860">契约萌妻：总裁大人慢点宠</option>
+                                    <option value="8874">邪王的爆萌宠妃</option>
+                                    <option value="8881">我的狐仙娇妻</option>
+                                    <option value="8886">我的传奇青春</option>
+                                    <option value="8891">惹火青春</option>
+                                    <option value="8894">武破天穹</option>
+                                    <option value="8897">仙道至尊</option>
+                                    <option value="8913">修真大道</option>
+                                    <option value="8920">网游之独步天下</option>
+                                    <option value="8930">天道剑帝</option>
+                                    <option value="8936">天道战尊</option>
+                                    <option value="8954">全职狂兵</option>
+                                    <option value="8960">圣手神医在都市</option>
+                                    <option value="8966">至尊保安俏总裁</option>
+                                    <option value="8970">玄门</option>
+                                    <option value="8973">女总裁的王牌司机</option>
+                                    <option value="8978">女总裁的贴身兵王</option>
+                                    <option value="8985">圣魂至尊</option>
+                                    <option value="9017">星空梦</option>
+                                    <option value="9021">仙凡帝尊</option>
+                                    <option value="9031">超级女上司</option>
+                                    <option value="9034">天命小狂医</option>
+                                    <option value="9038">逆途</option>
+                                    <option value="9048">我的鬼媳妇</option>
+                                    <option value="9065">鬼缠身</option>
+                                    <option value="9089">原谅我红尘颠倒</option>
+                                    <option value="9101">重生之老公克制点</option>
+                                    <option value="9114">极道天侠</option>
+                                    <option value="9118">末世之九死唤魂</option>
+                                    <option value="9130">武灵四海</option>
+                                    <option value="9137">折翼君王</option>
+                                    <option value="9146">霸爱成欢：邪少的贴身小宠物</option>
+                                    <option value="9170">总裁蜜爱：贴身小助理</option>
+                                    <option value="9176">豪门老公要不够</option>
+                                    <option value="9186">1号鲜妻：傲娇boss请克制</option>
+                                    <option value="9199">弃妃魅君心</option>
+                                    <option value="9222">废柴医妃：妙手倾天下</option>
+                                    <option value="9225">医见钟情：毒妃倾国</option>
+                                    <option value="9237">甜妻逆袭：再见，总裁大人</option>
+                                    <option value="9267">蜜爱甜妻：总裁的心尖宠</option>
+                                    <option value="9274">霸道总裁宠妻入骨</option>
+                                    <option value="9278">萌妻恋上瘾：欧巴，娶我</option>
+                                    <option value="9282">凤临天下：王爷的小娇妃</option>
+                                    <option value="9302">美女上司的秘密</option>
+                                    <option value="9309">女神泡上我</option>
+                                    <option value="9316">杀手姐姐爱上我</option>
+                                    <option value="9327">最美的时光</option>
+                                    <option value="9357">求死无门</option>
+                                    <option value="9362">我的绝美女上司</option>
+                                    <option value="9368">重生之不悔青春</option>
+                                    <option value="9387">冥婚阴妻</option>
+                                    <option value="9395">我的妖娆鬼妻</option>
+                                    <option value="9401">我的美女上司</option>
+                                    <option value="9404">神医圣手</option>
+                                    <option value="9409">超级英雄联盟系统</option>
+                                    <option value="9413">茶舍奇谈</option>
+                                    <option value="9417">苗疆蛊女</option>
+                                    <option value="9421">我和漂亮女总编</option>
+                                    <option value="9424">我的美女董事长老婆</option>
+                                    <option value="9430">大仙尊</option>
+                                    <option value="9446">贴身小神医</option>
+                                    <option value="9452">妖孽小保镖</option>
+                                    <option value="9482">武尊帝</option>
+                                    <option value="9486">绿野狂兵</option>
+                                    <option value="9492">贴身狂兵</option>
+                                    <option value="9498">地球被强拆</option>
+                                    <option value="9503">大小姐的贴身仙医</option>
+                                    <option value="9509">古董大玩家</option>
+                                    <option value="9537">女总裁的贴身兵皇</option>
+                                    <option value="9559">天妖传说</option>
+                                    <option value="9564">捡尸人</option>
+                                    <option value="9570">极品都市修仙</option>
+                                    <option value="9579">李逵后传</option>
+                                    <option value="9602">女总裁的逍遥狂兵</option>
+                                    <option value="9617">末日时代</option>
+                                    <option value="9624">魔法的时光岁月</option>
+                                    <option value="9631">轮回之殇</option>
+                                    <option value="9642">遗落天使</option>
+                                    <option value="9652">都市侠客系统</option>
+                                    <option value="9656">彭祖者，道祖也</option>
+                                    <option value="9661">兵王回归</option>
+                                    <option value="9665">机甲狂潮</option>
+                                    <option value="9676">丛林圣医</option>
+                                    <option value="9709">绝版女领导</option>
+                                    <option value="9717">贴身女秘书</option>
+                                    <option value="9720">极品小记者</option>
+                                    <option value="9724">超级职员</option>
+                                    <option value="9728">晚安，我的爱人</option>
+                                    <option value="9752">教练，我想打篮球</option>
+                                    <option value="9756">巅峰之路</option>
+                                    <option value="9817">致命礼物</option>
+                                    <option value="9841">英雄联盟之梦幻王朝</option>
+                                    <option value="9851">黄泉化妆师</option>
+                                    <option value="9868">白狐</option>
+                                    <option value="9904">麻辣警花的纨绔兵王</option>
+                                    <option value="9919">该死的青春</option>
+                                    <option value="9935">罪青春</option>
+                                    <option value="9949">鬼魂的名义</option>
+                                    <option value="9954">人皮画师</option>
+                                    <option value="9961">不一样的青春</option>
+                                    <option value="9980">不估青春</option>
+                                    <option value="9996">暗香</option>
+                                    <option value="10002">长明灯童</option>
+                                    <option value="10006">噬骨人</option>
+                                    <option value="10016">媚海无涯</option>
+                                    <option value="10037">抬棺匠</option>
+                                    <option value="10060">阴娘子</option>
+                                    <option value="10072">鬼门棺</option>
+                                    <option value="10076">鬼使神差</option>
+                                    <option value="10093">十二忌日</option>
+                                    <option value="10099">送灵人</option>
+                                    <option value="10112">我的绝色诡妻</option>
+                                    <option value="10117">青春四射的年代</option>
+                                    <option value="10120">死亡禁墓</option>
+                                    <option value="10133">罚罪</option>
+                                    <option value="10138">村中鬼事</option>
+                                    <option value="10146">邻家女郎护花使</option>
+                                    <option value="10156">尸衣</option>
+                                    <option value="10183">阴美人</option>
+                                    <option value="10186">香童阴阳路</option>
+                                    <option value="10202">鬼先生</option>
+                                    <option value="10207">绝宠暖婚</option>
+                                    <option value="10214">非常经纪人</option>
+                                    <option value="10220">流水忆当年</option>
+                                    <option value="10225">家有鬼妻</option>
+                                    <option value="10248">姻缘鬼签</option>
+                                    <option value="10252">猎心</option>
+                                    <option value="10273">男权</option>
+                                    <option value="10282">花姐</option>
+                                    <option value="10298">舞娘</option>
+                                    <option value="10308">御鬼梳女</option>
+                                    <option value="10311">阴夫诡爱</option>
+                                    <option value="10317">男人要狠</option>
+                                    <option value="10327">死亡浴室</option>
+                                    <option value="10371">风流兵王在都市</option>
+                                    <option value="10388">催情小神医</option>
+                                    <option value="10393">绝望游戏</option>
+                                    <option value="10407">我的老婆是总裁</option>
+                                    <option value="10410">美女老板爱上我</option>
+                                    <option value="10454">玄天生死簿</option>
+                                    <option value="10461">青春涩爱</option>
+                                    <option value="10466">僵约</option>
+                                    <option value="10471">绝世法宝</option>
+                                    <option value="10474">痞子高手：绝色校花倒追我</option>
+                                    <option value="10480">大阴阳</option>
+                                    <option value="10486">杀手明星在都市</option>
+                                    <option value="10503">职场韵事：我的绝色女上司</option>
+                                    <option value="10507">午夜女主播</option>
+                                    <option value="10514">偷香窃欲</option>
+                                    <option value="10539">王牌高手</option>
+                                    <option value="10544">鬼王棺</option>
+                                    <option value="10548">神仙QQ群</option>
+                                    <option value="10557">贴身兵王</option>
+                                    <option value="10569">都市枭雄</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    style="width: 317.46px;"><span class="selection"><span class="select2-selection select2-selection--single"
+                                            role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-labelledby="select2-book-container"><span class="select2-selection__rendered"
+                                                id="select2-book-container" title="请选择书本">请选择书本</span><span class="select2-selection__arrow"
+                                                role="presentation"><b role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3"><span class="required"></span> 章节名称</label>
+                            <div class="col-sm-7">
+                                <select class="select2 select2-hidden-accessible" id="body" name="data[nid]" tabindex="-1"
+                                    aria-hidden="true">
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    style="width: 317.46px;"><span class="selection"><span class="select2-selection select2-selection--single"
+                                            role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-labelledby="select2-body-container"><span class="select2-selection__rendered"
+                                                id="select2-body-container"></span><span class="select2-selection__arrow"
+                                                role="presentation"><b role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+
+                    </form>
+                    <script type="text/javascript">
+                        var totalWidth = $('.modal-dialog').width();
+
+                        var width = totalWidth / 1.89;
+
+                        if (width <= 200) {
+                            width = 250;
+                        }
+
+                        $('select.select2').select2({
+                            'width': width,
+                        });
+                        $("#book").change(function () {
+                            var value = $(this).val();
+
+                            $.post('/keyreplys/chapter_row', {
+                                'bid': value
+                            }, function (msg) {
+
+                                $("#body").empty();
+
+                                var str = '';
+
+                                for (var i in msg.data) {
+                                    str += "<option value=" + (parseInt(i) + 1) + " >" + msg.data[i] +
+                                        "</option>";
+                                }
+
+                                $("select#body").html(str);
+
+                            }, 'json');
+
+                        })
+
+                        var bid = "";
+
+                        if (typeof (bid) != "undefined") {
+                            $.post('/keyreplys/chapter_row', {
+                                'bid': bid
+                            }, function (msg) {
+
+                                var num = "";
+
+                                $("#body").empty();
+
+                                var str = '';
+
+                                for (var i in msg.data) {
+                                    str += "<option value=" + (parseInt(i) + 1) + " " + (num == parseInt(i) + 1 ?
+                                        'selected' : '') + " >" + msg.data[i] + "</option>";
+                                }
+
+                                $("select#body").html(str);
+
+                            }, 'json');
+                        }
+                    </script>
+                </div>
+                <div class="modal-footer" style="font-size:14px;"><button type="button" class="btn btn-default cancel" data-dismiss="modal">取消</button><button
+                        type="button" class="btn btn-success ok" data-dismiss="modal">保存创建</button><button type="button"
+                        class="btn btn-success prev" data-dismiss="modal" style="display: none;">上一页</button><button
+                        type="button" class="btn btn-success next" data-dismiss="modal" style="display: none;">下一页</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade in"></div>
+</body>
+
+</html>
