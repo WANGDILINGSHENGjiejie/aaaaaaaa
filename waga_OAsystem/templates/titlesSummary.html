@@ -1,0 +1,534 @@
+<!--{% load staticfiles %}-->
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://novel.tengwen.com/dispatch_list.php -->
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>哇嘎互娱</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<!-- jQuery 3 -->
+		<script src="{% static 'jquery.min.js'%}"></script>
+		<!-- Font Awesome 图标字体库和CSS框架-->
+		<link rel="stylesheet" href="{% static 'font-awesome.min.css'%}">
+		<link rel="stylesheet" href="{% static 'css.css'%}">
+		<link rel="stylesheet" href="{% static 'media.css'%}">
+		<link rel="stylesheet" href="{% static 'bootstrap-select.min.css'%}">
+		<!--&lt;!&ndash; Font Awesome 图标字体库和CSS框架&ndash;&gt;-->
+		<link rel="stylesheet" href="{% static 'admin/bower_components/font-awesome/css/font-awesome.min.css' %}">
+
+		<script type="text/javascript" src="{% static 'jquery.qrcode.min.js'%}"></script>
+		<script type="text/javascript" src="{% static 'jquery.cookie.min.js'%}"></script>
+		<script type="text/javascript" src="{% static 'clipboard.min.js'%}"></script>
+		<script type="text/javascript" src="{% static 'klorofil-common.js'%}"></script>
+       {#<script type="text/javascript" src="{% static 'comm.js'%}"></script>#}
+		<script src="{% static 'layerUI/layui.all.js'%}" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'layerUI/css/layui.css'%}" />
+
+		<script type="text/javascript" src="{% static 'moment.min.js'%}"></script>
+		<script type="text/javascript" src="{% static 'moment_zh-cn.js'%}"></script>
+		<!--<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
+		<link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" />
+		<script src="{% static 'bootstrap.min.js'%}"></script>
+		<script src="{% static 'bootstrap-select.min.js'%}"></script>
+		<script src="{% static 'defaults-zh_CN.js'%}"></script>
+		<script type="text/javascript" src="{% static 'echarts.min.js'%}"></script>
+	</head>
+
+<body>
+    <!-- WRAPPER -->
+		<div id="wrapper">
+			<!-- NAVBAR -->
+			{% include 'public/header.html' %}
+			<!-- END NAVBAR -->
+
+			<!-- LEFT SIDEBAR -->
+			{% include 'public/left.html' %}
+			<!-- END LEFT SIDEBAR -->
+
+			<!-- MAIN -->
+			<div class="main">
+				<!-- MAIN CONTENT -->
+				<div class="main-content">
+					<div class="container-fluid">
+						<div id="tipdlg"></div>
+						<style type="text/css">
+							.ft12 {
+								font-size: 12px;
+							}
+
+							.ft16 {
+								font-size: 16px;
+							}
+
+							.no-display {
+								display: none;
+							}
+
+							.paidanAdd {
+								width: 97%;
+								margin-top: 20px;
+								border-top-color: #ddd;
+								border-top-width: 2px;
+								word-wrap: break-word;
+								word-break: break-all;
+							}
+							.toast-top-center {
+								top: 52px;
+							}
+							.tdbreak{
+							    width:100%;
+                                word-break:keep-all;/* 不换行 */
+                                white-space:nowrap;/* 不换行 */
+                                overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+                                text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+							}
+							.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn){
+								width:160px;
+							}
+							.redandbig{
+								color:red;
+								font-weight:700;
+							}
+							.countNumb{
+								color:red;
+							}
+						</style>
+                        <div class="panel">
+                            <div class="panel-heading mynav">
+                                <h3 class="panel-title">你的位置：标题汇总</h3>
+                            </div>
+                            <div class="panel-body" style="position: relative;">
+
+                                <form class="layui-form" action="" style="float:left">
+                                    <div class="layui-input-inline" style="width:150px;">
+                                        <input type="text" class="layui-input" id="startTime" placeholder="开始时间"
+                                            readonly />
+                                    </div>
+
+                                    <div class="layui-inline" style="width:150px;">
+                                        <input type="text" class="layui-input" id="endTime" placeholder="结束时间" readonly />
+                                    </div>
+
+
+                                    <div class="layui-input-inline" style="width:150px;">
+                                        <select name="modules" lay-verify="type" id="searchBookName" lay-filter="searchBookName">
+                                            <option value="">选择书名</option>
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+                                    <div class="layui-input-inline">
+                                        <button type="button" class="btn btn-success" onclick="getData()">查询</button>
+                                    </div>
+                                    <div class="form-group" style=" float: right;margin-right:5px; "></div>
+                                </form>
+
+                            </div>
+                        </div>
+                        <div id="graph" style="width: 100%; height: 600px; bottom: 5%;"></div>
+                        <table id="tb" class="table table-striped table-hover table-bordered" style="table-layout:fixed;">
+                            <thead title="点击排序">
+                                <tr>
+                                    <th data-type="string">标题</th>
+                                    <th data-type="num" width="%4">总成本</th>
+                                    <th data-type="num" width="%4">总充值</th>
+                                    <th data-type="num" width="%4">总充值比例</th>
+                                    <th data-type="num" width="%4">24小时回款</th>
+                                    <th data-type="num" width="%4">24小时百分比</th>
+                                    <th data-type="num" width="%4">关注成本</th>
+                                    <th data-type="num" width="7%">标题投放次数</th>
+                                </tr>
+                            </thead>
+
+
+                            <tbody id="summaryData">
+
+                            </tbody>
+
+                        </table>
+                </div>
+                <!-- END MAIN CONTENT -->
+            </div>
+            <!-- END MAIN -->
+        </div>
+        <script type="text/javascript">
+            $(function () {
+
+                var lieCount = 0;
+                var tableData = new Array();
+                var zd = true;
+                var date_lie_index = null;
+                var precent_lie_index = null;
+                var total_precent_lie_index = null;
+                //给表头委托点击事件
+                $("#tb").find("th").each(function (index) {
+                    lieCount++;
+                    $(this).click(function () {
+                        //获取表格所有行的值
+                        $("#tb").find(".tr_data").each(function (tr_data_index) {
+                            tableData[tr_data_index] = new Array();
+                            for(var i = 0;i<lieCount;i++){
+                                var tdData = $(this).find("td").eq(i).html();
+                                if(tdData.indexOf('-')>-1){
+                                    tdData = (new Date(Date.parse(tdData.replace(/-/g,"/")))).getTime() / 1000;
+                                    date_lie_index = i;
+                                }
+                                else if(tdData.indexOf('%')>-1){
+                                    tdData = tdData.replace("%","");
+                                    precent_lie_index = i;
+                                }
+                                else if(tdData.indexOf('‰')>-1){
+                                    tdData = tdData.replace("‰","");
+                                    total_precent_lie_index = i;
+                                }
+                                tableData[tr_data_index][i] = tdData;
+                            }
+
+                        });
+
+                    });
+
+                    $(this).click(function (tr_data_index) {
+                        //index 列
+                        zd = zd==true? false : true;
+
+                        tableData.sort(function(x, y){
+                            if(zd) return x[index] - y[index];
+                            else return y[index] - x[index];
+                        });
+
+                        var tableHtml = "";
+                        for(var i = 0;i<tableData.length;i++){
+                            tableHtml +="<tr>";
+                            for(var j = 0;j<lieCount;j++){
+
+                                var tdData = tableData[i][j];
+                                if(date_lie_index==j){
+                                    tdData =timestampToTime(tdData);
+                                }
+                                else if(precent_lie_index==j){
+                                    tdData += "%";
+                                }
+                                else if(total_precent_lie_index==j){
+                                    tdData += "‰";
+                                }
+
+                                tableHtml += '<td>'+tdData+'</td>';
+                            }
+                            tableHtml +="</tr>";
+                        }
+
+                        var lastTr = $("#summaryData").find("tr").eq(tableData.length).html();
+                        $("#summaryData").html(tableHtml+lastTr)
+
+
+                    });
+
+
+                });
+
+
+
+               function timestampToTime(timestamp) {
+                    var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+                    var Y = date.getFullYear() + '-';
+                    var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+                    var D = date.getDate()<10 ? '0'+date.getDate()  + ' ' : date.getDate()  + ' ';
+                    var h = date.getHours() + ':';
+                    var m = date.getMinutes() + ':';
+                    var s = date.getSeconds();
+                    return Y+M+D;
+                }
+            });
+
+
+
+            form = layui.form;
+			 <!--渲染layUI-->
+			 form.render();
+            getData();
+			getBookName();
+
+
+			var laydate = layui.laydate;
+
+
+            var today=new Date();
+            var yesterday_milliseconds=today.getTime()-(1*(1000*60*60*24));
+            var yesterday_milliseconds_7=today.getTime()-(7*(1000*60*60*24));
+            var yesterday=new Date();
+            var yesterday_7=new Date();
+            yesterday.setTime(yesterday_milliseconds);
+            yesterday_7.setTime(yesterday_milliseconds_7);
+            var strYear=yesterday.getFullYear();
+            var strDay=yesterday.getDate();
+            var strMonth=yesterday.getMonth()+1;
+            var strYear_7=yesterday_7.getFullYear();
+            var strDay_7=yesterday_7.getDate();
+            var strMonth_7=yesterday_7.getMonth()+1;
+
+            strMonth    = strMonth<10 ?"0"+strMonth :strMonth;
+            strDay      = strDay<10 ?"0"+strDay :strDay;
+            strMonth_7  = strMonth_7<10 ?"0"+strMonth_7 :strMonth_7;
+            strDay_7    = strDay_7<10 ?"0"+strDay_7 :strDay_7;
+
+
+            var strYesterday=strYear+"-"+strMonth+"-"+strDay;
+            var strYesterday_7=strYear_7+"-"+strMonth_7+"-"+strDay_7;
+
+			//执行一个laydate实例
+			laydate.render({
+				elem: '#startTime', //指定元素
+				type: 'date',
+                value: strYesterday_7
+			});
+			laydate.render({
+				elem: '#endTime', //指定元素
+				type: 'date',
+				value: strYesterday
+			});
+
+
+
+			function recoveryParm(){
+				var startTime = getUrlParam("startTime");
+				var endTime = getUrlParam("endTime");
+				var searchBookName = getUrlParam("searchBookName");
+
+				$("#startTime").val(startTime);
+				$("#endTime").val(endTime);
+				$("#searchBookName").val(searchBookName);
+				form.render();
+
+			 }
+
+
+			//获取地址栏参数
+			function getUrlParam(name) {
+				 var pattern = new RegExp("[?&]"+name+"\=([^&]+)", "g");
+				 var matcher = pattern.exec(window.location.search);
+				 var items = null;
+				 if(null != matcher){
+						 try{
+								items = decodeURIComponent(decodeURIComponent(matcher[1]));
+						 }catch(e){
+								 try{
+										 items = decodeURIComponent(matcher[1]);
+								 }catch(e){
+										 items = matcher[1];
+								 }
+						 }
+				 }
+				 return items;
+			}
+
+
+			// 加载书名下拉框
+			function getBookName(){
+			    $.ajax({
+                    type: 'get',
+                    url: '/title/book',
+                    async: false,
+                    data: "",
+
+                    success: function (data) {
+                        var $html = "";
+                        form = layui.form;
+                        data = eval("("+data+")");
+
+                        $.each(data, function (index, item) {
+                            $html += "<option value='" + item.book_name + "'>" + item.book_name + "</option>";
+                        });
+                        $("select[id='searchBookName']").append($html);
+                        form.render('select')
+                    },
+                    error: function(xmlHttpRequest, textStatus, errors) {
+						alert("报错了");
+						console.log(xmlHttpRequest.status);
+						console.log(textStatus);
+						console.log(errors)
+					}
+
+                })
+            }
+
+
+			function getData() {
+                $.ajax({
+                    type: "GET",
+                    url: "/title/gettitle",
+                    dataType: 'json',
+                    data: {
+                        'startTime': $('#startTime').val(),
+                        'endTime': $('#endTime').val(),
+                        'searchBookName': $('#searchBookName').val(),
+                    },
+                success: function (data) {
+                    {#console.log(data);#}
+                    tbodyData(data);
+                    //data = JSON.parse(data);
+                    var param_arr = ['总成本','总充值','关注成本', '24小时回款', '标题投放次数'];
+                    var bar_data = [];
+                    var time_arr = [];
+
+                    var money = [];
+                    var recharge = [];
+                    var concern = [];
+                    var oneday = [];
+                    var count = [];
+                    for(var x = 0; x < data.length; x++){
+                        time_arr.push(data[x]['title']);
+                        money.push(data[x]['cost']);
+                        recharge.push(data[x]['recharge']);
+                        concern.push(data[x]['concern']);
+                        oneday.push(data[x]['one_day']);
+                        count.push(data[x]['all_title']);
+                    }
+
+                    for(var i = 0 ; i < param_arr.length;i++){
+                        var data_money = [];
+                        if (param_arr[i] == '总成本') {
+                                data_money = money
+                            }else if (param_arr[i]=='总充值') {
+                                data_money = recharge
+                            }else if(param_arr[i]=='关注成本'){
+                                data_money = concern
+                            }else if(param_arr[i]=='24小时回款'){
+                                data_money = oneday
+                            }else {
+                                data_money = count
+                        }
+                        // 柱状
+                        var bar_arr = {};
+                        bar_arr.name = param_arr[i];
+                        bar_arr.type = "bar";
+                        bar_arr.barWidth = 10;
+                        bar_arr.data = data_money;
+                        bar_data.push(bar_arr);
+
+                        // 折线
+                        var line_arr = {};
+                        line_arr.name = param_arr[i];
+                        line_arr.type = "line";
+                        line_arr.barWidth = 10;
+                        line_arr.data = data_money;
+                        bar_data.push(line_arr);
+
+                        }
+
+                    // 基于准备好的dom，初始化echarts实例
+                    var myChart = echarts.init(document.getElementById('graph'));
+                    var option = {
+                        tooltip: {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data: param_arr
+                        },
+                        grid: {
+                            y2: 240
+                        },
+                        xAxis: [{
+                            type: 'category',
+                            axisLabel: {
+                                interval: 0, //横轴信息全部显示
+                                rotate: 30, //30度角倾斜显示
+                            },
+                            data: time_arr
+                        }],
+                        yAxis: [{
+                            type: 'value',
+                            name: '金额',
+                            axisLabel: {
+                                formatter: '{value} '
+                            }
+                        }],
+                        series: bar_data
+                        };
+
+                    // 使用刚指定的配置项和数据显示图表。
+                    myChart.setOption(option);
+                    },
+                {#error: function(xmlHttpRequest, textStatus, errors) {#}
+					{#	alert("请选择时间搜索");#}
+					{#	console.log(xmlHttpRequest.status);#}
+					{#	console.log(textStatus);#}
+					{#	console.log(errors);#}
+					{# }#}
+                });
+            }
+
+
+            // 获取表格数据
+            function tbodyData(data) {
+			    $('#summaryData').html('');
+                {#console.log(data)#}
+                var html = "";
+                var total_money = 0;
+                var total_recharge = 0;
+                var total_recharge_pro = 0;
+                var total_one_day = 0;
+                var total_one_day_percent = 0;
+                var total_concern = 0;
+                var total_count = 0;
+                var total_number = 0;
+                for (var i=0; i<data.length;i++){
+                    var time = data[i]['title'];
+                    var money = data[i]['cost'];
+                    var recharge = data[i]['recharge'];
+                    var recharge_pro = ((recharge/money)*100).toFixed(2);
+                    var one_day = data[i]['one_day'];
+                    var one_day_percent = ((one_day/money)*100).toFixed(2);
+                    var concern = data[i]['concern'];
+                    var count = data[i]['all_title'];
+
+                    total_money += money;
+                    total_recharge += parseFloat(recharge);
+                    total_one_day += parseFloat(one_day);
+                    total_concern += parseFloat(concern);
+                    total_count += count;
+                    total_number += 1;
+                    html += "<tr class='tr_data'>" +
+                                   "<td>" + time +"</td>" +
+                                   "<td>" + money +"</td>" +
+                                   "<td>" + recharge +"</td>" +
+                                   "<td>" + recharge_pro +"‰</td>" +
+                                   "<td>" + one_day +"</td>" +
+                                   "<td>" + one_day_percent +"%</td>" +
+                                   "<td>" + concern +"</td>" +
+                                   "<td>" + count +"</td>" +
+                               "</tr>";
+
+                }
+                if (total_number == 0){
+                    total_concern = 0
+                }else {
+                    total_concern = (total_concern / total_number).toFixed(2);
+                }
+                total_one_day_percent = ((total_one_day/total_money)*100).toFixed(2);
+                total_recharge_pro = ((total_recharge/total_money)*100).toFixed(2);
+                html += "<tr>" +
+                            "<th>合计</th>" +
+                            "<th>" + total_money +"</th>" +
+                            "<th>" + total_recharge + "</th>" +
+                            "<th>" + total_recharge_pro + "‰</th>" +
+                            "<th>" + total_one_day + "</th>" +
+                            "<th>" + total_one_day_percent + "%</th>" +
+                            "<th>" + total_concern + "</th>" +
+                            "<th>" + total_count + "</th>" +
+                        "</tr>";
+                $('#summaryData').append(html)
+
+            }
+
+
+        </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+{% load static %}
+<!-- WRAPPER -->
+  <div id="wrapper">   <!-- NAVBAR -->
+    <nav class="navbar navbar-default navbar-fixed-top" style="height: 50px;">
+      <div class="brand" style="padding:0;">
+        <a href="javascript:void(0);">
+          <img src="{% static 'static/novel/img/logo-dark.png' %}" alt="Klorofil Logo" class="img-responsive logo" style="height:50px;">
+        </a>
+      </div>
+      <div class="container-fluid">
+        <div class="navbar-btn">
+          <button type="button" class="btn-toggle-fullwidth">
+            <i class="fa fa-list" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div id="navbar-menu">
+          <ul class="nav navbar-nav navbar-right">
+            <!-- <li class="dropdown">
+              <a href="/user_notice.php" class="dropdown-toggle icon-menu">
+                <i class="fa fa-bell-o" aria-hidden="true" ></i>
+                <span class="badge bg-danger notice_msgnum"></span>
+              </a>
+            </li> -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="{% static 'static/novel/img/user.png' %}" class="img-circle" alt="Avatar">
+                <span>欢迎您：</span>
+                <span style="color: red">{{ request.session.user_id.name }}</span>
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- <li>
+                  <a href="/user_modpw.php">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <span>个人资料</span>
+                  </a>
+                </li> -->
+                <!-- <li>
+                  <a href="/wxsetting.php">
+                    <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                    <span>公众号设置/接入</span>
+                  </a>
+                </li> -->
+                <!-- <li>
+                  <a href="/tengwen_readme.docx">
+                    <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <span>下载帮助文档</span>
+                  </a>
+                </li> -->
+                <li>
+                  <a href="/logout" onclick="return confirm('确认退出？')">
+                    <i class="fa fa-fw fa-power-off" aria-hidden="true"></i>
+                    <span>退出登录</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- END NAVBAR -->

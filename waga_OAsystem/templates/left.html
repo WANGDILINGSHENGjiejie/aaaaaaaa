@@ -1,0 +1,38 @@
+<!-- LEFT SIDEBAR -->
+<div id="sidebar-nav" class="sidebar">
+    <div class="sidebar-scroll" style="overflow-y: auto;height: 100%;padding:20px 0;">
+        <nav>
+            <ul class="nav">
+                {% if request.session.user_id.user_type == 'supervisor' or request.session.user_id.user_type == 'leader_find_number' or request.session.user_id.user_type == 'find_number' or request.session.user_id.user_type == 'order' %}
+                    <li>{{ request.session.user_id.name }}
+                        <a href="/resource/list">
+                            <span>资1源库</span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if request.session.user_id.user_type == 'supervisor' or request.session.user_id.user_type == 'copywriting' %}
+                    <li>{{ request.session.user_id.name }}
+                        <a href="/into_cp">
+                            <span>文案库</span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if request.session.user_id.user_type == 'supervisor' or request.session.user_id.user_type == 'leader_find_number' or request.session.user_id.user_type == 'order' %}
+                    <li>{{ request.session.user_id.name }}
+                        <a href="/getinfo">
+                            <span>派单表</span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if request.session.user_id.user_type == 'supervisor' or request.session.user_id.user_type == 'order' %}
+                    <li>{{ request.session.user_id.name }}
+                        <a href="/histroy/list">
+                            <span>派单历史</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</div>
+<!-- END LEFT SIDEBAR -->

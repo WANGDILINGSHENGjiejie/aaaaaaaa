@@ -1,0 +1,134 @@
+<!-- LEFT SIDEBAR -->
+<div id="sidebar-nav" class="sidebar">
+    <div class="sidebar-scroll" style="overflow-y: auto;height: 100%;padding:20px 0;">
+        <nav>
+            <ul class="nav">
+                {% if request.session.user_id.user_type == 'supervisor' or request.session.user_id.user_type == 'leader_find_number' or request.session.user_id.user_type == 'find_number' or request.session.user_id.user_type == 'order' %}
+                    <li>
+                        <a href="/resource/list" id="resource_list">
+                            <span>资源库</span>
+                        </a>
+                    </li>
+                {% endif %}
+                <li>
+                    <a href="/cp_get_message" id="cp_get_message">
+                        <span>文案库</span>
+                    </a>
+                </li>
+                {% if request.session.user_id.user_type == 'supervisor' or request.session.user_id.user_type == 'leader_find_number' or request.session.user_id.user_type == 'order' %}
+                    <li>
+                        <a href="/getinfo" id="getinfo">
+                            <span>派单表</span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if request.session.user_id.user_type == 'supervisor' or request.session.user_id.user_type == 'order' or request.session.user_id.user_type == 'leader_find_number' or request.session.user_id.user_type == 'find_number' %}
+                    <li>
+                        <a href="/histroy/list" id="histroy_list">
+                            <span>派单历史</span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if request.session.user_id.user_type == 'supervisor' or request.session.user_id.user_type == 'leader_find_number' or request.session.user_id.user_type == 'find_number' %}
+                    <li>
+                        <a href="/resource/public_list" id="resource_public_list">
+                            <span>公众号库</span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if request.session.user_id.user_type == 'supervisor' %}
+                    <li>
+                        <a href="/resource/transfer" id="resource_transfer">
+                            <span>修改数据</span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if request.session.user_id.user_type != 'copywriting' %}
+                    <li>
+                        <a href="/into_bh" id="into_bh">
+                            <span>小黑屋</span>
+                        </a>
+                    </li>
+                {% endif %}
+                <li>
+                    <a href="/into_dp" id="into_dp">
+                        <span>定金表</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/service/task" id="service_task">
+                        <span>客服推送</span>
+                    </a>
+                </li>
+                <li>
+                        <a href="/summary/launch" id="summary_launch">
+                            <span>投放汇总</span>
+                        </a>
+                </li>
+                <li>
+                        <a href="/title/home" id="title_home">
+                            <span>标题汇总</span>
+                        </a>
+                </li>
+                <li>
+                        <a href="/fiction/index" id="fiction_index">
+                            <span>小说汇总</span>
+                        </a>
+                </li>
+                <li>
+                        <a href="/main/index" id="main_index">
+                            <span>主体汇总</span>
+                        </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!-- END LEFT SIDEBAR -->
+
+<script type="text/javascript">
+    var address = window.location.pathname
+    switch(address)
+    {
+    case '/resource/list':
+      $('a#resource_list').addClass('active')
+      break;
+    case '/cp_get_message/':
+      $('a#cp_get_message').addClass('active')
+      break;
+    case '/getinfo':
+      $('a#getinfo').addClass('active')
+      break;
+    case '/histroy/list':
+      $('a#histroy_list').addClass('active')
+      break;
+    case '/resource/public_list':
+      $('a#resource_public_list').addClass('active')
+      break;
+    case '/resource/transfer':
+      $('a#resource_transfer').addClass('active')
+      break;
+    case '/into_bh/':
+      $('a#into_bh').addClass('active')
+      break;
+    case '/into_dp/':
+      $('a#into_dp').addClass('active')
+      break;
+    case '/service_task/':
+      $('a#service_task').addClass('active')
+      break;
+    case '/summary/launch/':
+      $('a#summary_launch').addClass('active')
+      break;
+    case '/title/home/':
+      $('a#title_home').addClass('active')
+      break;
+    case '/fiction/index/':
+      $('a#fiction_index').addClass('active')
+      break;
+    case '/main/index/':
+      $('a#main_index').addClass('active')
+      break;
+    }
+    console.log(window.location.pathname)
+</script>

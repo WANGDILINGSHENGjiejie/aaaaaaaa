@@ -1,0 +1,347 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>资源添加 - 哇嘎互娱</title>
+    {% include 'public/static.html' %}
+    <script>
+        var api_url = '/api.php';
+        var cur_pos = '资源添加';
+        var _cdnurl = "//cdn.xxxx.com/";
+        var __cfg = false;
+        var imgurl = 'static/';
+
+        function adm_ajax_ckstat(stat) {
+            if (stat == "ok") return true;
+
+            if (stat == "nologin") {
+                window.location.reload();
+            }
+            return false;
+        }
+
+        var _Notice = 0;
+        var _unReadTop = [];
+
+    </script>
+
+</head>
+<body>
+{% include 'public/header.html' %}
+{% include 'public/left.html' %}
+
+
+<!-- MAIN -->
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <div id="tipdlg"></div>
+            <style type="text/css">
+                strong {
+                    margin-bottom: 5px;
+                    display: inline-block;
+                }
+
+                #template_edit .box {
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    margin: 15px;
+                    padding: 15px;
+                    word-break: break-all;
+                }
+
+                #template_edit .box .msg-title {
+                    font-size: 18px;
+                    color: #000;
+                    font-weight: 400;
+                    margin-bottom: 0;
+                }
+
+                #template_edit .box .fa {
+                    font-size: 16px;
+                }
+
+            </style>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- TABLE HOVER -->
+                    <div class="panel">
+                        <div class="panel-heading panel-header-bottom mynav">
+                            <h3 class="panel-title">
+                                <i class="fa fa-home" aria-hidden="true"></i>首页 > 添加资源　　　　　　　　　　　　　　　　　　　　　　　　<span style="color: red;">请注意带＊号的字段必须要填写</span>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div role="tabpanel" class="tab-pane active" tyle="padding:10px 0">
+                                <form id="editform" class="form-horizontal">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label"><span
+                                                style="color: red;">*</span>公众号主体：</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" list="companys" class="form-control" placeholder="" id="main_body"
+                                                   name="main_body" value="" autocomplete="off">
+                                        </div>
+                                        <!-- <label for="inputEmail3" class="col-sm-1 control-label"><span
+                                                style="color: red;">*</span>联系方式：</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="contact_information"
+                                                   name="contact_information" placeholder="" value="" autocomplete="off">
+                                        </div> -->
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-1 control-label"><span
+                                                style="color: red;">*</span>公众号：</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="public_number"
+                                                   name="public_number[]" placeholder="" value="" autocomplete="off">
+                                        </div>
+                                        <label for="inputEmail3" class="col-sm-1 control-label"><span
+                                                style="color: red;">*</span>微信号：</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="we_char_number"
+                                                   name="we_char_number[]" placeholder="" value="" autocomplete="off">
+                                        </div>
+                                        <label for="inputEmail3" class="col-sm-1 control-label"><span
+                                                style="color: red;">*</span>总粉/万：</label>
+                                        <div class="col-sm-2">
+                                            <input type="number" class="form-control" id="total_fans"
+                                                   name="total_fans[]" placeholder="" value="" autocomplete="off">
+                                        </div>
+                                        <label for="inputEmail3" class="col-sm-1 control-label"><span
+                                                style="color: red;">*</span>联系方式：</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="contact_information"
+                                                   name="contact_information[]" placeholder="" value="" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-1 control-label"><span
+                                                style="color: red;">*</span>外推价格：</label>
+                                        <div class="col-sm-2">
+                                            <input type="number" class="form-control" id="cost"
+                                                   name="cost[]" placeholder="" value="" autocomplete="off">
+                                        </div>
+                                        <label for="inputEmail3" class="col-sm-1 control-label"><span
+                                                style="color: red;">*</span>平均阅读：</label>
+                                        <div class="col-sm-2">
+                                            <input type="number" class="form-control" id="average_readings"
+                                                   name="average_readings[]" placeholder="" value="" autocomplete="off">
+                                        </div>
+                                        <label for="inputEmail3" class="col-sm-1 control-label"><span
+                                                style="color: red;">*</span>类型：</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="type" name="type[]"
+                                                   placeholder="" value="" autocomplete="off">
+                                        </div>
+                                        <label for="inputEmail3" class="col-sm-1 control-label">备注：</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="remark" name="remark[]"
+                                                   placeholder="" value="" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                    </div>
+                                    <hr>
+                                    <div class="form-group" id="inputButton">
+                                        <label for="inputPassword3" class="col-sm-4 control-label"></label>
+                                        <div class="col-sm-4">
+                                            <a class="btn btn-default" href="/resource/list">返回 </a>
+                                            <button type="button" id="up-submit" class="btn btn-success">提交</button>
+                                            <a id="msg-submit" class="btn btn-success">再添加一个</a>
+                                            <span class="green tipmsg">&nbsp;</span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END TABLE HOVER -->
+                </div>
+            </div>
+            <script>
+
+                $("#msg-submit").click(function () {
+
+                    var that = this
+
+                    var html =      '<div class="close-form">'+
+                                    '<div class="form-group">'+
+                                        '<label for="inputEmail3" class="col-sm-1 control-label"><span\n' +
+                        '                                                style="color: red;">*</span>公众号：</label>'+
+                                        '<div class="col-sm-2">'+
+                                            '<input type="text" class="form-control" id="public_number"'+
+                                                   'name="public_number[]" placeholder="" value="">'+
+                                        '</div>'+
+                                        '<label for="inputEmail3" class="col-sm-1 control-label"><span\n' +
+                        '                                                style="color: red;">*</span>微信号：</label>'+
+                                        '<div class="col-sm-2">'+
+                                            '<input type="text" class="form-control" id="we_char_number"'+
+                                                   'name="we_char_number[]" placeholder="" value="">'+
+                                        '</div>'+
+                                        '<label for="inputEmail3" class="col-sm-1 control-label"><span\n' +
+                        '                                                style="color: red;">*</span>总粉/万：</label>'+
+                                        '<div class="col-sm-2">'+
+                                            '<input type="number" class="form-control" id="total_fans"'+
+                                                   'name="total_fans[]" placeholder="" value="">'+
+                                        '</div>'+
+
+                                        '<label for="inputEmail3" class="col-sm-1 control-label"><span\n' +
+                        '                                                style="color: red;">*</span>联系方式：</label>'+
+                                        '<div class="col-sm-2">'+
+                                            '<input type="text" class="form-control" id="contact_information"'+
+                                                   'name="contact_information[]" placeholder="" value="">'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="form-group">'+
+                                        '<label for="inputEmail3" class="col-sm-1 control-label"><span\n' +
+                        '                                                style="color: red;">*</span>外推价格：</label>'+
+                                        '<div class="col-sm-2">'+
+                                            '<input type="number" class="form-control" id="cost"'+
+                                                   'name="cost[]" placeholder="" value="">'+
+                                        '</div>'+
+                                        '<label for="inputEmail3" class="col-sm-1 control-label"><span\n' +
+                        '                                                style="color: red;">*</span>平均阅读：</label>'+
+                                        '<div class="col-sm-2">'+
+                                            '<input type="number" class="form-control" id="average_readings"'+
+                                                   'name="average_readings[]" placeholder="" value="">'+
+                                        '</div>'+
+                                        '<label for="inputEmail3" class="col-sm-1 control-label"><span\n' +
+                        '                                                style="color: red;">*</span>类型：</label>'+
+                                        '<div class="col-sm-2">'+
+                                            '<input type="text" class="form-control" id="type" name="type[]"'+
+                                                   'placeholder="" value="">'+
+                                        '</div>'+
+                                        '<label for="inputEmail3" class="col-sm-1 control-label">备注：</label>'+
+                                        '<div class="col-sm-2">'+
+                                            '<input type="text" class="form-control" id="remark" name="remark[]"'+
+                                                   'placeholder="" value="">'+
+                                        '</div>'+
+
+                                    '</div>'+
+                                    '<div class="form-group">'+
+                                        '<div class="col-sm-12">' +
+                                        '<input type="button" class="close" id="close-button" data-dismiss="modal" value="×" />' +
+                                        '</div>'+
+                                    '</div>'+
+                                    '<hr>'+
+                                    '</div>';
+                    console.log($("#inputButton").before(html))
+                });
+
+                function _postTemplateMsg(){
+                    if($("#main_body").val().length==0){
+                        $(".tipmsg").html("主体不能为空");
+                        return false;
+                    }
+                    $("input#public_number").each(function () {
+                        if (!$(this).val()) {
+                            $(".tipmsg").html("公众号不能为空");
+                            return false;
+                        }
+                    })
+                    $("input#total_fans").each(function () {
+                        if (!$(this).val()) {
+                            $(".tipmsg").html("总粉不能为空");
+                            return false;
+                        }
+                    })
+                    $("input#type").each(function () {
+                        if (!$(this).val()) {
+                            $(".tipmsg").html("公众号类型不能为空");
+                            return false;
+                        }
+                    })
+                    $("input#we_char_number").each(function () {
+                        if (!$(this).val()) {
+                            $(".tipmsg").html("微信号不能为空");
+                            return false;
+                        }
+                    })
+                    $("input#average_readings").each(function () {
+                        if (!$(this).val()) {
+                            $(".tipmsg").html("平均阅读不能为空");
+                            return false;
+                        }
+                    })
+                    $("input#contact_information").each(function () {
+                        if (!$(this).val()) {
+                            $(".tipmsg").html("联系方式不能为空");
+                            return false;
+                        }
+                    })
+
+                    var d=$('#editform').serialize();
+                    $(".tipmsg").html("");
+                    api.submitStatus(true,"#up-submit",'');
+                    sendData("/resource/save_resource",d,function(data){
+                          // if(data=='error'){
+                          //     toastr.error('网络繁忙，请稍候再试');
+                          //     api.submitStatus(false,"#msg-submit",'保存');
+                          //     return;
+                          // }
+                          // if(data.err<0){
+                          //     toastr.error(data.msg);
+                          //     api.submitStatus(false,"#msg-submit",'保存');
+                          // } else if(data.err==0){
+                             console.log(data)
+                             if (data.code == 200) {
+                                 toastr.success(data.errorMsg);
+                                 setTimeout(function(){window.location.href="/resource/list";},1500);
+                             } else if (data.code == 500) {
+                                 toastr.error(data.errorMsg);
+                                 api.submitStatus(false,"#up-submit",'保存');
+                             }
+
+
+                      });
+                  }
+                $("#up-submit").bind('click',function(event){
+                    event.preventDefault();
+                    _postTemplateMsg();
+                });
+            </script>
+            <script>
+                $('form#editform').on("click", '#close-button', function () {
+                    console.log($(this).parent().parent().parent('.close-form').remove())
+                })
+            </script>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>
+<!-- END MAIN -->
+<div class="clearfix"></div>
+<footer></footer>
+</div> <!-- END WRAPPER -->
+<style>
+    .toast-top-center {
+        top: 52px;
+    }
+</style>
+<script>
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-center",//toast-top-center toast-bottom-center
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "3000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+</script>
+<script></script>
+</body>
+</html>

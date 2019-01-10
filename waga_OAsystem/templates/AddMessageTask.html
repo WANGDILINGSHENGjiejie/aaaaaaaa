@@ -1,0 +1,1403 @@
+<!--{% load staticfiles %}-->
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://novel.tengwen.com/dispatch_list.php -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>哇嘎互娱</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- jQuery 3 -->
+    <script src="{% static 'jquery.min.js'%}"></script>
+    <!-- Font Awesome 图标字体库和CSS框架-->
+    <link rel="stylesheet" href="{% static 'font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css.css'%}">
+    <link rel="stylesheet" href="{% static 'media.css'%}">
+    <link rel="stylesheet" href="{% static 'bootstrap-select.min.css'%}">
+    <link rel="stylesheet" href="{% static 'layerUI/css/layui.css'%}">
+    <!--&lt;!&ndash; Font Awesome 图标字体库和CSS框架&ndash;&gt;-->
+    <link rel="stylesheet" href="{% static 'admin/bower_components/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'datetimepicker/css/bootstrap-datetimepicker.min.css' %}">
+
+    <script src="{% static 'layerUI/layui.all.js'%}"></script>
+    <script type="text/javascript" src="{% static 'jquery.qrcode.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'jquery.cookie.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'clipboard.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'klorofil-common.js'%}"></script>
+    <script type="text/javascript" src="{% static 'comm.js'%}"></script>
+    <script src="{% static 'layerUI/layui.all.js'%}" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'layerUI/css/layui.css'%}"/>
+
+    <script type="text/javascript" src="{% static 'moment.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'moment_zh-cn.js'%}"></script>
+    <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet"/>
+    <script src="{% static 'bootstrap.min.js'%}"></script>
+    <script src="{% static 'bootstrap-select.min.js'%}"></script>
+    <script src="{% static 'defaults-zh_CN.js'%}"></script>
+    <script type="text/javascript" src="{% static 'echarts.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'datetimepicker/js/bootstrap-datetimepicker.min.js'%}"></script>
+    <script type="text/javascript"
+            src="{% static 'datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js'%}"></script>
+</head>
+
+<body>
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!-- NAVBAR -->
+    {% include 'public/header.html' %}
+    <!-- END NAVBAR -->
+
+    <!-- LEFT SIDEBAR -->
+    {% include 'public/left.html' %}
+    <!-- END LEFT SIDEBAR -->
+
+    <!-- MAIN -->
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <div id="tipdlg"></div>
+                <style type="text/css">
+                    strong {
+                        margin-bottom: 5px;
+                        display: inline-block;
+                    }
+
+                    .color-red {
+                        color: red;
+                    }
+
+                    #tmplate_msgtype_news .box {
+                        background: #fff;
+                        border: 1px solid #ccc;
+                        margin: 15px;
+                        padding: 15px;
+                        font-size: 16px;
+                        word-break: break-all;
+                    }
+
+                    #tmplate_msgtype_news .box .msg-title {
+                        color: #000;
+                        font-weight: 400;
+                        margin-bottom: 0;
+                    }
+
+                    #tmplate_msgtype_news .box .fa {
+                        font-size: 16px;
+                    }
+
+                    #tmplate_msgtype_news .box .msg-picurl {
+                        position: relative;
+                        min-height: 250px;
+                        max-height: 260px;
+                    }
+
+                    #tmplate_msgtype_news .box .msg-picurl:hover .pic-overlay {
+                        display: block;
+                    }
+
+                    #tmplate_msgtype_news .box .msg-picurl img {
+                        width: 100%;
+                        min-height: 250px;
+                        max-height: 260px;
+                    }
+
+                    #tmplate_msgtype_news .box .pic-overlay {
+                        display: none;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        text-align: center;
+                        background: rgba(0, 0, 0, .2);
+                    }
+
+                    #tmplate_msgtype_news .box .pic-overlay a {
+                        margin-top: 30%;
+                    }
+
+                    #tmplate_msgtype_news .box .sub-items {
+                        margin-top: 10px;
+                        font-size: 16px;
+                    }
+
+                    #tmplate_msgtype_news .box .sub-item {
+                        border-top: 1px solid #eee;
+                        padding: 6px 0;
+                    }
+
+                    #tmplate_msgtype_news .box .sub-item .delete i {
+                        font-size: 20px;
+                        margin-top: 40%;
+                    }
+
+                    #tmplate_msgtype_news .add-sub-item {
+                        padding-bottom: 10px;
+                        text-align: center;
+                    }
+
+                    .input-popup-box {
+                        position: fixed;
+                        display: none;
+                        height: 350px;
+                        background: #fff;
+                        z-index: 250000;
+                        border: 1px solid #CCCCCC;
+                        border-radius: 5px;
+                        overflow: hidden;
+                        overflow-y: auto;
+                    }
+
+                    .input-popup-box ul {
+                        padding: 0px;
+                    }
+
+                    .input-popup-box li {
+                        display: block;
+                        background: #fff;
+                        padding: 5px 10px;
+                    }
+
+                    .input-popup-box li:hover {
+                        background: #EEEEEE;
+                    }
+
+                    .input-popup-box li span {
+                        display: block;
+                    }
+
+                    .input-popup-box li p {
+                        color: #777;
+                        margin: 0;
+                    }
+                </style>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- TABLE HOVER -->
+                        <div class="panel">
+                            <div class="panel-heading panel-header-bottom mynav">
+                                <h3 class="panel-title"><i class="fa fa-home" aria-hidden="true"></i>首页 > 添加客服消息任务</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div role="tabpanel" class="tab-pane active" tyle="padding:10px 0">
+                                    <form class="form-horizontal" id="editform">
+                                        <input type="hidden" class="form-control" name="data[id]" value="">
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label">任务名称</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="title" name="data[title]"
+                                                       placeholder="" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label">消息内容</label>
+                                            <div class="col-sm-4">
+
+                                                <!--文本消息 END -->
+                                                <!--图文消息ex -->
+                                                <div class="col-sm-12" id="tmplate_msgtype_news"
+                                                     style="padding:0; display:none ;background: #F5F5F5; ">
+                                                    <div class="box">
+                                                        <div>
+                                                            <div class="modal-body">
+                                                                <div class="form-group  input-group"
+                                                                     style="margin:0 0 10px 0"><input type="text"
+                                                                                                      class="form-control"
+                                                                                                      id="temp_title"
+                                                                                                      placeholder="标题"
+                                                                                                      value="友情提示，本书不要在公共场合观看，否则你会笑的成为宇宙的焦点。"
+                                                                                                      readonly=""> <span
+                                                                        class="input-group-btn"><button type="button"
+                                                                                                        id="get-title-submit"
+                                                                                                        class="btn btn-success">选择标题</button></span>
+                                                                </div>
+                                                                <div class="form-group  input-group"
+                                                                     style="margin:0 0 10px 0"><input type="text"
+                                                                                                      class="form-control"
+                                                                                                      id="temp_link"
+                                                                                                      placeholder="链接地址"
+                                                                                                      value=""><span
+                                                                        class="input-group-btn"><button type="button"
+                                                                                                        id="get-link-submit"
+                                                                                                        class="btn btn-success ">创建链接</button></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="msg-picurl"><img class="msg-img  top-picurl"
+                                                                                         src="">
+                                                                <div class="pic-overlay">
+                                                                    <a class="btn btn-success btn-xs"
+                                                                       onclick="selectCoverDlg.showDlg(this)"><i
+                                                                            class="fa fa-edit"></i>
+                                                                        更换图片</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sub-items">
+                                                            <div class="form-group" style="margin:0 0 0px 0"><textarea
+                                                                    style="height:100px;"
+                                                                    class="form-control top-content" id="temp_content"
+                                                                    placeholder="图文简介"></textarea></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--图文消息ex end-->
+
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword3" class="col-sm-2 control-label">书名ID</label>
+                                            <div class="col-sm-4">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="" name="" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword3" class="col-sm-2 control-label ">发送时间</label>
+                                            <div class="col-sm-4">
+                                                <!--<input type="text" class="form-control datetimepicker form_datetime " id="send_time"  name="data[send_time]" placeholder=""  value="">-->
+                                                <input type="text" class="form-control layui-inline" id="datetimepicker"
+                                                       name="data[send_time]" placeholder="" value="">
+                                                <!--<div style="padding-top:5px;">-->
+                                                <!--【<a href="javascript:;" onclick="setDataValue(10,'minutes')">10分钟后</a>】 -->
+                                                <!--【<a href="javascript:;" onclick="setDataValue(30,'minutes')">30分钟后</a>】 -->
+                                                <!--【<a href="javascript:;" onclick="setDataValue(1,'hours')">1小时后</a>】 -->
+                                                <!--【<a href="javascript:;" onclick="setDataValue(2,'hours')">2小时后</a>】-->
+                                                <!--【<a href="javascript:;" onclick="setDataValue(3,'hours')">3小时后</a>】-->
+                                                <!--</div>-->
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword3" class="col-sm-2 control-label">测试粉丝ID</label>
+                                            <div class="col-sm-4">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="test_userid"
+                                                           name="data[test_user]" value="">
+                                                    <span class="input-group-btn"><button type="button" id="test-submit"
+                                                                                          class="btn btn-success">测试发送</button></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword3" class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <!--<a class="btn btn-default" style="width:100px;">返回</a>-->
+                                                <button type="button" id="msg-submit" class="btn btn-success"
+                                                        style="width:100px;">保存
+                                                </button>
+                                                <span class="green tipmsg">&nbsp;</span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END TABLE HOVER -->
+                    </div>
+                </div>
+                <style type="text/css">
+                    .select-title-box {
+                        margin: -15px;
+                    }
+
+                    .select-title-box ul {
+                        padding: 0px;
+                    }
+
+                    .select-title-box ul > li {
+                        padding: 5px;
+                        border-bottom: 1px solid #E5E5E5;
+                        list-style: none;
+                        padding-left: 15px;
+                        white-space: nowrap;
+                        display: block;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+
+                    .select-cover-box {
+                        margin: 0 -15px;
+                    }
+
+                    .select-cover-box ul {
+                        padding: 0px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-around;
+                    }
+
+                    .select-cover-box ul > li {
+                        width: 120px;
+                        height: 75px;
+                        list-style: none;
+                        margin-bottom: 10px;
+                    }
+
+                    .select-cover-box ul > li img {
+                        width: 120px;
+                        height: 75px;
+                    }
+
+                    .sales-item {
+                        position: relative;
+                        display: block;
+                        padding: 10px 15px;
+                        background-color: #fff;
+                        border-bottom: 1px solid #ddd;
+                        color: #333;
+                    }
+
+                    .sales-item.active {
+                        background: #676A6D;
+                        color: #fff;
+                    }
+
+                    .sales-item-heading {
+                        margin-top: 0;
+                        margin-bottom: 5px;
+                        font-size: 16px
+                    }
+
+                    .sales-item-text {
+                        margin-bottom: 0;
+                        line-height: 1.3;
+                        font-size: 14px
+                    }
+
+                    a.sales-item:focus,
+                    a.sales-item:hover,
+                    button.sales-item:focus,
+                    button.sales-item:hover {
+                        color: #555;
+                        text-decoration: none;
+                        background-color: #f5f5f5
+                    }
+                </style>
+                <!--标题框-->
+                <div id="mdl1526557124086" class="modal fade" role="dialog" aria-labelledby="modalLabel"
+                     style="z-index: 2000">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title" id="modalLabel">选择标题<span
+                                        style="padding-left: 20px;font-size: 15px;color: #3994C7;">(如果您有更好的标题，请联系客服添加)</span>
+                                </h4>
+                            </div>
+                            <div style="    width: 100%;display: inline-block;padding: 5px;">
+                                <div class="col-sm-6" style="padding: 0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="searchtitle" name="" value=""
+                                               placeholder="请输入关键词">
+                                        <span class="input-group-btn"><button type="button" id="title-search-submit"
+                                                                              class="btn btn-success">搜索</button></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="nav nav-tabs  nav-justified dropdown-header-title" style="padding: 5px 0 0 0px;"
+                                data-type="title">
+                                <li data-index="0" class="active"><a href="javascript:;">通用</a></li>
+                                <li data-index="1"><a href="javascript:;">男频</a></li>
+                                <li data-index="2"><a href="javascript:;">女频</a></li>
+                                <li data-index="3"><a href="javascript:;">活动</a></li>
+                            </ul>
+                            <div class="modal-body">
+
+                                <div class="select-title-box">
+                                    <ul></ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--标题框-END-->
+                <!--图片选择框-->
+                <div id="mdl152755712400" class="modal fade" role="dialog" aria-labelledby="modalLabel"
+                     style="z-index: 2000">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title" id="modalLabel">选择图片</h4>
+                            </div>
+                            <ul class="nav nav-tabs  nav-justified dropdown-header-cover" style="padding: 5px 0 0 0px;"
+                                data-type="title">
+                                <li data-index="0" class="active"><a href="javascript:;">通用</a></li>
+                                <li data-index="1"><a href="javascript:;">活动</a></li>
+                                <li data-index="2"><a href="javascript:;">其它</a></li>
+                            </ul>
+                            <div class="modal-body">
+                                <div class="select-cover-box">
+                                    <ul></ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--图片选择框-END-->
+                <!--获取链接框-->
+                <div id="mdl1526557124088" class="modal fade" role="dialog" aria-labelledby="modalLabel"
+                     style="z-index: 2000;display: ;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title" id="modalLabel">获取链接<span
+                                        style="padding-left: 20px;font-size: 15px;color: #3994C7;"></span></h4>
+                            </div>
+                            <ul class="nav nav-tabs  nav-justified dropdown-header-link" style="padding: 5px 0 0 0px;"
+                                data-type="title">
+                                <li data-index="1" class="active"><a href="javascript:;">创建内推链接</a></li>
+                                <li data-index="2"><a href="javascript:;">获取活动链接</a></li>
+                            </ul>
+                            <div class="modal-body">
+                                <div class="tab-content tab-1 form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">内推链接标题</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" maxlength="100" id="dispatch-title"
+                                                   placeholder="请填写内推名称" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">小说名</label>
+                                        <div class="col-sm-7">
+                                            <select id="articleid" class="form-control"
+                                                    onchange="selectLink.changeselect_article()"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">章节</label>
+                                        <div class="col-sm-7">
+                                            <select id="article-chapterid" class="form-control"
+                                                    onchange="selectLink.changeselect_articlechapter()"></select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" style="padding-bottom:0">
+                                        <button type="button" class="btn btn-success setsave">确定创建</button>
+                                    </div>
+                                </div>
+                                <div class="tab-content tab-2  form-horizontal" style="display: none;">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--获取链接框-END-->
+                <!--设置活动时间框-->
+                <div id="mdl152755702323" class="modal fade" role="dialog" aria-labelledby="modalLabel"
+                     style="z-index: 2000">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title" id="modalLabel">设置活动时间</h4>
+                            </div>
+                            <div class="modal-body">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success setsave">保存设置</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--设置活动时间-END-->
+
+                <script type="text/javascript">
+                    <!--加载时间选择器-->
+                    var laydate = layui.laydate;
+                    //执行一个laydate实例
+                    laydate.render({
+                        elem: '#datetimepicker', //指定元素
+                        type: 'datetime'
+                    });
+
+
+                    // $('.datetimepicker').datetimepicker({
+                    //         format: 'YYYY-MM-DD HH:mm',
+                    //         // locale: moment.locale('zh-CN'),
+                    //
+                    //          language: 'zh-CN',
+                    //     });
+
+                    // $(".form_datetime").datetimepicker({
+                    //         format: 'YYYY-MM-DD HH:mm',//显示格式
+                    //         locale: moment.locale('zh-CN'),
+                    //         todayHighlight: 1,//今天高亮
+                    //         minView: "month",//设置只显示到月份
+                    //         startView:2,
+                    //         forceParse: 0,
+                    //         showMeridian: 1,
+                    //         autoclose: 1//选择后自动关闭
+                    //         });
+
+
+                    var __subitem = [];
+                    var __TitleList = [{}];
+                    var __CoverList = [{}];
+
+                    function setDataValue(value, type) {
+                        $("#send_time").val(moment().add(value, type).format('YYYY-MM-DD HH:mm'));
+                    }
+
+                    $(function () {
+                        inputPopup.init();
+                        customMsg.init();
+                        selectTitle.init();
+                        selectCover.init();
+                        selectLink.init();
+                        setSaleaTimeDlg.init();
+                        addbtn.init();
+                        // $('.form_datetime').datetimepicker({
+                        //     format: 'YYYY-MM-DD HH:mm',
+                        //     locale: moment.locale('zh-CN'),
+                        // });
+                        // $('.datetimepicker1').datetimepicker({
+                        //     format: 'YYYY-MM-DD',
+                        //     locale: moment.locale('zh-CN'),
+                        // });
+                    });
+                    var customMsg = new function () {
+
+                        this.init = function () {
+                            this.MsgTypeChange();
+
+                            $("#msg-submit").bind('click', function (event) {
+                                event.preventDefault();
+                                _postTemplateMsg();
+                            });
+                            $("#test-submit").bind('click', function (event) {
+                                event.preventDefault();
+                                _testSendMsg();
+                            });
+
+                        }
+                        this.MsgTypeChange = function () {
+                            var index = $("#msgtype").val();
+                            if (index == '0') {
+                                $("#tmplate_msgtype_text").show();
+                                $("#tmplate_msgtype_news").hide();
+                            } else {
+                                $("#tmplate_msgtype_text").hide();
+                                $("#tmplate_msgtype_news").show();
+                            }
+                        }
+
+                        function _postTemplateMsg() {
+                            var msgtype = $("#msgtype").val();
+                            if ($("#title").val().length == 0) {
+                                $(".tipmsg").html("任务标题不能为空");
+                                return false;
+                            }
+                            if (msgtype == '0' && $("#temp_text").val().length == 0) {
+                                $(".tipmsg").html("消息内容不能为空");
+                                return false;
+                            }
+                            if (msgtype == '1') {
+                                var data = _getNewsData();
+                            } else {
+                                var data = _getTextData();
+                            }
+
+                            if ($("#send_time").val().length == 0) {
+                                $(".tipmsg").html("发送时间不能空");
+                                return false;
+                            }
+
+                            var start_date = $("#start_date").val();
+                            var end_date = $("#end_date").val();
+                            if ((start_date == '' && end_date != '') || (start_date != '' && end_date == '')) {
+                                $(".tipmsg").html("发送用户群中的开始/结束日期:要么都不填，要么都要填");
+                                return false;
+                            }
+                            var d = $('#editform').serialize();
+                            d += "&data[dataInfo]=" + data;
+                            $(".tipmsg").html("");
+                            api.submitStatus(true, "#msg-submit", '');
+                            sendData('api?action=save-task', d, function (data) {
+                                if (data == 'error') {
+                                    toastr.error('网络繁忙，请稍候再试');
+                                    api.submitStatus(false, "#msg-submit", '保存');
+                                    return;
+                                }
+                                if (data.err < 0) {
+                                    toastr.error(data.msg);
+                                    api.submitStatus(false, "#msg-submit", '保存');
+                                } else if (data.err == 0) {
+                                    toastr.success('提交成功');
+                                    setTimeout(function () {
+                                        window.location.href = '/custommsg/list';
+                                    }, 1500);
+
+                                }
+                            });
+                        }
+
+                        function _testSendMsg() {
+
+
+                            var msgtype = $("#msgtype").val();
+                            if (msgtype == '0' && $("#temp_text").val().length == 0) {
+                                toastr.error("消息内容不能为空");
+                                return false;
+                            }
+                            if (msgtype == '1') {
+                                var data = _getNewsData();
+                            } else {
+                                var data = _getTextData();
+                            }
+                            if ($("#test_userid").val().length == 0) {
+                                toastr.error('粉丝ID不能为空');
+                                return false;
+                            }
+                            if (!/^\d+$/.test($("#test_userid").val())) {
+                                toastr.error('粉丝ID必须为数字');
+                                return false;
+                            }
+
+                            var d = $('#editform').serialize();
+                            d += "&data[dataInfo]=" + data;
+                            api.submitStatus(true, "#test-submit", '发送中');
+                            sendData('api?action=test-send', d, function (data) {
+                                api.submitStatus(false, "#test-submit", '测试发送');
+                                if (data == 'error') {
+                                    toastr.error('网络繁忙，请稍候再试');
+                                    return;
+                                }
+                                if (data.err < 0) {
+                                    toastr.error(data.msg);
+                                } else if (data.err == 0) {
+                                    toastr.success('已发送成功,请检查是否收到');
+                                }
+                            });
+                        }
+
+                        function _getNewsData() {
+                            var data = {
+                                'title': $('.top-title').text(),
+                                'picurl': $('.top-picurl').attr('src'),
+                                'linkurl': $('.top-url').text(),
+                                'content': $('.top-content').length > 0 ? $('.top-content').val() : '',
+                            };
+                            var json = [];
+                            $(".sub-items .sub-item").each(function () {
+                                json.push({
+                                    title: $(this).find(".msg-title").text(),
+                                    linkurl: $(this).find(".msg-url").text()
+                                });
+                            });
+                            return JSON.stringify({
+                                'top-item': data,
+                                'sub-item': json
+                            });
+                        }
+
+                        function _getTextData() {
+                            var data = {
+                                text: $("#temp_text").val(),
+                            }
+                            return JSON.stringify(data);
+                        }
+                    }
+
+                    function selectpostData(type, fn) {
+                        $('#' + type + '-submit').attr({
+                            "disabled": 'disabled'
+                        });
+                        sendData('api?action=' + type, {}, function (data) {
+                            $('#' + type + '-submit').removeAttr('disabled');
+                            if (data == 'error') {
+                                toastr.error('获取数据失败，请重刷页面');
+                                return;
+                            }
+                            if (data.err < 0) {
+                                toastr.error(data.msg);
+                            } else if (data.err == 0) {
+                                fn(data);
+                            }
+                        });
+                    }
+
+                    ////选择标题
+                    var selectTitle = new function () {
+                        //var __TitleList=null;
+                        var _dialogid = 'mdl1526557124086';
+                        this.init = function () {
+                            setTimeout(function () {
+                                selectTitle.loadData(0);
+                            }, 100);
+                            _dropdownMenuTabEvent(this);
+                        }
+                        this.bind = function () {
+                            $("#get-title-submit").unbind('click').bind('click', function (event) {
+                                event.preventDefault();
+                                selectTitle.show();
+                            });
+                            $('#searchtitle').keypress(function (e) {
+                                if (e.keyCode == 13) {
+                                    selectTitle._showSearch();
+                                }
+                            });
+                            $("#title-search-submit").unbind('click').bind('click', function (event) {
+                                event.preventDefault();
+                                selectTitle._showSearch();
+                            });
+                        }
+                        this.getData = function () {
+                            return __TitleList;
+                        }
+                        this.show = function () {
+                            $("#" + _dialogid).modal('show');
+                        }
+                        this.hide = function () {
+                            $("#" + _dialogid).modal('hide');
+                        }
+                        this.setTitle = function (title) {
+                            $("#temp_title").val(title);
+                        }
+                        this.getTitle = function () {
+                            return $("#temp_title").val();
+                        }
+                        this.getRandomdata = function () {
+                            var min = 0;
+                            var max = __TitleList.length - 1;
+                            var index = api.GetRandomNum(min, max);
+                            return __TitleList[index].title;
+                        }
+                        this.TopDataRandom = function () {
+                            var title = $('.msg-title').text();
+                            if (title != '') {
+                                return;
+                            }
+                            var min = 0;
+                            var max = __TitleList.length - 1;
+                            var index = api.GetRandomNum(min, max);
+                            $('.msg-title').text(__TitleList[index].title);
+                        }
+                        this.loadData = function (categoryid, key) {
+                            var that = this;
+                            var html = '';
+                            that.TopDataRandom();
+                            $(".select-title-box li").unbind('click');
+                            for (var index = 0; index < __TitleList.length; index++) {
+                                var item = __TitleList[index];
+                                if (categoryid == item.categoryid || categoryid == 'all') {
+                                    html += '<li data-index="' + item.id + '">' + item.title + '</li>';
+                                } else if (categoryid == 'search') { ////搜索
+                                    if (item.title.indexOf(key) !== -1) {
+                                        html += '<li data-index="' + item.id + '">' + item.title + '</li>';
+                                    }
+                                }
+                            }
+                            $(".select-title-box ul").html(html);
+                            $(".select-title-box li").bind('click', function (event) {
+                                event.preventDefault();
+                                that.setTitle($(this).text());
+                                that.hide();
+                            });
+                        }
+                        this._showSearch = function () {
+                            var that = this;
+                            var key = $("#searchtitle").val();
+                            $(".dropdown-header-title li[class='active']").removeClass('active');
+                            that.loadData('search', key);
+                        }
+
+                        function _dropdownMenuTabEvent(that) {
+                            $(".dropdown-header-title").bind('click', function (event) {
+                                event.stopPropagation();
+                            });
+                            $(".dropdown-header-title li").bind('click', function (event) {
+                                event.stopPropagation();
+                                var categoryid = $(this).parent().attr('data-type');
+                                var index = $(this).attr('data-index');
+                                $(this).siblings().removeClass('active');
+                                $(this).addClass('active');
+                                switch (categoryid) {
+                                    case 'title':
+                                        that.loadData(index, '');
+                                        break;
+                                }
+                            });
+                        }
+                    }
+                    ////选择封面图片
+                    var selectCover = new function () {
+                        //var __CoverList=null;
+                        var _dialogid = 'mdl152755712400';
+                        var _obj = null;
+                        this.init = function () {
+                            setTimeout(function () {
+                                selectCover.loadData(0);
+                            }, 100);
+                            _dropdownMenuTabEvent(this);
+                        }
+                        this.getData = function () {
+                            return __CoverList;
+                        }
+                        this.show = function () {
+                            $("#" + _dialogid).modal('show');
+                        }
+                        this.hide = function () {
+                            $("#" + _dialogid).modal('hide');
+                        }
+                        this.setObj = function (obj) {
+                            _obj = obj;
+                        }
+                        this.setCover = function (title) {
+                            $(_obj).parent().siblings('img').attr('src', title);
+                        }
+                        this.getCover = function () {
+                            return $("#temp_picurl").val();
+                        }
+                        this.getRandomdata = function () {
+                            var min = 0;
+                            var max = __CoverList.length - 1;
+                            var index = api.GetRandomNum(min, max);
+                            return __CoverList[index].picurl;
+                        }
+                        this.TopDataRandom = function () {
+                            var title = $('.msg-img').attr('src');
+                            if (title != '') {
+                                return;
+                            }
+                            var min = 0;
+                            var max = __CoverList.length - 1;
+                            var index = api.GetRandomNum(min, max);
+                            $('.msg-img').attr('src', __CoverList[index].picurl);
+                        }
+                        this.loadData = function (categoryid) {
+                            var that = this;
+                            var html = '';
+                            that.TopDataRandom();
+                            $(".select-cover-box li").unbind('click');
+                            for (var index = 0; index < __CoverList.length; index++) {
+                                var item = __CoverList[index];
+                                if (categoryid == item.categoryid || categoryid == 'all') {
+                                    html += '<li data-index="' + item.id + '"><img src="' + item.picurl + '"></li>';
+                                }
+                            }
+                            $(".select-cover-box ul").html(html);
+                            $(".select-cover-box li").bind('click', function (event) {
+                                event.preventDefault();
+                                that.setCover($(this).find('img').attr('src'));
+                                that.hide();
+                            });
+                        }
+
+                        function _dropdownMenuTabEvent(that) {
+                            $(".dropdown-header-cover").bind('click', function (event) {
+                                event.stopPropagation();
+                            });
+                            $(".dropdown-header-cover li").bind('click', function (event) {
+                                event.stopPropagation();
+                                var categoryid = $(this).parent().attr('data-type');
+                                var index = $(this).attr('data-index');
+                                $(this).siblings().removeClass('active');
+                                $(this).addClass('active');
+                                switch (categoryid) {
+                                    case 'title':
+                                        that.loadData(index);
+                                        break;
+                                }
+                            });
+                        }
+                    }
+                    var inputPopup = new function () {
+                        var _element_popup = '.input-popup-box';
+                        this.init = function (element) {
+                            var that = this;
+                            $(document).click(function (event) {
+                                var _con = $(_element_popup); // 设置目标区域
+                                if (!_con.is(event.target) && _con.has(event.target).length === 0) { // Mark 1
+                                    that.hide();
+                                }
+
+                            });
+                        }
+                        this.show = function (obj) {
+                            var top = $(obj).offset().top;
+                            var left = $(obj).offset().left;
+                            var width = $(obj).parent().width();
+                            var height = $(obj).parent().height();
+                            top = top + height - $(window).scrollTop();
+                            $(_element_popup).css({
+                                display: 'block',
+                                top: top,
+                                left: left,
+                                width: width
+                            });
+
+
+                        }
+                        this.hide = function () {
+                            $(_element_popup).css('display', 'none');
+                        }
+                        this.isEmpty = function () {
+                            if ($(_element_popup).find('li').length > 0) {
+                                return false;
+                            }
+                            return true;
+                        }
+                        this.loadData = function (fun) {
+                            if (!this.isEmpty()) {
+                                return;
+                            }
+                            var data = {
+                                action: 'get-idispatch-toplist'
+                            };
+                            sendData('/idispatch/api?action=get-idispatch-toplist', data, function (data) {
+                                if (data == 'error') {
+                                    $(_element_popup + ' ul').html('网络繁忙，请稍候再试');
+                                    return;
+                                }
+                                if (data.err != 0) {
+                                    $(_element_popup + ' ul').html(data.msg);
+                                    return;
+                                }
+                                $(_element_popup + ' ul').html('');
+                                $.each(data.data, function (index, val) {
+                                    $(_element_popup + ' ul').append(itemHtml(val));
+                                });
+                                $(_element_popup + ' li').unbind('click').bind('click', function (event) {
+                                    event.stopPropagation();
+                                    fun(this);
+                                });
+
+                            });
+                        }
+
+                        function itemHtml(row) {
+                            return '<li><span>' + row.title + '</span><p>' + row.url + '</p></li>';
+                        }
+                    }
+                    ////选择标题链接框
+                    var selectDlg = new function () {
+                        var _titleObj = null;
+                        var _linkObj = null;
+                        this.showDlg = function (obj) {
+                            _titleObj = $(obj).parent().parent().find('.msg-title');
+                            _linkObj = $(obj).parent().parent().find('.msg-url');
+                            _showDlg();
+                            selectTitle.bind();
+                            selectLink.bind();
+                        }
+                        this.setTitle = function (val) {
+                            $("#temp_title").val(val);
+                        }
+                        this.setUrl = function (val) {
+                            $("#temp_link").val(val);
+                        }
+
+                        function _initControler() {
+                            function callback(obj) {
+                                selectDlg.setUrl($(obj).find('p').text());
+                                inputPopup.hide();
+                            }
+
+                            $("#temp_link").unbind('click').bind('click', function (event) {
+                                event.stopPropagation();
+                                inputPopup.show(this);
+                            });
+                            $("#temp_link").unbind('focus').bind('focus', function (event) {
+                                event.stopPropagation();
+                                inputPopup.show(this);
+                            });
+                            inputPopup.loadData(callback);
+                        }
+
+                        function _showDlg() {
+                            var title = _titleObj.text();
+                            var link = _linkObj.text();
+                            link = link != '' && link != '链接未配置' ? link : '';
+                            var dialog = Ewin.dialog({
+                                btnok: '确定',
+                                title: "编辑标题/链接",
+                                message: '<div class="form-group  input-group" style="margin:0 0 10px 0"><input type="text" class="form-control" id="temp_title" placeholder="标题" value="' + title + '" readonly>\
+                  <span class="input-group-btn"><button type="button" id="get-title-submit" class="btn btn-success">选择标题</button></span>\
+                </div>\
+                <div class="form-group  input-group" style="margin:0 0 10px 0"><input type="text" class="form-control" id="temp_link" placeholder="链接地址" value="' + link + '">\
+                    <span class="input-group-btn"><button type="button" id="get-link-submit" class="btn btn-success ">创建链接</button></span>\
+                </div>',
+                            });
+                            _initControler();
+                            $("#" + dialog.id).off().on('hidden', 'hidden.bs.modal');
+                            dialog.on(function (result) {
+                                if (result) {
+                                    var title = $("#temp_title").val();
+                                    var link = $("#temp_link").val();
+                                    link = link != '' && link != '链接未配置' ? link : '链接未配置';
+                                    _titleObj.text(title);
+                                    _linkObj.text(link);
+                                    if (link == '链接未配置') {
+                                        _linkObj.addClass('color-red');
+                                    } else {
+                                        _linkObj.removeClass('color-red');
+                                    }
+                                }
+                                $("#" + dialog.id).remove();
+                                $(".modal-backdrop").remove();
+                                $("body").removeClass('modal-open').removeAttr('style');
+
+                                return true;
+                            });
+                        }
+                    }
+                    ////选择链接框
+                    var selectLink = new function () {
+                        var _saleaUrl = '';
+                        var _index = 1;
+                        var _articleid = 0;
+                        var _article_chapterid = 0;
+                        var _articleControl = null;
+                        var _articleChapterControl = null;
+                        var _dialogid = 'mdl1526557124088';
+                        this.init = function () {
+                            _initSelectArticleControl();
+                            _dropdownMenuTabEvent();
+
+                            $("#" + _dialogid).find('.setsave').bind('click', function (event) {
+                                var title = $("#dispatch-title").val();
+                                if (title == '') {
+                                    toastr.warning('内推链接标题不能为空');
+                                    return;
+                                }
+                                if (_articleid == 0 || _article_chapterid == 0) {
+                                    toastr.warning('请正确选择小说及章节');
+                                    return;
+                                }
+                                var data = {
+                                    action: 'save',
+                                    'data[type]': 2,
+                                    'data[did]': 0,
+                                    'data[title]': title,
+                                    'data[aid]': _articleid,
+                                    'data[num]': _article_chapterid,
+
+                                    'data[title_id]': 0,
+                                    'data[cover_id]': 0,
+                                    'data[body_id]': 0,
+                                    'data[footer_id]': 0,
+                                };
+                                sendData('/idispatch/api', data, function (data) {
+                                    if (data == 'error') {
+                                        toastr.error('网络繁忙，请稍候再试');
+                                        return;
+                                    }
+                                    if (data.err != 0) {
+                                        toastr.warning(data.msg);
+                                        return;
+                                    }
+                                    selectDlg.setUrl(data.data.url);
+                                    selectLink.hide();
+                                });
+                            });
+                        }
+                        this.bind = function () {
+                            $("#get-link-submit").unbind('click').bind('click', function (event) {
+                                event.preventDefault();
+                                selectLink.show();
+                            });
+                        }
+                        this.show = function () {
+                            _articleid = _article_chapterid = 0;
+                            _articleControl.empty();
+                            _articleChapterControl.empty();
+                            $("#" + _dialogid).modal('show');
+
+                        }
+                        this.hide = function () {
+                            $("#" + _dialogid).modal('hide');
+                        }
+                        this.loadSalesData = function () {
+                            _loadSalesData();
+                        }
+
+                        function formatRepoProvince(repo) {
+                            if (repo.loading) return repo.text;
+                            var markup = "<div>" + repo.text + "</div>";
+                            return markup;
+                        }
+
+                        this.changeselect_article = function () {
+                            _articleid = _articleControl.val();
+                            _article_chapterid = 0;
+                            _articleChapterControl.empty();
+                        }
+                        this.changeselect_articlechapter = function () {
+                            _article_chapterid = _articleChapterControl.val();
+                        }
+
+                        function _initSelectArticleControl() {
+                            _articleControl = $("#articleid").select2({
+                                //theme: "bootstrap",
+                                language: "zh-CN",
+                                width: '100%',
+                                allowClear: true,
+                                ajax: {
+                                    url: "/comm/api",
+                                    dataType: 'json',
+                                    delay: 250,
+                                    data: function (params) {
+                                        return {
+                                            action: 'get-article',
+                                            q: params.term, // search term
+                                            page: params.page
+                                        };
+                                    },
+                                    processResults: function (data, params) {
+                                        params.page = params.page || 1;
+                                        return {
+                                            results: data.items,
+                                            pagination: {
+                                                more: (params.page * 15) < data.total_count
+                                            }
+                                        };
+                                    },
+                                    cache: true
+                                },
+                                escapeMarkup: function (markup) {
+                                    return markup;
+                                }, // let our custom formatter work
+                                minimumInputLength: 0,
+                                templateResult: formatRepoProvince, // omitted for brevity, see the source of this page
+                                templateSelection: formatRepoProvince // omitted for brevity, see the source of this page
+                            });
+                            _articleChapterControl = $("#article-chapterid").select2({
+                                //theme: "bootstrap",
+                                language: "zh-CN",
+                                width: '100%',
+                                allowClear: true,
+                                ajax: {
+                                    url: "/comm/api",
+                                    dataType: 'json',
+                                    delay: 250,
+                                    data: function (params) {
+                                        return {
+                                            action: 'get-article-chapter',
+                                            aid: _articleid,
+                                            q: params.term, // search term
+                                            page: params.page
+                                        };
+                                    },
+                                    processResults: function (data, params) {
+                                        params.page = params.page || 1;
+                                        return {
+                                            results: data.items,
+                                            pagination: {
+                                                more: (params.page * 15) < data.total_count
+                                            }
+                                        };
+                                    },
+                                    cache: true
+                                },
+                                escapeMarkup: function (markup) {
+                                    return markup;
+                                }, // let our custom formatter work
+                                minimumInputLength: 0,
+                                templateResult: formatRepoProvince, // omitted for brevity, see the source of this page
+                                templateSelection: formatRepoProvince // omitted for brevity, see the source of this page
+                            });
+                        }
+
+                        function _dropdownMenuTabEvent(that) {
+                            $("#" + _dialogid).find(".dropdown-header-link li").bind('click', function (event) {
+                                event.stopPropagation();
+                                _index = $(this).attr('data-index');
+                                $(this).siblings().removeClass('active');
+                                $(this).addClass('active');
+                                $("#" + _dialogid).find(".tab-content:visible").hide();
+                                $("#" + _dialogid).find(".tab-" + _index).show();
+                                if (_index == 2) {
+                                    _loadSalesData();
+                                }
+                            });
+                        }
+
+                        function _loadSalesData() {
+                            var htmlobj = $("#" + _dialogid).find('.tab-2');
+                            htmlobj.html('<div style="text-align:center"><i class="fa fa-spinner fa-spin" style="font-size: 46px;margin:0 auto;"></i></div>');
+
+                            sendData('api?action=get-sales-list', {}, function (data) {
+                                if (data == 'error') {
+                                    //toastr.error('网络繁忙，请稍候再试');
+                                    htmlobj.text('网络繁忙，请稍候再试');
+                                    return;
+                                }
+                                if (data.err < 0) {
+                                    htmlobj.text(data.msg);
+                                } else if (data.err == 0) {
+                                    _saleaUrl = data.data.saleaUrl;
+                                    var h = '';
+                                    var length = data.data.list.length;
+                                    for (var i = 0; i < length; i++) {
+                                        h += _SalesItem(data.data.list[i]);
+                                    }
+                                    htmlobj.html(length > 0 ? h : '暂无活动信息');
+                                    _SalestItemBind();
+                                }
+                            });
+                        }
+
+                        function _SalesItem(row) {
+                            btn = row.ischannel_edit == 1 ? '<button type="button" data-sid="' + row.id + '" class="btn btn-success btn-xs" style="float: right;">设置时间</button>' : '';
+                            return '<a href="javascript:;" class="sales-item " data-url="' + row.url + '">' + btn + '\
+                <h4 class="sales-item-heading">' + row.title + '</h4>\
+                <p class="sales-item-text">活动时间：' + moment(row.start_date * 1000).format('YYYY/MM/DD') + ' ~ ' + moment(row.end_date * 1000).format('YYYY/MM/DD') + '</p>\
+              </a>';
+                        }
+
+                        function _SalestItemBind() {
+                            var that = this;
+                            $("#" + _dialogid).find('.tab-2 a').unbind('click').bind('click', function (event) {
+                                event.stopPropagation();
+                                selectDlg.setUrl(_saleaUrl + $(this).attr('data-url'));
+                                selectLink.hide();
+                            });
+                            $("#" + _dialogid).find('.tab-2 button').unbind('click').bind('click', function (event) {
+                                event.stopPropagation();
+                                setSaleaTimeDlg.show($(this).attr('data-sid'));
+                            });
+
+                        }
+                    }
+                    ////图片封面
+                    var selectCoverDlg = new function () {
+                        this.showDlg = function (obj) {
+                            selectCover.setObj(obj);
+                            selectCover.show();
+                        }
+                    }
+                    ////次条处理
+                    var addbtn = new function () {
+                        var elename = '.add-sub-item';
+                        this.init = function () {
+                            var that = this;
+                            _initData();
+                            _status();
+                            $(elename).find('a').bind('click', function (event) {
+                                event.stopPropagation();
+                                _addItem('', '', '');
+                                _status();
+                            });
+                        }
+
+                        this.delete = function (obj) {
+                            $(obj).parent().parent().remove();
+                            _status();
+                        }
+
+                        function _initData() {
+                            var length = __subitem.length;
+                            for (var i = 0; i < length; i++) {
+                                var item = __subitem[i];
+                                _addItem(item.title, item.url, '');
+                            }
+                        }
+
+                        function _addItem(title, linkurl, imgurl) {
+                            title = title != '' ? title : selectTitle.getRandomdata();
+                            linkurl = linkurl != '' ? '<span class="msg-url">' + linkurl + '</span>' : '<span class="msg-url color-red">链接未配置</span>';
+                            var html = '<div class="sub-item clearfix">\
+        <div class="pull-left" style="width:80%">\
+            <div><span class="msg-title">' + title + '</span>\
+            <a href="javascript:;" title="修改" onclick="selectDlg.showDlg(this)"><i class="fa fa-edit"></i></a></div>\
+            <div>' + linkurl + '</div>\
+        </div>\
+        <div class="pull-right delete"><a href="javascript:;" onclick="addbtn.delete(this)" title="删除次条" class="text-danger"><i class="fa fa-trash-o"></i></a></div>\
+    </div>';
+                            $('.sub-items').append(html);
+
+                        }
+
+                        function _status() {
+                            var length = $('.sub-item').length;
+                            if (length < 0) {
+                                $(elename).show();
+                            } else {
+                                $(elename).hide();
+                            }
+                            if (length == 0) {
+                                if ($("#temp_content").length <= 0) {
+                                    var h = '<div class="form-group" style="margin:0 0 0px 0"><textarea  style="height:100px;" class="form-control top-content" id="temp_content" placeholder="图文简介"></textarea></div>';
+                                    $('.sub-items').append(h);
+                                }
+                            } else {
+                                if ($("#temp_content").length > 0) {
+                                    $("#temp_content").parent().remove();
+                                }
+                            }
+                        }
+
+                    }
+
+                    var setSaleaTimeDlg = new function () {
+                        var _dialogid = 'mdl152755702323';
+                        this.init = function () {
+                            var that = this;
+                            $("#" + _dialogid).find('.setsave').bind('click', function (event) {
+                                var data = $("#dispatch-form").serialize();
+                                data += '&action=special-save';
+                                sendData('/sales/api', data, function (data) {
+                                    if (data == 'error') {
+                                        toastr.error('网络繁忙，请稍候再试');
+                                        return;
+                                    }
+                                    if (data.err != 0) {
+                                        toastr.warning(data.msg);
+                                        return;
+                                    }
+                                    selectLink.loadSalesData();
+                                    that.hide();
+                                });
+                            });
+                        }
+                        this.show = function (sid) {
+                            $("#" + _dialogid).modal('show');
+
+                            $("#" + _dialogid).find('.modal-body').html('<div style="text-align:center"><i class="fa fa-spinner fa-spin" style="font-size: 46px;margin:0 auto;"></i></div>');
+                            $.get('/sales/widget-special?sid=' + sid, {}, function (data) {
+                                if (data == 'error') {
+                                    toastr.error('网络繁忙，请稍候再试');
+                                    return;
+                                }
+                                $("#" + _dialogid).find('.modal-body').html(data);
+                                $("#" + _dialogid).find(".salea-linkurl").hide();
+                            });
+                        }
+                        this.hide = function () {
+                            $("#" + _dialogid).modal('hide');
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+    <!-- END MAIN -->
+    <div class="clearfix"></div>
+    <footer>
+
+    </footer>
+</div>
+<!-- END WRAPPER -->
+
+</body>
+
+</html>
